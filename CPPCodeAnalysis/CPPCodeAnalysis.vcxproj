@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2350902b-b9a5-4cf1-8075-eac7f9f48616}</ProjectGuid>
-    <RootNamespace>CountMatrix</RootNamespace>
+    <ProjectGuid>{04a5ecae-3293-48a1-b553-c49fc6508436}</ProjectGuid>
+    <RootNamespace>CPPCodeAnalysis</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,13 +101,17 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -118,9 +122,6 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,12 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,13 +143,17 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,9 +164,6 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,20 +171,36 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cm_abstract_similarity.h" />
-    <ClInclude Include="cm_similarity_result.h" />
-    <ClInclude Include="cm_similar_vectors_indices.h" />
-    <ClInclude Include="count_matrix.h" />
-    <ClInclude Include="count_vector.h" />
-    <ClInclude Include="count_vector_value.h" />
-    <ClInclude Include="cm_max_weighted_bipartite_matching.h" />
+    <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
+      <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dlib_project\dlib_project.vcxproj">
-      <Project>{ce2a44c9-b9b1-43ed-854d-9572a91858c5}</Project>
-    </ProjectReference>
+    <ClInclude Include="count_matrices_clone_detector.h" />
+    <ClInclude Include="functions_analysis_builder_default.h" />
+    <ClInclude Include="functions_analysis_director.h" />
+    <ClInclude Include="functions_analysis_builder_abstract.h" />
+    <ClInclude Include="func_entities_cursors.h" />
+    <ClInclude Include="func_implementation_info.h" />
+    <ClInclude Include="func_implementation_info_equal_spelling_and_location.h" />
+    <ClInclude Include="func_implementation_info_hash.h" />
+    <ClInclude Include="func_entity_type.h" />
+    <ClInclude Include="var_linkage_usage_counter_pair.h" />
+    <ClInclude Include="var_usage_info.h" />
+    <ClInclude Include="var_usage_conditions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="count_matrices_clone_detector.cpp" />
+    <ClCompile Include="functions_analysis_builder_default.cpp" />
+    <ClCompile Include="func_entities_cursors.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

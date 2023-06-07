@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2d174bdf-f1f9-4e5a-bcf6-e591d05cbca4}</ProjectGuid>
-    <RootNamespace>CountMatrices</RootNamespace>
+    <ProjectGuid>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</ProjectGuid>
+    <RootNamespace>ClangCAdaptation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -74,23 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+    <IncludePath>$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\dlib-19.24\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+    <IncludePath>$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,14 +101,17 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\LLVM\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -117,16 +122,19 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\LLVM\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,14 +143,17 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\LLVM\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,30 +164,37 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\LLVM\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>$(SolutionDir)\LLVM\lib\libclang.lib;</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="clang_c_types_handling.h" />
+    <ClInclude Include="code_entity_location.h" />
+    <ClInclude Include="code_entity_spelling.h" />
+    <ClInclude Include="cxcursors_equal.h" />
+    <ClInclude Include="cxcursor_hash.h" />
+    <ClInclude Include="cxindex_wrapper.h" />
+    <ClInclude Include="func_location.h" />
+    <ClInclude Include="func_spelling.h" />
+    <ClInclude Include="translation_unit_wrapper.h" />
+    <ClInclude Include="typed_string.h" />
+    <ClInclude Include="var_linkage.h" />
+    <ClInclude Include="var_location.h" />
+    <ClInclude Include="var_spelling.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="count_matrix.h" />
-    <ClInclude Include="count_vector_value.h" />
-    <ClInclude Include="count_vector.h" />
-    <ClInclude Include="var_usage_conditions.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dlib_project\dlib_project.vcxproj">
-      <Project>{ce2a44c9-b9b1-43ed-854d-9572a91858c5}</Project>
-    </ProjectReference>
+    <ClCompile Include="clang_c_types_handling.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

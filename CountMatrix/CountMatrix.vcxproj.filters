@@ -7,6 +7,6 @@
     <ClInclude Include="cm_abstract_similarity.h" />
     <ClInclude Include="cm_max_weighted_bipartite_matching.h" />
     <ClInclude Include="cm_similarity_result.h" />
-    <ClInclude Include="cm_similar_vectors.h" />
+    <ClInclude Include="cm_similar_vectors_indices.h" />
   </ItemGroup>
 </Project>
