@@ -1,4 +1,4 @@
-﻿#include "functions_analysis_builder_default.h"
+﻿#include "func_implementation_analysis_builder_default.h"
 
 namespace cpp_code_analysis
 {
@@ -96,7 +96,7 @@ namespace cpp_code_analysis
 	}
 
 
-	void functions_analysis_builder_default::analyse_functions(
+	void func_implementation_analysis_builder_default::analyse_functions(
 		const clang_c_adaptation::translation_unit_wrapper& translation_unit)
 	{
 		for (const auto& func_def_cursor :
@@ -109,14 +109,14 @@ namespace cpp_code_analysis
 		}
 	}
 
-	functions_analysis_builder_abstract<default_conditions_total>::analysed_functions_info
-		functions_analysis_builder_default::build_analysed_functions_implementation_info()
+	analysed_functions_info<default_conditions_total>
+		func_implementation_analysis_builder_default::build_analysed_functions_implementation_info()
 	{
 		return analysed_functions_info(analysed_functions_);
 	}
 
 
-	unordered_set_cursors functions_analysis_builder_default::find_func_definitions_cursors(
+	unordered_set_cursors func_implementation_analysis_builder_default::find_func_definitions_cursors(
 			const CXCursor& translation_unit_cursor)
 	{
 		unordered_set_cursors func_def_cursors{};
@@ -125,7 +125,7 @@ namespace cpp_code_analysis
 	}
 
 	std::vector<var_usage_info<default_conditions_total>>
-		functions_analysis_builder_default::traverse_func_analyse_variables_usage(
+		func_implementation_analysis_builder_default::traverse_func_analyse_variables_usage(
 			const CXCursor& func_definition_cursor)
 	{
 		func_entities_cursors first_traversal_data{};
@@ -161,7 +161,7 @@ namespace cpp_code_analysis
 		return variables_usage_info;
 	}
 
-	unordered_map_count_arrays_by_var_cursors functions_analysis_builder_default::create_unordered_map_count_arrays_by_var_cursors(
+	unordered_map_count_arrays_by_var_cursors func_implementation_analysis_builder_default::create_unordered_map_count_arrays_by_var_cursors(
 			unordered_map_linkage_usage_counter_pair_by_var_cursor& linkage_and_usage_counter_by_var)
 	{
 		unordered_map_count_arrays_by_var_cursors count_arrays_by_var_cursors{};
@@ -189,7 +189,7 @@ namespace cpp_code_analysis
 		return count_arrays_by_var_cursors;
 	}
 
-	void functions_analysis_builder_default::count_all_variables_inside_entities(
+	void func_implementation_analysis_builder_default::count_all_variables_inside_entities(
 		const func_entities_cursors& first_traversal_data, 
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors& count_arrays_by_var_cursors,
@@ -205,7 +205,7 @@ namespace cpp_code_analysis
 		}
 	}
 
-	void functions_analysis_builder_default::count_first_variable_inside_entities(
+	void func_implementation_analysis_builder_default::count_first_variable_inside_entities(
 		const func_entities_cursors& first_traversal_data,
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors&count_arrays_by_var_cursors,
@@ -221,7 +221,7 @@ namespace cpp_code_analysis
 		}
 	}
 
-	void functions_analysis_builder_default::count_from_second_variable_inside_entities(
+	void func_implementation_analysis_builder_default::count_from_second_variable_inside_entities(
 		const func_entities_cursors& first_traversal_data,
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors& count_arrays_by_var_cursors,
@@ -238,7 +238,7 @@ namespace cpp_code_analysis
 	}
 
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_find_func_definitions(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_find_func_definitions(
 		const CXCursor cursor_in_translation_unit, const CXCursor /*parent*/, const CXClientData func_definitions_cursors_void_ptr)
 	{
 		if (clang_Location_isInSystemHeader(clang_getCursorLocation(cursor_in_translation_unit)))
@@ -256,7 +256,7 @@ namespace cpp_code_analysis
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_find_func_entities(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_find_func_entities(
 		const CXCursor cursor_in_func_definition, const CXCursor /*parent*/, const CXClientData func_entities_cursors_void_ptr)
 	{
 		static_cast<func_entities_cursors* const>(func_entities_cursors_void_ptr)->try_insert(cursor_in_func_definition);
@@ -264,7 +264,7 @@ namespace cpp_code_analysis
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_count_all_variables_inside_entity(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_all_variables_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
 		if (clang_c_adaptation::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
@@ -276,7 +276,7 @@ namespace cpp_code_analysis
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_count_first_variable_inside_entity(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_first_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
 		if (clang_c_adaptation::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
@@ -292,7 +292,7 @@ namespace cpp_code_analysis
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_count_from_second_variable_inside_entity(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_from_second_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_from_second_variable_visit_data_void_ptr)
 	{
 		if (clang_c_adaptation::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
@@ -311,7 +311,7 @@ namespace cpp_code_analysis
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult functions_analysis_builder_default::visitor_traverse_var_definition(
+	CXChildVisitResult func_implementation_analysis_builder_default::visitor_traverse_var_definition(
 		const CXCursor cursor_inside_var_definition, const CXCursor /*parent*/, const CXClientData var_definition_visit_data_void_ptr)
 	{
 		auto const var_definition_visit_data_ptr = 

@@ -23,7 +23,7 @@ namespace clang_c_adaptation
 
 	[[nodiscard]] bool is_cursor_to_literal(const CXCursor& cursor) noexcept;
 
-	[[nodiscard]] var_linkage define_var_linkage(const CXCursor& cursor_to_var_decl);
+	[[nodiscard]] var_linkage determine_var_linkage(const CXCursor& cursor_to_var_decl);
 
 	[[nodiscard]] std::vector<std::string> get_cursor_extent_tokens(const CXCursor& cursor);
 

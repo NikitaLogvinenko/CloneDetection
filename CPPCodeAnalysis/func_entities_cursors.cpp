@@ -22,7 +22,7 @@ namespace cpp_code_analysis
 			clang_c_adaptation::is_cursor_to_var_decl(referenced_cursor))
 		{
 			const auto [iterator, inserted] = all_used_vars_with_linkage_and_usage_counter_.try_emplace(referenced_cursor,
-				clang_c_adaptation::define_var_linkage(referenced_cursor), initial_usage_counter_value_by_reference);
+				clang_c_adaptation::determine_var_linkage(referenced_cursor), initial_usage_counter_value_by_reference);
 			auto& linkage_usage_counter_pair = iterator->second;
 			++linkage_usage_counter_pair.used_n_times();
 			return inserted;
@@ -36,14 +36,14 @@ namespace cpp_code_analysis
 		{
 			return false;
 		}
-		const auto linkage_type = clang_c_adaptation::define_var_linkage(cursor);
+		const auto linkage_type = clang_c_adaptation::determine_var_linkage(cursor);
 		all_used_vars_with_linkage_and_usage_counter_.try_emplace(cursor, linkage_type, initial_usage_counter_value_by_declaration);
 		return true;
 	}
 
 	bool func_entities_cursors::try_insert_cursor(const CXCursor& cursor, const CXCursorKind& kind)
 	{
-		const std::vector<func_entity_type> entity_types = define_entity_types(cursor, kind);
+		const std::vector<func_entity_type> entity_types = determine_entity_types(cursor, kind);
 		if (entity_types.empty())
 		{
 			return false;
@@ -66,7 +66,7 @@ namespace cpp_code_analysis
 		return true;
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::define_entity_types(const CXCursor& cursor,
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types(const CXCursor& cursor,
 	                                                                         const CXCursorKind& kind)
 	{
 		if (entities_by_kind_not_requiring_processing.contains(kind))
@@ -75,24 +75,24 @@ namespace cpp_code_analysis
 		}
 		if (kind == CXCursor_BinaryOperator)
 		{
-			return define_entity_types_of_binary_op(cursor);
+			return determine_entity_types_of_binary_op(cursor);
 		}
 		if (kind == CXCursor_UnaryOperator)
 		{
-			return define_entity_types_of_unary_op(cursor);
+			return determine_entity_types_of_unary_op(cursor);
 		}
 		if (kind == CXCursor_CompoundAssignOperator)
 		{
-			return define_entity_types_of_compound_assign(cursor);
+			return determine_entity_types_of_compound_assign(cursor);
 		}
 		if (kind == CXCursor_CallExpr)
 		{
-			return define_entity_types_of_call_expr(cursor);
+			return determine_entity_types_of_call_expr(cursor);
 		}
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::define_entity_types_of_binary_op(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_binary_op(const CXCursor& cursor)
 	{
 		if (const std::string spelling = clang_c_adaptation::get_binary_operator_spelling(cursor);
 			binary_op_type_by_spelling.contains(spelling))
@@ -102,7 +102,7 @@ namespace cpp_code_analysis
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::define_entity_types_of_unary_op(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_unary_op(const CXCursor& cursor)
 	{
 		if (const std::string spelling = clang_c_adaptation::get_unary_operator_spelling(cursor);
 			unary_op_type_by_spelling.contains(spelling))
@@ -112,7 +112,7 @@ namespace cpp_code_analysis
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::define_entity_types_of_compound_assign(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_compound_assign(const CXCursor& cursor)
 	{
 		if (const std::string spelling = clang_c_adaptation::get_compound_assign_spelling(cursor);
 			compound_assign_type_by_spelling.contains(spelling))
@@ -122,7 +122,7 @@ namespace cpp_code_analysis
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::define_entity_types_of_call_expr(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_call_expr(const CXCursor& cursor)
 	{
 		const std::string call_expr_spelling = clang_c_adaptation::code_entity_spelling(cursor).to_string();
 		if (!call_expr_spelling.starts_with(operator_spelling_start))

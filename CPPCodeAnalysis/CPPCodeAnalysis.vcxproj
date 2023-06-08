@@ -182,12 +182,17 @@
     <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
       <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
+      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="count_matrices_clone_detector.h" />
-    <ClInclude Include="functions_analysis_builder_default.h" />
-    <ClInclude Include="functions_analysis_director.h" />
-    <ClInclude Include="functions_analysis_builder_abstract.h" />
+    <ClInclude Include="analysed_functions_info.h" />
+    <ClInclude Include="analysed_func_info_index.h" />
+    <ClInclude Include="functions_count_matrices_pairwise_similarity.h" />
+    <ClInclude Include="func_implementation_analysis_builder_default.h" />
+    <ClInclude Include="func_implementation_analysis_director.h" />
+    <ClInclude Include="func_implementation_analysis_builder_abstract.h" />
     <ClInclude Include="func_entities_cursors.h" />
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="func_implementation_info_equal_spelling_and_location.h" />
@@ -198,8 +203,7 @@
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="count_matrices_clone_detector.cpp" />
-    <ClCompile Include="functions_analysis_builder_default.cpp" />
+    <ClCompile Include="func_implementation_analysis_builder_default.cpp" />
     <ClCompile Include="func_entities_cursors.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,13 +5,20 @@
 
 namespace count_matrix
 {
+	class index_of_count_vector final : public typed_index
+	{
+	public:
+		index_of_count_vector() noexcept = default;
+		explicit index_of_count_vector(const size_t index) noexcept : typed_index(index) {}
+	};
+
 	template <size_t CountVectorDimension>
 	class count_matrix final
 	{
-		class const_iterator final : public std::vector<count_vector<CountVectorDimension>>::const_iterator
+		class const_count_vectors_iterator final : public std::vector<count_vector<CountVectorDimension>>::const_iterator
 		{
 		public:
-			explicit const_iterator(const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator) noexcept
+			explicit const_count_vectors_iterator(const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator) noexcept
 				: std::vector<count_vector<CountVectorDimension>>::const_iterator(vector_iterator) {}
 		};
 
@@ -26,12 +33,12 @@ namespace count_matrix
 			return count_vectors_.size();
 		}
 
-		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const size_t count_vector_index) const noexcept
+		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const index_of_count_vector count_vector_index) const noexcept
 		{
 			return count_vectors_[count_vector_index];
 		}
 
-		[[nodiscard]] const count_vector<CountVectorDimension>& at(const size_t count_vector_index) const
+		[[nodiscard]] const count_vector<CountVectorDimension>& at(const index_of_count_vector count_vector_index) const
 		{
 			return count_vectors_.at(count_vector_index);
 		}
@@ -41,14 +48,14 @@ namespace count_matrix
 			return count_vectors_.empty();
 		}
 
-		[[nodiscard]] auto begin() const noexcept
+		[[nodiscard]] const_count_vectors_iterator begin() const noexcept
 		{
-			return const_iterator(count_vectors_.cbegin());
+			return const_count_vectors_iterator(count_vectors_.cbegin());
 		}
 
-		[[nodiscard]] auto end() const noexcept
+		[[nodiscard]] const_count_vectors_iterator end() const noexcept
 		{
-			return const_iterator(count_vectors_.cend());
+			return const_count_vectors_iterator(count_vectors_.cend());
 		}
 	};
 }

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "functions_analysis_builder_abstract.h"
+#include "func_implementation_analysis_builder_abstract.h"
 #include "cxcursor_hash.h"
 #include "cxcursors_equal.h"
 #include "func_entities_cursors.h"
@@ -8,7 +8,7 @@
 
 namespace cpp_code_analysis
 {
-	class functions_analysis_builder_default final : public functions_analysis_builder_abstract<default_conditions_total>
+	class func_implementation_analysis_builder_default final : public func_implementation_analysis_builder_abstract<default_conditions_total>
 	{
 		std::unordered_set<
 			func_implementation_info<default_conditions_total>,
@@ -17,7 +17,7 @@ namespace cpp_code_analysis
 
 	public:
 		void analyse_functions(const clang_c_adaptation::translation_unit_wrapper& translation_unit) override;
-		analysed_functions_info build_analysed_functions_implementation_info() override;
+		analysed_functions_info<default_conditions_total> build_analysed_functions_implementation_info() override;
 
 	private:
 		static std::unordered_set<CXCursor,

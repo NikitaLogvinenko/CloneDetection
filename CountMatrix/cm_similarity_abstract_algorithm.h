@@ -1,16 +1,15 @@
 ﻿#pragma once
-#include "count_matrix.h"
-#include "cm_similarity_result.h"
+#include "count_matrices_similarity_data.h"
 
 namespace count_matrix
 {
 	template <size_t CountVectorDimension>
-	class cm_abstract_similarity
+	class cm_similarity_abstract_algorithm
 	{
 	public:
-		virtual ~cm_abstract_similarity() = default;
+		virtual ~cm_similarity_abstract_algorithm() = default;
 
-		[[nodiscard]] virtual cm_similarity_result calc_similarity(
+		[[nodiscard]] virtual count_matrices_similarity_data determine_similarity(
 			const count_matrix<CountVectorDimension>& first_cm,
 			const count_matrix<CountVectorDimension>& second_cm) const = 0;
 	};

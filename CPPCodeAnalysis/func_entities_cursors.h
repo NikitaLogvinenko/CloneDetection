@@ -106,10 +106,10 @@ namespace cpp_code_analysis
 		bool try_insert_variable(const CXCursor& cursor);
 		bool try_insert_cursor(const CXCursor& cursor, const CXCursorKind& kind);
 
-		[[nodiscard]] static std::vector<func_entity_type> define_entity_types(const CXCursor& cursor, const CXCursorKind& kind);
-		[[nodiscard]] static std::vector<func_entity_type> define_entity_types_of_binary_op(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> define_entity_types_of_unary_op(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> define_entity_types_of_compound_assign(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> define_entity_types_of_call_expr(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types(const CXCursor& cursor, const CXCursorKind& kind);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_binary_op(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_unary_op(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_compound_assign(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_call_expr(const CXCursor& cursor);
 	};
 }

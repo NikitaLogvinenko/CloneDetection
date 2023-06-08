@@ -88,7 +88,7 @@ namespace clang_c_adaptation
 		return literals_kinds.contains(clang_getCursorKind(cursor));
 	}
 
-	var_linkage define_var_linkage(const CXCursor& cursor_to_var_decl)
+	var_linkage determine_var_linkage(const CXCursor& cursor_to_var_decl)
 	{
 		const auto kind = clang_getCursorKind(cursor_to_var_decl);
 		if (kind == CXCursor_ParmDecl)
