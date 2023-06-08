@@ -151,6 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
+      <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CPPCodeAnalysis\CPPCodeAnalysis.vcxproj">
+      <Project>{04a5ecae-3293-48a1-b553-c49fc6508436}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
+      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

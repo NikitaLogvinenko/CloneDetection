@@ -12,7 +12,7 @@ namespace clang_c_adaptation
 		var_location() noexcept = default;
 		explicit var_location(const CXCursor& cursor_to_var_decl) : code_entity_location(cursor_to_var_decl)
 		{
-			if (!is_cursor_to_var_decl(cursor_to_var_decl))
+			if (!clang_c_types_handling::is_cursor_to_var_decl(cursor_to_var_decl))
 			{
 				throw std::invalid_argument(not_var_msg);
 			}

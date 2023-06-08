@@ -14,11 +14,17 @@ namespace cpp_code_analysis
 	public:
 		analysed_functions_info() = default;
 		explicit analysed_functions_info(
-			const std::unordered_set<
+				std::unordered_set<
 				func_implementation_info<VarUsageConditionsN>,
 				func_implementation_info_hash<VarUsageConditionsN>,
-				func_implementation_info_equal_spelling_and_location<VarUsageConditionsN>>& functions_info)
-			: functions_info_(functions_info.cbegin(), functions_info.cend()) {}
+				func_implementation_info_equal_spelling_and_location<VarUsageConditionsN>> functions_info)
+		{
+			functions_info_.reserve(functions_info.size());
+			for (auto extracted_set_node = functions_info.begin(); extracted_set_node != functions_info.end();) 
+			{
+				functions_info_.push_back(std::move(functions_info.extract(extracted_set_node++).value()));
+			}
+		}
 
 		[[nodiscard]] size_t functions_count() const noexcept
 		{

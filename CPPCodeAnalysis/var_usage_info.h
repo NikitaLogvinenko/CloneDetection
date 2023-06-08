@@ -19,8 +19,8 @@ namespace cpp_code_analysis
 		explicit var_usage_info(
 			clang_c_adaptation::var_spelling spelling, clang_c_adaptation::var_location location,
 		    const clang_c_adaptation::var_linkage linkage, 
-			const std::array<count_matrix::count_vector_value, VarUsageConditionsN>& usage_values) noexcept
-			: spelling_(std::move(spelling)), location_(std::move(location)), linkage_(linkage), usage_count_vector_(usage_values) {}
+			const std::array<count_matrix::count_vector_value, VarUsageConditionsN>& usage_values_array) noexcept
+			: spelling_(std::move(spelling)), location_(std::move(location)), linkage_(linkage), usage_count_vector_(usage_values_array) {}
 
 		[[nodiscard]] const clang_c_adaptation::var_spelling& spelling() const noexcept
 		{

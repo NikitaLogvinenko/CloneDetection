@@ -12,7 +12,7 @@ namespace clang_c_adaptation
 		func_location() noexcept = default;
 		explicit func_location(const CXCursor& cursor_to_func_decl) : code_entity_location(cursor_to_func_decl)
 		{
-			if (!is_cursor_to_func_declaration(cursor_to_func_decl))
+			if (!clang_c_types_handling::is_cursor_to_func_declaration(cursor_to_func_decl))
 			{
 				throw std::invalid_argument(not_func_msg);
 			}

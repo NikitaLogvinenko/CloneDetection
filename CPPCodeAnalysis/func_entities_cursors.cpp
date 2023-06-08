@@ -19,10 +19,12 @@ namespace cpp_code_analysis
 			return false;
 		}
 		if (const CXCursor referenced_cursor = clang_getCursorReferenced(cursor);
-			clang_c_adaptation::is_cursor_to_var_decl(referenced_cursor))
+			clang_c_adaptation::clang_c_types_handling::is_cursor_to_var_decl(referenced_cursor))
 		{
-			const auto [iterator, inserted] = all_used_vars_with_linkage_and_usage_counter_.try_emplace(referenced_cursor,
-				clang_c_adaptation::determine_var_linkage(referenced_cursor), initial_usage_counter_value_by_reference);
+			const auto [iterator, inserted] = var_linkage_and_usage_counter_by_decl_cursor_.try_emplace(
+				referenced_cursor,
+				clang_c_adaptation::clang_c_types_handling::determine_var_linkage(referenced_cursor),
+				initial_usage_counter_value_by_reference);
 			auto& linkage_usage_counter_pair = iterator->second;
 			++linkage_usage_counter_pair.used_n_times();
 			return inserted;
@@ -32,12 +34,12 @@ namespace cpp_code_analysis
 
 	bool func_entities_cursors::try_insert_variable(const CXCursor& cursor)
 	{
-		if (!clang_c_adaptation::is_cursor_to_var_decl(cursor))
+		if (!clang_c_adaptation::clang_c_types_handling::is_cursor_to_var_decl(cursor))
 		{
 			return false;
 		}
-		const auto linkage_type = clang_c_adaptation::determine_var_linkage(cursor);
-		all_used_vars_with_linkage_and_usage_counter_.try_emplace(cursor, linkage_type, initial_usage_counter_value_by_declaration);
+		const auto linkage_type = clang_c_adaptation::clang_c_types_handling::determine_var_linkage(cursor);
+		var_linkage_and_usage_counter_by_decl_cursor_.try_emplace(cursor, linkage_type, initial_usage_counter_value_by_declaration);
 		return true;
 	}
 
@@ -50,18 +52,7 @@ namespace cpp_code_analysis
 		}
 		for (const auto& entity_type : entity_types)
 		{
-			if (const auto [iterator, inserted_new_cursors_vector] = 
-					cursors_by_entity_type_.try_emplace(
-						entity_type, 
-						std::unordered_set<
-							CXCursor,
-							clang_c_adaptation::cxcursor_hash,
-							clang_c_adaptation::cxcursors_equal>{cursor});
-				!inserted_new_cursors_vector)
-			{
-				auto& cursors_set = iterator->second;
-				cursors_set.emplace(cursor);
-			}
+			cursors_by_entity_type_.at(entity_type).emplace(cursor);
 		}
 		return true;
 	}
@@ -69,17 +60,17 @@ namespace cpp_code_analysis
 	std::vector<func_entity_type> func_entities_cursors::determine_entity_types(const CXCursor& cursor,
 	                                                                         const CXCursorKind& kind)
 	{
-		if (entities_by_kind_not_requiring_processing.contains(kind))
+		if (easy_determinable_entities.contains(kind))
 		{
-			return { entities_by_kind_not_requiring_processing.at(kind) };
+			return { easy_determinable_entities.at(kind) };
 		}
 		if (kind == CXCursor_BinaryOperator)
 		{
-			return determine_entity_types_of_binary_op(cursor);
+			return determine_entity_types_of_binary_operator(cursor);
 		}
 		if (kind == CXCursor_UnaryOperator)
 		{
-			return determine_entity_types_of_unary_op(cursor);
+			return determine_entity_types_of_unary_operator(cursor);
 		}
 		if (kind == CXCursor_CompoundAssignOperator)
 		{
@@ -92,29 +83,29 @@ namespace cpp_code_analysis
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_binary_op(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_binary_operator(const CXCursor& cursor)
 	{
-		if (const std::string spelling = clang_c_adaptation::get_binary_operator_spelling(cursor);
-			binary_op_type_by_spelling.contains(spelling))
+		if (const std::string spelling = clang_c_adaptation::clang_c_types_handling::get_binary_operator_spelling(cursor);
+			binary_operator_type_by_spelling.contains(spelling))
 		{
-			return { binary_op_type_by_spelling.at(spelling) };
+			return { binary_operator_type_by_spelling.at(spelling) };
 		}
 		return {};
 	}
 
-	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_unary_op(const CXCursor& cursor)
+	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_unary_operator(const CXCursor& cursor)
 	{
-		if (const std::string spelling = clang_c_adaptation::get_unary_operator_spelling(cursor);
-			unary_op_type_by_spelling.contains(spelling))
+		if (const std::string spelling = clang_c_adaptation::clang_c_types_handling::get_unary_operator_spelling(cursor);
+			unary_operator_type_by_spelling.contains(spelling))
 		{
-			return { unary_op_type_by_spelling.at(spelling) };
+			return { unary_operator_type_by_spelling.at(spelling) };
 		}
 		return {};
 	}
 
 	std::vector<func_entity_type> func_entities_cursors::determine_entity_types_of_compound_assign(const CXCursor& cursor)
 	{
-		if (const std::string spelling = clang_c_adaptation::get_compound_assign_spelling(cursor);
+		if (const std::string spelling = clang_c_adaptation::clang_c_types_handling::get_compound_assign_spelling(cursor);
 			compound_assign_type_by_spelling.contains(spelling))
 		{
 			return { compound_assign_type_by_spelling.at(spelling) };
@@ -139,26 +130,26 @@ namespace cpp_code_analysis
 		{
 			return { func_entity_type::any_call_expr, compound_assign_type_by_spelling.at(operator_spelling_end) };
 		}
-		if (binary_op_type_by_spelling.contains(operator_spelling_end) && !unary_op_type_by_spelling.contains(operator_spelling_end))
+		if (binary_operator_type_by_spelling.contains(operator_spelling_end) && !unary_operator_type_by_spelling.contains(operator_spelling_end))
 		{
-			return { func_entity_type::any_call_expr, binary_op_type_by_spelling.at(operator_spelling_end) };
+			return { func_entity_type::any_call_expr, binary_operator_type_by_spelling.at(operator_spelling_end) };
 		}
-		if (unary_op_type_by_spelling.contains(operator_spelling_end) && !binary_op_type_by_spelling.contains(operator_spelling_end))
+		if (unary_operator_type_by_spelling.contains(operator_spelling_end) && !binary_operator_type_by_spelling.contains(operator_spelling_end))
 		{
-			return { func_entity_type::any_call_expr, unary_op_type_by_spelling.at(operator_spelling_end) };
+			return { func_entity_type::any_call_expr, unary_operator_type_by_spelling.at(operator_spelling_end) };
 		}
 
-		if (unary_op_type_by_spelling.contains(operator_spelling_end) && binary_op_type_by_spelling.contains(operator_spelling_end))
+		if (unary_operator_type_by_spelling.contains(operator_spelling_end) && binary_operator_type_by_spelling.contains(operator_spelling_end))
 		{
 			size_t direct_children_counter = 0;
-			clang_visitChildren(cursor, clang_c_adaptation::visitor_direct_children_counter, &direct_children_counter);
-			if (direct_children_counter == unary_plus_minus_operator_children_count)
+			clang_visitChildren(cursor, clang_c_adaptation::clang_c_types_handling::visitor_direct_children_counter, &direct_children_counter);
+			if (direct_children_counter == unary_plus_minus_operator_direct_children)
 			{
-				return { func_entity_type::any_call_expr, unary_op_type_by_spelling.at(operator_spelling_end) };
+				return { func_entity_type::any_call_expr, unary_operator_type_by_spelling.at(operator_spelling_end) };
 			}
-			if (direct_children_counter == binary_plus_minus_operator_children_count)
+			if (direct_children_counter == binary_plus_minus_operator_direct_children)
 			{
-				return { func_entity_type::any_call_expr, binary_op_type_by_spelling.at(operator_spelling_end) };
+				return { func_entity_type::any_call_expr, binary_operator_type_by_spelling.at(operator_spelling_end) };
 			}
 		}
 

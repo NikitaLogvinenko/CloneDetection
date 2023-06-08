@@ -6,8 +6,8 @@ namespace clang_c_adaptation
 		unknown,
 		func_param,
 		local_var,
-		field,
-		static_var,
+		member_field,
+		static_field,
 		global_var,
 	};
 }

@@ -9,7 +9,8 @@ namespace clang_c_adaptation
 	{
 	public:
 		code_entity_spelling() noexcept = default;
-		explicit code_entity_spelling(const CXCursor& cursor) : typed_string(cxstring_to_string(std::make_unique<CXString>(clang_getCursorSpelling(cursor)))) {}
+		explicit code_entity_spelling(const CXCursor& cursor) :
+			typed_string(clang_c_types_handling::cxstring_to_string(std::make_unique<CXString>(clang_getCursorSpelling(cursor)))) {}
 
 		[[nodiscard]] bool operator==(const code_entity_spelling& other) const noexcept = default;
 	};

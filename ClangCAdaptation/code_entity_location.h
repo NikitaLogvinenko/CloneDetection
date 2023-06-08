@@ -13,19 +13,21 @@ namespace clang_c_adaptation
 		unsigned offset_{};
 		bool is_valid_{ false };
 
+		inline static const CXSourceRange null_range = clang_getNullRange();
+
 	public:
 		code_entity_location() noexcept = default;
 		explicit code_entity_location(const CXCursor& cursor)
 		{
 			const CXSourceRange range = clang_getCursorExtent(cursor);
-			if (clang_equalRanges(range, clang_getNullRange()))
+			if (clang_equalRanges(range, null_range))
 			{
 				return;
 			}
 			const CXSourceLocation location = clang_getRangeStart(range);
 			CXFile file;
 			clang_getFileLocation(location, &file, &line_, &column_, &offset_);
-			filename_ = std::filesystem::path(cxstring_to_string(std::make_unique<CXString>(clang_getFileName(file))));
+			filename_ = std::filesystem::path(clang_c_types_handling::cxstring_to_string(std::make_unique<CXString>(clang_getFileName(file))));
 			is_valid_ = true;
 		}
 

@@ -7,6 +7,13 @@
 
 namespace cpp_code_analysis
 {
+	class index_of_var_usage_info final : public count_matrix::typed_index
+	{
+	public:
+		index_of_var_usage_info() noexcept = default;
+		explicit index_of_var_usage_info(const size_t index) noexcept : typed_index(index) {}
+	};
+
 	template <size_t VarUsageConditionsN>
 	class func_implementation_info final
 	{
@@ -41,12 +48,12 @@ namespace cpp_code_analysis
 			return variables_usage_info_.size();
 		}
 
-		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& operator[](const size_t variable_index) const noexcept
+		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& operator[](const index_of_var_usage_info variable_index) const noexcept
 		{
 			return variables_usage_info_[variable_index];
 		}
 
-		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& at(const size_t variable_index) const 
+		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& at(const index_of_var_usage_info variable_index) const
 		{
 			return variables_usage_info_.at(variable_index); 
 		}

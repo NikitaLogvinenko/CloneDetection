@@ -11,14 +11,16 @@ namespace clang_c_adaptation
 		CXTranslationUnit translation_unit_{};
 
 		inline static const std::string ctor_error_msg{ "Failure during translation unit creation." };
+		inline static const std::string ast_file_str{ "AST file:" };
+		inline static constexpr auto invalid_tu = nullptr;
 
 	public:
 		explicit translation_unit_wrapper(const cxindex_wrapper& cxindex_wrapper, const std::filesystem::path& ast_filename)
 			: translation_unit_{ clang_createTranslationUnit(cxindex_wrapper.index(), ast_filename.string().c_str()) }
 		{
-			if (translation_unit_ == nullptr)
+			if (translation_unit_ == invalid_tu)
 			{
-				throw std::runtime_error(ctor_error_msg + " AST file: " + ast_filename.string());
+				throw std::runtime_error(ctor_error_msg + ast_file_str + ast_filename.string());
 			}
 		}
 

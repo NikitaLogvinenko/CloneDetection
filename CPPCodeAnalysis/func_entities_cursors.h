@@ -15,7 +15,7 @@ namespace cpp_code_analysis
 			CXCursor,
 			var_linkage_usage_counter_pair,
 			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal> all_used_vars_with_linkage_and_usage_counter_{};
+			clang_c_adaptation::cxcursors_equal> var_linkage_and_usage_counter_by_decl_cursor_{};
 
 		std::unordered_map<
 			func_entity_type,
@@ -24,12 +24,38 @@ namespace cpp_code_analysis
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>> cursors_by_entity_type_{};
 
+	public:
+		func_entities_cursors()
+		{
+			cursors_by_entity_type_.reserve(total_func_entities_types);
+			for (size_t func_entity_type_index = 0; func_entity_type_index < total_func_entities_types; ++func_entity_type_index)
+			{
+				cursors_by_entity_type_.try_emplace(static_cast<func_entity_type>(func_entity_type_index), no_cursors_by_entity_type);
+			}
+		}
+
+		bool try_insert(const CXCursor& cursor);
+
+		[[nodiscard]] const auto& var_linkage_and_usage_counter_by_decl_cursors() const noexcept
+		{
+			return var_linkage_and_usage_counter_by_decl_cursor_;
+		}
+
+		[[nodiscard]] const std::unordered_set<
+			CXCursor,
+			clang_c_adaptation::cxcursor_hash,
+			clang_c_adaptation::cxcursors_equal>& cursors_to_entities(const func_entity_type entity_type) const noexcept
+		{
+			return cursors_by_entity_type_.at(entity_type);
+		}
+
+	private:
 		inline static const std::unordered_set<
 			CXCursor,
 			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal> empty_cursors_by_entity_type{};
+			clang_c_adaptation::cxcursors_equal> no_cursors_by_entity_type{};
 
-		inline static const std::unordered_map<CXCursorKind, func_entity_type> entities_by_kind_not_requiring_processing{
+		inline static const std::unordered_map<CXCursorKind, func_entity_type> easy_determinable_entities{
 			{ CXCursor_VarDecl, func_entity_type::local_var },
 			{ CXCursor_IfStmt, func_entity_type::if_stmt },
 			{ CXCursor_SwitchStmt, func_entity_type::switch_stmt },
@@ -40,22 +66,22 @@ namespace cpp_code_analysis
 			{ CXCursor_ArraySubscriptExpr, func_entity_type::array_subscript_expr }
 		};
 
-		inline static const std::unordered_map<std::string, func_entity_type> binary_op_type_by_spelling{
-				{ "+", func_entity_type::plus_operator },
-				{ "-", func_entity_type::minus_operator },
-				{ "*", func_entity_type::multiplication_operator },
-				{ "/", func_entity_type::division_operator },
-				{ "%", func_entity_type::modulus_operator },
-				{ "==", func_entity_type::comparison_operator },
-				{ "!=", func_entity_type::comparison_operator },
-				{ ">", func_entity_type::comparison_operator },
-				{ "<", func_entity_type::comparison_operator },
-				{ ">=", func_entity_type::comparison_operator },
-				{ "<=", func_entity_type::comparison_operator },
-				{ "=", func_entity_type::assignment_operator }
+		inline static const std::unordered_map<std::string, func_entity_type> binary_operator_type_by_spelling{
+			{ "+", func_entity_type::plus_operator },
+			{ "-", func_entity_type::minus_operator },
+			{ "*", func_entity_type::multiplication_operator },
+			{ "/", func_entity_type::division_operator },
+			{ "%", func_entity_type::modulus_operator },
+			{ "==", func_entity_type::comparison_operator },
+			{ "!=", func_entity_type::comparison_operator },
+			{ ">", func_entity_type::comparison_operator },
+			{ "<", func_entity_type::comparison_operator },
+			{ ">=", func_entity_type::comparison_operator },
+			{ "<=", func_entity_type::comparison_operator },
+			{ "=", func_entity_type::assignment_operator }
 		};
 
-		inline static const std::unordered_map<std::string, func_entity_type> unary_op_type_by_spelling{
+		inline static const std::unordered_map<std::string, func_entity_type> unary_operator_type_by_spelling{
 			{ "++", func_entity_type::increment_operator },
 			{ "--", func_entity_type::decrement_operator },
 			{ "+", func_entity_type::unary_plus_operator },
@@ -74,41 +100,19 @@ namespace cpp_code_analysis
 		inline static const std::string square_brackets{ "[]" };
 		inline static const std::string round_brackets{ "()" };
 
-		inline static constexpr size_t unary_plus_minus_operator_children_count = 2;
-		inline static constexpr size_t binary_plus_minus_operator_children_count = 3;
+		inline static constexpr size_t unary_plus_minus_operator_direct_children = 2;
+		inline static constexpr size_t binary_plus_minus_operator_direct_children = 3;
 
 		inline static constexpr size_t initial_usage_counter_value_by_reference = 0;
 		inline static constexpr size_t initial_usage_counter_value_by_declaration = 0;
 
-	public:
-		func_entities_cursors() noexcept = default;
-		bool try_insert(const CXCursor& cursor);
-
-		[[nodiscard]] const auto& all_used_vars_with_linkage_and_usage_counter() const noexcept
-		{
-			return all_used_vars_with_linkage_and_usage_counter_;
-		}
-
-		[[nodiscard]] const std::unordered_set<
-			CXCursor,
-			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal>& cursors_to_entities(const func_entity_type entity_type) const noexcept
-		{
-			if (cursors_by_entity_type_.contains(entity_type))
-			{
-				return cursors_by_entity_type_.at(entity_type);
-			}
-			return empty_cursors_by_entity_type;
-		}
-
-	private:
 		bool try_insert_reference_to_var(const CXCursor& cursor, const CXCursorKind& kind);
 		bool try_insert_variable(const CXCursor& cursor);
 		bool try_insert_cursor(const CXCursor& cursor, const CXCursorKind& kind);
 
 		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types(const CXCursor& cursor, const CXCursorKind& kind);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_binary_op(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_unary_op(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_binary_operator(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_unary_operator(const CXCursor& cursor);
 		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_compound_assign(const CXCursor& cursor);
 		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_call_expr(const CXCursor& cursor);
 	};
