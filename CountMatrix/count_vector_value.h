@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace count_matrix
+namespace count_matrix_ns
 {
 	class count_vector_value final
 	{

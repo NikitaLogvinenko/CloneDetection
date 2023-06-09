@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace count_matrix
+namespace count_matrix_ns
 {
 	class index_of_count_vector final : public typed_index
 	{

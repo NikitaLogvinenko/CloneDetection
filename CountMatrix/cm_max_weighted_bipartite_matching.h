@@ -2,7 +2,7 @@
 #include "cm_similarity_abstract_algorithm.h"
 #include "dlib/optimization/max_cost_assignment.h"
 
-namespace count_matrix
+namespace count_matrix_ns
 {
 	template <size_t CountVectorDimension>
 	class cm_max_weighted_bipartite_matching final : public cm_similarity_abstract_algorithm<CountVectorDimension>
@@ -162,7 +162,7 @@ namespace count_matrix
 				similar_vectors.emplace_back(
 					row_column_pair[first_matrix_axis_in_assignment_matrix],
 					row_column_pair[second_matrix_axis_in_assignment_matrix],
-					relative_similarity{ std::clamp(static_cast<double>(assignment_matrix(row, assigned_column)) / static_cast<double>(weights_decimals_),
+					relative_similarity{ std::clamp(static_cast<double>(assignment_matrix(row, assigned_column)) / static_cast<double>(weights_factor_),
 						relative_similarity::min_similarity_value(), relative_similarity::max_similarity_value()) });
 			}
 			++row;
@@ -179,7 +179,7 @@ namespace count_matrix
 
 		std::transform(first_vector.begin(), first_vector.end(), second_vector.begin(), squared_differences.begin(),
 			[](const count_vector_value& value_from_first, const count_vector_value& value_from_second)
-			{ return pow(static_cast<int>(value_from_first.value()) - value_from_second.value(), 2); });
+			{ return pow(static_cast<int>(value_from_first.value()) - static_cast<int>(value_from_second.value()), 2); });
 
 		const size_t sum_of_squared_differences = std::accumulate(squared_differences.cbegin(), squared_differences.cend(), size_t{});
 		return std::sqrt(sum_of_squared_differences);
@@ -193,7 +193,7 @@ namespace count_matrix
 	{
 		if (distance < min_not_zero_distance)
 		{
-			return 0;
+			return relative_similarity::max_similarity_value();
 		}
 
 		std::array<size_t, CountVectorDimension> max_squared_value_in_pair{};
@@ -204,7 +204,7 @@ namespace count_matrix
 
 		const size_t sum_of_max_squared_values = std::accumulate(max_squared_value_in_pair.cbegin(), max_squared_value_in_pair.cend(), size_t{});
 		const double normilized_distance = distance / std::sqrt(sum_of_max_squared_values);
-		const double similarity = relative_similarity::min_similarity_value() + similarity_range_width * normilized_distance;
+		const double similarity = relative_similarity::min_similarity_value() + similarity_range_width * (1 - normilized_distance);
 		return std::clamp(similarity, relative_similarity::min_similarity_value(), relative_similarity::max_similarity_value());
 	}
 

@@ -8,7 +8,7 @@ namespace clang_c_adaptation
 		CXIndex index_{};
 
 	public:
-		explicit cxindex_wrapper(const bool exclude_decls_from_pch = false, const bool display_diagnostics = true)
+		explicit cxindex_wrapper(const bool exclude_decls_from_pch = true, const bool display_diagnostics = true)
 			: index_{ clang_createIndex(exclude_decls_from_pch, display_diagnostics)} {}
 
 		cxindex_wrapper(const cxindex_wrapper& other) = default;

@@ -4,7 +4,7 @@
 #include <array>
 #include <vector>
 
-namespace count_matrix
+namespace count_matrix_ns
 {
 	class index_of_count_value final : public typed_index
 	{

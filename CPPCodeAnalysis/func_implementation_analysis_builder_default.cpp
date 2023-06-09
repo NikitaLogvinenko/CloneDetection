@@ -7,7 +7,7 @@ namespace cpp_code_analysis
 		using unordered_map_count_arrays_by_var_cursors =
 			std::unordered_map<
 			CXCursor,
-			std::array<count_matrix::count_vector_value, default_conditions_total>,
+			std::array<count_matrix_ns::count_vector_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>;
 
@@ -69,11 +69,11 @@ namespace cpp_code_analysis
 
 		class var_definition_visit_data final
 		{
-			std::array<count_matrix::count_vector_value, default_conditions_total>& count_array_;
+			std::array<count_matrix_ns::count_vector_value, default_conditions_total>& count_array_;
 			const func_entities_cursors& first_traversal_data_;
 		public:
 			explicit var_definition_visit_data(
-				std::array<count_matrix::count_vector_value, default_conditions_total>& count_array,
+				std::array<count_matrix_ns::count_vector_value, default_conditions_total>& count_array,
 				const func_entities_cursors& first_traversal_data) noexcept
 				: count_array_(count_array), first_traversal_data_(first_traversal_data) {}
 
@@ -148,14 +148,14 @@ namespace cpp_code_analysis
 		for (const auto& [var_cursor, linkage_used_counter_pair] : linkage_and_usage_counter_by_var)
 		{
 			const auto [iterator, inserted] = count_arrays_by_var_cursors.try_emplace(
-				var_cursor, std::array<count_matrix::count_vector_value, default_conditions_total>{});
+				var_cursor, std::array<count_matrix_ns::count_vector_value, default_conditions_total>{});
 			if (!inserted)
 			{
 				throw std::runtime_error(array_by_var_insertion_failure_msg);
 			}
 
 			auto& count_array = iterator->second;
-			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = count_matrix::count_vector_value(linkage_used_counter_pair.used_n_times());
+			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = count_matrix_ns::count_vector_value(linkage_used_counter_pair.used_n_times());
 			if (var_usage_linkage_condition_by_var_linkage.contains(linkage_used_counter_pair.linkage()))
 			{
 				count_array[static_cast<size_t>(var_usage_linkage_condition_by_var_linkage.at(linkage_used_counter_pair.linkage()))] = var_usage_linkage_condition_value;
@@ -221,7 +221,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_find_func_definitions(
 		const CXCursor cursor_in_translation_unit, const CXCursor /*parent*/, const CXClientData func_definitions_cursors_void_ptr)
 	{
-		if (!clang_Location_isFromMainFile(clang_getCursorLocation(cursor_in_translation_unit)))
+		if (clang_Location_isInSystemHeader(clang_getCursorLocation(cursor_in_translation_unit)))
 		{
 			return CXChildVisit_Continue;
 		}

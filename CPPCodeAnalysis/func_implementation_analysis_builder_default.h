@@ -55,7 +55,7 @@ namespace cpp_code_analysis
 
 		static std::unordered_map<
 			CXCursor,
-			std::array<count_matrix::count_vector_value, default_conditions_total>,
+			std::array<count_matrix_ns::count_vector_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>
 		create_unordered_map_count_arrays_by_var_cursors(
@@ -71,7 +71,7 @@ namespace cpp_code_analysis
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
-				std::array<count_matrix::count_vector_value, default_conditions_total>,
+				std::array<count_matrix_ns::count_vector_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
@@ -81,7 +81,7 @@ namespace cpp_code_analysis
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
-			std::array<count_matrix::count_vector_value, default_conditions_total>,
+			std::array<count_matrix_ns::count_vector_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
@@ -91,7 +91,7 @@ namespace cpp_code_analysis
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
-			std::array<count_matrix::count_vector_value, default_conditions_total>,
+			std::array<count_matrix_ns::count_vector_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
@@ -129,8 +129,8 @@ namespace cpp_code_analysis
 			{ clang_c_adaptation::var_linkage::global_var, var_usage_condition::is_global_var }
 		};
 
-		inline static const count_matrix::count_vector_value var_usage_linkage_condition_value{1};
-		inline static const count_matrix::count_vector_value var_defined_count_value{1};
+		inline static const count_matrix_ns::count_vector_value var_usage_linkage_condition_value{1};
+		inline static const count_matrix_ns::count_vector_value var_defined_count_value{1};
 
 		inline static const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_all_variables_counting
 		{

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace count_matrix
+namespace count_matrix_ns
 {
 	class typed_index
 	{
@@ -9,7 +9,7 @@ namespace count_matrix
 		typed_index() noexcept = default;
 		explicit typed_index(const size_t index) noexcept : index_(index) {}
 
-		virtual ~typed_index();
+		virtual ~typed_index() = default;
 
 		[[nodiscard]] size_t to_size_t() const noexcept
 		{
