@@ -9,10 +9,11 @@ This is console application that can find repeated fragments (particullarly - fu
 - TestFiles/Roy_et_al_16_scenarios/analyse_all_scenarios.bat - calling application with parameters
 - TestFiles/Roy_et_al_16_scenarios/dumps - analysed files
 - TestFiles/Roy_et_al_16_scenarios/dump_all.bat - dumping translation units
+- TestFiles/Set and TestFiles/SimpleImageClass - real code examples
 
 ## Algorithm
 Approach, in general, based on the count matrix method (article: ["CMCD: Count Matrix based Code Clone Detection"](https://ieeexplore.ieee.org/abstract/document/6130694), Yuan, Y. and Guo, Y., 2011, December. CMCD: Count matrix based code clone detection. In 2011 18th Asia-Pacific Software Engineering Conference (pp. 250-257). IEEE.).
-As authors did, we also evaluate the algorithm on 16 clone scenarios from primitive to really complicated. Scenarios are proposed on page 16 in the article [Roy, C.K., Cordy, J.R. and Koschke, R., 2009. Comparison and evaluation of code clone detection techniques and tools: A qualitative approach. Science of computer programming, 74(7), pp.470-495.](https://www.sciencedirect.com/science/article/pii/S0167642309000367).
+As authors did, we also evaluate the algorithm on 16 clone scenarios from primitive to complicated. Scenarios are proposed on page 16 in the [article by Roy et al.](https://www.sciencedirect.com/science/article/pii/S0167642309000367) (Roy, C.K., Cordy, J.R. and Koschke, R., 2009. Comparison and evaluation of code clone detection techniques and tools: A qualitative approach. Science of computer programming, 74(7), pp.470-495.).
 
 Every variable in the function/method can be represented by **count vector** - vector of numbers characterizing usage of that variable in the function (how many times used inside function, how defined, how many times changed and so on). Every function or method can be represented by **count matrix** - set of all its variables' *count vectors*.
 
