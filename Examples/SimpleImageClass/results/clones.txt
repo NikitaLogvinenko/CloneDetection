@@ -1,0 +1,2869 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+functions_similarity_threshold=70%
+
+>>	clones: 
+		functions similarity: 70%
+>		first clone function: 
+			function spelling: Image
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 35 column: 1
+>		second clone function: 
+			function spelling: create
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 114 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: initial_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 11 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: initial_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 11 column: 5
+
+			variables similarity: 74%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 35 column: 14
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 114 column: 20
+
+			variables similarity: 74%
+			 matched variable from first function: 
+			variable spelling: cols
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 35 column: 30
+			matched variable from second function: 
+			variable spelling: cols
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 114 column: 36
+
+			variables similarity: 74%
+			 matched variable from first function: 
+			variable spelling: channels
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 35 column: 46
+			matched variable from second function: 
+			variable spelling: channels
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 114 column: 52
+
+			variables similarity: 40%
+			 matched variable from first function: 
+			variable spelling: data
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 35 column: 66
+			matched variable from second function: 
+			variable spelling: data
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 123 column: 2
+
+
+>>	clones: 
+		functions similarity: 71%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 1
+>		second clone function: 
+			function spelling: release
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 134 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: initial_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 11 column: 5
+
+			variables similarity: 13%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 39
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 71%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 1
+>		second clone function: 
+			function spelling: release
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 134 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: initial_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 11 column: 5
+
+			variables similarity: 13%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 33
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 75%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 1
+>		second clone function: 
+			function spelling: clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 5 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+			variables similarity: 24%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 39
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 75%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 1
+>		second clone function: 
+			function spelling: clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 5 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+			variables similarity: 24%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 33
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 79%
+>		first clone function: 
+			function spelling: release
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 134 column: 1
+>		second clone function: 
+			function spelling: clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 5 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+			variables similarity: 37%
+			 matched variable from first function: 
+			variable spelling: initial_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 11 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 1
+>		second clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 95 column: 39
+			matched variable from second function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 86 column: 33
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 16 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: cols_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: colRange
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 150 column: 1
+>		second clone function: 
+			function spelling: rowRange
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 161 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: range
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 150 column: 23
+			matched variable from second function: 
+			variable spelling: range
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 161 column: 23
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 30 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: channels_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: operator+
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 110 column: 1
+>		second clone function: 
+			function spelling: operator+
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 105 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 110 column: 46
+			matched variable from second function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 105 column: 40
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.cpp line: 11 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows_range_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Boundaries.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: start
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 23 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: operator[]
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 81 column: 1
+>		second clone function: 
+			function spelling: operator[]
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 76 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 81 column: 47
+			matched variable from second function: 
+			variable spelling: i
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 76 column: 41
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 203 column: 1
+>		second clone function: 
+			function spelling: at
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 197 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 203 column: 32
+			matched variable from second function: 
+			variable spelling: index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 197 column: 26
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: offset
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 205 column: 2
+			matched variable from second function: 
+			variable spelling: offset
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 199 column: 2
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 54 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 49 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: channels
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 192 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: total
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 187 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 167 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 171 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: col
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 145 column: 1
+>		second clone function: 
+			function spelling: row
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 156 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: x
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 145 column: 18
+			matched variable from second function: 
+			variable spelling: y
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 156 column: 18
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: rows
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 177 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+>		second clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: cols
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 182 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: current_boundaries_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 10 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+>		second clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+			matched variable from second function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: clears_data_itself
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 70 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: clear_data_if_no_refs_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 8 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+>		second clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: countRef
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.cpp line: 232 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: pixels_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Image.hpp line: 12 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: empty
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 18 column: 1
+>		second clone function: 
+			function spelling: size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 13 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: start_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+>		second clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: end
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.cpp line: 28 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: end_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\Range.hpp line: 5 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: data_size
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 60 column: 1
+>		second clone function: 
+			function spelling: count_ref
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.cpp line: 65 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: data_size_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 7 column: 5
+			matched variable from second function: 
+			variable spelling: refs_counter_
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\SimpleImageClass\sources\SharedPixels.hpp line: 6 column: 5
+

@@ -7,7 +7,7 @@
 
 namespace cpp_code_analysis
 {
-	class index_of_var_usage_info final : public count_matrix_ns::typed_index
+	class index_of_var_usage_info final : public count_matrix::typed_index
 	{
 	public:
 		index_of_var_usage_info() noexcept = default;
@@ -20,7 +20,7 @@ namespace cpp_code_analysis
 		clang_c_adaptation::func_spelling spelling_{};
 		clang_c_adaptation::func_location location_{};
 		std::vector<var_usage_info<VarUsageConditionsN>> variables_usage_info_{};
-		count_matrix_ns::count_matrix<VarUsageConditionsN> variables_usage_count_matrix_{};
+		count_matrix::count_matrix<VarUsageConditionsN> variables_usage_count_matrix_{};
 
 	public:
 		func_implementation_info() noexcept = default;
@@ -38,7 +38,7 @@ namespace cpp_code_analysis
 			return location_;
 		}
 
-		[[nodiscard]] const count_matrix_ns::count_matrix<VarUsageConditionsN>& variables_usage_count_matrix() const noexcept
+		[[nodiscard]] const count_matrix::count_matrix<VarUsageConditionsN>& variables_usage_count_matrix() const noexcept
 		{
 			return variables_usage_count_matrix_;
 		}
@@ -65,12 +65,12 @@ namespace cpp_code_analysis
 		std::vector<var_usage_info<VarUsageConditionsN>> variables_usage_info)
 			: spelling_(std::move(spelling)), location_(std::move(location)), variables_usage_info_(std::move(variables_usage_info))
 	{
-		std::vector<count_matrix_ns::count_vector<VarUsageConditionsN>> variables_count_vectors{};
+		std::vector<count_matrix::count_vector<VarUsageConditionsN>> variables_count_vectors{};
 		variables_count_vectors.reserve(variables_usage_info_.size());
 		for (const auto& var_info : variables_usage_info_)
 		{
 			variables_count_vectors.emplace_back(var_info.usage_count_vector());
 		}
-		variables_usage_count_matrix_ = count_matrix_ns::count_matrix<VarUsageConditionsN>(std::move(variables_count_vectors));
+		variables_usage_count_matrix_ = count_matrix::count_matrix<VarUsageConditionsN>(std::move(variables_count_vectors));
 	}
 }

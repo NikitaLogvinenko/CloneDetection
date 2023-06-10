@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "count_matrices_similarity_data.h"
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	template <size_t CountVectorDimension>
 	class cm_similarity_abstract_algorithm

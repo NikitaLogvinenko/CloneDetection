@@ -12,7 +12,7 @@
 namespace clone_detection_io
 {
 	using namespace clang_c_adaptation;
-	using namespace count_matrix_ns;
+	using namespace count_matrix;
 	using namespace cpp_code_analysis;
 
 	namespace

@@ -4,7 +4,7 @@
 #include <array>
 #include <vector>
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	class index_of_count_value final : public typed_index
 	{
@@ -29,17 +29,17 @@ namespace count_matrix_ns
 		count_vector() noexcept = default;
 		explicit count_vector(const std::array<count_vector_value, Dimension>& count_values) : count_values_(count_values.cbegin(), count_values.cend()) {}
 
-		[[nodiscard]] static size_t size() noexcept
+		[[nodiscard]] size_t size() const noexcept
 		{
-			return Dimension;
+			return count_values_.size();
 		}
 
-		[[nodiscard]] count_vector_value operator[](const index_of_count_value value_index) const noexcept
+		[[nodiscard]] const count_vector_value& operator[](const index_of_count_value value_index) const noexcept
 		{
 			return count_values_[value_index.to_size_t()];
 		}
 
-		[[nodiscard]] count_vector_value at(const index_of_count_value value_index) const
+		[[nodiscard]] const count_vector_value& at(const index_of_count_value value_index) const
 		{
 			return count_values_.at(value_index.to_size_t());
 		}

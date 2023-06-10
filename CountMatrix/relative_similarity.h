@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <format>
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	class relative_similarity final
 	{

@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	class index_of_count_vector final : public typed_index
 	{
@@ -35,12 +35,12 @@ namespace count_matrix_ns
 
 		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const index_of_count_vector count_vector_index) const noexcept
 		{
-			return count_vectors_[count_vector_index];
+			return count_vectors_[count_vector_index.to_size_t()];
 		}
 
 		[[nodiscard]] const count_vector<CountVectorDimension>& at(const index_of_count_vector count_vector_index) const
 		{
-			return count_vectors_.at(count_vector_index);
+			return count_vectors_.at(count_vector_index.to_size_t());
 		}
 
 		[[nodiscard]] bool empty() const noexcept

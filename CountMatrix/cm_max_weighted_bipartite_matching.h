@@ -2,7 +2,7 @@
 #include "cm_similarity_abstract_algorithm.h"
 #include "dlib/optimization/max_cost_assignment.h"
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	template <size_t CountVectorDimension>
 	class cm_max_weighted_bipartite_matching final : public cm_similarity_abstract_algorithm<CountVectorDimension>

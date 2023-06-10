@@ -2,7 +2,7 @@
 #include "cm_similar_vectors_data.h"
 #include <utility>
 
-namespace count_matrix_ns
+namespace count_matrix
 {
 	class index_of_count_vectors_pair final : public typed_index
 	{
