@@ -6,6 +6,9 @@
     <ClCompile Include="count_vector_value_tests.cpp" />
     <ClCompile Include="count_vector_tests.cpp" />
     <ClCompile Include="count_matrix_tests.cpp" />
+    <ClCompile Include="cm_similar_vectors_data_tests.cpp" />
+    <ClCompile Include="count_matrices_similarity_data_tests.cpp" />
+    <ClCompile Include="cm_max_weighted_bipartite_matching_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="count_matrix_tests_miscellanious.h" />

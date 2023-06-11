@@ -120,7 +120,7 @@ TEST_F(count_matrix_dim3_test_f, at)
 
 TEST_F(count_matrix_dim3_test_f, at_invalid_index)
 {
-	ASSERT_THROW(const auto& _ = cm_.at(index_of_count_vector(cm_.vectors_count())), std::exception);
+	ASSERT_THROW(const auto& _ = cm_.at(index_of_count_vector(cm_.vectors_count())), std::out_of_range);
 }
 
 TEST_F(count_matrix_dim3_test_f, iterators)
@@ -129,6 +129,8 @@ TEST_F(count_matrix_dim3_test_f, iterators)
 	for (auto iterator = cm_.begin(); iterator != cm_.end(); ++iterator)
 	{
 		assert_equal_count_vectors(*iterator, count_vectors_[forward_index]);
+		ASSERT_EQ(cm_.begin() + forward_index, iterator);
+		ASSERT_EQ(cm_.end() - (cm_.vectors_count() - forward_index), iterator);
 		++forward_index;
 	}
 
@@ -222,7 +224,7 @@ TEST_F(count_matrix_zero_dim_test_f, at)
 
 TEST_F(count_matrix_zero_dim_test_f, at_invalid_index)
 {
-	ASSERT_THROW(const auto & _ = cm_.at(index_of_count_vector(cm_.vectors_count())), std::exception);
+	ASSERT_THROW(const auto & _ = cm_.at(index_of_count_vector(cm_.vectors_count())), std::out_of_range);
 }
 
 TEST_F(count_matrix_zero_dim_test_f, iterators)

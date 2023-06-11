@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "cm_similarity_abstract_algorithm.h"
 #include "dlib/optimization/max_cost_assignment.h"
+#include <limits>
 
 namespace count_matrix
 {
@@ -17,11 +18,14 @@ namespace count_matrix
 		static constexpr size_t row_axis = 0;
 		static constexpr size_t column_axis = 1;
 
-		inline static constexpr double similarity_range_width = relative_similarity::max_similarity_value() - relative_similarity::min_similarity_value();
+		static constexpr double similarity_range_width = relative_similarity::max_similarity_value() - relative_similarity::min_similarity_value();
+
+		static inline const std::string too_large_weights_decimals_msg{ "Too large weights_decimals. Try to set less precision." };
+		
 
 	public:
 		explicit cm_max_weighted_bipartite_matching(const size_t weights_decimals = default_decimals)
-			: weights_decimals_(weights_decimals), weights_factor_(pow(10, weights_decimals)) {}
+			: weights_decimals_(weights_decimals), weights_factor_(pow_throwing_overflow(10, weights_decimals, too_large_weights_decimals_msg)) {}
 
 		[[nodiscard]] count_matrices_similarity_data determine_similarity(
 			const count_matrix<CountVectorDimension>& first_cm,
@@ -33,6 +37,16 @@ namespace count_matrix
 		}
 
 	private:
+		[[nodiscard]] static double pow_throwing_overflow(const size_t base, const size_t exp, const std::string& error_msg={})
+		{
+			if (const auto pow_result = pow(static_cast<double>(base), static_cast<double>(exp));
+				pow_result <= std::numeric_limits<double>::max())
+			{
+				return pow_result;
+			}
+			throw std::range_error(error_msg);
+		}
+
 		[[nodiscard]] dlib::matrix<size_t> create_assignment_matrix(
 			const count_matrix<CountVectorDimension>& first_cm,
 			const count_matrix<CountVectorDimension>& second_cm) const;
@@ -123,7 +137,7 @@ namespace count_matrix
 	{
 		const double vectors_distance = calc_count_vectors_distance(first_vector, second_vector);
 		const double vectors_similarity = convert_distance_to_similarity(first_vector, second_vector, vectors_distance);
-		return std::lround(vectors_similarity * weights_factor_);
+		return std::llround(vectors_similarity * weights_factor_);
 	}
 
 	template <size_t CountVectorDimension>
@@ -162,7 +176,7 @@ namespace count_matrix
 				similar_vectors.emplace_back(
 					row_column_pair[first_matrix_axis_in_assignment_matrix],
 					row_column_pair[second_matrix_axis_in_assignment_matrix],
-					relative_similarity{ std::clamp(static_cast<double>(assignment_matrix(row, assigned_column)) / static_cast<double>(weights_factor_),
+					relative_similarity{ std::clamp(static_cast<double>(assignment_matrix(row, assigned_column)) / weights_factor_,
 						relative_similarity::min_similarity_value(), relative_similarity::max_similarity_value()) });
 			}
 			++row;
@@ -181,7 +195,8 @@ namespace count_matrix
 			[](const count_vector_value& value_from_first, const count_vector_value& value_from_second)
 			{ return pow(static_cast<int>(value_from_first.value()) - static_cast<int>(value_from_second.value()), 2); });
 
-		const size_t sum_of_squared_differences = std::accumulate(squared_differences.cbegin(), squared_differences.cend(), size_t{});
+		const size_t sum_of_squared_differences = 
+			std::accumulate(squared_differences.cbegin(), squared_differences.cend(), size_t{});
 		return std::sqrt(sum_of_squared_differences);
 	}
 
@@ -202,7 +217,8 @@ namespace count_matrix
 			[](const count_vector_value& value_from_first, const count_vector_value& value_from_second)
 			{ return pow(std::max(value_from_first.value(), value_from_second.value()), 2); });
 
-		const size_t sum_of_max_squared_values = std::accumulate(max_squared_value_in_pair.cbegin(), max_squared_value_in_pair.cend(), size_t{});
+		const size_t sum_of_max_squared_values = 
+			std::accumulate(max_squared_value_in_pair.cbegin(), max_squared_value_in_pair.cend(), size_t{});
 		const double normilized_distance = distance / std::sqrt(sum_of_max_squared_values);
 		const double similarity = relative_similarity::min_similarity_value() + similarity_range_width * (1 - normilized_distance);
 		return std::clamp(similarity, relative_similarity::min_similarity_value(), relative_similarity::max_similarity_value());

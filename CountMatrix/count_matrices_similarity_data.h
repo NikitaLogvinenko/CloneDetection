@@ -39,21 +39,21 @@ namespace count_matrix
 			return matrices_relative_similarity_;
 		}
 
-		[[nodiscard]] size_t similar_vectors_count() const noexcept
+		[[nodiscard]] size_t similar_cv_pairs_count() const noexcept
 		{
 			return vectors_similarity_data_descending_order_.size();
 		}
 
 		[[nodiscard]] const cm_similar_vectors_data& get_similar_vectors_data(
-			const index_of_count_vectors_pair& pair_index_in_descending_order) const
+			const index_of_count_vectors_pair& index_in_descending_similarity_order) const
 		{
-			return vectors_similarity_data_descending_order_.at(pair_index_in_descending_order.to_size_t());
+			return vectors_similarity_data_descending_order_.at(index_in_descending_similarity_order.to_size_t());
 		}
 
 		[[nodiscard]] const cm_similar_vectors_data& get_similar_vectors_data_dont_check_index(
-			const index_of_count_vectors_pair& pair_index_in_descending_order) const noexcept
+			const index_of_count_vectors_pair& index_in_descending_similarity_order) const
 		{
-			return vectors_similarity_data_descending_order_[pair_index_in_descending_order.to_size_t()];
+			return vectors_similarity_data_descending_order_[index_in_descending_similarity_order.to_size_t()];
 		}
 
 		[[nodiscard]] const_similar_vectors_data_iterator begin() const noexcept
