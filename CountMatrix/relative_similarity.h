@@ -9,11 +9,11 @@ namespace count_matrix
 	{
 		double value_{};
 
-		inline static constexpr double min_value { 0.0 };
-		inline static constexpr double max_value { 1.0 };
+		static constexpr double min_value { 0.0 };
+		static constexpr double max_value { 1.0 };
 
-		inline static const std::string invalid_similarity_msg{
-			std::format("relative similarity value must be from {} (absolutely different vectors) to {} (equal vectors)", 
+		static inline const std::string invalid_similarity_msg{
+			std::format("relative similarity value must be from {} (absolutely different entities) to {} (equal entities)", 
 				std::to_string(min_value), std::to_string(max_value)) };
 
 	public:

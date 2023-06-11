@@ -74,7 +74,7 @@ TEST(count_vector_dim4_test, at_invalid_index)
 {
 	const std::array count_values{count_vector_value(1), count_vector_value(3), count_vector_value(5), count_vector_value(7) };
 	const count_vector cv{ count_values };
-	ASSERT_THROW(const auto& _ = cv.at(index_of_count_value{ cv.size() }), std::exception);
+	ASSERT_THROW(const auto& _ = cv.at(index_of_count_value{ cv.size() }), std::out_of_range);
 }
 
 TEST(count_vector_dim4_test, iterators)
@@ -87,6 +87,8 @@ TEST(count_vector_dim4_test, iterators)
 	for (auto iterator = cv.begin(); iterator != cv.end(); ++iterator)
 	{
 		ASSERT_EQ(iterator->value(), count_values[forward_index].value());
+		ASSERT_EQ(cv.begin() + forward_index, iterator);
+		ASSERT_EQ(cv.end() - (cv.size() - forward_index), iterator);
 		++forward_index;
 	}
 
@@ -131,7 +133,7 @@ TEST(count_vector_zero_dim_test, size)
 TEST(count_vector_zero_dim_test, at_invalid_index)
 {
 	const count_vector<0> default_cv{};
-	ASSERT_THROW(const auto & _ = default_cv.at(index_of_count_value{ default_cv.size() }), std::exception);
+	ASSERT_THROW(const auto & _ = default_cv.at(index_of_count_value{ default_cv.size() }), std::out_of_range);
 }
 
 TEST(count_vector_0_test, iterators)

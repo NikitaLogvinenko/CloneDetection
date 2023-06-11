@@ -34,7 +34,7 @@ namespace count_matrix
 			return count_values_.size();
 		}
 
-		[[nodiscard]] const count_vector_value& operator[](const index_of_count_value value_index) const noexcept
+		[[nodiscard]] const count_vector_value& operator[](const index_of_count_value value_index) const
 		{
 			return count_values_[value_index.to_size_t()];
 		}

@@ -31,7 +31,7 @@ namespace cpp_code_analysis
 			return functions_info_.size();
 		}
 
-		[[nodiscard]] const func_implementation_info<VarUsageConditionsN>& operator[](const analysed_func_info_index func_info_index) const noexcept
+		[[nodiscard]] const func_implementation_info<VarUsageConditionsN>& operator[](const analysed_func_info_index func_info_index) const
 		{
 			return functions_info_[func_info_index.to_size_t()];
 		}

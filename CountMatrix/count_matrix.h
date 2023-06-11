@@ -33,7 +33,7 @@ namespace count_matrix
 			return count_vectors_.size();
 		}
 
-		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const index_of_count_vector count_vector_index) const noexcept
+		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const index_of_count_vector count_vector_index) const
 		{
 			return count_vectors_[count_vector_index.to_size_t()];
 		}

@@ -5,6 +5,7 @@ namespace count_matrix
 	class typed_index
 	{
 		size_t index_{};
+
 	public:
 		typed_index() noexcept = default;
 		explicit typed_index(const size_t index) noexcept : index_(index) {}

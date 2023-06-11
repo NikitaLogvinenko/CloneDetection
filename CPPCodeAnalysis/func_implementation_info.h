@@ -48,7 +48,7 @@ namespace cpp_code_analysis
 			return variables_usage_info_.size();
 		}
 
-		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& operator[](const index_of_var_usage_info variable_index) const noexcept
+		[[nodiscard]] const var_usage_info<VarUsageConditionsN>& operator[](const index_of_var_usage_info variable_index) const
 		{
 			return variables_usage_info_[variable_index.to_size_t()];
 		}
