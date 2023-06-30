@@ -61,7 +61,7 @@ Dependency from *libclang* was set already in the VS Projects' Properties, so al
 1. input (through command line arguments) 
 - `functions_similarity_threshold` - value from 0 to 1
 - path where results will be saved. Path must be free
-- pathes to AST files for functions anylis
+- pathes to AST files for functions analysis
 
 2. output (nonexistent path passed through first command line argument) - info about *clones-functions*:
 - similarity
