@@ -1,0 +1,1273 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+functions_similarity_threshold=50%
+
+>>	clones: 
+		functions similarity: 50%
+>		first clone function: 
+			function spelling: dummy_hash
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 60 column: 1
+>		second clone function: 
+			function spelling: dummy_equals
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 66 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: ptr
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 60 column: 26
+			matched variable from second function: 
+			variable spelling: lhsp
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 66 column: 26
+
+
+>>	clones: 
+		functions similarity: 50%
+>		first clone function: 
+			function spelling: set_edge_node
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 575 column: 1
+>		second clone function: 
+			function spelling: row_destroy
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 27 column: 2
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: collision
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 28 column: 2
+
+			variables similarity: 62%
+			 matched variable from first function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 575 column: 45
+			matched variable from second function: 
+			variable spelling: row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 26
+
+			variables similarity: 50%
+			 matched variable from first function: 
+			variable spelling: id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 582 column: 5
+			matched variable from second function: 
+			variable spelling: next_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 391 column: 9
+
+			variables similarity: 38%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 575 column: 29
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 40
+
+
+>>	clones: 
+		functions similarity: 50%
+>		first clone function: 
+			function spelling: set_insert
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 1
+>		second clone function: 
+			function spelling: set_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 17
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 17
+
+			variables similarity: 77%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 28
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 28
+
+			variables similarity: 67%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 262 column: 5
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 283 column: 5
+
+			variables similarity: 54%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 265 column: 5
+			matched variable from second function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 285 column: 5
+
+			variables similarity: 28%
+			 matched variable from first function: 
+			variable spelling: inserted
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 267 column: 5
+			matched variable from second function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 288 column: 9
+
+			variables similarity: 24%
+			 matched variable from first function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 264 column: 5
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 46
+
+
+>>	clones: 
+		functions similarity: 50%
+>		first clone function: 
+			function spelling: row_count
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 399 column: 1
+>		second clone function: 
+			function spelling: destroy
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 47 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: collision
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 28 column: 2
+			matched variable from second function: 
+			variable spelling: name
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 17 column: 5
+
+			variables similarity: 28%
+			 matched variable from first function: 
+			variable spelling: row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 399 column: 25
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 47 column: 21
+
+			variables similarity: 24%
+			 matched variable from first function: 
+			variable spelling: counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 401 column: 5
+			matched variable from second function: 
+			variable spelling: item_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set_tests.c line: 50 column: 5
+
+
+>>	clones: 
+		functions similarity: 50%
+>		first clone function: 
+			function spelling: set_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 1
+>		second clone function: 
+			function spelling: row_destroy
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: collision
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 28 column: 2
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 17
+			matched variable from second function: 
+			variable spelling: row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 26
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 62
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 55
+
+			variables similarity: 55%
+			 matched variable from first function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 27 column: 2
+
+			variables similarity: 49%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 28
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 40
+
+			variables similarity: 31%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 283 column: 5
+			matched variable from second function: 
+			variable spelling: current_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 383 column: 5
+
+			variables similarity: 18%
+			 matched variable from first function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 285 column: 5
+			matched variable from second function: 
+			variable spelling: next_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 391 column: 9
+
+
+>>	clones: 
+		functions similarity: 51%
+>		first clone function: 
+			function spelling: set_create
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 1
+>		second clone function: 
+			function spelling: set_clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 91
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 43
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+			matched variable from second function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 70%
+			 matched variable from first function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 64
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 16
+
+			variables similarity: 58%
+			 matched variable from first function: 
+			variable spelling: new_set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 163 column: 5
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 221 column: 9
+
+			variables similarity: 45%
+			 matched variable from first function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 36
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 27
+
+			variables similarity: 21%
+			 matched variable from first function: 
+			variable spelling: item_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 18
+			matched variable from second function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 223 column: 14
+
+			variables similarity: 15%
+			 matched variable from first function: 
+			variable spelling: INITIAL_TABLE_SIZE
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 13 column: 1
+			matched variable from second function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+
+			variables similarity: 0%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 50
+			matched variable from second function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+
+			variables similarity: 0%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 78
+			matched variable from second function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+
+
+>>	clones: 
+		functions similarity: 52%
+>		first clone function: 
+			function spelling: set_contains
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 1
+>		second clone function: 
+			function spelling: row_destroy
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 58 column: 5
+			matched variable from second function: 
+			variable spelling: collision
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 28 column: 2
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 19
+			matched variable from second function: 
+			variable spelling: row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 26
+
+			variables similarity: 55%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 27 column: 2
+
+			variables similarity: 40%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 36
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 40
+
+			variables similarity: 33%
+			 matched variable from first function: 
+			variable spelling: contains
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 250 column: 5
+			matched variable from second function: 
+			variable spelling: next_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 391 column: 9
+
+			variables similarity: 23%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 246 column: 5
+			matched variable from second function: 
+			variable spelling: current_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 383 column: 5
+
+			variables similarity: 9%
+			 matched variable from first function: 
+			variable spelling: appropriate_row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 248 column: 5
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 376 column: 55
+
+
+>>	clones: 
+		functions similarity: 52%
+>		first clone function: 
+			function spelling: set_clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 1
+>		second clone function: 
+			function spelling: set_one_step
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+			matched variable from second function: 
+			variable spelling: next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 30 column: 2
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: prev
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 29 column: 2
+
+			variables similarity: 57%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 16
+			matched variable from second function: 
+			variable spelling: required_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 594 column: 5
+
+			variables similarity: 47%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 221 column: 9
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 28
+
+			variables similarity: 29%
+			 matched variable from first function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 27
+			matched variable from second function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 593 column: 5
+
+			variables similarity: 29%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 43
+			matched variable from second function: 
+			variable spelling: step_next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 66
+
+			variables similarity: 23%
+			 matched variable from first function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 223 column: 14
+			matched variable from second function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 44
+
+			variables similarity: 21%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: INVALID
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.h line: 11 column: 1
+
+			variables similarity: 9%
+			 matched variable from first function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+			matched variable from second function: 
+			variable spelling: id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 595 column: 5
+
+
+>>	clones: 
+		functions similarity: 52%
+>		first clone function: 
+			function spelling: set_create
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 1
+>		second clone function: 
+			function spelling: set_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 91
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 62
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 68%
+			 matched variable from first function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 36
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 28
+
+			variables similarity: 57%
+			 matched variable from first function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 64
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 17
+
+			variables similarity: 55%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+
+			variables similarity: 55%
+			 matched variable from first function: 
+			variable spelling: new_set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 163 column: 5
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 283 column: 5
+
+			variables similarity: 39%
+			 matched variable from first function: 
+			variable spelling: item_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 18
+			matched variable from second function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 285 column: 5
+
+			variables similarity: 23%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 50
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 46
+
+			variables similarity: 21%
+			 matched variable from first function: 
+			variable spelling: INITIAL_TABLE_SIZE
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 13 column: 1
+			matched variable from second function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 288 column: 9
+
+
+>>	clones: 
+		functions similarity: 52%
+>		first clone function: 
+			function spelling: set_create
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 1
+>		second clone function: 
+			function spelling: set_init
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+			matched variable from second function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 58 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 50
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 99
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 78
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 57
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 91
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 86
+
+			variables similarity: 55%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: item_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 53 column: 5
+
+			variables similarity: 52%
+			 matched variable from first function: 
+			variable spelling: item_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 18
+			matched variable from second function: 
+			variable spelling: item_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 27
+
+			variables similarity: 50%
+			 matched variable from first function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 64
+			matched variable from second function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 45
+
+			variables similarity: 50%
+			 matched variable from first function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 155 column: 36
+			matched variable from second function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 71
+
+			variables similarity: 48%
+			 matched variable from first function: 
+			variable spelling: new_set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 163 column: 5
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 203 column: 5
+
+			variables similarity: 18%
+			 matched variable from first function: 
+			variable spelling: INITIAL_TABLE_SIZE
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 13 column: 1
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 201 column: 113
+
+
+>>	clones: 
+		functions similarity: 52%
+>		first clone function: 
+			function spelling: update_id_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 500 column: 1
+>		second clone function: 
+			function spelling: table_increase
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 537 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 30 column: 2
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 57 column: 5
+
+			variables similarity: 76%
+			 matched variable from first function: 
+			variable spelling: prev
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 29 column: 2
+			matched variable from second function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+
+			variables similarity: 58%
+			 matched variable from first function: 
+			variable spelling: prev_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 509 column: 5
+			matched variable from second function: 
+			variable spelling: new_rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 545 column: 5
+
+			variables similarity: 44%
+			 matched variable from first function: 
+			variable spelling: next_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 508 column: 5
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 537 column: 28
+
+			variables similarity: 40%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 500 column: 40
+			matched variable from second function: 
+			variable spelling: new_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 544 column: 5
+
+
+>>	clones: 
+		functions similarity: 53%
+>		first clone function: 
+			function spelling: set_clear
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 1
+>		second clone function: 
+			function spelling: set_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+			matched variable from second function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 43
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 62
+
+			variables similarity: 68%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 16
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 17
+
+			variables similarity: 52%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 221 column: 9
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 283 column: 5
+
+			variables similarity: 47%
+			 matched variable from first function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 217 column: 27
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 46
+
+			variables similarity: 34%
+			 matched variable from first function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 223 column: 14
+			matched variable from second function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 288 column: 9
+
+			variables similarity: 23%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 276 column: 28
+
+			variables similarity: 11%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 285 column: 5
+
+
+>>	clones: 
+		functions similarity: 57%
+>		first clone function: 
+			function spelling: update_id_insert
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 1
+>		second clone function: 
+			function spelling: table_increase
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 537 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: prev
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 29 column: 2
+			matched variable from second function: 
+			variable spelling: hash
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 57 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+			variables similarity: 56%
+			 matched variable from first function: 
+			variable spelling: prev_last
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 464 column: 9
+			matched variable from second function: 
+			variable spelling: new_rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 545 column: 5
+
+			variables similarity: 52%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: table_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 51 column: 5
+
+			variables similarity: 50%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 40
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 537 column: 28
+
+			variables similarity: 39%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 30
+			matched variable from second function: 
+			variable spelling: new_size
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 544 column: 5
+
+
+>>	clones: 
+		functions similarity: 57%
+>		first clone function: 
+			function spelling: set_current
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 324 column: 1
+>		second clone function: 
+			function spelling: set_one_step
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 324 column: 42
+			matched variable from second function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 44
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: INVALID
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.h line: 11 column: 1
+			matched variable from second function: 
+			variable spelling: INVALID
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.h line: 11 column: 1
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 27 column: 2
+			matched variable from second function: 
+			variable spelling: next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 30 column: 2
+
+			variables similarity: 57%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 326 column: 5
+			matched variable from second function: 
+			variable spelling: required_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 594 column: 5
+
+			variables similarity: 50%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 324 column: 25
+			matched variable from second function: 
+			variable spelling: step_next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 586 column: 66
+
+			variables similarity: 37%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 332 column: 5
+			matched variable from second function: 
+			variable spelling: id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 595 column: 5
+
+			variables similarity: 29%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 333 column: 5
+			matched variable from second function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 593 column: 5
+
+
+>>	clones: 
+		functions similarity: 61%
+>		first clone function: 
+			function spelling: set_destroy
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 187 column: 1
+>		second clone function: 
+			function spelling: set_erase
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 337 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 187 column: 29
+			matched variable from second function: 
+			variable spelling: destroy
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 337 column: 43
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 187 column: 45
+			matched variable from second function: 
+			variable spelling: 
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 337 column: 58
+
+			variables similarity: 48%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 191 column: 9
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 337 column: 16
+
+			variables similarity: 45%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 187 column: 18
+			matched variable from second function: 
+			variable spelling: erasing_item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 339 column: 5
+
+			variables similarity: 11%
+			 matched variable from first function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+			matched variable from second function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 337 column: 27
+
+
+>>	clones: 
+		functions similarity: 67%
+>		first clone function: 
+			function spelling: set_prev
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 1
+>		second clone function: 
+			function spelling: set_first
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 34
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 18
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 315 column: 5
+			matched variable from second function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 297 column: 5
+
+
+>>	clones: 
+		functions similarity: 67%
+>		first clone function: 
+			function spelling: set_prev
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 1
+>		second clone function: 
+			function spelling: set_last
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 34
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 17
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 315 column: 5
+			matched variable from second function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 303 column: 5
+
+
+>>	clones: 
+		functions similarity: 67%
+>		first clone function: 
+			function spelling: set_next
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 1
+>		second clone function: 
+			function spelling: set_first
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 309 column: 5
+			matched variable from second function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 297 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 17
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 18
+
+
+>>	clones: 
+		functions similarity: 67%
+>		first clone function: 
+			function spelling: set_next
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 1
+>		second clone function: 
+			function spelling: set_last
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 309 column: 5
+			matched variable from second function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 303 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 17
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 17
+
+
+>>	clones: 
+		functions similarity: 67%
+>		first clone function: 
+			function spelling: set_insert
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 1
+>		second clone function: 
+			function spelling: set_contains
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 17
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 19
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: nodes_counter
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 52 column: 5
+			matched variable from second function: 
+			variable spelling: equals
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 58 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: row_index
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 264 column: 5
+			matched variable from second function: 
+			variable spelling: appropriate_row
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 248 column: 5
+
+			variables similarity: 67%
+			 matched variable from first function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 254 column: 28
+			matched variable from second function: 
+			variable spelling: item
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 239 column: 36
+
+			variables similarity: 45%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 265 column: 5
+			matched variable from second function: 
+			variable spelling: contains
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 250 column: 5
+
+			variables similarity: 42%
+			 matched variable from first function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 262 column: 5
+			matched variable from second function: 
+			variable spelling: set_explicit
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 246 column: 5
+
+			variables similarity: 18%
+			 matched variable from first function: 
+			variable spelling: inserted
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 267 column: 5
+			matched variable from second function: 
+			variable spelling: rows
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 54 column: 5
+
+
+>>	clones: 
+		functions similarity: 72%
+>		first clone function: 
+			function spelling: update_id_insert
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 1
+>		second clone function: 
+			function spelling: update_id_remove
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 500 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+			matched variable from second function: 
+			variable spelling: next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 30 column: 2
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: prev
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 29 column: 2
+			matched variable from second function: 
+			variable spelling: last_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 56 column: 5
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 30 column: 2
+			matched variable from second function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+
+			variables similarity: 75%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 30
+			matched variable from second function: 
+			variable spelling: prev_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 509 column: 5
+
+			variables similarity: 68%
+			 matched variable from first function: 
+			variable spelling: first_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 55 column: 5
+			matched variable from second function: 
+			variable spelling: prev
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 29 column: 2
+
+			variables similarity: 68%
+			 matched variable from first function: 
+			variable spelling: item_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 453 column: 40
+			matched variable from second function: 
+			variable spelling: next_node
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 508 column: 5
+
+			variables similarity: 64%
+			 matched variable from first function: 
+			variable spelling: prev_last
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 464 column: 9
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 500 column: 30
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: set_prev
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 1
+>		second clone function: 
+			function spelling: set_next
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 34
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 17
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 313 column: 17
+			matched variable from second function: 
+			variable spelling: item_id
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 307 column: 34
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 315 column: 5
+			matched variable from second function: 
+			variable spelling: next_required
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 309 column: 5
+
+
+>>	clones: 
+		functions similarity: 100%
+>		first clone function: 
+			function spelling: set_first
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 1
+>		second clone function: 
+			function spelling: set_last
+			function location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 1
+		matched variables: 
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 295 column: 18
+			matched variable from second function: 
+			variable spelling: set
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 301 column: 17
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 297 column: 5
+			matched variable from second function: 
+			variable spelling: first_edge
+			variable location: file: B:\Документы, изображения и тп\Документы\Никита\Программирование\Проекты Visual Studio 2022\ООП, 4 семестр\CloneDetection\Examples\Set\sources\set.c line: 303 column: 5
+
