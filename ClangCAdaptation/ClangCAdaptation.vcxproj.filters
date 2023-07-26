@@ -14,6 +14,7 @@
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxindex_wrapper.h" />
+    <ClInclude Include="cxstring_wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="clang_c_types_handling.cpp" />

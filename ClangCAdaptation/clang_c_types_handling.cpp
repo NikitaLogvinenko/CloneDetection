@@ -1,40 +1,15 @@
 ﻿#include "clang_c_types_handling.h"
+#include "cxstring_wrapper.h"
 #include <stdexcept>
+#include <numeric>
 
 namespace clang_c_adaptation
 {
-	void clang_c_types_handling::cursor_not_null_and_valid(const CXCursor& cursor)
-	{
-		if (clang_Cursor_isNull(cursor))
-		{
-			throw std::invalid_argument(null_cursor_msg);
-		}
-		if (clang_isInvalid(clang_getCursorKind(cursor)))
-		{
-			throw std::invalid_argument(invalid_cursor_msg);
-		}
-	}
-
-	void clang_c_types_handling::client_data_not_null_validation(const CXClientData& client_data)
+	void clang_c_types_handling::client_data_not_null_validation(const CXClientData client_data)
 	{
 		if (client_data == nullptr)
 		{
 			throw std::invalid_argument(null_client_data_msg);
-		}
-	}
-
-	std::string clang_c_types_handling::cxstring_to_string(const std::unique_ptr<CXString> cxstring_ptr)
-	{
-		try
-		{
-			std::string str{clang_getCString(*cxstring_ptr)};
-			clang_disposeString(*cxstring_ptr);
-			return str;
-		}
-		catch (const std::exception& ex)
-		{
-			clang_disposeString(*cxstring_ptr);
-			throw std::runtime_error(cxstring_conversion_error_msg + ex.what());
 		}
 	}
 
@@ -43,7 +18,7 @@ namespace clang_c_adaptation
 		return var_decl_kinds.contains(clang_getCursorKind(cursor));
 	}
 
-	bool clang_c_types_handling::is_decl_ref_expr_to_var_decl(const CXCursor& cursor) noexcept
+	bool clang_c_types_handling::is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept
 	{
 		if (clang_getCursorKind(cursor) != CXCursor_DeclRefExpr)
 		{
@@ -59,7 +34,7 @@ namespace clang_c_adaptation
 
 	bool clang_c_types_handling::is_cursor_to_func_definition(const CXCursor& cursor) noexcept
 	{
-		return is_cursor_to_func_declaration(cursor) && clang_isCursorDefinition(cursor);
+		return is_cursor_to_func_declaration(cursor) && clang_isCursorDefinition(cursor) != 0;
 	}
 
 	bool clang_c_types_handling::is_cursor_to_literal(const CXCursor& cursor) noexcept
@@ -69,33 +44,29 @@ namespace clang_c_adaptation
 
 	var_linkage clang_c_types_handling::determine_var_linkage(const CXCursor& cursor_to_var_decl)
 	{
-		const auto kind = clang_getCursorKind(cursor_to_var_decl);
-		if (kind == CXCursor_ParmDecl)
+		switch (clang_getCursorKind(cursor_to_var_decl))
 		{
+		case CXCursor_ParmDecl:
 			return var_linkage::func_param;
-		}
-		if (kind == CXCursor_FieldDecl)
-		{
+		case CXCursor_FieldDecl:
 			return var_linkage::member_field;
-		}
-		if (kind == CXCursor_VarDecl)
+		case CXCursor_VarDecl:
 		{
-			const auto clang_linkage = clang_getCursorLinkage(cursor_to_var_decl);
-			if (clang_linkage == CXLinkage_NoLinkage)
+			switch (clang_getCursorLinkage(cursor_to_var_decl))
 			{
+			case CXLinkage_NoLinkage:
 				return var_linkage::local_var;
-			}
-			if (clang_linkage == CXLinkage_Internal)
-			{
+			case CXLinkage_Internal:
 				return var_linkage::global_var;
-			}
-			if (clang_linkage == CXLinkage_External)
-			{
+			case CXLinkage_External:
 				return var_linkage::static_field;
+			default:
+				return var_linkage::unknown;
 			}
-			return var_linkage::unknown;
 		}
-		throw std::invalid_argument(not_var_decl_msg);
+		default:
+			throw std::invalid_argument(not_var_decl_msg);
+		}
 	}
 
 	std::vector<std::string> clang_c_types_handling::get_cursor_extent_tokens(const CXCursor& cursor)
@@ -107,42 +78,37 @@ namespace clang_c_adaptation
 		{
 			return {};
 		}
+		const auto translation_unit = clang_Cursor_getTranslationUnit(cursor);
+		std::vector<std::string> tokens_vector{};
 		try
 		{
-			const auto tu = clang_Cursor_getTranslationUnit(cursor);
-			clang_tokenize(tu, extent, &tokens, &tokens_n);
-			std::vector<std::string> tokens_vector{};
+			clang_tokenize(translation_unit, extent, &tokens, &tokens_n);
 			tokens_vector.reserve(tokens_n);
 			for (unsigned token_index = 0; token_index < tokens_n; ++token_index)
 			{
-				tokens_vector.emplace_back(cxstring_to_string(
-					std::make_unique<CXString>(clang_getTokenSpelling(tu, tokens[token_index]))));
+				tokens_vector.emplace_back(cxstring_wrapper(clang_getTokenSpelling(translation_unit, tokens[token_index])).c_str());
 			}
-			clang_disposeTokens(clang_Cursor_getTranslationUnit(cursor), tokens, tokens_n);
-			return tokens_vector;
 		}
 		catch (const std::exception& ex)
 		{
-			clang_disposeTokens(clang_Cursor_getTranslationUnit(cursor), tokens, tokens_n);
+			clang_disposeTokens(translation_unit, tokens, tokens_n);
 			throw std::runtime_error(cursor_tokenization_error_msg + ex.what());
 		}
+		clang_disposeTokens(translation_unit, tokens, tokens_n);
+		return tokens_vector;
 	}
 
 	std::string clang_c_types_handling::join(const std::vector<std::string>& strings, const std::string& sep)
 	{
 		if (strings.empty())
 		{
-			return empty_string;
+			return {};
 		}
-
-		std::string result{};
-		for (size_t str_index = 0; str_index + 1 < strings.size(); ++str_index)
-		{
-			result += strings[str_index];
-			result += sep;
-		}
-		result += strings[strings.size() - 1];
-		return result;
+		const std::string result = std::accumulate(
+			strings.cbegin(), strings.cend(), empty_string,
+			[&sep](std::string&& prev_part, const std::string& new_part) 
+			{ return std::move(prev_part) + new_part + sep; });
+		return result.substr(first_str_symbol, result.size() - sep.size());
 	}
 
 	std::string clang_c_types_handling::get_binary_operator_spelling(const CXCursor& cursor_to_binary_op)
@@ -184,18 +150,14 @@ namespace clang_c_adaptation
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult clang_c_types_handling::visitor_get_children_joined_tokens(const CXCursor cursor, const CXCursor,
-		const CXClientData vector_of_joined_tokens_void_ptr)
+	CXChildVisitResult clang_c_types_handling::visitor_get_children_joined_tokens(const CXCursor cursor, CXCursor,
+	const CXClientData vector_of_joined_tokens_void_ptr)
 	{
-		{
-			client_data_not_null_validation(vector_of_joined_tokens_void_ptr);
-			if (vector_of_joined_tokens_void_ptr == nullptr)
-			{
-				throw std::invalid_argument(null_client_data_msg);
-			}
-			static_cast<std::vector<std::string>* const>(vector_of_joined_tokens_void_ptr)->push_back(join(get_cursor_extent_tokens(cursor), {}));
-			return CXChildVisit_Continue;
-		}
+		client_data_not_null_validation(vector_of_joined_tokens_void_ptr);
+
+		const auto vector_of_joined_tokens_ptr = static_cast<std::vector<std::string>* const>(vector_of_joined_tokens_void_ptr);
+		vector_of_joined_tokens_ptr->push_back(join(get_cursor_extent_tokens(cursor), {}));
+		return CXChildVisit_Continue;
 	}
 
 	std::string clang_c_types_handling::get_spelling_of_cursor_between_two_children_parts(const CXCursor& cursor,
@@ -204,7 +166,7 @@ namespace clang_c_adaptation
 		{
 			if (clang_getCursorKind(cursor) != expected_kind)
 			{
-				return empty_string;
+				throw std::invalid_argument("Actual cursor kind differ from expected.");
 			}
 			const std::string all_tokens = join(get_cursor_extent_tokens(cursor), tokens_sep);
 
@@ -212,11 +174,16 @@ namespace clang_c_adaptation
 			vector_of_joined_tokens.reserve(reserved_space_for_two_children);
 			clang_visitChildren(cursor, visitor_get_children_joined_tokens, &vector_of_joined_tokens);
 
+			if (vector_of_joined_tokens.size() != 2)
+			{
+				throw std::invalid_argument("Count of child is not 2.");
+			}
 			const std::string& left_part = vector_of_joined_tokens[0];
 			const std::string& right_part = vector_of_joined_tokens[1];
-			if (!all_tokens.starts_with(left_part) || !all_tokens.ends_with(right_part) || left_part.size() + right_part.size() >= all_tokens.size())
+			if (!all_tokens.starts_with(left_part) || !all_tokens.ends_with(right_part) 
+				|| left_part.size() + right_part.size() >= all_tokens.size())
 			{
-				return empty_string;
+				throw std::runtime_error("First child is not left substring or second child is not right substring.");
 			}
 			return all_tokens.substr(left_part.size(), all_tokens.size() - left_part.size() - right_part.size());
 		}

@@ -35,5 +35,5 @@ namespace cpp_code_analysis
 		defined_with_literals
 	};
 
-	inline constexpr size_t default_conditions_total = static_cast<size_t>(var_usage_condition::defined_with_literals) + 1;
+	constexpr size_t default_conditions_total = static_cast<size_t>(var_usage_condition::defined_with_literals) + 1;
 }

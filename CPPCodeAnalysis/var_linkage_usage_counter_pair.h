@@ -8,7 +8,7 @@ namespace cpp_code_analysis
 		clang_c_adaptation::var_linkage linkage_{};
 		size_t used_n_times_{};
 
-		inline static constexpr size_t default_used_n_times = 0;
+		static constexpr size_t default_used_n_times = 0;
 
 	public:
 		var_linkage_usage_counter_pair() noexcept = default;

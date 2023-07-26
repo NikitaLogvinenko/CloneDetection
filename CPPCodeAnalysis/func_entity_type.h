@@ -38,5 +38,5 @@ namespace cpp_code_analysis
 		while_stmt
 	};
 
-	inline constexpr size_t total_func_entities_types = static_cast<size_t>(func_entity_type::while_stmt) + 1;
+	constexpr size_t total_func_entities_types = static_cast<size_t>(func_entity_type::while_stmt) + 1;
 }

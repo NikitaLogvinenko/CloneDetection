@@ -100,11 +100,11 @@ namespace cpp_code_analysis
 		inline static const std::string square_brackets{ "[]" };
 		inline static const std::string round_brackets{ "()" };
 
-		inline static constexpr size_t unary_plus_minus_operator_direct_children = 2;
-		inline static constexpr size_t binary_plus_minus_operator_direct_children = 3;
+		static constexpr size_t unary_plus_minus_operator_direct_children = 2;
+		static constexpr size_t binary_plus_minus_operator_direct_children = 3;
 
-		inline static constexpr size_t initial_usage_counter_value_by_reference = 0;
-		inline static constexpr size_t initial_usage_counter_value_by_declaration = 0;
+		static constexpr size_t initial_usage_counter_value_by_reference = 0;
+		static constexpr size_t initial_usage_counter_value_by_declaration = 0;
 
 		bool try_insert_reference_to_var(const CXCursor& cursor, const CXCursorKind& kind);
 		bool try_insert_variable(const CXCursor& cursor);

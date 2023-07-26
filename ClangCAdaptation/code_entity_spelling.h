@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "typed_string.h"
 #include "clang-c/Index.h"
-#include "clang_c_types_handling.h"
+#include "cxstring_wrapper.h"
 
 namespace clang_c_adaptation
 {
@@ -10,7 +10,7 @@ namespace clang_c_adaptation
 	public:
 		code_entity_spelling() noexcept = default;
 		explicit code_entity_spelling(const CXCursor& cursor) :
-			typed_string(clang_c_types_handling::cxstring_to_string(std::make_unique<CXString>(clang_getCursorSpelling(cursor)))) {}
+			typed_string(cxstring_wrapper(clang_getCursorSpelling(cursor)).c_str()) {}
 
 		[[nodiscard]] bool operator==(const code_entity_spelling& other) const noexcept = default;
 	};

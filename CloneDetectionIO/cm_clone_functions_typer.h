@@ -33,7 +33,7 @@ namespace clone_detection_io
 		inline static const std::string newline{ "\n" };
 		inline static const std::string percentage{ "%" };
 
-		inline static constexpr size_t one_hundred_percent = 100;
+		static constexpr size_t one_hundred_percent = 100;
 
 	public:
 		cm_clone_functions_typer() = delete;

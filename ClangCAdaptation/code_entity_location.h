@@ -1,13 +1,13 @@
 ﻿#pragma once
-#include "clang_c_types_handling.h"
 #include "clang-c/Index.h"
+#include "cxstring_wrapper.h"
 #include <filesystem>
 
 namespace clang_c_adaptation
 {
 	class code_entity_location
 	{
-		std::filesystem::path filename_{ "unknown" };
+		std::filesystem::path filename_{};
 		unsigned line_{};
 		unsigned column_{};
 		unsigned offset_{};
@@ -27,7 +27,7 @@ namespace clang_c_adaptation
 			const CXSourceLocation location = clang_getRangeStart(range);
 			CXFile file;
 			clang_getFileLocation(location, &file, &line_, &column_, &offset_);
-			filename_ = std::filesystem::path(clang_c_types_handling::cxstring_to_string(std::make_unique<CXString>(clang_getFileName(file))));
+			filename_ = std::filesystem::path(cxstring_wrapper(clang_getFileName(file)).c_str());
 			is_valid_ = true;
 		}
 

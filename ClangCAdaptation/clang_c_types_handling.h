@@ -10,7 +10,6 @@ namespace clang_c_adaptation
 {
 	class clang_c_types_handling final
 	{
-		inline static const std::string null_cursor_msg{"Can not process null CXCursor."};
 		inline static const std::string null_client_data_msg{"Null client data passed to visitor."};
 		inline static const std::string invalid_cursor_msg{"Invalid CXCursor is encountered."};
 		inline static const std::string not_var_decl_msg{"Cursor does not point to any type of variables declarations."};
@@ -20,7 +19,7 @@ namespace clang_c_adaptation
 		inline static const std::string empty_string{};
 		inline static const std::string tokens_sep{};
 
-		inline static constexpr size_t first_str_symbol = 0;
+		static constexpr size_t first_str_symbol = 0;
 
 		inline static const std::unordered_set literals_kinds{
 			CXCursor_IntegerLiteral, CXCursor_FloatingLiteral, CXCursor_ImaginaryLiteral,
@@ -31,20 +30,14 @@ namespace clang_c_adaptation
 		inline static const std::unordered_set func_decl_kinds{
 			CXCursor_CXXMethod, CXCursor_FunctionDecl, CXCursor_Constructor, CXCursor_Destructor, CXCursor_FunctionTemplate };
 
-		inline static constexpr size_t reserved_space_for_two_children = 2;
+		static constexpr size_t reserved_space_for_two_children = 2;
 
 	public:
 		clang_c_types_handling() = delete;
 
-		static void cursor_not_null_and_valid(const CXCursor& cursor);
-
-		static void client_data_not_null_validation(const CXClientData& client_data);
-
-		[[nodiscard]] static std::string cxstring_to_string(std::unique_ptr<CXString> cxstring_ptr);
-
 		[[nodiscard]] static bool is_cursor_to_var_decl(const CXCursor& cursor) noexcept;
 
-		[[nodiscard]] static bool is_decl_ref_expr_to_var_decl(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept;
 
 		[[nodiscard]] static bool is_cursor_to_func_declaration(const CXCursor& cursor) noexcept;
 
@@ -54,9 +47,6 @@ namespace clang_c_adaptation
 
 		[[nodiscard]] static var_linkage determine_var_linkage(const CXCursor& cursor_to_var_decl);
 
-		[[nodiscard]] static std::vector<std::string> get_cursor_extent_tokens(const CXCursor& cursor);
-
-		[[nodiscard]] static std::string join(const std::vector<std::string>& strings, const std::string& sep = " ");
 
 		[[nodiscard]] static std::string get_binary_operator_spelling(const CXCursor& cursor_to_binary_op);
 
@@ -67,6 +57,12 @@ namespace clang_c_adaptation
 		[[nodiscard]] static CXChildVisitResult visitor_direct_children_counter(CXCursor cursor, CXCursor parent, CXClientData void_ptr_to_size_t_counter);
 
 	private:
+		static void client_data_not_null_validation(CXClientData client_data);
+
+		[[nodiscard]] static std::vector<std::string> get_cursor_extent_tokens(const CXCursor& cursor);
+
+		[[nodiscard]] static std::string join(const std::vector<std::string>& strings, const std::string& sep = " ");
+
 		static CXChildVisitResult visitor_get_children_joined_tokens(CXCursor cursor, CXCursor, CXClientData vector_of_joined_tokens_void_ptr);
 
 		static std::string get_spelling_of_cursor_between_two_children_parts(const CXCursor& cursor, CXCursorKind expected_kind);
