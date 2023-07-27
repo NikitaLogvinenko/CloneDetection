@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "code_entity_spelling.h"
+#include "clang_c_types_handling.h"
 #include <stdexcept>
+
 
 namespace clang_c_adaptation
 {

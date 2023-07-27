@@ -118,23 +118,19 @@ namespace clang_c_adaptation
 
 	std::string clang_c_types_handling::get_unary_operator_spelling(const CXCursor& cursor_to_unary_op)
 	{
-		if (clang_getCursorKind(cursor_to_unary_op) != CXCursor_UnaryOperator)
+		const auto entire_and_subtrees_spellings = get_entire_spelling_and_subtrees_spellings(
+			cursor_to_unary_op, CXCursor_UnaryOperator, one_child);
+		const std::string& entire_spelling = entire_and_subtrees_spellings[0];
+		const std::string& part_without_operator = entire_and_subtrees_spellings[1];
+		if (entire_spelling.ends_with(part_without_operator))
 		{
-			return empty_string;
+			return entire_spelling.substr(first_str_symbol, entire_spelling.size() - part_without_operator.size());
 		}
-		const std::string all_tokens = join(get_cursor_extent_tokens(cursor_to_unary_op), tokens_sep);
-		std::vector<std::string> vector_of_joined_tokens{};
-		clang_visitChildren(cursor_to_unary_op, visitor_get_children_joined_tokens, &vector_of_joined_tokens);
-		const std::string& part_without_operator = vector_of_joined_tokens[0];
-		if (all_tokens.ends_with(part_without_operator))
+		if (entire_spelling.starts_with(part_without_operator))
 		{
-			return all_tokens.substr(first_str_symbol, all_tokens.size() - part_without_operator.size());
+			return entire_spelling.substr(part_without_operator.size());
 		}
-		if (all_tokens.starts_with(part_without_operator))
-		{
-			return all_tokens.substr(part_without_operator.size());
-		}
-		return empty_string;
+		throw std::runtime_error(unexpected_cursor_to_unary_op_msg);
 	}
 
 	std::string clang_c_types_handling::get_compound_assign_spelling(const CXCursor& cursor_to_compound_assign)
@@ -150,13 +146,13 @@ namespace clang_c_adaptation
 		return CXChildVisit_Continue;
 	}
 
-	CXChildVisitResult clang_c_types_handling::visitor_get_children_joined_tokens(const CXCursor cursor, CXCursor,
-	const CXClientData vector_of_joined_tokens_void_ptr)
+	CXChildVisitResult clang_c_types_handling::visitor_append_subtrees_spellings(const CXCursor cursor, CXCursor,
+	const CXClientData ptr_to_vector)
 	{
-		client_data_not_null_validation(vector_of_joined_tokens_void_ptr);
+		client_data_not_null_validation(ptr_to_vector);
 
-		const auto vector_of_joined_tokens_ptr = static_cast<std::vector<std::string>* const>(vector_of_joined_tokens_void_ptr);
-		vector_of_joined_tokens_ptr->push_back(join(get_cursor_extent_tokens(cursor), {}));
+		const auto vector_append_to = static_cast<std::vector<std::string>* const>(ptr_to_vector);
+		vector_append_to->push_back(join(get_cursor_extent_tokens(cursor), {}));
 		return CXChildVisit_Continue;
 	}
 
@@ -164,28 +160,40 @@ namespace clang_c_adaptation
 		const CXCursorKind expected_kind)
 	{
 		{
-			if (clang_getCursorKind(cursor) != expected_kind)
+			const auto entire_and_subtrees_spellings = get_entire_spelling_and_subtrees_spellings(
+				cursor, expected_kind, two_children);
+			const std::string& entire_spelling = entire_and_subtrees_spellings[0];
+			const std::string& left_subtree = entire_and_subtrees_spellings[1];
+			const std::string& right_subtree = entire_and_subtrees_spellings[2];
+			if (!entire_spelling.starts_with(left_subtree) || !entire_spelling.ends_with(right_subtree) 
+				|| left_subtree.size() + right_subtree.size() >= entire_spelling.size())
 			{
-				throw std::invalid_argument("Actual cursor kind differ from expected.");
+				throw std::runtime_error(cursor_is_not_between_two_children_msg);
 			}
-			const std::string all_tokens = join(get_cursor_extent_tokens(cursor), tokens_sep);
-
-			std::vector<std::string> vector_of_joined_tokens{};
-			vector_of_joined_tokens.reserve(reserved_space_for_two_children);
-			clang_visitChildren(cursor, visitor_get_children_joined_tokens, &vector_of_joined_tokens);
-
-			if (vector_of_joined_tokens.size() != 2)
-			{
-				throw std::invalid_argument("Count of child is not 2.");
-			}
-			const std::string& left_part = vector_of_joined_tokens[0];
-			const std::string& right_part = vector_of_joined_tokens[1];
-			if (!all_tokens.starts_with(left_part) || !all_tokens.ends_with(right_part) 
-				|| left_part.size() + right_part.size() >= all_tokens.size())
-			{
-				throw std::runtime_error("First child is not left substring or second child is not right substring.");
-			}
-			return all_tokens.substr(left_part.size(), all_tokens.size() - left_part.size() - right_part.size());
+			return entire_spelling.substr(left_subtree.size(),
+				entire_spelling.size() - left_subtree.size() - right_subtree.size());
 		}
+	}
+
+	std::vector<std::string> clang_c_types_handling::get_entire_spelling_and_subtrees_spellings(const CXCursor& cursor,
+		const CXCursorKind expected_cursor_kind, const size_t children_count)
+	{
+		if (clang_getCursorKind(cursor) != expected_cursor_kind)
+		{
+			throw std::invalid_argument(wrong_cursor_type_msg);
+		}
+		const std::string entire_spelling = join(get_cursor_extent_tokens(cursor), tokens_sep);
+
+		std::vector<std::string> entire_and_subtrees_spellings{};
+		const size_t total_spellings = 1 + children_count;
+		entire_and_subtrees_spellings.reserve(total_spellings);
+		clang_visitChildren(cursor, visitor_append_subtrees_spellings, &entire_and_subtrees_spellings);
+
+		if (entire_and_subtrees_spellings.size() != total_spellings)
+		{
+			throw std::invalid_argument(wrong_children_count_msg);
+		}
+
+		return entire_and_subtrees_spellings;
 	}
 }

@@ -10,7 +10,7 @@ namespace clang_c_adaptation
 	{
 		CXTranslationUnit translation_unit_{};
 
-		static constexpr std::string ctor_error_msg{ "Failure during translation unit creation. AST file: " };
+		inline static const std::string ctor_error_msg{ "Failure during translation unit creation. AST file: " };
 		static constexpr auto invalid_tu = nullptr;
 
 	public:
@@ -23,10 +23,22 @@ namespace clang_c_adaptation
 			}
 		}
 
-		translation_unit_wrapper(const translation_unit_wrapper& other) = default;
-		translation_unit_wrapper(translation_unit_wrapper&& other) = default;
-		translation_unit_wrapper& operator=(const translation_unit_wrapper& other) = default;
-		translation_unit_wrapper& operator=(translation_unit_wrapper&& other) = default;
+		translation_unit_wrapper(const translation_unit_wrapper& other) = delete;
+		translation_unit_wrapper& operator=(const translation_unit_wrapper& other) = delete;
+		translation_unit_wrapper(translation_unit_wrapper&& other) noexcept : translation_unit_(other.translation_unit_)
+		{
+			other.translation_unit_ = nullptr;
+		}
+		translation_unit_wrapper& operator=(translation_unit_wrapper&& other) noexcept
+		{
+			if (&other == this)
+			{
+				return *this;
+			}
+			translation_unit_ = other.translation_unit_;
+			other.translation_unit_ = nullptr;
+			return *this;
+		}
 		~translation_unit_wrapper()
 		{
 			clang_disposeTranslationUnit(translation_unit_);

@@ -25,7 +25,9 @@ namespace count_matrix
 
 	public:
 		explicit cm_max_weighted_bipartite_matching(const size_t weights_decimals = default_decimals)
-			: weights_decimals_(weights_decimals), weights_factor_(pow_throwing_overflow(10, weights_decimals, too_large_weights_decimals_msg)) {}
+			: cm_similarity_abstract_algorithm<CountVectorDimension>(),
+			  weights_decimals_(weights_decimals),
+			  weights_factor_(pow_throwing_overflow(10, weights_decimals, too_large_weights_decimals_msg)) { }
 
 		[[nodiscard]] count_matrices_similarity_data determine_similarity(
 			const count_matrix<CountVectorDimension>& first_cm,

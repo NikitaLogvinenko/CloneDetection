@@ -87,7 +87,7 @@ namespace clone_detection_io
 				= std::make_unique<func_implementation_analysis_builder_default>();
 
 			analysed_functions_info<default_conditions_total> analysed_functions_info =
-				func_implementation_analysis_director::analyse_all_units( std::move(func_analysis_builder), translation_units);
+				func_implementation_analysis_director::analyse_all_units(std::move(func_analysis_builder), translation_units);
 
 			const auto funcs_pairwise_similarity = functions_cm_pairwise_similarity<default_conditions_total>
 				::builder::build(std::move(analysed_functions_info), cm_max_weighted_bipartite_matching<default_conditions_total>{});

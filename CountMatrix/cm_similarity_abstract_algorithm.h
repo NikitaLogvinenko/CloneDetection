@@ -7,6 +7,12 @@ namespace count_matrix
 	class cm_similarity_abstract_algorithm
 	{
 	public:
+		cm_similarity_abstract_algorithm() noexcept = default;
+
+		cm_similarity_abstract_algorithm(const cm_similarity_abstract_algorithm& other) noexcept = default;
+		cm_similarity_abstract_algorithm(cm_similarity_abstract_algorithm&& other) noexcept = default;
+		cm_similarity_abstract_algorithm& operator=(const cm_similarity_abstract_algorithm& other) noexcept = default;
+		cm_similarity_abstract_algorithm& operator=(cm_similarity_abstract_algorithm&& other) noexcept = default;
 		virtual ~cm_similarity_abstract_algorithm() = default;
 
 		[[nodiscard]] virtual count_matrices_similarity_data determine_similarity(

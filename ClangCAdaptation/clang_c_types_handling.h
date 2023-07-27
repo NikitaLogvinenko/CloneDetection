@@ -15,6 +15,10 @@ namespace clang_c_adaptation
 		inline static const std::string not_var_decl_msg{"Cursor does not point to any type of variables declarations."};
 		inline static const std::string cxstring_conversion_error_msg{"Failure during CXString to std::string conversion. CXString was just disposed. Exception: "};
 		inline static const std::string cursor_tokenization_error_msg{"Failure during CXCursor tokenization. Memory leak was prevented. Exception: "};
+		inline static const std::string wrong_cursor_type_msg{"Actual cursor kind differ from expected."};
+		inline static const std::string wrong_children_count_msg{"Wrong children count. Can not get spelling."};
+		inline static const std::string unexpected_cursor_to_unary_op_msg{"Unexpected cursor was passed to get_unary_operator_spelling method"};
+		inline static const std::string cursor_is_not_between_two_children_msg{"Cursor is not between two children msg. Unable to get its spelling."};
 
 		inline static const std::string empty_string{};
 		inline static const std::string tokens_sep{};
@@ -30,7 +34,8 @@ namespace clang_c_adaptation
 		inline static const std::unordered_set func_decl_kinds{
 			CXCursor_CXXMethod, CXCursor_FunctionDecl, CXCursor_Constructor, CXCursor_Destructor, CXCursor_FunctionTemplate };
 
-		static constexpr size_t reserved_space_for_two_children = 2;
+		static constexpr size_t two_children = 2;
+		static constexpr size_t one_child = 1;
 
 	public:
 		clang_c_types_handling() = delete;
@@ -63,8 +68,11 @@ namespace clang_c_adaptation
 
 		[[nodiscard]] static std::string join(const std::vector<std::string>& strings, const std::string& sep = " ");
 
-		static CXChildVisitResult visitor_get_children_joined_tokens(CXCursor cursor, CXCursor, CXClientData vector_of_joined_tokens_void_ptr);
+		static CXChildVisitResult visitor_append_subtrees_spellings(CXCursor cursor, CXCursor, CXClientData ptr_to_vector);
 
 		static std::string get_spelling_of_cursor_between_two_children_parts(const CXCursor& cursor, CXCursorKind expected_kind);
+
+		static std::vector<std::string> get_entire_spelling_and_subtrees_spellings(
+			const CXCursor& cursor, CXCursorKind expected_cursor_kind, size_t children_count);
 	};
 }

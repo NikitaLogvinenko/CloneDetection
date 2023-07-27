@@ -1,5 +1,7 @@
 ﻿#include "func_implementation_analysis_builder_default.h"
 
+#include "clang_c_types_handling.h"
+
 namespace cpp_code_analysis
 {
 	namespace
@@ -247,7 +249,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_all_variables_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
 		{
 			static_cast<count_all_variables_visit_data* const>(
 				count_all_variables_visit_data_void_ptr)->increment_condition(clang_getCursorReferenced(cursor_inside_entity));
@@ -259,7 +261,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_first_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
 				
 		{
 			if (static_cast<count_all_variables_visit_data* const>(
@@ -275,7 +277,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_from_second_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_from_second_variable_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_decl_ref_expr_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
 		{
 			if (auto const count_from_second_variable_visit_data_ptr = 
 				static_cast<count_from_second_variable_visit_data* const>(count_from_second_variable_visit_data_void_ptr);
