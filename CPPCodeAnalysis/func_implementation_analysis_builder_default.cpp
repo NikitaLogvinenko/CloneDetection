@@ -1,7 +1,5 @@
 ﻿#include "func_implementation_analysis_builder_default.h"
 
-#include "clang_c_types_handling.h"
-
 namespace cpp_code_analysis
 {
 	namespace
@@ -22,7 +20,7 @@ namespace cpp_code_analysis
 		using unordered_map_origin_usage_counter_pair_by_var_cursor =
 			const std::unordered_map<
 				CXCursor,
-				var_origin_usage_counter_pair,
+				var_origin_and_usage_counter_pair,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>;
 
@@ -72,11 +70,11 @@ namespace cpp_code_analysis
 		class var_definition_visit_data final
 		{
 			std::array<count_matrix::count_vector_value, default_conditions_total>& count_array_;
-			const func_entities_cursors& first_traversal_data_;
+			const func_entities_classifier& first_traversal_data_;
 		public:
 			explicit var_definition_visit_data(
 				std::array<count_matrix::count_vector_value, default_conditions_total>& count_array,
-				const func_entities_cursors& first_traversal_data) noexcept
+				const func_entities_classifier& first_traversal_data) noexcept
 				: count_array_(count_array), first_traversal_data_(first_traversal_data) {}
 
 			void increment_condition(const var_usage_condition incremented_condition) const noexcept
@@ -84,7 +82,7 @@ namespace cpp_code_analysis
 				++count_array_[static_cast<size_t>(incremented_condition)];
 			}
 
-			[[nodiscard]] const func_entities_cursors& first_traversal_data() const noexcept
+			[[nodiscard]] const func_entities_classifier& first_traversal_data() const noexcept
 			{
 				return first_traversal_data_;
 			}
@@ -104,7 +102,7 @@ namespace cpp_code_analysis
 		func_implementation_analysis_builder_default::traverse_func_analyse_variables_usage(
 			const CXCursor& func_definition_cursor)
 	{
-		func_entities_cursors first_traversal_data{};
+		func_entities_classifier first_traversal_data{};
 		clang_visitChildren(func_definition_cursor, visitor_find_func_entities, &first_traversal_data);
 		auto count_arrays_by_var_cursors = 
 			create_unordered_map_count_arrays_by_var_cursors(first_traversal_data.var_origin_and_usage_counter_by_decl_cursors());
@@ -172,7 +170,7 @@ namespace cpp_code_analysis
 	}
 
 	void func_implementation_analysis_builder_default::count_all_variables_inside_entities(
-		const func_entities_cursors& first_traversal_data, 
+		const func_entities_classifier& first_traversal_data, 
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors& count_arrays_by_var_cursors,
 		const var_usage_condition counted_condition)
@@ -188,7 +186,7 @@ namespace cpp_code_analysis
 	}
 
 	void func_implementation_analysis_builder_default::count_first_variable_inside_entities(
-		const func_entities_cursors& first_traversal_data,
+		const func_entities_classifier& first_traversal_data,
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors&count_arrays_by_var_cursors,
 		const var_usage_condition counted_condition)
@@ -204,7 +202,7 @@ namespace cpp_code_analysis
 	}
 
 	void func_implementation_analysis_builder_default::count_from_second_variable_inside_entities(
-		const func_entities_cursors& first_traversal_data,
+		const func_entities_classifier& first_traversal_data,
 		const std::vector<func_entity_type>& entity_types_to_traverse,
 		unordered_map_count_arrays_by_var_cursors& count_arrays_by_var_cursors,
 		const var_usage_condition counted_condition)
@@ -221,19 +219,19 @@ namespace cpp_code_analysis
 
 
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_find_func_definitions(
-		const CXCursor cursor_in_translation_unit, const CXCursor /*parent*/, const CXClientData func_definitions_cursors_void_ptr)
+		const CXCursor cursor_inside_translation_unit, const CXCursor /*parent*/, const CXClientData func_definitions_cursors_void_ptr)
 	{
-		if (clang_Location_isInSystemHeader(clang_getCursorLocation(cursor_in_translation_unit)))
+		if (clang_Location_isInSystemHeader(clang_getCursorLocation(cursor_inside_translation_unit)))
 		{
 			return CXChildVisit_Continue;
 		}
-		if (clang_c_adaptation::clang_c_types_handling::is_cursor_to_func_definition(cursor_in_translation_unit))
+		if (clang_c_adaptation::common_checks::is_cursor_to_func_definition(cursor_inside_translation_unit))
 		{
-			static_cast<unordered_set_cursors* const>(func_definitions_cursors_void_ptr)->insert(cursor_in_translation_unit);
+			static_cast<unordered_set_cursors* const>(func_definitions_cursors_void_ptr)->insert(cursor_inside_translation_unit);
 		}
 		else
 		{
-			clang_visitChildren(cursor_in_translation_unit, visitor_find_func_definitions, func_definitions_cursors_void_ptr);
+			clang_visitChildren(cursor_inside_translation_unit, visitor_find_func_definitions, func_definitions_cursors_void_ptr);
 		}
 		return CXChildVisit_Continue;
 	}
@@ -241,7 +239,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_find_func_entities(
 		const CXCursor cursor_in_func_definition, const CXCursor /*parent*/, const CXClientData func_entities_cursors_void_ptr)
 	{
-		static_cast<func_entities_cursors* const>(func_entities_cursors_void_ptr)->try_insert(cursor_in_func_definition);
+		static_cast<func_entities_classifier* const>(func_entities_cursors_void_ptr)->try_insert(cursor_in_func_definition);
 		clang_visitChildren(cursor_in_func_definition, visitor_find_func_entities, func_entities_cursors_void_ptr);
 		return CXChildVisit_Continue;
 	}
@@ -249,7 +247,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_all_variables_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
 		{
 			static_cast<count_all_variables_visit_data* const>(
 				count_all_variables_visit_data_void_ptr)->increment_condition(clang_getCursorReferenced(cursor_inside_entity));
@@ -261,7 +259,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_first_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
 				
 		{
 			if (static_cast<count_all_variables_visit_data* const>(
@@ -277,7 +275,7 @@ namespace cpp_code_analysis
 	CXChildVisitResult func_implementation_analysis_builder_default::visitor_count_from_second_variable_inside_entity(
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/, const CXClientData count_from_second_variable_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::clang_c_types_handling::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
 		{
 			if (auto const count_from_second_variable_visit_data_ptr = 
 				static_cast<count_from_second_variable_visit_data* const>(count_from_second_variable_visit_data_void_ptr);
@@ -302,7 +300,7 @@ namespace cpp_code_analysis
 			static_cast<class var_definition_visit_data* const>(var_definition_visit_data_void_ptr);
 		const auto& first_traversal_data = var_definition_visit_data_ptr->first_traversal_data();
 
-		if (clang_c_adaptation::clang_c_types_handling::is_cursor_to_literal(cursor_inside_var_definition))
+		if (clang_c_adaptation::common_checks::is_cursor_to_literal(cursor_inside_var_definition))
 		{
 			var_definition_visit_data_ptr->increment_condition(var_usage_condition::defined_with_literals);
 			clang_visitChildren(cursor_inside_var_definition, visitor_traverse_var_definition, var_definition_visit_data_void_ptr);

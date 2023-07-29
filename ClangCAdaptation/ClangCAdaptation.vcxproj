@@ -179,22 +179,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="clang_c_types_handling.h" />
     <ClInclude Include="code_entity_location.h" />
     <ClInclude Include="code_entity_spelling.h" />
+    <ClInclude Include="common_checks.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxindex_wrapper.h" />
     <ClInclude Include="cxstring_wrapper.h" />
     <ClInclude Include="func_location.h" />
     <ClInclude Include="func_spelling.h" />
+    <ClInclude Include="spelling_extractor.h" />
     <ClInclude Include="translation_unit_wrapper.h" />
     <ClInclude Include="var_origin.h" />
     <ClInclude Include="var_location.h" />
     <ClInclude Include="var_spelling.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="clang_c_types_handling.cpp" />
+    <ClCompile Include="common_checks.cpp" />
+    <ClCompile Include="spelling_extractor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

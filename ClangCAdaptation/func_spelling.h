@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "code_entity_spelling.h"
-#include "clang_c_types_handling.h"
+#include "common_checks.h"
 #include <stdexcept>
 
 
@@ -14,7 +14,7 @@ namespace clang_c_adaptation
 		func_spelling() noexcept = default;
 		explicit func_spelling(const CXCursor& cursor_to_func_decl) : code_entity_spelling(cursor_to_func_decl)
 		{
-			if (!clang_c_types_handling::is_cursor_to_func_declaration(cursor_to_func_decl))
+			if (!common_checks::is_cursor_to_func_declaration(cursor_to_func_decl))
 			{
 				throw std::invalid_argument(not_func_msg);
 			}

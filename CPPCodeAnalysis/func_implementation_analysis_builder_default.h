@@ -2,7 +2,7 @@
 #include "func_implementation_analysis_builder_abstract.h"
 #include "cxcursor_hash.h"
 #include "cxcursors_equal.h"
-#include "func_entities_cursors.h"
+#include "func_entities_classifier.h"
 #include "var_usage_conditions.h"
 #include <unordered_set>
 
@@ -61,13 +61,13 @@ namespace cpp_code_analysis
 		create_unordered_map_count_arrays_by_var_cursors(
 			const std::unordered_map<
 				CXCursor, 
-				var_origin_usage_counter_pair, 
+				var_origin_and_usage_counter_pair, 
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& origin_and_usage_counter_by_var);
 
 
 		static void count_all_variables_inside_entities(
-			const func_entities_cursors& first_traversal_data,
+			const func_entities_classifier& first_traversal_data,
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
@@ -77,7 +77,7 @@ namespace cpp_code_analysis
 			var_usage_condition counted_condition);
 
 		static void count_first_variable_inside_entities(
-			const func_entities_cursors& first_traversal_data,
+			const func_entities_classifier& first_traversal_data,
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
@@ -87,7 +87,7 @@ namespace cpp_code_analysis
 			var_usage_condition counted_condition);
 
 		static void count_from_second_variable_inside_entities(
-			const func_entities_cursors& first_traversal_data,
+			const func_entities_classifier& first_traversal_data,
 			const std::vector<func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
@@ -98,7 +98,7 @@ namespace cpp_code_analysis
 		
 
 		static CXChildVisitResult visitor_find_func_definitions(
-			CXCursor cursor_in_translation_unit, CXCursor parent, CXClientData func_definitions_cursors_void_ptr);
+			CXCursor cursor_inside_translation_unit, CXCursor parent, CXClientData func_definitions_cursors_void_ptr);
 
 		static CXChildVisitResult visitor_find_func_entities(
 			CXCursor cursor_in_func_definition, CXCursor parent, CXClientData func_entities_cursors_void_ptr);
