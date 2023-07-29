@@ -17,13 +17,6 @@ TEST(index_of_count_vectors_pair_test, ctor_with_index)
 	ASSERT_EQ(index_of_count_vectors_pair.to_size_t(), index);
 }
 
-TEST(index_of_count_vectors_pair_test, methods_through_base_class)
-{
-	constexpr size_t index = 42;
-	const index_of_count_vectors_pair index_of_count_vectors_pair(index);
-	const typed_index* const typed_index_ptr = &index_of_count_vectors_pair;
-	ASSERT_EQ(typed_index_ptr->to_size_t(), index);
-}
 
 
 TEST(count_matrices_similarity_data_test, ctor_default)

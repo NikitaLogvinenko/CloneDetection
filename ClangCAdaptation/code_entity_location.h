@@ -10,8 +10,7 @@ namespace clang_c_adaptation
 		std::filesystem::path filename_{};
 		unsigned line_{};
 		unsigned column_{};
-		unsigned offset_{};
-		bool is_valid_{ false };
+		unsigned offset_from_file_start_{};
 
 		inline static const CXSourceRange null_range = clang_getNullRange();
 
@@ -26,11 +25,14 @@ namespace clang_c_adaptation
 			}
 			const CXSourceLocation location = clang_getRangeStart(range);
 			CXFile file;
-			clang_getFileLocation(location, &file, &line_, &column_, &offset_);
+			clang_getFileLocation(location, &file, &line_, &column_, &offset_from_file_start_);
 			filename_ = std::filesystem::path(cxstring_wrapper(clang_getFileName(file)).c_str());
-			is_valid_ = true;
 		}
 
+		code_entity_location(const code_entity_location& other) = default;
+		code_entity_location(code_entity_location&& other) noexcept = default;
+		code_entity_location& operator=(const code_entity_location& other) = default;
+		code_entity_location& operator=(code_entity_location&& other) noexcept = default;
 		virtual ~code_entity_location() = default;
 
 		[[nodiscard]] const std::filesystem::path& filename() const noexcept
@@ -48,14 +50,14 @@ namespace clang_c_adaptation
 			return column_;
 		}
 
-		[[nodiscard]] unsigned offset() const noexcept
+		[[nodiscard]] unsigned offset_from_file_start() const noexcept
 		{
-			return offset_;
+			return offset_from_file_start_;
 		}
 
 		[[nodiscard]] bool is_valid() const noexcept
 		{
-			return is_valid_;
+			return !filename_.empty();
 		}
 
 		[[nodiscard]] bool operator==(const code_entity_location& other) const noexcept = default;

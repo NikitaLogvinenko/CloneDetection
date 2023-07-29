@@ -1,16 +1,10 @@
 ﻿#pragma once
 #include "cm_similar_vectors_data.h"
+#include "index_of_count_vectors_pair.h"
 #include <utility>
 
 namespace count_matrix
 {
-	class index_of_count_vectors_pair final : public typed_index
-	{
-	public:
-		index_of_count_vectors_pair() noexcept = default;
-		explicit index_of_count_vectors_pair(const size_t index) noexcept : typed_index(index) {}
-	};
-
 	class count_matrices_similarity_data final
 	{
 		class const_similar_vectors_data_iterator final : public std::vector<cm_similar_vectors_data>::const_iterator

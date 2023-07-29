@@ -1,17 +1,11 @@
 ﻿#pragma once
 #include "count_vector.h"
+#include "index_of_count_vector.h"
 #include <vector>
 #include <algorithm>
 
 namespace count_matrix
 {
-	class index_of_count_vector final : public typed_index
-	{
-	public:
-		index_of_count_vector() noexcept = default;
-		explicit index_of_count_vector(const size_t index) noexcept : typed_index(index) {}
-	};
-
 	template <size_t CountVectorDimension>
 	class count_matrix final
 	{

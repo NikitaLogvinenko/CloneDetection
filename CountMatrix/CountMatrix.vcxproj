@@ -171,8 +171,10 @@
     <ClInclude Include="count_matrices_similarity_data.h" />
     <ClInclude Include="cm_similar_vectors_data.h" />
     <ClInclude Include="count_matrix.h" />
+    <ClInclude Include="index_of_count_value.h" />
+    <ClInclude Include="index_of_count_vectors_pair.h" />
+    <ClInclude Include="index_of_count_vector.h" />
     <ClInclude Include="relative_similarity.h" />
-    <ClInclude Include="typed_index.h" />
     <ClInclude Include="count_vector.h" />
     <ClInclude Include="count_vector_value.h" />
     <ClInclude Include="cm_max_weighted_bipartite_matching.h" />

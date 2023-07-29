@@ -178,7 +178,6 @@
     <ClCompile Include="count_vector_tests.cpp" />
     <ClCompile Include="count_vector_value_tests.cpp" />
     <ClCompile Include="relative_similarity_tests.cpp" />
-    <ClCompile Include="typed_index_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="count_matrix_tests_miscellanious.h" />

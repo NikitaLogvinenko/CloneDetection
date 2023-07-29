@@ -182,11 +182,12 @@ namespace clang_c_adaptation
 		{
 			throw std::invalid_argument(wrong_cursor_type_msg);
 		}
-		const std::string entire_spelling = join(get_cursor_extent_tokens(cursor), tokens_sep);
 
 		std::vector<std::string> entire_and_subtrees_spellings{};
 		const size_t total_spellings = 1 + children_count;
 		entire_and_subtrees_spellings.reserve(total_spellings);
+		entire_and_subtrees_spellings.emplace_back(
+			join(get_cursor_extent_tokens(cursor), tokens_sep));
 		clang_visitChildren(cursor, visitor_append_subtrees_spellings, &entire_and_subtrees_spellings);
 
 		if (entire_and_subtrees_spellings.size() != total_spellings)

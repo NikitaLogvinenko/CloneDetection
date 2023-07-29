@@ -189,7 +189,6 @@
     <ClInclude Include="func_location.h" />
     <ClInclude Include="func_spelling.h" />
     <ClInclude Include="translation_unit_wrapper.h" />
-    <ClInclude Include="typed_string.h" />
     <ClInclude Include="var_linkage.h" />
     <ClInclude Include="var_location.h" />
     <ClInclude Include="var_spelling.h" />

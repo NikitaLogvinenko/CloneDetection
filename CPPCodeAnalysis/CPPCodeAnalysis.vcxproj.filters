@@ -15,6 +15,7 @@
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="analysed_functions_info.h" />
     <ClInclude Include="analysed_func_info_index.h" />
+    <ClInclude Include="index_of_var_usage_info.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="func_entities_cursors.cpp" />

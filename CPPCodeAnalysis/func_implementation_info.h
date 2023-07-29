@@ -3,17 +3,11 @@
 #include "func_location.h"
 #include "var_usage_info.h"
 #include "count_matrix.h"
+#include "index_of_var_usage_info.h"
 #include <vector>
 
 namespace cpp_code_analysis
 {
-	class index_of_var_usage_info final : public count_matrix::typed_index
-	{
-	public:
-		index_of_var_usage_info() noexcept = default;
-		explicit index_of_var_usage_info(const size_t index) noexcept : typed_index(index) {}
-	};
-
 	template <size_t VarUsageConditionsN>
 	class func_implementation_info final
 	{

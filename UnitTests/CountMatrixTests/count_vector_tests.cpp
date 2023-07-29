@@ -16,13 +16,6 @@ TEST(index_of_count_value_test, ctor_with_index)
 	ASSERT_EQ(index_of_count_value.to_size_t(), index);
 }
 
-TEST(index_of_count_value_test, methods_through_base_class)
-{
-	constexpr size_t index = 42;
-	const index_of_count_value index_of_count_value(index);
-	const typed_index* const typed_index_ptr = &index_of_count_value;
-	ASSERT_EQ(typed_index_ptr->to_size_t(), index);
-}
 
 TEST(count_vector_dim42_test, default_ctor)
 {
