@@ -7,7 +7,6 @@ namespace cpp_code_analysis
 		is_param,
 		is_local_var,
 		is_member_field,
-		is_static_filed,
 		is_global_var,
 
 

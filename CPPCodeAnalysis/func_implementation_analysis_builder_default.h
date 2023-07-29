@@ -61,9 +61,9 @@ namespace cpp_code_analysis
 		create_unordered_map_count_arrays_by_var_cursors(
 			const std::unordered_map<
 				CXCursor, 
-				var_linkage_usage_counter_pair, 
+				var_origin_usage_counter_pair, 
 				clang_c_adaptation::cxcursor_hash,
-				clang_c_adaptation::cxcursors_equal>& linkage_and_usage_counter_by_var);
+				clang_c_adaptation::cxcursors_equal>& origin_and_usage_counter_by_var);
 
 
 		static void count_all_variables_inside_entities(
@@ -121,15 +121,16 @@ namespace cpp_code_analysis
 
 		inline static const std::string array_by_var_insertion_failure_msg{ "Failure during preparing container for variables usage info." };
 
-		inline static const std::unordered_map<clang_c_adaptation::var_linkage, var_usage_condition> var_usage_linkage_condition_by_var_linkage{
-			{ clang_c_adaptation::var_linkage::func_param, var_usage_condition::is_param },
-			{ clang_c_adaptation::var_linkage::local_var, var_usage_condition::is_local_var },
-			{ clang_c_adaptation::var_linkage::member_field, var_usage_condition::is_member_field },
-			{ clang_c_adaptation::var_linkage::static_field, var_usage_condition::is_static_filed },
-			{ clang_c_adaptation::var_linkage::global_var, var_usage_condition::is_global_var }
+		inline static const std::unordered_map<clang_c_adaptation::var_origin, var_usage_condition>
+		var_usage_origin_condition_by_var_origin
+		{
+			{ clang_c_adaptation::var_origin::func_param, var_usage_condition::is_param },
+			{ clang_c_adaptation::var_origin::local_var, var_usage_condition::is_local_var },
+			{ clang_c_adaptation::var_origin::member_field, var_usage_condition::is_member_field },
+			{ clang_c_adaptation::var_origin::global_var, var_usage_condition::is_global_var }
 		};
 
-		inline static const count_matrix::count_vector_value var_usage_linkage_condition_value{1};
+		inline static const count_matrix::count_vector_value var_usage_origin_condition_value{1};
 		inline static const count_matrix::count_vector_value var_defined_count_value{1};
 
 		inline static const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_all_variables_counting

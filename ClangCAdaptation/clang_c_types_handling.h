@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "var_linkage.h"
+#include "var_origin.h"
 #include "clang-c/Index.h"
 #include <string>
 #include <memory>
@@ -50,7 +50,7 @@ namespace clang_c_adaptation
 
 		[[nodiscard]] static bool is_cursor_to_literal(const CXCursor& cursor) noexcept;
 
-		[[nodiscard]] static var_linkage determine_var_linkage(const CXCursor& cursor_to_var_decl);
+		[[nodiscard]] static var_origin determine_var_origin(const CXCursor& cursor_to_var_decl);
 
 
 		[[nodiscard]] static std::string get_binary_operator_spelling(const CXCursor& cursor_to_binary_op);

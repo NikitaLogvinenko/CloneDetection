@@ -2,7 +2,7 @@
 #include "cxcursor_hash.h"
 #include "cxcursors_equal.h"
 #include "func_entity_type.h"
-#include "var_linkage_usage_counter_pair.h"
+#include "var_origin_usage_counter_pair.h"
 #include <unordered_map>
 #include <unordered_set>
 #include <string>
@@ -13,9 +13,9 @@ namespace cpp_code_analysis
 	{
 		std::unordered_map<
 			CXCursor,
-			var_linkage_usage_counter_pair,
+			var_origin_usage_counter_pair,
 			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal> var_linkage_and_usage_counter_by_decl_cursor_{};
+			clang_c_adaptation::cxcursors_equal> var_origin_and_usage_counter_by_decl_cursor_{};
 
 		std::unordered_map<
 			func_entity_type,
@@ -36,9 +36,9 @@ namespace cpp_code_analysis
 
 		bool try_insert(const CXCursor& cursor);
 
-		[[nodiscard]] const auto& var_linkage_and_usage_counter_by_decl_cursors() const noexcept
+		[[nodiscard]] const auto& var_origin_and_usage_counter_by_decl_cursors() const noexcept
 		{
-			return var_linkage_and_usage_counter_by_decl_cursor_;
+			return var_origin_and_usage_counter_by_decl_cursor_;
 		}
 
 		[[nodiscard]] const std::unordered_set<

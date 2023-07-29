@@ -9,10 +9,10 @@ namespace count_matrix
 	template <size_t Dimension>
 	class count_vector final
 	{
-		class const_values_iterator final : public std::vector<count_vector_value>::const_iterator
+		class const_iterator final : public std::vector<count_vector_value>::const_iterator
 		{
 		public:
-			explicit const_values_iterator(const std::vector<count_vector_value>::const_iterator& vector_iterator) noexcept
+			explicit const_iterator(const std::vector<count_vector_value>::const_iterator& vector_iterator) noexcept
 				: std::vector<count_vector_value>::const_iterator(vector_iterator) {}
 		};
 
@@ -37,14 +37,14 @@ namespace count_matrix
 			return count_values_.at(value_index.to_size_t());
 		}
 
-		[[nodiscard]] const_values_iterator begin() const noexcept
+		[[nodiscard]] const_iterator begin() const noexcept
 		{
-			return const_values_iterator(count_values_.cbegin());
+			return const_iterator(count_values_.cbegin());
 		}
 
-		[[nodiscard]] const_values_iterator end() const noexcept
+		[[nodiscard]] const_iterator end() const noexcept
 		{
-			return const_values_iterator(count_values_.cend());
+			return const_iterator(count_values_.cend());
 		}
 	};
 

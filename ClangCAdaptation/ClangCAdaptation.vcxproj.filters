@@ -9,7 +9,7 @@
     <ClInclude Include="func_spelling.h" />
     <ClInclude Include="var_location.h" />
     <ClInclude Include="func_location.h" />
-    <ClInclude Include="var_linkage.h" />
+    <ClInclude Include="var_origin.h" />
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxindex_wrapper.h" />

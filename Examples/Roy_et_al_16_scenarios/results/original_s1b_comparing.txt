@@ -13,19 +13,19 @@ functions_similarity_threshold=0%
 		matched variables: 
 			variables similarity: 100%
 			 matched variable from first function: 
-			variable spelling: sum
-			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp line: 5 column: 2
-			matched variable from second function: 
-			variable spelling: sum
-			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s1b.cpp line: 5 column: 2
-
-			variables similarity: 100%
-			 matched variable from first function: 
 			variable spelling: n
 			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp line: 3 column: 14
 			matched variable from second function: 
 			variable spelling: n
 			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s1b.cpp line: 3 column: 14
+
+			variables similarity: 100%
+			 matched variable from first function: 
+			variable spelling: sum
+			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp line: 5 column: 2
+			matched variable from second function: 
+			variable spelling: sum
+			variable location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s1b.cpp line: 5 column: 2
 
 			variables similarity: 100%
 			 matched variable from first function: 

@@ -207,7 +207,7 @@
     <ClInclude Include="func_implementation_info_hash.h" />
     <ClInclude Include="func_entity_type.h" />
     <ClInclude Include="index_of_var_usage_info.h" />
-    <ClInclude Include="var_linkage_usage_counter_pair.h" />
+    <ClInclude Include="var_origin_usage_counter_pair.h" />
     <ClInclude Include="var_usage_info.h" />
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>

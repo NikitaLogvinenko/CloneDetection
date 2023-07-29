@@ -21,12 +21,12 @@ namespace cpp_code_analysis
 		if (const CXCursor referenced_cursor = clang_getCursorReferenced(cursor);
 			clang_c_adaptation::clang_c_types_handling::is_cursor_to_var_decl(referenced_cursor))
 		{
-			const auto [iterator, inserted] = var_linkage_and_usage_counter_by_decl_cursor_.try_emplace(
+			const auto [iterator, inserted] = var_origin_and_usage_counter_by_decl_cursor_.try_emplace(
 				referenced_cursor,
-				clang_c_adaptation::clang_c_types_handling::determine_var_linkage(referenced_cursor),
+				clang_c_adaptation::clang_c_types_handling::determine_var_origin(referenced_cursor),
 				initial_usage_counter_value_by_reference);
-			auto& linkage_usage_counter_pair = iterator->second;
-			++linkage_usage_counter_pair.used_n_times();
+			auto& origin_usage_counter_pair = iterator->second;
+			++origin_usage_counter_pair.used_n_times();
 			return inserted;
 		}
 		return false;
@@ -38,8 +38,8 @@ namespace cpp_code_analysis
 		{
 			return false;
 		}
-		const auto linkage_type = clang_c_adaptation::clang_c_types_handling::determine_var_linkage(cursor);
-		var_linkage_and_usage_counter_by_decl_cursor_.try_emplace(cursor, linkage_type, initial_usage_counter_value_by_declaration);
+		const auto origin = clang_c_adaptation::clang_c_types_handling::determine_var_origin(cursor);
+		var_origin_and_usage_counter_by_decl_cursor_.try_emplace(cursor, origin, initial_usage_counter_value_by_declaration);
 		return true;
 	}
 

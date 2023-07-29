@@ -19,10 +19,10 @@ namespace cpp_code_analysis
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>;
 
-		using unordered_map_linkage_usage_counter_pair_by_var_cursor =
+		using unordered_map_origin_usage_counter_pair_by_var_cursor =
 			const std::unordered_map<
 				CXCursor,
-				var_linkage_usage_counter_pair,
+				var_origin_usage_counter_pair,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>;
 
@@ -107,7 +107,7 @@ namespace cpp_code_analysis
 		func_entities_cursors first_traversal_data{};
 		clang_visitChildren(func_definition_cursor, visitor_find_func_entities, &first_traversal_data);
 		auto count_arrays_by_var_cursors = 
-			create_unordered_map_count_arrays_by_var_cursors(first_traversal_data.var_linkage_and_usage_counter_by_decl_cursors());
+			create_unordered_map_count_arrays_by_var_cursors(first_traversal_data.var_origin_and_usage_counter_by_decl_cursors());
 
 		for (const auto& [usage_condition, traversed_entity_types] : entities_by_condition_for_all_variables_counting)
 		{
@@ -133,21 +133,21 @@ namespace cpp_code_analysis
 
 		std::vector<var_usage_info<default_conditions_total>> variables_usage_info{};
 		variables_usage_info.reserve(count_arrays_by_var_cursors.size());
-		for (const auto& [used_var_cursor, linkage_usage_counter_pair] : first_traversal_data.var_linkage_and_usage_counter_by_decl_cursors())
+		for (const auto& [used_var_cursor, origin_usage_counter_pair] : first_traversal_data.var_origin_and_usage_counter_by_decl_cursors())
 		{
 			variables_usage_info.emplace_back(clang_c_adaptation::var_spelling(used_var_cursor), clang_c_adaptation::var_location(used_var_cursor),
-				linkage_usage_counter_pair.linkage(), count_arrays_by_var_cursors[used_var_cursor]);
+				origin_usage_counter_pair.origin(), count_arrays_by_var_cursors[used_var_cursor]);
 		}
 
 		return variables_usage_info;
 	}
 
 	unordered_map_count_arrays_by_var_cursors func_implementation_analysis_builder_default::create_unordered_map_count_arrays_by_var_cursors(
-			unordered_map_linkage_usage_counter_pair_by_var_cursor& linkage_and_usage_counter_by_var)
+			unordered_map_origin_usage_counter_pair_by_var_cursor& origin_and_usage_counter_by_var)
 	{
 		unordered_map_count_arrays_by_var_cursors count_arrays_by_var_cursors{};
-		count_arrays_by_var_cursors.reserve(linkage_and_usage_counter_by_var.size());
-		for (const auto& [var_cursor, linkage_used_counter_pair] : linkage_and_usage_counter_by_var)
+		count_arrays_by_var_cursors.reserve(origin_and_usage_counter_by_var.size());
+		for (const auto& [var_cursor, origin_used_counter_pair] : origin_and_usage_counter_by_var)
 		{
 			const auto [iterator, inserted] = count_arrays_by_var_cursors.try_emplace(
 				var_cursor, std::array<count_matrix::count_vector_value, default_conditions_total>{});
@@ -157,13 +157,13 @@ namespace cpp_code_analysis
 			}
 
 			auto& count_array = iterator->second;
-			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = count_matrix::count_vector_value(linkage_used_counter_pair.used_n_times());
-			if (var_usage_linkage_condition_by_var_linkage.contains(linkage_used_counter_pair.linkage()))
+			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = count_matrix::count_vector_value(origin_used_counter_pair.used_n_times());
+			if (var_usage_origin_condition_by_var_origin.contains(origin_used_counter_pair.origin()))
 			{
-				count_array[static_cast<size_t>(var_usage_linkage_condition_by_var_linkage.at(linkage_used_counter_pair.linkage()))] = var_usage_linkage_condition_value;
+				count_array[static_cast<size_t>(var_usage_origin_condition_by_var_origin.at(origin_used_counter_pair.origin()))] = var_usage_origin_condition_value;
 			}
-			if (linkage_used_counter_pair.linkage() == clang_c_adaptation::var_linkage::func_param ||
-				linkage_used_counter_pair.linkage() == clang_c_adaptation::var_linkage::local_var)
+			if (origin_used_counter_pair.origin() == clang_c_adaptation::var_origin::func_param ||
+				origin_used_counter_pair.origin() == clang_c_adaptation::var_origin::local_var)
 			{
 				count_array[static_cast<size_t>(var_usage_condition::defined)] = var_defined_count_value;
 			}

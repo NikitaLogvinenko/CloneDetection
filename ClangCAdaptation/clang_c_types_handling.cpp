@@ -42,26 +42,26 @@ namespace clang_c_adaptation
 		return literals_kinds.contains(clang_getCursorKind(cursor));
 	}
 
-	var_linkage clang_c_types_handling::determine_var_linkage(const CXCursor& cursor_to_var_decl)
+	var_origin clang_c_types_handling::determine_var_origin(const CXCursor& cursor_to_var_decl)
 	{
 		switch (clang_getCursorKind(cursor_to_var_decl))
 		{
 		case CXCursor_ParmDecl:
-			return var_linkage::func_param;
+			return var_origin::func_param;
 		case CXCursor_FieldDecl:
-			return var_linkage::member_field;
+			return var_origin::member_field;
 		case CXCursor_VarDecl:
 		{
-			switch (clang_getCursorLinkage(cursor_to_var_decl))
+			switch(clang_getCursorLinkage(cursor_to_var_decl))
 			{
 			case CXLinkage_NoLinkage:
-				return var_linkage::local_var;
+				return var_origin::local_var;
 			case CXLinkage_Internal:
-				return var_linkage::global_var;
+			case CXLinkage_UniqueExternal:
 			case CXLinkage_External:
-				return var_linkage::static_field;
-			default:
-				return var_linkage::unknown;
+				return var_origin::global_var;
+			case CXLinkage_Invalid:
+				return var_origin::unknown;
 			}
 		}
 		default:

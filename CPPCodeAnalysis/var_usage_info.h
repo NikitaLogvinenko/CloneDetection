@@ -2,7 +2,7 @@
 #include "var_spelling.h"
 #include "var_location.h"
 #include "count_vector.h"
-#include "var_linkage.h"
+#include "var_origin.h"
 
 namespace cpp_code_analysis
 {
@@ -11,16 +11,16 @@ namespace cpp_code_analysis
 	{
 		clang_c_adaptation::var_spelling spelling_{};
 		clang_c_adaptation::var_location location_{};
-		clang_c_adaptation::var_linkage linkage_{ clang_c_adaptation::var_linkage::unknown };
+		clang_c_adaptation::var_origin origin_{ clang_c_adaptation::var_origin::unknown };
 		count_matrix::count_vector<VarUsageConditionsN> usage_count_vector_{};
 
 	public:
 		var_usage_info() noexcept = default;
 		explicit var_usage_info(
 			clang_c_adaptation::var_spelling spelling, clang_c_adaptation::var_location location,
-		    const clang_c_adaptation::var_linkage linkage, 
+		    const clang_c_adaptation::var_origin origin, 
 			const std::array<count_matrix::count_vector_value, VarUsageConditionsN>& usage_values_array) noexcept
-			: spelling_(std::move(spelling)), location_(std::move(location)), linkage_(linkage), usage_count_vector_(usage_values_array) {}
+			: spelling_(std::move(spelling)), location_(std::move(location)), origin_(origin), usage_count_vector_(usage_values_array) {}
 
 		[[nodiscard]] const clang_c_adaptation::var_spelling& spelling() const noexcept
 		{
@@ -32,9 +32,9 @@ namespace cpp_code_analysis
 			return location_;
 		}
 
-		[[nodiscard]] clang_c_adaptation::var_linkage linkage() const noexcept
+		[[nodiscard]] clang_c_adaptation::var_origin origin() const noexcept
 		{
-			return linkage_;
+			return origin_;
 		}
 
 		[[nodiscard]] const count_matrix::count_vector<VarUsageConditionsN>& usage_count_vector() const noexcept
