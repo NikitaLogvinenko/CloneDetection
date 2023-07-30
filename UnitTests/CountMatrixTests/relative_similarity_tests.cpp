@@ -16,8 +16,8 @@ TEST(relative_similarity_test, ctor_with_valid_similarity)
 
 TEST(relative_similarity_test, ctor_with_invalid_similarity)
 {
-	ASSERT_THROW(count_matrix::relative_similarity(-0.1), std::domain_error);
-	ASSERT_THROW(count_matrix::relative_similarity(1.1), std::domain_error);
+	ASSERT_THROW(count_matrix::relative_similarity(-0.1), common_exceptions::initialized_value_out_of_range);
+	ASSERT_THROW(count_matrix::relative_similarity(1.1), common_exceptions::initialized_value_out_of_range);
 }
 
 TEST(relative_similarity_test, comparing_operators)

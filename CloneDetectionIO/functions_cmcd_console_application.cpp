@@ -5,6 +5,9 @@
 #include "cxindex_wrapper.h"
 #include "translation_unit_wrapper.h"
 #include "cm_clone_functions_typer.h"
+#include "existed_file_rewriting_exception.h"
+#include "file_not_opened_exception.h"
+#include "types_conversion_error.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -48,7 +51,7 @@ namespace clone_detection_io
 			iss >> similarity;
 			if (!iss)
 			{
-				throw std::runtime_error(can_not_convert_similarity_msg);
+				throw common_exceptions::types_conversion_error(can_not_convert_similarity_msg);
 			}
 			return relative_similarity{ similarity };
 		}
@@ -72,7 +75,7 @@ namespace clone_detection_io
 			const std::filesystem::path save_filename(argv[save_filename_index]);
 			if (exists(save_filename))
 			{
-				throw std::logic_error(save_file_exists_msg);
+				throw common_exceptions::existed_file_rewriting_exception(save_file_exists_msg);
 			}
 
 			const cxindex_wrapper index{};
@@ -96,7 +99,7 @@ namespace clone_detection_io
 			std::ofstream save_file(save_filename);
 			if (!save_file)
 			{
-				throw std::runtime_error(save_file_was_not_opened_msg);
+				throw common_exceptions::file_not_opened_exception(save_file_was_not_opened_msg);
 			}
 			cm_clone_functions_typer::type(save_file, funcs_pairwise_similarity, funcs_similarity_threshold);
 			std::cout << "Detection performed!\n";

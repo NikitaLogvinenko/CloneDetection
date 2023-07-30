@@ -98,7 +98,7 @@ TEST_F(cm_max_weighted_bipartite_matching_dim3_test_f, default_weights_decimals)
 
 TEST_F(cm_max_weighted_bipartite_matching_dim3_test_f, ctor_too_large_weights_decimals)
 {
-	ASSERT_THROW(cm_max_weighted_bipartite_matching<3>{1000000}, std::range_error);
+	ASSERT_THROW(cm_max_weighted_bipartite_matching<3>{1000000}, common_exceptions::overflow_exception);
 }
 
 TEST_F(cm_max_weighted_bipartite_matching_dim3_test_f, two_empty_matrices)
@@ -363,7 +363,7 @@ TEST_F(cm_max_weighted_bipartite_matching_zero_dim_test_f, default_weights_decim
 
 TEST_F(cm_max_weighted_bipartite_matching_zero_dim_test_f, ctor_too_large_weights_decimals)
 {
-	ASSERT_THROW(cm_max_weighted_bipartite_matching<0>{1000000}, std::range_error);
+	ASSERT_THROW(cm_max_weighted_bipartite_matching<0>{1000000}, common_exceptions::overflow_exception);
 }
 
 TEST_F(cm_max_weighted_bipartite_matching_zero_dim_test_f, two_empty_matrices)

@@ -1,8 +1,7 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
 #include "cxindex_wrapper.h"
-#include <filesystem>
-#include <stdexcept>
+#include "create_translation_unit_exception.h"
 
 namespace clang_c_adaptation
 {
@@ -10,7 +9,6 @@ namespace clang_c_adaptation
 	{
 		CXTranslationUnit translation_unit_{};
 
-		inline static const std::string ctor_error_msg{ "Failure during translation unit creation. AST file: " };
 		static constexpr auto invalid_tu = nullptr;
 
 	public:
@@ -19,7 +17,7 @@ namespace clang_c_adaptation
 		{
 			if (translation_unit_ == invalid_tu)
 			{
-				throw std::runtime_error(ctor_error_msg + ast_filename.string());
+				throw create_translation_unit_exception(ast_filename);
 			}
 		}
 

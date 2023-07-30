@@ -1,6 +1,7 @@
 ﻿#include "spelling_extractor.h"
 #include "cxstring_wrapper.h"
-#include <stdexcept>
+#include "wrong_cursor_kind_exception.h"
+#include "unsuccessfull_tokenization_exception.h"
 #include <numeric>
 
 namespace clang_c_adaptation
@@ -28,7 +29,7 @@ namespace clang_c_adaptation
 		catch (const std::exception& ex)
 		{
 			clang_disposeTokens(translation_unit, tokens, tokens_n);
-			throw std::runtime_error(cursor_tokenization_error_msg + ex.what());
+			throw unsuccessfull_tokenization_exception(ex);
 		}
 		clang_disposeTokens(translation_unit, tokens, tokens_n);
 		return tokens_vector;
@@ -66,7 +67,7 @@ namespace clang_c_adaptation
 		{
 			return entire_spelling.substr(part_without_operator.size());
 		}
-		throw std::runtime_error(unexpected_cursor_to_unary_op_msg);
+		throw wrong_cursor_kind_exception(unexpected_cursor_to_unary_op_msg);
 	}
 
 	std::string spelling_extractor::get_compound_assign_spelling(const CXCursor& cursor_to_compound_assign)
@@ -96,7 +97,7 @@ namespace clang_c_adaptation
 			if (!entire_spelling.starts_with(left_subtree) || !entire_spelling.ends_with(right_subtree)
 				|| left_subtree.size() + right_subtree.size() >= entire_spelling.size())
 			{
-				throw std::runtime_error(cursor_is_not_between_two_children_msg);
+				throw wrong_cursor_kind_exception(cursor_is_not_between_two_children_msg);
 			}
 			return entire_spelling.substr(left_subtree.size(),
 				entire_spelling.size() - left_subtree.size() - right_subtree.size());
@@ -108,7 +109,7 @@ namespace clang_c_adaptation
 	{
 		if (clang_getCursorKind(cursor) != expected_cursor_kind)
 		{
-			throw std::invalid_argument(wrong_cursor_type_msg);
+			throw wrong_cursor_kind_exception(wrong_cursor_type_msg);
 		}
 
 		std::vector<std::string> entire_and_subtrees_spellings{};
@@ -120,7 +121,7 @@ namespace clang_c_adaptation
 
 		if (entire_and_subtrees_spellings.size() != total_spellings)
 		{
-			throw std::invalid_argument(wrong_children_count_msg);
+			throw wrong_cursor_kind_exception(wrong_children_count_msg);
 		}
 
 		return entire_and_subtrees_spellings;

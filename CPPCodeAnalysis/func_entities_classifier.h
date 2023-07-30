@@ -71,7 +71,7 @@ namespace cpp_code_analysis
 			{ "%=", func_entity_type::modulus_assignment_operator }
 		};
 
-		inline static const std::string not_var_decl_msg{"Cursor does not point to any type of variables declarations."};
+		inline static const std::string not_var_decl_msg{"determine_var_origin: cursor does not point to any type of variables declarations."};
 		inline static const std::string operator_spelling_start{ "operator" };
 		inline static const std::string square_brackets{ "[]" };
 		inline static const std::string round_brackets{ "()" };

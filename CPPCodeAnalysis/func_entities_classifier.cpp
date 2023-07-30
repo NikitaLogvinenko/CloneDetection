@@ -1,7 +1,7 @@
 ﻿#include "func_entities_classifier.h"
 #include "spelling_extractor.h"
 #include "code_entity_spelling.h"
-#include <stdexcept>
+#include "wrong_cursor_kind_exception.h"
 
 namespace cpp_code_analysis
 {
@@ -82,7 +82,7 @@ namespace cpp_code_analysis
 			}
 		}
 		default:
-			throw std::invalid_argument(not_var_decl_msg);
+			throw clang_c_adaptation::wrong_cursor_kind_exception(not_var_decl_msg);
 		}
 	}
 

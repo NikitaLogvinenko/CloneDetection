@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "cm_similarity_abstract_algorithm.h"
 #include "dlib/optimization/max_cost_assignment.h"
+#include "overflow_exception.h"
 #include <limits>
 
 namespace count_matrix
@@ -46,7 +47,7 @@ namespace count_matrix
 			{
 				return pow_result;
 			}
-			throw std::range_error(error_msg);
+			throw common_exceptions::overflow_exception(error_msg);
 		}
 
 		[[nodiscard]] dlib::matrix<size_t> create_assignment_matrix(

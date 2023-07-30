@@ -1,5 +1,5 @@
 ﻿#include "common_checks.h"
-#include <stdexcept>
+#include "nullptr_data_exception.h"
 
 namespace clang_c_adaptation
 {
@@ -7,7 +7,7 @@ namespace clang_c_adaptation
 	{
 		if (client_data == nullptr)
 		{
-			throw std::invalid_argument(null_client_data_msg);
+			throw nullptr_data_exception(null_client_data_msg);
 		}
 	}
 

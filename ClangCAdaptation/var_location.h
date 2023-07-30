@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "code_entity_location.h"
 #include "common_checks.h"
-#include <stdexcept>
+#include "wrong_cursor_kind_exception.h"
 
 namespace clang_c_adaptation
 {
@@ -15,7 +15,7 @@ namespace clang_c_adaptation
 		{
 			if (!common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
 			{
-				throw std::invalid_argument(not_var_msg);
+				throw wrong_cursor_kind_exception(not_var_msg);
 			}
 		}
 

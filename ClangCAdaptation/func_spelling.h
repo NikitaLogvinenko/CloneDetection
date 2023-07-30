@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "code_entity_spelling.h"
 #include "common_checks.h"
-#include <stdexcept>
+#include "wrong_cursor_kind_exception.h"
 
 
 namespace clang_c_adaptation
@@ -16,7 +16,7 @@ namespace clang_c_adaptation
 		{
 			if (!common_checks::is_cursor_to_func_declaration(cursor_to_func_decl))
 			{
-				throw std::invalid_argument(not_func_msg);
+				throw wrong_cursor_kind_exception(not_func_msg);
 			}
 		}
 

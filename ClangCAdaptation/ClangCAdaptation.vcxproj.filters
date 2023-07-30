@@ -15,6 +15,10 @@
     <ClInclude Include="cxstring_wrapper.h" />
     <ClInclude Include="spelling_extractor.h" />
     <ClInclude Include="common_checks.h" />
+    <ClInclude Include="wrong_cursor_kind_exception.h" />
+    <ClInclude Include="nullptr_data_exception.h" />
+    <ClInclude Include="create_translation_unit_exception.h" />
+    <ClInclude Include="unsuccessfull_tokenization_exception.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spelling_extractor.cpp" />

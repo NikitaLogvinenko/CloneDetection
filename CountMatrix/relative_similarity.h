@@ -1,6 +1,6 @@
 ﻿#pragma once
+#include "initialized_value_out_of_range.h"
 #include <string>
-#include <stdexcept>
 #include <format>
 
 namespace count_matrix
@@ -22,7 +22,7 @@ namespace count_matrix
 		{
 			if (value_ < min_value || value_ > max_value)
 			{
-				throw std::domain_error(invalid_similarity_msg);
+				throw common_exceptions::initialized_value_out_of_range(invalid_similarity_msg);
 			}
 		}
 
