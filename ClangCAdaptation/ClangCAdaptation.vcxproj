@@ -185,13 +185,13 @@
     <ClInclude Include="create_translation_unit_exception.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxcursor_hash.h" />
-    <ClInclude Include="cxindex_wrapper.h" />
-    <ClInclude Include="cxstring_wrapper.h" />
+    <ClInclude Include="cxindex_raii.h" />
+    <ClInclude Include="cxstring_raii.h" />
     <ClInclude Include="func_location.h" />
     <ClInclude Include="func_spelling.h" />
     <ClInclude Include="nullptr_data_exception.h" />
     <ClInclude Include="spelling_extractor.h" />
-    <ClInclude Include="translation_unit_wrapper.h" />
+    <ClInclude Include="translation_unit_raii.h" />
     <ClInclude Include="unsuccessfull_tokenization_exception.h" />
     <ClInclude Include="var_origin.h" />
     <ClInclude Include="var_location.h" />
@@ -199,7 +199,6 @@
     <ClInclude Include="wrong_cursor_kind_exception.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="common_checks.cpp" />
     <ClCompile Include="spelling_extractor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

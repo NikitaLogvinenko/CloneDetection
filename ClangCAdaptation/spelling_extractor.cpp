@@ -1,5 +1,5 @@
 ﻿#include "spelling_extractor.h"
-#include "cxstring_wrapper.h"
+#include "cxstring_raii.h"
 #include "wrong_cursor_kind_exception.h"
 #include "unsuccessfull_tokenization_exception.h"
 #include <numeric>
@@ -23,13 +23,16 @@ namespace clang_c_adaptation
 			tokens_vector.reserve(tokens_n);
 			for (unsigned token_index = 0; token_index < tokens_n; ++token_index)
 			{
-				tokens_vector.emplace_back(cxstring_wrapper(clang_getTokenSpelling(translation_unit, tokens[token_index])).c_str());
+				tokens_vector.emplace_back(internal::cxstring_raii(clang_getTokenSpelling(translation_unit, tokens[token_index])).c_str());
 			}
 		}
 		catch (const std::exception& ex)
 		{
 			clang_disposeTokens(translation_unit, tokens, tokens_n);
-			throw unsuccessfull_tokenization_exception(ex);
+			throw unsuccessfull_tokenization_exception(
+				std::string(
+					"Failure during CXCursor tokenization. Memory leak was prevented. Exception: ")
+				+ ex.what());
 		}
 		clang_disposeTokens(translation_unit, tokens, tokens_n);
 		return tokens_vector;
@@ -42,10 +45,10 @@ namespace clang_c_adaptation
 			return {};
 		}
 		const std::string result = std::accumulate(
-			strings.cbegin(), strings.cend(), empty_string,
+			strings.cbegin(), strings.cend(), std::string{},
 			[&sep](std::string&& prev_part, const std::string& new_part)
 			{ return std::move(prev_part) + new_part + sep; });
-		return result.substr(zero_index, result.size() - sep.size());
+		return result.substr(first_symbol_index, result.size() - sep.size());
 	}
 
 	std::string spelling_extractor::get_binary_operator_spelling(const CXCursor& cursor_to_binary_op)
@@ -61,13 +64,14 @@ namespace clang_c_adaptation
 		const std::string& part_without_operator = entire_and_subtrees_spellings[1];
 		if (entire_spelling.ends_with(part_without_operator))
 		{
-			return entire_spelling.substr(zero_index, entire_spelling.size() - part_without_operator.size());
+			return entire_spelling.substr(first_symbol_index, entire_spelling.size() - part_without_operator.size());
 		}
 		if (entire_spelling.starts_with(part_without_operator))
 		{
 			return entire_spelling.substr(part_without_operator.size());
 		}
-		throw wrong_cursor_kind_exception(unexpected_cursor_to_unary_op_msg);
+		throw wrong_cursor_kind_exception(
+			"get_unary_operator_spelling: unexpected cursor was passed to get_unary_operator_spelling method");
 	}
 
 	std::string spelling_extractor::get_compound_assign_spelling(const CXCursor& cursor_to_compound_assign)
@@ -78,7 +82,7 @@ namespace clang_c_adaptation
 	CXChildVisitResult spelling_extractor::visitor_append_subtrees_spellings(
 		const CXCursor cursor, CXCursor, const CXClientData ptr_to_vector)
 	{
-		common_checks::client_data_not_null_validation(ptr_to_vector);
+		common_checks::throw_if_null(ptr_to_vector);
 
 		const auto vector_append_to = static_cast<std::vector<std::string>*const>(ptr_to_vector);
 		vector_append_to->push_back(join(get_cursor_extent_tokens(cursor), {}));
@@ -97,7 +101,8 @@ namespace clang_c_adaptation
 			if (!entire_spelling.starts_with(left_subtree) || !entire_spelling.ends_with(right_subtree)
 				|| left_subtree.size() + right_subtree.size() >= entire_spelling.size())
 			{
-				throw wrong_cursor_kind_exception(cursor_is_not_between_two_children_msg);
+				throw wrong_cursor_kind_exception(
+					"get_spelling_of_cursor_between_two_children_parts: cursor is not between two children msg. Unable to get its spelling.");
 			}
 			return entire_spelling.substr(left_subtree.size(),
 				entire_spelling.size() - left_subtree.size() - right_subtree.size());
@@ -109,7 +114,8 @@ namespace clang_c_adaptation
 	{
 		if (clang_getCursorKind(cursor) != expected_cursor_kind)
 		{
-			throw wrong_cursor_kind_exception(wrong_cursor_type_msg);
+			throw wrong_cursor_kind_exception(
+				"get_entire_spelling_and_subtrees_spellings: actual cursor kind differ from expected.");
 		}
 
 		std::vector<std::string> entire_and_subtrees_spellings{};
@@ -121,7 +127,8 @@ namespace clang_c_adaptation
 
 		if (entire_and_subtrees_spellings.size() != total_spellings)
 		{
-			throw wrong_cursor_kind_exception(wrong_children_count_msg);
+			throw wrong_cursor_kind_exception(
+				"get_entire_spelling_and_subtrees_spellings: wrong children count. Can not get spelling.");
 		}
 
 		return entire_and_subtrees_spellings;

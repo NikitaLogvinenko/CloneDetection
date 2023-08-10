@@ -1,14 +1,12 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include <string>
+#include "nullptr_data_exception.h"
 #include <unordered_set>
 
 namespace clang_c_adaptation
 {
 	class common_checks final
 	{
-		inline static const std::string null_client_data_msg{"Null client data passed to visitor."};
-
 		inline static const std::unordered_set literals_kinds{
 			CXCursor_IntegerLiteral, CXCursor_FloatingLiteral, CXCursor_ImaginaryLiteral,
 				CXCursor_StringLiteral, CXCursor_CharacterLiteral, CXCursor_CXXBoolLiteralExpr};
@@ -21,16 +19,41 @@ namespace clang_c_adaptation
 	public:
 		common_checks() = delete;
 
-		static void client_data_not_null_validation(CXClientData client_data);
+		static void throw_if_null(const CXClientData client_data)
+		{
+			if (client_data == nullptr)
+			{
+				throw nullptr_data_exception("Null client data passed to visitor.");
+			}
+		}
 
-		[[nodiscard]] static bool is_cursor_to_var_decl(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_to_var_decl(const CXCursor& cursor) noexcept
+		{
+			return var_decl_kinds.contains(clang_getCursorKind(cursor));
+		}
 
-		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept
+		{
+			if (clang_getCursorKind(cursor) != CXCursor_DeclRefExpr)
+			{
+				return false;
+			}
+			return is_cursor_to_var_decl(clang_getCursorReferenced(cursor));
+		}
 
-		[[nodiscard]] static bool is_cursor_to_func_declaration(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_to_func_declaration(const CXCursor& cursor) noexcept
+		{
+			return func_decl_kinds.contains(clang_getCursorKind(cursor));
+		}
 
-		[[nodiscard]] static bool is_cursor_to_func_definition(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_to_func_definition(const CXCursor& cursor) noexcept
+		{
+			return is_cursor_to_func_declaration(cursor) && clang_isCursorDefinition(cursor) != 0;
+		}
 
-		[[nodiscard]] static bool is_cursor_to_literal(const CXCursor& cursor) noexcept;
+		[[nodiscard]] static bool is_cursor_to_literal(const CXCursor& cursor) noexcept
+		{
+			return literals_kinds.contains(clang_getCursorKind(cursor));
+		}
 	};
 }

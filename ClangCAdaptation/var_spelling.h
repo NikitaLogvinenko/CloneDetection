@@ -5,18 +5,24 @@
 
 namespace clang_c_adaptation
 {
-	class var_spelling final : public code_entity_spelling
+	class var_spelling final
 	{
-		inline static const std::string not_variable_msg{"var_spelling: cursor does not represent any kind of variables"};
+		code_entity_spelling spelling_{};
 
 	public:
 		var_spelling() noexcept = default;
-		explicit var_spelling(const CXCursor& cursor_to_var_decl) : code_entity_spelling(cursor_to_var_decl)
+		explicit var_spelling(const CXCursor& cursor_to_var_decl) : spelling_(cursor_to_var_decl)
 		{
 			if (!common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
 			{
-				throw wrong_cursor_kind_exception(not_variable_msg);
+				throw wrong_cursor_kind_exception(
+					"var_spelling: cursor does not represent any kind of variables");
 			}
+		}
+
+		[[nodiscard]] const std::string& to_string() const noexcept
+		{
+			return spelling_.to_string();
 		}
 
 		[[nodiscard]] bool operator==(const var_spelling& other) const noexcept = default;

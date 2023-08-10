@@ -82,7 +82,8 @@ namespace cpp_code_analysis
 			}
 		}
 		default:
-			throw clang_c_adaptation::wrong_cursor_kind_exception(not_var_decl_msg);
+			throw clang_c_adaptation::wrong_cursor_kind_exception(
+				"determine_var_origin: cursor does not point to any type of variables declarations.");
 		}
 	}
 

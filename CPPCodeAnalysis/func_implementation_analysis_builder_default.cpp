@@ -152,7 +152,8 @@ namespace cpp_code_analysis
 				var_cursor, std::array<count_matrix::count_vector_value, default_conditions_total>{});
 			if (!inserted)
 			{
-				throw common_exceptions::insertion_error(array_by_var_insertion_failure_msg);
+				throw common_exceptions::insertion_error(
+					"Failure during preparing container for variables usage info.");
 			}
 
 			auto& count_array = iterator->second;

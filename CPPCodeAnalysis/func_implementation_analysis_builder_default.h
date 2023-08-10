@@ -21,7 +21,7 @@ namespace cpp_code_analysis
 			analysed_functions_ = {};
 		}
 
-		void analyse_translation_unit(const clang_c_adaptation::translation_unit_wrapper& translation_unit) override
+		void analyse_translation_unit(const clang_c_adaptation::translation_unit_raii& translation_unit) override
 		{
 			for (const auto& func_def_cursor :
 				find_func_definitions_cursors(clang_getTranslationUnitCursor(translation_unit.translation_unit())))
@@ -117,9 +117,6 @@ namespace cpp_code_analysis
 		static CXChildVisitResult visitor_traverse_var_definition(
 			CXCursor cursor_inside_var_definition, CXCursor parent, CXClientData var_definition_visit_data_void_ptr);
 
-
-
-		inline static const std::string array_by_var_insertion_failure_msg{ "Failure during preparing container for variables usage info." };
 
 		inline static const std::unordered_map<clang_c_adaptation::var_origin, var_usage_condition>
 		var_usage_origin_condition_by_var_origin

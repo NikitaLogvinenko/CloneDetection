@@ -5,15 +5,10 @@ namespace clang_c_adaptation
 {
 	class spelling_extractor final
 	{
-		inline static const std::string wrong_cursor_type_msg{"get_entire_spelling_and_subtrees_spellings: actual cursor kind differ from expected."};
-		inline static const std::string wrong_children_count_msg{"get_entire_spelling_and_subtrees_spellings: wrong children count. Can not get spelling."};
-		inline static const std::string unexpected_cursor_to_unary_op_msg{"get_unary_operator_spelling: unexpected cursor was passed to get_unary_operator_spelling method"};
-		inline static const std::string cursor_is_not_between_two_children_msg{"get_spelling_of_cursor_between_two_children_parts: cursor is not between two children msg. Unable to get its spelling."};
-
 		inline static const std::string empty_string{};
 		inline static const std::string tokens_sep{};
 
-		static constexpr size_t zero_index = 0;
+		static constexpr size_t first_symbol_index = 0;
 
 		static constexpr size_t two_children = 2;
 		static constexpr size_t one_child = 1;

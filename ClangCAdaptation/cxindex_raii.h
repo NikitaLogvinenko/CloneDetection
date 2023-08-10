@@ -3,21 +3,21 @@
 
 namespace clang_c_adaptation
 {
-	class cxindex_wrapper final
+	class cxindex_raii final
 	{
 		CXIndex index_{};
 
 	public:
-		explicit cxindex_wrapper(const bool exclude_decls_from_pch = true, const bool display_diagnostics = true)
+		explicit cxindex_raii(const bool exclude_decls_from_pch = true, const bool display_diagnostics = true)
 			: index_{ clang_createIndex(exclude_decls_from_pch, display_diagnostics)} {}
 
-		cxindex_wrapper(const cxindex_wrapper& other) = delete;
-		cxindex_wrapper& operator=(const cxindex_wrapper& other) = delete;
-		cxindex_wrapper(cxindex_wrapper&& other) noexcept : index_(other.index_)
+		cxindex_raii(const cxindex_raii& other) = delete;
+		cxindex_raii& operator=(const cxindex_raii& other) = delete;
+		cxindex_raii(cxindex_raii&& other) noexcept : index_(other.index_)
 		{
 			other.index_ = nullptr;
 		}
-		cxindex_wrapper& operator=(cxindex_wrapper&& other) noexcept
+		cxindex_raii& operator=(cxindex_raii&& other) noexcept
 		{
 			if (&other == this)
 			{
@@ -27,7 +27,7 @@ namespace clang_c_adaptation
 			other.index_ = nullptr;
 			return *this;
 		}
-		~cxindex_wrapper()
+		~cxindex_raii()
 		{
 			clang_disposeIndex(index_);
 		}

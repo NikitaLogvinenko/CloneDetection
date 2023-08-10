@@ -2,8 +2,8 @@
 #include "cm_max_weighted_bipartite_matching.h"
 #include "func_implementation_analysis_director.h"
 #include "func_implementation_analysis_builder_default.h"
-#include "cxindex_wrapper.h"
-#include "translation_unit_wrapper.h"
+#include "cxindex_raii.h"
+#include "translation_unit_raii.h"
 #include "cm_clone_functions_typer.h"
 #include "existed_file_rewriting_exception.h"
 #include "file_not_opened_exception.h"
@@ -28,10 +28,6 @@ namespace clone_detection_io
 
 		const std::string link_for_info{ "https://github.com/NikitaLogvinenko/CloneDetection/tree/master" };
 
-		const std::string can_not_convert_similarity_msg{ "Can not convert functions_similarity_threshold to double.\n" };
-		const std::string save_file_exists_msg{ "Filename for results saving is not empty. Try another filename.\n" };
-		const std::string save_file_was_not_opened_msg{ "Can not create or open file for results saving.\n" };
-
 		void print_help()
 		{
 			std::cout << "> Console application for finding clone-functions in C++ code.\n";
@@ -51,7 +47,8 @@ namespace clone_detection_io
 			iss >> similarity;
 			if (!iss)
 			{
-				throw common_exceptions::types_conversion_error(can_not_convert_similarity_msg);
+				throw common_exceptions::types_conversion_error(
+					"Can not convert functions_similarity_threshold to double.\n");
 			}
 			return relative_similarity{ similarity };
 		}
@@ -75,11 +72,12 @@ namespace clone_detection_io
 			const std::filesystem::path save_filename(argv[save_filename_index]);
 			if (exists(save_filename))
 			{
-				throw common_exceptions::existed_file_rewriting_exception(save_file_exists_msg);
+				throw common_exceptions::existed_file_rewriting_exception(
+					"Filename for results saving is not empty. Try another filename.\n");
 			}
 
-			const cxindex_wrapper index{};
-			std::vector<translation_unit_wrapper> translation_units{};
+			const cxindex_raii index{};
+			std::vector<translation_unit_raii> translation_units{};
 			translation_units.reserve(argv.size() - first_ast_filename_index);
 			for (size_t tu_path_index = first_ast_filename_index; tu_path_index < argv.size(); ++tu_path_index)
 			{
@@ -99,7 +97,8 @@ namespace clone_detection_io
 			std::ofstream save_file(save_filename);
 			if (!save_file)
 			{
-				throw common_exceptions::file_not_opened_exception(save_file_was_not_opened_msg);
+				throw common_exceptions::file_not_opened_exception(
+					"Can not create or open file for results saving.\n");
 			}
 			cm_clone_functions_typer::type(save_file, funcs_pairwise_similarity, funcs_similarity_threshold);
 			std::cout << "Detection performed!\n";

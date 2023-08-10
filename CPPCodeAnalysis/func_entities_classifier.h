@@ -71,7 +71,6 @@ namespace cpp_code_analysis
 			{ "%=", func_entity_type::modulus_assignment_operator }
 		};
 
-		inline static const std::string not_var_decl_msg{"determine_var_origin: cursor does not point to any type of variables declarations."};
 		inline static const std::string operator_spelling_start{ "operator" };
 		inline static const std::string square_brackets{ "[]" };
 		inline static const std::string round_brackets{ "()" };
@@ -122,7 +121,7 @@ namespace cpp_code_analysis
 		[[nodiscard]] static CXChildVisitResult visitor_direct_children_counter(
 			CXCursor cursor, CXCursor parent, const CXClientData void_ptr_to_size_t_counter)
 		{
-			clang_c_adaptation::common_checks::client_data_not_null_validation(void_ptr_to_size_t_counter);
+			clang_c_adaptation::common_checks::throw_if_null(void_ptr_to_size_t_counter);
 			++*static_cast<size_t* const>(void_ptr_to_size_t_counter);
 			return CXChildVisit_Continue;
 		}
