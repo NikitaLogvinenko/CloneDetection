@@ -2,6 +2,7 @@
 #include "cm_max_weighted_bipartite_matching.h"
 
 using namespace cm;
+using namespace cm::internal;
 
 class cm_max_weighted_bipartite_matching_dim3_test_f : public ::testing::Test {
 protected:

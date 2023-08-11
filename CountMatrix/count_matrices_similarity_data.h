@@ -43,13 +43,13 @@ namespace cm
 		}
 
 		[[nodiscard]] const internal::cm_similar_vectors_data& get_similar_vectors_data(
-			const index_of_count_vectors_pair& index_in_descending_similarity_order) const
+			const internal::index_of_count_vectors_pair& index_in_descending_similarity_order) const
 		{
 			return vectors_similarity_data_descending_order_.at(index_in_descending_similarity_order.to_size_t());
 		}
 
 		[[nodiscard]] const internal::cm_similar_vectors_data& get_similar_vectors_data_dont_check_index(
-			const index_of_count_vectors_pair& index_in_descending_similarity_order) const
+			const internal::index_of_count_vectors_pair& index_in_descending_similarity_order) const
 		{
 			return vectors_similarity_data_descending_order_[index_in_descending_similarity_order.to_size_t()];
 		}

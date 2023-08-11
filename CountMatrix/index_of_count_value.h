@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace cm
+namespace cm::internal
 {
 	class index_of_count_value final
 	{

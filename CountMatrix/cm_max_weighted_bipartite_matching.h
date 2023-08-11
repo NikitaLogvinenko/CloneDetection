@@ -176,7 +176,9 @@ namespace cm
 		{
 			if (static_cast<size_t>(assigned_column) < min_vectors_count)
 			{
-				const std::array row_column_pair{ index_of_count_vector(row), index_of_count_vector(assigned_column) };
+				const std::array row_column_pair{
+					internal::index_of_count_vector(row),
+					internal::index_of_count_vector(assigned_column) };
 				similar_vectors.emplace_back(
 					row_column_pair[first_matrix_axis_in_assignment_matrix],
 					row_column_pair[second_matrix_axis_in_assignment_matrix],

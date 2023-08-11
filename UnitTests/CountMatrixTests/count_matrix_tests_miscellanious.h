@@ -10,7 +10,8 @@ void assert_equal_count_vectors(
 {
 	for (size_t count_value_index = 0; count_value_index < CountVectorDimension; ++count_value_index)
 	{
-		ASSERT_EQ(first_cv[cm::index_of_count_value(count_value_index)].value(), second_cv[cm::index_of_count_value(count_value_index)].value());
+		ASSERT_EQ(first_cv[cm::internal::index_of_count_value(count_value_index)].value(), 
+			second_cv[cm::internal::index_of_count_value(count_value_index)].value());
 	}
 }
 

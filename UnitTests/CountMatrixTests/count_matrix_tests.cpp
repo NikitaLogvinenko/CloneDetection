@@ -3,6 +3,7 @@
 #include "count_matrix_tests_miscellanious.h"
 
 using namespace cm;
+using namespace cm::internal;
 
 TEST(index_of_count_vector_test, ctor_default)
 {

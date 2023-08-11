@@ -5,14 +5,14 @@ using namespace cm;
 
 TEST(index_of_count_value_test, ctor_default)
 {
-	constexpr index_of_count_value default_index{};
+	constexpr internal::index_of_count_value default_index{};
 	ASSERT_EQ(default_index.to_size_t(), 0);
 }
 
 TEST(index_of_count_value_test, ctor_with_index)
 {
 	constexpr size_t index = 42;
-	const index_of_count_value index_of_count_value(index);
+	const internal::index_of_count_value index_of_count_value(index);
 	ASSERT_EQ(index_of_count_value.to_size_t(), index);
 }
 
@@ -49,7 +49,7 @@ TEST(count_vector_dim4_test, operator_square_brackets)
 	const count_vector cv{ count_values };
 	for (size_t index = 0; index < cv.size(); ++index)
 	{
-		ASSERT_EQ(count_values[index].value(), cv[index_of_count_value{index}].value());
+		ASSERT_EQ(count_values[index].value(), cv[internal::index_of_count_value{index}].value());
 	}
 }
 
@@ -59,7 +59,7 @@ TEST(count_vector_dim4_test, at)
 	const count_vector cv{ count_values };
 	for (size_t index = 0; index < cv.size(); ++index)
 	{
-		ASSERT_EQ(count_values[index].value(), cv.at(index_of_count_value{index}).value());
+		ASSERT_EQ(count_values[index].value(), cv.at(internal::index_of_count_value{index}).value());
 	}
 }
 
@@ -67,7 +67,7 @@ TEST(count_vector_dim4_test, at_invalid_index)
 {
 	const std::array count_values{count_vector_value(1), count_vector_value(3), count_vector_value(5), count_vector_value(7) };
 	const count_vector cv{ count_values };
-	ASSERT_THROW(const auto& _ = cv.at(index_of_count_value{ cv.size() }), std::out_of_range);
+	ASSERT_THROW(const auto& _ = cv.at(internal::index_of_count_value{ cv.size() }), std::out_of_range);
 }
 
 TEST(count_vector_dim4_test, iterators)
@@ -126,7 +126,7 @@ TEST(count_vector_zero_dim_test, size)
 TEST(count_vector_zero_dim_test, at_invalid_index)
 {
 	const count_vector<0> default_cv{};
-	ASSERT_THROW(const auto & _ = default_cv.at(index_of_count_value{ default_cv.size() }), std::out_of_range);
+	ASSERT_THROW(const auto & _ = default_cv.at(internal::index_of_count_value{ default_cv.size() }), std::out_of_range);
 }
 
 TEST(count_vector_0_test, iterators)

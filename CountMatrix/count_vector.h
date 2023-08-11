@@ -27,12 +27,14 @@ namespace cm
 			return count_values_.size();
 		}
 
-		[[nodiscard]] const count_vector_value& operator[](const index_of_count_value value_index) const
+		[[nodiscard]] const count_vector_value& operator[](
+			const internal::index_of_count_value value_index) const
 		{
 			return count_values_[value_index.to_size_t()];
 		}
 
-		[[nodiscard]] const count_vector_value& at(const index_of_count_value value_index) const
+		[[nodiscard]] const count_vector_value& at(
+			const internal::index_of_count_value value_index) const
 		{
 			return count_values_.at(value_index.to_size_t());
 		}
