@@ -2,7 +2,7 @@
 #include "count_matrix.h"
 #include "relative_similarity.h"
 
-namespace count_matrix
+namespace cm::internal
 {
 	class cm_similar_vectors_data final
 	{

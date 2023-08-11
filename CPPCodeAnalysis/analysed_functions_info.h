@@ -16,7 +16,7 @@ namespace cpp_code_analysis
 		explicit analysed_functions_info(
 				std::unordered_set<
 				func_implementation_info<VarUsageConditionsN>,
-				func_implementation_info_hash<VarUsageConditionsN>,
+				internal::func_implementation_info_hash<VarUsageConditionsN>,
 				func_implementation_info_equal_spelling_and_location<VarUsageConditionsN>> functions_info)
 		{
 			functions_info_.reserve(functions_info.size());

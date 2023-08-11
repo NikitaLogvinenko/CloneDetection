@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include "nullptr_data_exception.h"
+#include "nullptr_exception.h"
 #include <unordered_set>
 
 namespace clang_c_adaptation
@@ -23,7 +23,7 @@ namespace clang_c_adaptation
 		{
 			if (client_data == nullptr)
 			{
-				throw nullptr_data_exception("Null client data passed to visitor.");
+				throw common_exceptions::nullptr_exception("Null client data passed to visitor.");
 			}
 		}
 

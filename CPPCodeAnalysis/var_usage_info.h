@@ -12,14 +12,14 @@ namespace cpp_code_analysis
 		clang_c_adaptation::var_spelling spelling_{};
 		clang_c_adaptation::var_location location_{};
 		clang_c_adaptation::var_origin origin_{ clang_c_adaptation::var_origin::unknown };
-		count_matrix::count_vector<VarUsageConditionsN> usage_count_vector_{};
+		cm::count_vector<VarUsageConditionsN> usage_count_vector_{};
 
 	public:
 		var_usage_info() noexcept = default;
 		explicit var_usage_info(
 			clang_c_adaptation::var_spelling spelling, clang_c_adaptation::var_location location,
 		    const clang_c_adaptation::var_origin origin, 
-			const std::array<count_matrix::count_vector_value, VarUsageConditionsN>& usage_values_array) noexcept
+			const std::array<cm::count_vector_value, VarUsageConditionsN>& usage_values_array) noexcept
 			: spelling_(std::move(spelling)), location_(std::move(location)), origin_(origin), usage_count_vector_(usage_values_array) {}
 
 		[[nodiscard]] const clang_c_adaptation::var_spelling& spelling() const noexcept
@@ -37,7 +37,7 @@ namespace cpp_code_analysis
 			return origin_;
 		}
 
-		[[nodiscard]] const count_matrix::count_vector<VarUsageConditionsN>& usage_count_vector() const noexcept
+		[[nodiscard]] const cm::count_vector<VarUsageConditionsN>& usage_count_vector() const noexcept
 		{
 			return  usage_count_vector_;
 		}

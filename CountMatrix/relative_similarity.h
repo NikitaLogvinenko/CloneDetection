@@ -3,7 +3,7 @@
 #include <string>
 #include <format>
 
-namespace count_matrix
+namespace cm
 {
 	class relative_similarity final
 	{

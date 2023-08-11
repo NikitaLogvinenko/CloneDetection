@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include "invalid_cxstring_exception.h"
+#include "nullptr_exception.h"
 
 namespace clang_c_adaptation::internal
 {
@@ -38,7 +38,8 @@ namespace clang_c_adaptation::internal
 		{
 			if (cxstring_.data == nullptr)
 			{
-				throw invalid_cxstring_exception("Attempt to get string from CXString with data = nullptr.");
+				throw common_exceptions::nullptr_exception(
+					"Attempt to get string from CXString with data = nullptr.");
 			}
 			return {clang_getCString(cxstring_) };
 		}

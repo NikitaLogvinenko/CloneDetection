@@ -1,7 +1,7 @@
 ﻿#include "gtest_pch.h"
 #include "cm_max_weighted_bipartite_matching.h"
 
-using namespace count_matrix;
+using namespace cm;
 
 class cm_max_weighted_bipartite_matching_dim3_test_f : public ::testing::Test {
 protected:
@@ -33,18 +33,18 @@ protected:
 	std::vector<count_vector<3>> count_vectors_1_repeated_cv_{};
 	std::vector<count_vector<3>> count_vectors_2_repeated_cv_{};
 
-	::count_matrix::count_matrix<3> cm_1_{};
-	::count_matrix::count_matrix<3> cm_2_{};
-	::count_matrix::count_matrix<3> cm_2_incomplete_{};
-	::count_matrix::count_matrix<3> cm_1_repeated_cv_{};
-	::count_matrix::count_matrix<3> cm_2_repeated_cv_{};
+	::cm::count_matrix<3> cm_1_{};
+	::cm::count_matrix<3> cm_2_{};
+	::cm::count_matrix<3> cm_2_incomplete_{};
+	::cm::count_matrix<3> cm_1_repeated_cv_{};
+	::cm::count_matrix<3> cm_2_repeated_cv_{};
 
-	::count_matrix::count_matrix<3> cm_1_copy_{};
+	::cm::count_matrix<3> cm_1_copy_{};
 	std::vector<count_vector<3>> count_vectors_1_reversed_vectors_order_{};
-	::count_matrix::count_matrix<3> cm_1_reversed_vectors_order_{};
+	::cm::count_matrix<3> cm_1_reversed_vectors_order_{};
 
-	::count_matrix::count_matrix<3> cm_empty_1_{};
-	::count_matrix::count_matrix<3> cm_empty_2_{};
+	::cm::count_matrix<3> cm_empty_1_{};
+	::cm::count_matrix<3> cm_empty_2_{};
 
 	void SetUp() override
 	{
@@ -71,23 +71,23 @@ protected:
 
 
 		count_vectors_1_ = std::vector{ cv_1_1_, cv_2_1_, cv_3_1_, cv_4_1_ };
-		cm_1_ = ::count_matrix::count_matrix{ count_vectors_1_ };
+		cm_1_ = ::cm::count_matrix{ count_vectors_1_ };
 
 		count_vectors_2_ = std::vector{ cv_1_2_, cv_2_2_, cv_3_2_, cv_4_2_ };
-		cm_2_ = ::count_matrix::count_matrix{ count_vectors_2_ };
+		cm_2_ = ::cm::count_matrix{ count_vectors_2_ };
 
 		count_vectors_2_incomplete_ = std::vector{ cv_2_2_, cv_3_2_, cv_4_2_ };
-		cm_2_incomplete_ = ::count_matrix::count_matrix{ count_vectors_2_incomplete_ };
+		cm_2_incomplete_ = ::cm::count_matrix{ count_vectors_2_incomplete_ };
 
 		count_vectors_1_repeated_cv_ = std::vector{ cv_1_1_, cv_1_1_, cv_2_1_, cv_2_1_, cv_3_1_, cv_3_1_, cv_4_1_, cv_4_1_ };
-		cm_1_repeated_cv_ = ::count_matrix::count_matrix{ count_vectors_1_repeated_cv_ };
+		cm_1_repeated_cv_ = ::cm::count_matrix{ count_vectors_1_repeated_cv_ };
 
 		count_vectors_2_repeated_cv_ = std::vector{ cv_1_2_, cv_1_2_, cv_2_2_, cv_2_2_, cv_3_2_, cv_3_2_, cv_4_2_, cv_4_2_ };
-		cm_2_repeated_cv_ = ::count_matrix::count_matrix{ count_vectors_2_repeated_cv_ };
+		cm_2_repeated_cv_ = ::cm::count_matrix{ count_vectors_2_repeated_cv_ };
 
 		cm_1_copy_ = cm_1_;
 		std::ranges::copy(count_vectors_1_.rbegin(), count_vectors_1_.rend(), std::back_inserter(count_vectors_1_reversed_vectors_order_));
-		cm_1_reversed_vectors_order_ = ::count_matrix::count_matrix{ count_vectors_1_reversed_vectors_order_ };
+		cm_1_reversed_vectors_order_ = ::cm::count_matrix{ count_vectors_1_reversed_vectors_order_ };
 	}
 };
 
@@ -340,19 +340,19 @@ protected:
 	std::vector<count_vector<0>> four_count_vectors_{};
 	std::vector<count_vector<0>> three_count_vectors_{};
 
-	::count_matrix::count_matrix<0> cm_four_cv_{};
-	::count_matrix::count_matrix<0> cm_three_cv_{};
+	::cm::count_matrix<0> cm_four_cv_{};
+	::cm::count_matrix<0> cm_three_cv_{};
 								 
-	::count_matrix::count_matrix<0> cm_empty_1_{};
-	::count_matrix::count_matrix<0> cm_empty_2_{};
+	::cm::count_matrix<0> cm_empty_1_{};
+	::cm::count_matrix<0> cm_empty_2_{};
 
 	void SetUp() override
 	{
 		four_count_vectors_ = std::vector{ cv_, cv_, cv_, cv_ };
-		cm_four_cv_ = ::count_matrix::count_matrix{ four_count_vectors_ };
+		cm_four_cv_ = ::cm::count_matrix{ four_count_vectors_ };
 
 		three_count_vectors_ = std::vector{ cv_, cv_, cv_ };
-		cm_three_cv_ = ::count_matrix::count_matrix{ three_count_vectors_ };
+		cm_three_cv_ = ::cm::count_matrix{ three_count_vectors_ };
 	}
 };
 

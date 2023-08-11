@@ -2,7 +2,7 @@
 #include "func_implementation_info.h"
 #include <functional>
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	template <size_t VarUsageConditionsN>
 	class func_implementation_info_hash final

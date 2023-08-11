@@ -8,7 +8,7 @@ namespace cpp_code_analysis
 		using unordered_map_count_arrays_by_var_cursors =
 			std::unordered_map<
 			CXCursor,
-			std::array<count_matrix::count_vector_value, default_conditions_total>,
+			std::array<cm::count_vector_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>;
 
@@ -35,8 +35,8 @@ namespace cpp_code_analysis
 			{ clang_c_adaptation::var_origin::global_var, var_usage_condition::is_global_var }
 		};
 
-		const count_matrix::count_vector_value var_usage_origin_condition_value{1};
-		const count_matrix::count_vector_value var_defined_count_value{1};
+		const cm::count_vector_value var_usage_origin_condition_value{1};
+		const cm::count_vector_value var_defined_count_value{1};
 
 		const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_all_variables_counting
 		{
@@ -124,11 +124,11 @@ namespace cpp_code_analysis
 
 		class var_definition_visit_data final
 		{
-			std::array<count_matrix::count_vector_value, default_conditions_total>& count_array_;
+			std::array<cm::count_vector_value, default_conditions_total>& count_array_;
 			const func_entities_classifier& first_traversal_data_;
 		public:
 			explicit var_definition_visit_data(
-				std::array<count_matrix::count_vector_value, default_conditions_total>& count_array,
+				std::array<cm::count_vector_value, default_conditions_total>& count_array,
 				const func_entities_classifier& first_traversal_data) noexcept
 				: count_array_(count_array), first_traversal_data_(first_traversal_data) {}
 
@@ -203,7 +203,7 @@ namespace cpp_code_analysis
 		for (const auto& [var_cursor, origin_used_counter_pair] : origin_and_usage_counter_by_var)
 		{
 			const auto [iterator, inserted] = count_arrays_by_var_cursors.try_emplace(
-				var_cursor, std::array<count_matrix::count_vector_value, default_conditions_total>{});
+				var_cursor, std::array<cm::count_vector_value, default_conditions_total>{});
 			if (!inserted)
 			{
 				throw common_exceptions::insertion_error(
@@ -211,7 +211,7 @@ namespace cpp_code_analysis
 			}
 
 			auto& count_array = iterator->second;
-			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = count_matrix::count_vector_value(origin_used_counter_pair.used_n_times());
+			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = cm::count_vector_value(origin_used_counter_pair.used_n_times());
 			if (var_usage_origin_condition_by_var_origin.contains(origin_used_counter_pair.origin()))
 			{
 				count_array[static_cast<size_t>(var_usage_origin_condition_by_var_origin.at(origin_used_counter_pair.origin()))] = var_usage_origin_condition_value;

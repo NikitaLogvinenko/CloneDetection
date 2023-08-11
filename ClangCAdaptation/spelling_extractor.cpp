@@ -1,7 +1,8 @@
 ﻿#include "spelling_extractor.h"
 #include "cxstring_raii.h"
 #include "wrong_cursor_kind_exception.h"
-#include "unsuccessfull_tokenization_exception.h"
+#include "nullptr_exception.h"
+#include "cxtokens_raii.h"
 #include <numeric>
 
 namespace
@@ -16,33 +17,28 @@ namespace clang_c_adaptation
 {
 	std::vector<std::string> spelling_extractor::get_cursor_extent_tokens(const CXCursor& cursor)
 	{
-		const CXSourceRange extent = clang_getCursorExtent(cursor);
-		if (clang_Range_isNull(extent))
+		const auto translation_unit = clang_Cursor_getTranslationUnit(cursor);
+		if (translation_unit == nullptr)
+		{
+			throw common_exceptions::nullptr_exception(
+				"spelling_extractor::get_cursor_extent_tokens: cursor's translation unit is nullptr."
+			);
+		}
+		const CXSourceRange tokens_extent = clang_getCursorExtent(cursor);
+		if (clang_Range_isNull(tokens_extent) != 0)
 		{
 			return {};
 		}
-		const auto translation_unit = clang_Cursor_getTranslationUnit(cursor);
+
 		std::vector<std::string> tokens_vector{};
-		CXToken* tokens{};
-		unsigned tokens_n = 0;
-		try
+		const internal::cxtokens_raii tokens{ translation_unit, tokens_extent };
+		tokens_vector.reserve(tokens.tokens_n());
+		for (unsigned token_index = 0; token_index < tokens.tokens_n(); ++token_index)
 		{
-			clang_tokenize(translation_unit, extent, &tokens, &tokens_n);
-			tokens_vector.reserve(tokens_n);
-			for (unsigned token_index = 0; token_index < tokens_n; ++token_index)
-			{
-				tokens_vector.emplace_back(internal::cxstring_raii(clang_getTokenSpelling(translation_unit, tokens[token_index])).string());
-			}
+			const internal::token_index typed_index{ token_index };
+			tokens_vector.emplace_back(tokens[typed_index]);
 		}
-		catch (const std::exception& ex)
-		{
-			clang_disposeTokens(translation_unit, tokens, tokens_n);
-			throw unsuccessfull_tokenization_exception(
-				std::string(
-					"Failure during CXCursor tokenization. Memory leak was prevented. Exception: ")
-				+ ex.what());
-		}
-		clang_disposeTokens(translation_unit, tokens, tokens_n);
+
 		return tokens_vector;
 	}
 

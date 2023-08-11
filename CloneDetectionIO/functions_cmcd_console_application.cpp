@@ -15,7 +15,7 @@
 namespace clone_detection_io
 {
 	using namespace clang_c_adaptation;
-	using namespace count_matrix;
+	using namespace cm;
 	using namespace cpp_code_analysis;
 
 	namespace

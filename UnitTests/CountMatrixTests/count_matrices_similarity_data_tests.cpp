@@ -2,7 +2,8 @@
 #include "count_matrices_similarity_data.h"
 #include "count_matrix_tests_miscellanious.h"
 
-using namespace count_matrix;
+using namespace cm;
+using namespace cm::internal;
 
 TEST(index_of_count_vectors_pair_test, ctor_default)
 {

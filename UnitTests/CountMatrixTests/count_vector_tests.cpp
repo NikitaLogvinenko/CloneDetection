@@ -1,7 +1,7 @@
 ﻿#include "gtest_pch.h"
 #include "count_vector.h"
 
-using namespace count_matrix;
+using namespace cm;
 
 TEST(index_of_count_value_test, ctor_default)
 {
@@ -19,7 +19,7 @@ TEST(index_of_count_value_test, ctor_with_index)
 
 TEST(count_vector_dim42_test, default_ctor)
 {
-	for (const auto& value : count_matrix::count_vector<42>{})
+	for (const auto& value : cm::count_vector<42>{})
 	{
 		ASSERT_EQ(value.value(), 0);
 	}
@@ -100,7 +100,7 @@ TEST(count_vector_dim4_test, iterators)
 
 TEST(count_vector_zero_dim_test, default_ctor)
 {
-	for (const auto& value : count_matrix::count_vector<0>{})
+	for (const auto& value : cm::count_vector<0>{})
 	{
 		ASSERT_EQ(value.value(), 0);
 	}

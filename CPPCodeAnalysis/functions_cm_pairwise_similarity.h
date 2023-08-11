@@ -31,17 +31,17 @@ namespace cpp_code_analysis
 		};
 
 		class const_func_indices_pair_by_similarity_iterator final
-			: public std::multimap<count_matrix::relative_similarity, func_indices_pair>::const_iterator
+			: public std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator
 		{
 		public:
 			explicit const_func_indices_pair_by_similarity_iterator(
-				const typename std::multimap<count_matrix::relative_similarity, func_indices_pair>::const_iterator& multimap_iterator) noexcept
-				: std::multimap<count_matrix::relative_similarity, func_indices_pair>::const_iterator(multimap_iterator) {}
+				const typename std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator& multimap_iterator) noexcept
+				: std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator(multimap_iterator) {}
 		};
 
 		analysed_functions_info<VarUsageConditionsN> analysed_functions_info_{};
-		std::map<func_indices_pair, count_matrix::count_matrices_similarity_data> similarity_data_by_func_indices_pair_{};
-		std::multimap<count_matrix::relative_similarity, func_indices_pair> func_indices_pair_by_similarity_{};
+		std::map<func_indices_pair, cm::count_matrices_similarity_data> similarity_data_by_func_indices_pair_{};
+		std::multimap<cm::relative_similarity, func_indices_pair> func_indices_pair_by_similarity_{};
 
 	public:
 		class builder final
@@ -50,7 +50,7 @@ namespace cpp_code_analysis
 			builder() = delete;
 			[[nodiscard]] static functions_cm_pairwise_similarity build(
 				analysed_functions_info<VarUsageConditionsN> functions_info,
-				const count_matrix::cm_similarity_abstract_algorithm<VarUsageConditionsN>& similarity_abstract_algorithm);
+				const cm::cm_similarity_abstract_algorithm<VarUsageConditionsN>& similarity_abstract_algorithm);
 		};
 
 		[[nodiscard]] const analysed_functions_info<VarUsageConditionsN>& get_analysed_functions_info() const noexcept
@@ -59,18 +59,18 @@ namespace cpp_code_analysis
 		}
 
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator lower_bound_similarity_func_indices_pair(
-			const count_matrix::relative_similarity lower_similarity_bound) const noexcept
+			const cm::relative_similarity lower_similarity_bound) const noexcept
 		{
 			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound) };
 		}
 
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator upper_bound_similarity_func_indices_pair(
-			const count_matrix::relative_similarity upper_similarity_bound) const noexcept
+			const cm::relative_similarity upper_similarity_bound) const noexcept
 		{
 			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound) };
 		}
 
-		[[nodiscard]] const count_matrix::count_matrices_similarity_data& get_functions_similarity_data(
+		[[nodiscard]] const cm::count_matrices_similarity_data& get_functions_similarity_data(
 			const func_indices_pair func_indices) const
 		{
 			return similarity_data_by_func_indices_pair_.at(func_indices);
@@ -89,8 +89,8 @@ namespace cpp_code_analysis
 	private:
 		explicit functions_cm_pairwise_similarity(
 			analysed_functions_info<VarUsageConditionsN> analysed_functions_info = {},
-			std::map<func_indices_pair, count_matrix::count_matrices_similarity_data> similarity_data_by_func_indices_pair = {},
-			std::multimap<count_matrix::relative_similarity, func_indices_pair> func_indices_pair_by_similarity = {}) noexcept :
+			std::map<func_indices_pair, cm::count_matrices_similarity_data> similarity_data_by_func_indices_pair = {},
+			std::multimap<cm::relative_similarity, func_indices_pair> func_indices_pair_by_similarity = {}) noexcept :
 				analysed_functions_info_(std::move(analysed_functions_info)),
 				similarity_data_by_func_indices_pair_(std::move(similarity_data_by_func_indices_pair)),
 				func_indices_pair_by_similarity_(std::move(func_indices_pair_by_similarity)) {}
@@ -101,10 +101,10 @@ namespace cpp_code_analysis
 	functions_cm_pairwise_similarity<VarUsageConditionsN>
 	functions_cm_pairwise_similarity<VarUsageConditionsN>::builder::build(
 		analysed_functions_info<VarUsageConditionsN> functions_info,
-		const count_matrix::cm_similarity_abstract_algorithm<VarUsageConditionsN>& similarity_abstract_algorithm)
+		const cm::cm_similarity_abstract_algorithm<VarUsageConditionsN>& similarity_abstract_algorithm)
 	{
-		std::map<func_indices_pair, count_matrix::count_matrices_similarity_data> similarity_data_by_func_indices_pair{};
-		std::multimap<count_matrix::relative_similarity, func_indices_pair> func_indices_pair_by_similarity{};
+		std::map<func_indices_pair, cm::count_matrices_similarity_data> similarity_data_by_func_indices_pair{};
+		std::multimap<cm::relative_similarity, func_indices_pair> func_indices_pair_by_similarity{};
 
 		auto similarity_by_indices_iterator = similarity_data_by_func_indices_pair.begin();
 		for (size_t first_func_index = 0; first_func_index < functions_info.functions_count(); ++first_func_index)

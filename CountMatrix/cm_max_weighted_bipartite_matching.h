@@ -4,7 +4,7 @@
 #include "overflow_exception.h"
 #include <limits>
 
-namespace count_matrix
+namespace cm
 {
 	template <size_t CountVectorDimension>
 	class cm_max_weighted_bipartite_matching final : public cm_similarity_abstract_algorithm<CountVectorDimension>
@@ -63,7 +63,7 @@ namespace count_matrix
 			const count_matrix<CountVectorDimension>& second_cm,
 			const dlib::matrix<size_t>& assignment_matrix) const;
 
-		[[nodiscard]] std::vector<cm_similar_vectors_data> create_similar_vectors_pairs(
+		[[nodiscard]] std::vector<internal::cm_similar_vectors_data> create_similar_vectors_pairs(
 			const dlib::matrix<size_t>& assignment_matrix, const std::vector<long>& assignment,
 			size_t min_vectors_count, size_t first_matrix_axis_in_assignment_matrix, size_t second_matrix_axis_in_assignment_matrix) const;
 
@@ -164,11 +164,12 @@ namespace count_matrix
 	}
 
 	template <size_t CountVectorDimension>
-	std::vector<cm_similar_vectors_data> cm_max_weighted_bipartite_matching<CountVectorDimension>::create_similar_vectors_pairs(
+	std::vector<internal::cm_similar_vectors_data>
+	cm_max_weighted_bipartite_matching<CountVectorDimension>::create_similar_vectors_pairs(
 		const dlib::matrix<size_t>& assignment_matrix, const std::vector<long>& assignment, const size_t min_vectors_count,
 		const size_t first_matrix_axis_in_assignment_matrix, const size_t second_matrix_axis_in_assignment_matrix) const
 	{
-		std::vector<cm_similar_vectors_data> similar_vectors{};
+		std::vector<internal::cm_similar_vectors_data> similar_vectors{};
 		similar_vectors.reserve(min_vectors_count);
 		long row = 0;
 		for (const long& assigned_column : assignment)

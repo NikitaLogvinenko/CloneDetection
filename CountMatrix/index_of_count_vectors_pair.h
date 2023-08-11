@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace count_matrix
+namespace cm
 {
 	class index_of_count_vectors_pair final
 	{

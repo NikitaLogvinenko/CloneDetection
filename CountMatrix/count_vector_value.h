@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace count_matrix
+namespace cm
 {
 	class count_vector_value final
 	{

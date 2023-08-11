@@ -154,6 +154,8 @@
     <ClInclude Include="existed_file_rewriting_exception.h" />
     <ClInclude Include="file_not_opened_exception.h" />
     <ClInclude Include="insertion_error.h" />
+    <ClInclude Include="invalid_index_exception.h" />
+    <ClInclude Include="nullptr_exception.h" />
     <ClInclude Include="overflow_exception.h" />
     <ClInclude Include="initialized_value_out_of_range.h" />
     <ClInclude Include="types_conversion_error.h" />

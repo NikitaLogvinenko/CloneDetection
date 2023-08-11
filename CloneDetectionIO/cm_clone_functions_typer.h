@@ -42,7 +42,7 @@ namespace clone_detection_io
 		static void type(
 			std::ostream& output, 
 			const cpp_code_analysis::functions_cm_pairwise_similarity<VarUsageConditionsN>& pairwise_similarity,
-			count_matrix::relative_similarity similarity_threshold);
+			cm::relative_similarity similarity_threshold);
 
 	private:
 		template <size_t VarUsageConditionsN>
@@ -50,9 +50,9 @@ namespace clone_detection_io
 			std::ostream& output,
 			const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& first_func_info,
 			const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& second_func_info,
-			const count_matrix::count_matrices_similarity_data& cm_similarity_data);
+			const cm::count_matrices_similarity_data& cm_similarity_data);
 
-		static std::string convert_similarity(count_matrix::relative_similarity relative_similarity);
+		static std::string convert_similarity(cm::relative_similarity relative_similarity);
 
 		template <size_t VarUsageConditionsN>
 		static void type_func_info(
@@ -66,7 +66,7 @@ namespace clone_detection_io
 	};
 
 	inline std::string cm_clone_functions_typer::convert_similarity(
-		const count_matrix::relative_similarity relative_similarity)
+		const cm::relative_similarity relative_similarity)
 	{
 		return std::to_string(std::lround(relative_similarity.to_double() * one_hundred_percent)) + percentage;
 	}
@@ -74,14 +74,14 @@ namespace clone_detection_io
 	template <size_t VarUsageConditionsN>
 	void cm_clone_functions_typer::type(std::ostream& output,
 		const cpp_code_analysis::functions_cm_pairwise_similarity<VarUsageConditionsN>& pairwise_similarity,
-		count_matrix::relative_similarity similarity_threshold)
+		cm::relative_similarity similarity_threshold)
 	{
 		output << header << convert_similarity(similarity_threshold) << newline;
 		for (auto iterator = pairwise_similarity.lower_bound_similarity_func_indices_pair(similarity_threshold);
 			iterator != pairwise_similarity.end(); ++iterator)
 		{
 			const auto& [funcs_similarity, funcs_indices] = *iterator;
-			const count_matrix::count_matrices_similarity_data& cm_similarity_data = pairwise_similarity.get_functions_similarity_data(funcs_indices);
+			const cm::count_matrices_similarity_data& cm_similarity_data = pairwise_similarity.get_functions_similarity_data(funcs_indices);
 			const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& first_func_info =
 				pairwise_similarity.get_analysed_functions_info()[funcs_indices.first_func_index()];
 			const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& second_func_info =
@@ -98,7 +98,7 @@ namespace clone_detection_io
 	void cm_clone_functions_typer::type_functions_pair(std::ostream& output,
 		const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& first_func_info,
 		const cpp_code_analysis::func_implementation_info<VarUsageConditionsN>& second_func_info,
-		const count_matrix::count_matrices_similarity_data& cm_similarity_data)
+		const cm::count_matrices_similarity_data& cm_similarity_data)
 	{
 		output << newline;
 		output << right_arrow << right_arrow << tab << clones_str << newline;

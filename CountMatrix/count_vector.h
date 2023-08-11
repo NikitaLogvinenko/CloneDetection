@@ -4,7 +4,7 @@
 #include <array>
 #include <vector>
 
-namespace count_matrix
+namespace cm
 {
 	template <size_t Dimension>
 	class count_vector final
