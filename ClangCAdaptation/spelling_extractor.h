@@ -5,14 +5,6 @@ namespace clang_c_adaptation
 {
 	class spelling_extractor final
 	{
-		inline static const std::string empty_string{};
-		inline static const std::string tokens_sep{};
-
-		static constexpr size_t first_symbol_index = 0;
-
-		static constexpr size_t two_children = 2;
-		static constexpr size_t one_child = 1;
-
 	public:
 		spelling_extractor() = delete;
 

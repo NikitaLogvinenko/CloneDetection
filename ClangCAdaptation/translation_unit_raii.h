@@ -13,22 +13,22 @@ namespace clang_c_adaptation
 		static constexpr auto invalid_tu = nullptr;
 
 	public:
-		explicit translation_unit_raii(const cxindex_raii& cxindex_wrapper, const std::filesystem::path& ast_filename)
-			: translation_unit_{ clang_createTranslationUnit(cxindex_wrapper.index(), 
+		explicit translation_unit_raii(const cxindex_raii& cxindex, const std::filesystem::path& ast_filename)
+			: translation_unit_{ clang_createTranslationUnit(cxindex.index(), 
 				ast_filename.string().c_str()) }
 		{
 			if (translation_unit_ == invalid_tu)
 			{
 				throw create_translation_unit_exception(
-					"Failure during translation unit creation. AST file: " + ast_filename.string());
+					"Failure during translation unit creating. AST file: " + ast_filename.string());
 			}
 		}
 
 		translation_unit_raii(const translation_unit_raii& other) = delete;
 		translation_unit_raii& operator=(const translation_unit_raii& other) = delete;
-		translation_unit_raii(translation_unit_raii&& other) noexcept : translation_unit_(other.translation_unit_)
+		translation_unit_raii(translation_unit_raii&& other) noexcept
 		{
-			other.translation_unit_ = nullptr;
+			std::swap(*this, other);
 		}
 		translation_unit_raii& operator=(translation_unit_raii&& other) noexcept
 		{
@@ -36,8 +36,7 @@ namespace clang_c_adaptation
 			{
 				return *this;
 			}
-			translation_unit_ = other.translation_unit_;
-			other.translation_unit_ = nullptr;
+			std::swap(*this, other);
 			return *this;
 		}
 		~translation_unit_raii()

@@ -76,12 +76,12 @@ namespace clone_detection_io
 					"Filename for results saving is not empty. Try another filename.\n");
 			}
 
-			const cxindex_raii index{};
+			const cxindex_raii cxindex{};
 			std::vector<translation_unit_raii> translation_units{};
 			translation_units.reserve(argv.size() - first_ast_filename_index);
 			for (size_t tu_path_index = first_ast_filename_index; tu_path_index < argv.size(); ++tu_path_index)
 			{
-				translation_units.emplace_back(index, std::filesystem::path(argv[tu_path_index]));
+				translation_units.emplace_back(cxindex, std::filesystem::path(argv[tu_path_index]));
 			}
 
 			std::unique_ptr<func_implementation_analysis_builder_abstract<default_conditions_total>> func_analysis_builder

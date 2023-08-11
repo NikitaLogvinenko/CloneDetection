@@ -4,26 +4,34 @@
 #include "unsuccessfull_tokenization_exception.h"
 #include <numeric>
 
+namespace
+{
+	const std::string tokens_sep{};
+	constexpr size_t first_symbol_index = 0;
+	constexpr size_t two_children = 2;
+	constexpr size_t one_child = 1;
+}
+
 namespace clang_c_adaptation
 {
 	std::vector<std::string> spelling_extractor::get_cursor_extent_tokens(const CXCursor& cursor)
 	{
 		const CXSourceRange extent = clang_getCursorExtent(cursor);
-		CXToken* tokens{};
-		unsigned tokens_n = 0;
 		if (clang_Range_isNull(extent))
 		{
 			return {};
 		}
 		const auto translation_unit = clang_Cursor_getTranslationUnit(cursor);
 		std::vector<std::string> tokens_vector{};
+		CXToken* tokens{};
+		unsigned tokens_n = 0;
 		try
 		{
 			clang_tokenize(translation_unit, extent, &tokens, &tokens_n);
 			tokens_vector.reserve(tokens_n);
 			for (unsigned token_index = 0; token_index < tokens_n; ++token_index)
 			{
-				tokens_vector.emplace_back(internal::cxstring_raii(clang_getTokenSpelling(translation_unit, tokens[token_index])).c_str());
+				tokens_vector.emplace_back(internal::cxstring_raii(clang_getTokenSpelling(translation_unit, tokens[token_index])).string());
 			}
 		}
 		catch (const std::exception& ex)

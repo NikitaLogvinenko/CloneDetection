@@ -26,6 +26,60 @@ namespace cpp_code_analysis
 				clang_c_adaptation::cxcursors_equal>;
 
 
+		const std::unordered_map<clang_c_adaptation::var_origin, var_usage_condition>
+			var_usage_origin_condition_by_var_origin
+		{
+			{ clang_c_adaptation::var_origin::func_param, var_usage_condition::is_param },
+			{ clang_c_adaptation::var_origin::local_var, var_usage_condition::is_local_var },
+			{ clang_c_adaptation::var_origin::member_field, var_usage_condition::is_member_field },
+			{ clang_c_adaptation::var_origin::global_var, var_usage_condition::is_global_var }
+		};
+
+		const count_matrix::count_vector_value var_usage_origin_condition_value{1};
+		const count_matrix::count_vector_value var_defined_count_value{1};
+
+		const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_all_variables_counting
+		{
+			{ var_usage_condition::used_inside_call_expr, std::vector{func_entity_type::any_call_expr} },
+
+			{ var_usage_condition::used_for_sum_or_diff, std::vector{
+			func_entity_type::plus_operator, func_entity_type::minus_operator,
+			func_entity_type::plus_assignment_operator, func_entity_type::minus_assignment_operator,
+			func_entity_type::increment_operator, func_entity_type::decrement_operator} },
+
+			{ var_usage_condition::used_for_multiplication_or_division, std::vector{
+			func_entity_type::multiplication_operator, func_entity_type::division_operator,
+			func_entity_type::multiplication_assignment_operator, func_entity_type::division_assignment_operator,
+			func_entity_type::unary_plus_operator, func_entity_type::unary_minus_operator} },
+
+			{ var_usage_condition::used_for_modulus, std::vector{func_entity_type::modulus_operator, func_entity_type::modulus_assignment_operator} },
+
+			{ var_usage_condition::used_for_comparison, std::vector{func_entity_type::comparison_operator} },
+
+			{ var_usage_condition::used_inside_conditional_statement, std::vector{
+				func_entity_type::if_stmt, func_entity_type::switch_stmt, func_entity_type::conditional_operator } },
+
+			{ var_usage_condition::used_inside_loop, std::vector{
+				func_entity_type::for_stmt, func_entity_type::for_range_stmt, func_entity_type::while_stmt } }
+		};
+		const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_first_variable_counting
+		{
+			{ var_usage_condition::changed_minimum_n_times, std::vector{
+				func_entity_type::increment_operator, func_entity_type::decrement_operator,
+					func_entity_type::plus_assignment_operator, func_entity_type::minus_assignment_operator,
+					func_entity_type::multiplication_assignment_operator, func_entity_type::division_assignment_operator,
+					func_entity_type::modulus_assignment_operator, func_entity_type::assignment_operator} },
+
+			{ var_usage_condition::used_with_square_brackets, std::vector{
+				func_entity_type::square_brackets_operator, func_entity_type::array_subscript_expr} }
+		};
+		const std::unordered_map<var_usage_condition, std::vector<func_entity_type>> entities_by_condition_for_counting_from_second_variable
+		{
+			{ var_usage_condition::used_inside_square_brackets, std::vector{
+				func_entity_type::square_brackets_operator, func_entity_type::array_subscript_expr} }
+		};
+
+
 		class count_all_variables_visit_data
 		{
 			var_usage_condition incremented_condition_;

@@ -179,9 +179,12 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="invalid_cxstring_exception.h" />
+    <ClInclude Include="cxtokens_raii.h" />
     <ClInclude Include="code_entity_location.h" />
     <ClInclude Include="code_entity_spelling.h" />
     <ClInclude Include="common_checks.h" />
+    <ClInclude Include="create_cxindex_exception.h" />
     <ClInclude Include="create_translation_unit_exception.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxcursor_hash.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="func_spelling.h" />
     <ClInclude Include="nullptr_data_exception.h" />
     <ClInclude Include="spelling_extractor.h" />
+    <ClInclude Include="token_index.h" />
     <ClInclude Include="translation_unit_raii.h" />
     <ClInclude Include="unsuccessfull_tokenization_exception.h" />
     <ClInclude Include="var_origin.h" />

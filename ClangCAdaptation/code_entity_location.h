@@ -26,7 +26,7 @@ namespace clang_c_adaptation::internal
 			const CXSourceLocation location = clang_getRangeStart(range);
 			CXFile file;
 			clang_getFileLocation(location, &file, &line_, &column_, &offset_from_file_start_);
-			filename_ = std::filesystem::path(cxstring_raii(clang_getFileName(file)).c_str());
+			filename_ = std::filesystem::path(cxstring_raii(clang_getFileName(file)).string());
 		}
 
 		[[nodiscard]] const std::filesystem::path& filename() const noexcept
