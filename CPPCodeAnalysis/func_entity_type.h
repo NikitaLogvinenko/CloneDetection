@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	enum class func_entity_type
 	{

@@ -4,7 +4,7 @@
 #include "wrong_cursor_kind_exception.h"
 #include <string>
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	namespace
 	{

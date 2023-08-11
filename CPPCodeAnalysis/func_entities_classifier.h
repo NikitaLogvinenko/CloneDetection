@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	class func_entities_classifier final
 	{

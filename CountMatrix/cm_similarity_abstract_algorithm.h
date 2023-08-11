@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "count_matrices_similarity_data.h"
+#include "default_copy_move_constructor_assignment_virtual_destructor.h"
 
 namespace cm
 {
@@ -9,11 +10,7 @@ namespace cm
 	public:
 		cm_similarity_abstract_algorithm() noexcept = default;
 
-		cm_similarity_abstract_algorithm(const cm_similarity_abstract_algorithm& other) noexcept = default;
-		cm_similarity_abstract_algorithm(cm_similarity_abstract_algorithm&& other) noexcept = default;
-		cm_similarity_abstract_algorithm& operator=(const cm_similarity_abstract_algorithm& other) noexcept = default;
-		cm_similarity_abstract_algorithm& operator=(cm_similarity_abstract_algorithm&& other) noexcept = default;
-		virtual ~cm_similarity_abstract_algorithm() = default;
+		DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR(cm_similarity_abstract_algorithm)
 
 		[[nodiscard]] virtual count_matrices_similarity_data determine_similarity(
 			const count_matrix<CountVectorDimension>& first_cm,

@@ -3,6 +3,8 @@
 
 namespace cpp_code_analysis
 {
+	using namespace cpp_code_analysis::internal;
+
 	namespace
 	{
 		using unordered_map_count_arrays_by_var_cursors =

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
 #include "create_cxindex_exception.h"
+#include "copying_delete_move_through_swap.h"
 
 namespace clang_c_adaptation
 {
@@ -20,21 +21,8 @@ namespace clang_c_adaptation
 			}
 		}
 
-		cxindex_raii(const cxindex_raii& other) = delete;
-		cxindex_raii& operator=(const cxindex_raii& other) = delete;
-		cxindex_raii(cxindex_raii&& other) noexcept
-		{
-			std::swap(*this, other);
-		}
-		cxindex_raii& operator=(cxindex_raii&& other) noexcept
-		{
-			if (&other == this)
-			{
-				return *this;
-			}
-			std::swap(*this, other);
-			return *this;
-		}
+		COPYING_DELETE_MOVE_THROUGH_SWAP(cxindex_raii)
+
 		~cxindex_raii()
 		{
 			clang_disposeIndex(index_);

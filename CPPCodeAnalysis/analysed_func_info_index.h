@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	class analysed_func_info_index final
 	{

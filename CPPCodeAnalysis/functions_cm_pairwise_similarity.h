@@ -10,19 +10,19 @@ namespace cpp_code_analysis
 	{
 		class func_indices_pair final
 		{
-			analysed_func_info_index first_func_index_;
-			analysed_func_info_index second_func_index_;
+			internal::analysed_func_info_index first_func_index_;
+			internal::analysed_func_info_index second_func_index_;
 
 		public:
 			explicit func_indices_pair(const size_t first_func_index, const size_t second_func_index) noexcept
 				: first_func_index_(first_func_index), second_func_index_(second_func_index) {}
 
-			[[nodiscard]] analysed_func_info_index first_func_index() const noexcept
+			[[nodiscard]] internal::analysed_func_info_index first_func_index() const noexcept
 			{
 				return first_func_index_;
 			}
 
-			[[nodiscard]] analysed_func_info_index second_func_index() const noexcept
+			[[nodiscard]] internal::analysed_func_info_index second_func_index() const noexcept
 			{
 				return second_func_index_;
 			}
@@ -114,8 +114,8 @@ namespace cpp_code_analysis
 				similarity_by_indices_iterator = similarity_data_by_func_indices_pair.emplace_hint(
 					similarity_by_indices_iterator, func_indices_pair{ first_func_index, second_func_index },
 					similarity_abstract_algorithm.determine_similarity(
-						functions_info[analysed_func_info_index(first_func_index)].variables_usage_count_matrix(),
-						functions_info[analysed_func_info_index(second_func_index)].variables_usage_count_matrix()));
+						functions_info[internal::analysed_func_info_index(first_func_index)].variables_usage_count_matrix(),
+						functions_info[internal::analysed_func_info_index(second_func_index)].variables_usage_count_matrix()));
 				const auto& [current_indices_pair, current_similarity_data] = *similarity_by_indices_iterator;
 				func_indices_pair_by_similarity.emplace(current_similarity_data.matrices_relative_similarity(), current_indices_pair);
 			}

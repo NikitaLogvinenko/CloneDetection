@@ -8,7 +8,8 @@
 
 namespace cpp_code_analysis
 {
-	class func_implementation_analysis_builder_default final : public func_implementation_analysis_builder_abstract<default_conditions_total>
+	class func_implementation_analysis_builder_default final
+		: public func_implementation_analysis_builder_abstract<default_conditions_total>
 	{
 		std::unordered_set<
 			func_implementation_info<default_conditions_total>,
@@ -61,24 +62,24 @@ namespace cpp_code_analysis
 		create_unordered_map_count_arrays_by_var_cursors(
 			const std::unordered_map<
 				CXCursor, 
-				var_origin_and_usage_counter_pair, 
+				internal::var_origin_and_usage_counter_pair,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& origin_and_usage_counter_by_var);
 
 
 		static void count_all_variables_inside_entities(
-			const func_entities_classifier& first_traversal_data,
-			const std::vector<func_entity_type>& entity_types_to_traverse,
+			const internal::func_entities_classifier& first_traversal_data,
+			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
 				std::array<cm::count_vector_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
-			var_usage_condition counted_condition);
+				var_usage_condition counted_condition);
 
 		static void count_first_variable_inside_entities(
-			const func_entities_classifier& first_traversal_data,
-			const std::vector<func_entity_type>& entity_types_to_traverse,
+			const internal::func_entities_classifier& first_traversal_data,
+			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
 			std::array<cm::count_vector_value, default_conditions_total>,
@@ -87,8 +88,8 @@ namespace cpp_code_analysis
 			var_usage_condition counted_condition);
 
 		static void count_from_second_variable_inside_entities(
-			const func_entities_classifier& first_traversal_data,
-			const std::vector<func_entity_type>& entity_types_to_traverse,
+			const internal::func_entities_classifier& first_traversal_data,
+			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 			CXCursor,
 			std::array<cm::count_vector_value, default_conditions_total>,

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "translation_unit_raii.h"
 #include "analysed_functions_info.h"
+#include "default_copy_move_constructor_assignment_virtual_destructor.h"
 
 namespace cpp_code_analysis
 {
@@ -10,15 +11,7 @@ namespace cpp_code_analysis
 	public:
 		func_implementation_analysis_builder_abstract() noexcept = default;
 
-		func_implementation_analysis_builder_abstract(
-			const func_implementation_analysis_builder_abstract& other) noexcept = default;
-		func_implementation_analysis_builder_abstract(
-			func_implementation_analysis_builder_abstract&& other) noexcept = default;
-		func_implementation_analysis_builder_abstract& operator=(
-			const func_implementation_analysis_builder_abstract& other) noexcept = default;
-		func_implementation_analysis_builder_abstract& operator=(
-			func_implementation_analysis_builder_abstract&& other) noexcept = default;
-		virtual ~func_implementation_analysis_builder_abstract() = default;
+		DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR(func_implementation_analysis_builder_abstract)
 
 		virtual void initialize_builder() = 0;
 		virtual void analyse_translation_unit(const clang_c_adaptation::translation_unit_raii& translation_unit) = 0;

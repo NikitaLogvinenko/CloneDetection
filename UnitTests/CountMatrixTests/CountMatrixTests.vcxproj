@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\UnitTests\GoogleTest\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "var_origin.h"
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	class var_origin_and_usage_counter_pair final
 	{

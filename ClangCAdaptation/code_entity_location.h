@@ -12,14 +12,12 @@ namespace clang_c_adaptation::internal
 		unsigned column_{};
 		unsigned offset_from_file_start_{};
 
-		inline static const CXSourceRange null_range = clang_getNullRange();
-
 	public:
 		code_entity_location() noexcept = default;
 		explicit code_entity_location(const CXCursor& cursor)
 		{
 			const CXSourceRange range = clang_getCursorExtent(cursor);
-			if (clang_equalRanges(range, null_range))
+			if (clang_Range_isNull(range))
 			{
 				return;
 			}

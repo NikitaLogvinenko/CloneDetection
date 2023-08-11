@@ -3,6 +3,7 @@
 #include "token_index.h"
 #include "invalid_index_exception.h"
 #include "cxstring_raii.h"
+#include "copying_delete_move_through_swap.h"
 
 namespace clang_c_adaptation::internal
 {
@@ -19,21 +20,8 @@ namespace clang_c_adaptation::internal
 			clang_tokenize(translation_unit, tokens_extent, &tokens_, &tokens_n_);
 		}
 
-		cxtokens_raii(const cxtokens_raii& other) = delete;
-		cxtokens_raii& operator=(const cxtokens_raii& other) = delete;
-		cxtokens_raii(cxtokens_raii&& other) noexcept
-		{
-			std::swap(*this, other);
-		}
-		cxtokens_raii& operator=(cxtokens_raii&& other) noexcept
-		{
-			if (&other == this)
-			{
-				return *this;
-			}
-			std::swap(*this, other);
-			return *this;
-		}
+		COPYING_DELETE_MOVE_THROUGH_SWAP(cxtokens_raii)
+
 		~cxtokens_raii()
 		{
 			clang_disposeTokens(translation_unit_, tokens_, tokens_n_);
