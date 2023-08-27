@@ -12,7 +12,9 @@ namespace cm
 		class const_iterator final : public std::vector<count_vector<CountVectorDimension>>::const_iterator
 		{
 		public:
-			explicit const_iterator(const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator) noexcept
+			explicit const_iterator(
+				const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator)
+				noexcept
 				: std::vector<count_vector<CountVectorDimension>>::const_iterator(vector_iterator) {}
 		};
 
@@ -20,8 +22,9 @@ namespace cm
 
 	public:
 		count_matrix() noexcept = default;
+
 		explicit count_matrix(std::vector<count_vector<CountVectorDimension>> count_vectors) noexcept
-		: count_vectors_(std::move(count_vectors)) {}
+			: count_vectors_(std::move(count_vectors)) {}
 
 		[[nodiscard]] size_t vectors_count() const noexcept
 		{

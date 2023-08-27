@@ -3,7 +3,7 @@
 #include "count_matrix_tests_miscellanious.h"
 
 using namespace cm;
-using namespace cm::internal;
+using namespace internal;
 
 TEST(index_of_count_vector_test, ctor_default)
 {
@@ -19,25 +19,25 @@ TEST(index_of_count_vector_test, ctor_with_index)
 }
 
 
-
-class count_matrix_dim3_test_f: public ::testing::Test {
+class count_matrix_dim3_test_f : public testing::Test
+{
 protected:
 	void SetUp() override
 	{
-		values_1_ = std::array{ count_vector_value(0), count_vector_value(1), count_vector_value(2) };
-		values_2_ = std::array{ count_vector_value(3), count_vector_value(4), count_vector_value(5) };
-		values_3_ = std::array{ count_vector_value(6), count_vector_value(7), count_vector_value(8) };
-		values_4_ = std::array{ count_vector_value(9), count_vector_value(10), count_vector_value(11) };
+		values_1_ = std::array{count_vector_value(0), count_vector_value(1), count_vector_value(2)};
+		values_2_ = std::array{count_vector_value(3), count_vector_value(4), count_vector_value(5)};
+		values_3_ = std::array{count_vector_value(6), count_vector_value(7), count_vector_value(8)};
+		values_4_ = std::array{count_vector_value(9), count_vector_value(10), count_vector_value(11)};
 
-		cv_1_ = count_vector{ values_1_ };
-		cv_2_ = count_vector{ values_2_ };
-		cv_3_ = count_vector{ values_3_ };
-		cv_4_ = count_vector{ values_4_ };
+		cv_1_ = count_vector{values_1_};
+		cv_2_ = count_vector{values_2_};
+		cv_3_ = count_vector{values_3_};
+		cv_4_ = count_vector{values_4_};
 
-		count_vectors_ = std::vector{ cv_1_, cv_2_, cv_3_, cv_4_ };
-		cm_ = ::cm::count_matrix{ count_vectors_ };
+		count_vectors_ = std::vector{cv_1_, cv_2_, cv_3_, cv_4_};
+		cm_ = count_matrix{count_vectors_};
 
-		cm_from_empty_vector_ = ::cm::count_matrix(std::vector<count_vector<3>>{});
+		cm_from_empty_vector_ = count_matrix(std::vector<count_vector<3>>{});
 	}
 
 	std::array<count_vector_value, 3> values_1_{};
@@ -52,12 +52,12 @@ protected:
 
 	std::vector<count_vector<3>> count_vectors_{};
 
-	::cm::count_matrix<3> cm_{};
+	count_matrix<3> cm_{};
 
-	::cm::count_matrix<3> cm_from_empty_vector_{};
+	count_matrix<3> cm_from_empty_vector_{};
 
 	count_vector<3> default_cv_{};
-	::cm::count_matrix<3> default_cm_{};
+	count_matrix<3> default_cm_{};
 };
 
 TEST_F(count_matrix_dim3_test_f, ctor_default)
@@ -143,25 +143,26 @@ TEST_F(count_matrix_dim3_test_f, iterators)
 }
 
 
-class count_matrix_zero_dim_test_f : public ::testing::Test {
+class count_matrix_zero_dim_test_f : public testing::Test
+{
 protected:
 	void SetUp() override
 	{
-		count_vectors_ = std::vector{ cv_default_, cv_default_, cv_default_, cv_default_ };
-		cm_ = ::cm::count_matrix{ count_vectors_ };
+		count_vectors_ = std::vector{cv_default_, cv_default_, cv_default_, cv_default_};
+		cm_ = count_matrix{count_vectors_};
 
-		cm_from_empty_vector_ = ::cm::count_matrix(std::vector<count_vector<0>>{});
+		cm_from_empty_vector_ = count_matrix(std::vector<count_vector<0>>{});
 	}
 
 	count_vector<0> cv_default_{};
-	
+
 	std::vector<count_vector<0>> count_vectors_{};
 
-	::cm::count_matrix<0> cm_{};
+	count_matrix<0> cm_{};
 
-	::cm::count_matrix<0> cm_from_empty_vector_{};
+	count_matrix<0> cm_from_empty_vector_{};
 
-	::cm::count_matrix<0> default_cm_{};
+	count_matrix<0> default_cm_{};
 };
 
 TEST_F(count_matrix_zero_dim_test_f, ctor_default)

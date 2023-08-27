@@ -3,7 +3,7 @@
 #include "token_index.h"
 #include "invalid_index_exception.h"
 #include "cxstring_raii.h"
-#include "copying_delete_move_through_swap.h"
+#include "copying_delete.h"
 
 namespace clang_c_adaptation::internal
 {
@@ -20,7 +20,18 @@ namespace clang_c_adaptation::internal
 			clang_tokenize(translation_unit, tokens_extent, &tokens_, &tokens_n_);
 		}
 
-		COPYING_DELETE_MOVE_THROUGH_SWAP(cxtokens_raii)
+		COPYING_DELETE(cxtokens_raii)
+
+		cxtokens_raii(cxtokens_raii&& other) noexcept
+		{
+			swap(std::move(other));
+		}
+
+		cxtokens_raii& operator=(cxtokens_raii&& other) noexcept
+		{
+			swap(std::move(other));
+			return *this;
+		}
 
 		~cxtokens_raii()
 		{
@@ -39,14 +50,23 @@ namespace clang_c_adaptation::internal
 				throw common_exceptions::invalid_index_exception(
 					"cxtokens_raii.at: invalid index was passed");
 			}
+
 			return this->operator[](index);
 		}
 
 		[[nodiscard]] std::string operator[](const token_index index) const
 		{
 			const CXToken token = tokens_[index.to_size_t()];
-			const cxstring_raii token_spelling{ clang_getTokenSpelling(translation_unit_, token) };
+			const cxstring_raii token_spelling{clang_getTokenSpelling(translation_unit_, token)};
 			return token_spelling.string();
+		}
+
+	private:
+		void swap(cxtokens_raii&& other)
+		{
+			std::swap(tokens_, other.tokens_);
+			std::swap(tokens_n_, other.tokens_n_);
+			std::swap(translation_unit_, other.translation_unit_);
 		}
 	};
 }

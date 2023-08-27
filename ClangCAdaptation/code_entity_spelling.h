@@ -10,6 +10,7 @@ namespace clang_c_adaptation
 
 	public:
 		code_entity_spelling() noexcept = default;
+
 		explicit code_entity_spelling(const CXCursor& cursor) :
 			string_(internal::cxstring_raii(clang_getCursorSpelling(cursor)).string()) {}
 

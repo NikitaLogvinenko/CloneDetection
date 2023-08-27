@@ -9,18 +9,18 @@ namespace cm
 	{
 		double value_{};
 
-		static constexpr double min_value { 0.0 };
-		static constexpr double max_value { 1.0 };
-
 	public:
 		relative_similarity() noexcept = default;
+
 		explicit relative_similarity(const double value) : value_(value)
 		{
 			if (value_ < min_value || value_ > max_value)
 			{
 				const std::string invalid_similarity_msg{
-					std::format("relative similarity value must be from {} (absolutely different entities) to {} (equal entities)",
-						std::to_string(min_value), std::to_string(max_value)) };
+					std::format(
+						"relative similarity value must be from {} (absolutely different entities) to {} (equal entities)",
+						std::to_string(min_value), std::to_string(max_value))
+				};
 				throw common_exceptions::initialized_value_out_of_range(invalid_similarity_msg);
 			}
 		}
@@ -42,5 +42,9 @@ namespace cm
 		{
 			return max_value;
 		}
+
+	private:
+		static constexpr double min_value{0.0};
+		static constexpr double max_value{1.0};
 	};
 }

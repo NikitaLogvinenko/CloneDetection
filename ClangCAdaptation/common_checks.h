@@ -9,12 +9,15 @@ namespace clang_c_adaptation
 	{
 		inline static const std::unordered_set literals_kinds{
 			CXCursor_IntegerLiteral, CXCursor_FloatingLiteral, CXCursor_ImaginaryLiteral,
-				CXCursor_StringLiteral, CXCursor_CharacterLiteral, CXCursor_CXXBoolLiteralExpr};
+			CXCursor_StringLiteral, CXCursor_CharacterLiteral, CXCursor_CXXBoolLiteralExpr
+		};
 
-		inline static const std::unordered_set var_decl_kinds{ CXCursor_VarDecl, CXCursor_FieldDecl, CXCursor_ParmDecl };
+		inline static const std::unordered_set var_decl_kinds{CXCursor_VarDecl, CXCursor_FieldDecl, CXCursor_ParmDecl};
 
 		inline static const std::unordered_set func_decl_kinds{
-			CXCursor_CXXMethod, CXCursor_FunctionDecl, CXCursor_Constructor, CXCursor_Destructor, CXCursor_FunctionTemplate };
+			CXCursor_CXXMethod, CXCursor_FunctionDecl, CXCursor_Constructor, CXCursor_Destructor,
+			CXCursor_FunctionTemplate
+		};
 
 	public:
 		common_checks() = delete;
@@ -38,6 +41,7 @@ namespace clang_c_adaptation
 			{
 				return false;
 			}
+
 			return is_cursor_to_var_decl(clang_getCursorReferenced(cursor));
 		}
 

@@ -16,11 +16,13 @@ namespace cm
 				: std::vector<count_vector_value>::const_iterator(vector_iterator) {}
 		};
 
-		std::vector<count_vector_value> count_values_{ std::vector<count_vector_value>(Dimension) };
+		std::vector<count_vector_value> count_values_{std::vector<count_vector_value>(Dimension)};
 
 	public:
 		count_vector() noexcept = default;
-		explicit count_vector(const std::array<count_vector_value, Dimension>& count_values) : count_values_(count_values.cbegin(), count_values.cend()) {}
+
+		explicit count_vector(const std::array<count_vector_value, Dimension>& count_values) : count_values_(
+			count_values.cbegin(), count_values.cend()) {}
 
 		[[nodiscard]] size_t size() const noexcept
 		{
@@ -49,5 +51,4 @@ namespace cm
 			return const_iterator(count_values_.cend());
 		}
 	};
-
 }

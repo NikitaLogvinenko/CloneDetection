@@ -8,6 +8,7 @@ namespace cpp_code_analysis::internal
 
 	public:
 		analysed_func_info_index() noexcept = default;
+
 		explicit analysed_func_info_index(const size_t index) noexcept : index_(index) {}
 
 		[[nodiscard]] size_t to_size_t() const noexcept

@@ -26,17 +26,19 @@ namespace clone_detection_io
 		constexpr size_t first_ast_filename_index = save_filename_index + 1;
 		constexpr size_t min_argc = first_ast_filename_index + 1;
 
-		const std::string link_for_info{ "https://github.com/NikitaLogvinenko/CloneDetection/tree/master" };
+		const std::string link_for_info{"https://github.com/NikitaLogvinenko/CloneDetection/tree/master"};
 
 		void print_help()
 		{
 			std::cout << "> Console application for finding clone-functions in C++ code.\n";
 			std::cout << "> Command line arguments:\n";
-			std::cout << "> First arg: functions_similarity_threshold - must be from 0 (absolutely different) to 1 (absolutely identical).\n";
+			std::cout <<
+				"> First arg: functions_similarity_threshold - must be from 0 (absolutely different) to 1 (absolutely identical).\n";
 			std::cout << "> Functions which similarities greater or equal will be declared CLONES.\n";
 			std::cout << "> Second arg: path_to_save_results - filename where clone detection results will be saved.\n";
 			std::cout << "> File mustn't exist before, since it will be created during application execution.\n";
-			std::cout << "> Other args: pathes to existing dumped clang-AST files (abstract syntax trees) of translation units that must be analysed.\n";
+			std::cout <<
+				"> Other args: pathes to existing dumped clang-AST files (abstract syntax trees) of translation units that must be analysed.\n";
 			std::cout << "> More information see here: " << link_for_info << "\n";
 		}
 
@@ -45,12 +47,14 @@ namespace clone_detection_io
 			std::istringstream iss(func_similarity_threshold);
 			double similarity;
 			iss >> similarity;
+
 			if (!iss)
 			{
 				throw common_exceptions::types_conversion_error(
 					"Can not convert functions_similarity_threshold to double.\n");
 			}
-			return relative_similarity{ similarity };
+
+			return relative_similarity{similarity};
 		}
 	}
 
@@ -58,16 +62,20 @@ namespace clone_detection_io
 	{
 		std::cout << std::endl;
 		std::cout << "Clone detection launched...\n";
+
 		if (argv.size() < min_argc)
 		{
-			std::cout << std::format("Not enough arguments. Minimum {} are required, but {} were passed.\n", min_argc - 1, argv.size() - 1);
+			std::cout << std::format("Not enough arguments. Minimum {} are required, but {} were passed.\n",
+			                         min_argc - 1, argv.size() - 1);
 			print_help();
 			return;
 		}
 
 		try
 		{
-			const relative_similarity funcs_similarity_threshold{ convert_similarity(argv[funcs_similarity_threshold_index]) };
+			const relative_similarity funcs_similarity_threshold{
+				convert_similarity(argv[funcs_similarity_threshold_index])
+			};
 
 			const std::filesystem::path save_filename(argv[save_filename_index]);
 			if (exists(save_filename))
@@ -84,14 +92,17 @@ namespace clone_detection_io
 				translation_units.emplace_back(cxindex, std::filesystem::path(argv[tu_path_index]));
 			}
 
-			std::unique_ptr<func_implementation_analysis_builder_abstract<default_conditions_total>> func_analysis_builder
-				= std::make_unique<func_implementation_analysis_builder_default>();
+			std::unique_ptr<func_implementation_analysis_builder_abstract<default_conditions_total>>
+				func_analysis_builder
+					= std::make_unique<func_implementation_analysis_builder_default>();
 
 			analysed_functions_info<default_conditions_total> analysed_functions_info =
-				func_implementation_analysis_director::analyse_all_units(std::move(func_analysis_builder), translation_units);
+				func_implementation_analysis_director::analyse_all_units(
+					std::move(func_analysis_builder), translation_units);
 
 			const auto funcs_pairwise_similarity = functions_cm_pairwise_similarity<default_conditions_total>
-				::builder::build(std::move(analysed_functions_info), cm_max_weighted_bipartite_matching<default_conditions_total>{});
+				::builder::build(std::move(analysed_functions_info),
+				                 cm_max_weighted_bipartite_matching<default_conditions_total>{});
 
 			std::cout << "Saving results...\n";
 			std::ofstream save_file(save_filename);
@@ -100,6 +111,7 @@ namespace clone_detection_io
 				throw common_exceptions::file_not_opened_exception(
 					"Can not create or open file for results saving.\n");
 			}
+
 			cm_clone_functions_typer::type(save_file, funcs_pairwise_similarity, funcs_similarity_threshold);
 			std::cout << "Detection performed!\n";
 		}

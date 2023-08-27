@@ -10,7 +10,9 @@ namespace cpp_code_analysis::internal
 	public:
 		[[nodiscard]] size_t operator()(const func_implementation_info<VarUsageConditionsN>& func_info) const noexcept
 		{
-			return std::hash<std::string>{}(func_info.spelling().to_string() + func_info.location().filename().string());
+			return std::hash<std::string>
+				{}(func_info.spelling().to_code_entity_spelling().to_string() 
+					+ func_info.location().to_code_entity_location().filename().string());
 		}
 	};
 }

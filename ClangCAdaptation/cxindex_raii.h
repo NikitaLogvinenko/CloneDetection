@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
 #include "create_cxindex_exception.h"
-#include "copying_delete_move_through_swap.h"
+#include "copying_delete.h"
 
 namespace clang_c_adaptation
 {
@@ -9,11 +9,9 @@ namespace clang_c_adaptation
 	{
 		CXIndex index_{};
 
-		static constexpr auto invalid_index = nullptr;
-
 	public:
 		explicit cxindex_raii(const bool exclude_decls_from_pch = true, const bool display_diagnostics = true)
-			: index_{ clang_createIndex(exclude_decls_from_pch, display_diagnostics)}
+			: index_{clang_createIndex(exclude_decls_from_pch, display_diagnostics)}
 		{
 			if (index_ == invalid_index)
 			{
@@ -21,7 +19,18 @@ namespace clang_c_adaptation
 			}
 		}
 
-		COPYING_DELETE_MOVE_THROUGH_SWAP(cxindex_raii)
+		COPYING_DELETE(cxindex_raii)
+
+		cxindex_raii(cxindex_raii&& other) noexcept
+		{
+			std::swap(index_, other.index_);
+		}
+
+		cxindex_raii& operator=(cxindex_raii&& other) noexcept
+		{
+			std::swap(index_, other.index_);
+			return *this;
+		}
 
 		~cxindex_raii()
 		{
@@ -32,5 +41,8 @@ namespace clang_c_adaptation
 		{
 			return index_;
 		}
+
+	private:
+		static constexpr auto invalid_index = nullptr;
 	};
 }

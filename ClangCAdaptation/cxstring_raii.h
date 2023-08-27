@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
 #include "nullptr_exception.h"
-#include "copying_delete_move_through_swap.h"
+#include "copying_delete.h"
 
 namespace clang_c_adaptation::internal
 {
@@ -15,7 +15,18 @@ namespace clang_c_adaptation::internal
 			std::swap(cxstring_, cxstring);
 		}
 
-		COPYING_DELETE_MOVE_THROUGH_SWAP(cxstring_raii)
+		COPYING_DELETE(cxstring_raii)
+
+		cxstring_raii(cxstring_raii&& other) noexcept
+		{
+			std::swap(cxstring_, other.cxstring_);
+		}
+
+		cxstring_raii& operator=(cxstring_raii&& other) noexcept
+		{
+			std::swap(cxstring_, other.cxstring_);
+			return *this;
+		}
 
 		~cxstring_raii()
 		{
@@ -29,7 +40,8 @@ namespace clang_c_adaptation::internal
 				throw common_exceptions::nullptr_exception(
 					"Attempt to get string from CXString with data = nullptr.");
 			}
-			return {clang_getCString(cxstring_) };
+
+			return {clang_getCString(cxstring_)};
 		}
 	};
 }

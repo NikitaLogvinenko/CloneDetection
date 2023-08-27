@@ -11,6 +11,7 @@ namespace clang_c_adaptation
 
 	public:
 		var_spelling() noexcept = default;
+
 		explicit var_spelling(const CXCursor& cursor_to_var_decl) : spelling_(cursor_to_var_decl)
 		{
 			if (!common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
@@ -20,9 +21,9 @@ namespace clang_c_adaptation
 			}
 		}
 
-		[[nodiscard]] const std::string& to_string() const noexcept
+		[[nodiscard]] const code_entity_spelling& to_code_entity_spelling() const noexcept
 		{
-			return spelling_.to_string();
+			return spelling_;
 		}
 
 		[[nodiscard]] bool operator==(const var_spelling& other) const noexcept = default;

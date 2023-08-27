@@ -35,7 +35,8 @@ namespace cpp_code_analysis
 		{
 		public:
 			explicit const_func_indices_pair_by_similarity_iterator(
-				const typename std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator& multimap_iterator) noexcept
+				const typename std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator&
+				multimap_iterator) noexcept
 				: std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator(multimap_iterator) {}
 		};
 
@@ -61,13 +62,17 @@ namespace cpp_code_analysis
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator lower_bound_similarity_func_indices_pair(
 			const cm::relative_similarity lower_similarity_bound) const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound) };
+			return const_func_indices_pair_by_similarity_iterator{
+				func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound)
+			};
 		}
 
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator upper_bound_similarity_func_indices_pair(
 			const cm::relative_similarity upper_similarity_bound) const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound) };
+			return const_func_indices_pair_by_similarity_iterator{
+				func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound)
+			};
 		}
 
 		[[nodiscard]] const cm::count_matrices_similarity_data& get_functions_similarity_data(
@@ -78,12 +83,12 @@ namespace cpp_code_analysis
 
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator begin() const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.cbegin() };
+			return const_func_indices_pair_by_similarity_iterator{func_indices_pair_by_similarity_.cbegin()};
 		}
 
 		[[nodiscard]] const_func_indices_pair_by_similarity_iterator end() const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{ func_indices_pair_by_similarity_.cend() };
+			return const_func_indices_pair_by_similarity_iterator{func_indices_pair_by_similarity_.cend()};
 		}
 
 	private:
@@ -91,10 +96,9 @@ namespace cpp_code_analysis
 			analysed_functions_info<VarUsageConditionsN> analysed_functions_info = {},
 			std::map<func_indices_pair, cm::count_matrices_similarity_data> similarity_data_by_func_indices_pair = {},
 			std::multimap<cm::relative_similarity, func_indices_pair> func_indices_pair_by_similarity = {}) noexcept :
-				analysed_functions_info_(std::move(analysed_functions_info)),
-				similarity_data_by_func_indices_pair_(std::move(similarity_data_by_func_indices_pair)),
-				func_indices_pair_by_similarity_(std::move(func_indices_pair_by_similarity)) {}
-
+			analysed_functions_info_(std::move(analysed_functions_info)),
+			similarity_data_by_func_indices_pair_(std::move(similarity_data_by_func_indices_pair)),
+			func_indices_pair_by_similarity_(std::move(func_indices_pair_by_similarity)) {}
 	};
 
 	template <size_t VarUsageConditionsN>
@@ -109,19 +113,26 @@ namespace cpp_code_analysis
 		auto similarity_by_indices_iterator = similarity_data_by_func_indices_pair.begin();
 		for (size_t first_func_index = 0; first_func_index < functions_info.functions_count(); ++first_func_index)
 		{
-			for (size_t second_func_index = first_func_index; second_func_index < functions_info.functions_count(); ++second_func_index)
+			for (size_t second_func_index = first_func_index; second_func_index < functions_info.functions_count(); ++
+			     second_func_index)
 			{
 				similarity_by_indices_iterator = similarity_data_by_func_indices_pair.emplace_hint(
-					similarity_by_indices_iterator, func_indices_pair{ first_func_index, second_func_index },
+					similarity_by_indices_iterator, func_indices_pair{first_func_index, second_func_index},
 					similarity_abstract_algorithm.determine_similarity(
-						functions_info[internal::analysed_func_info_index(first_func_index)].variables_usage_count_matrix(),
-						functions_info[internal::analysed_func_info_index(second_func_index)].variables_usage_count_matrix()));
+						functions_info[internal::analysed_func_info_index(first_func_index)].
+						variables_usage_count_matrix(),
+						functions_info[internal::analysed_func_info_index(second_func_index)].
+						variables_usage_count_matrix()));
+
 				const auto& [current_indices_pair, current_similarity_data] = *similarity_by_indices_iterator;
-				func_indices_pair_by_similarity.emplace(current_similarity_data.matrices_relative_similarity(), current_indices_pair);
+				func_indices_pair_by_similarity.emplace(current_similarity_data.matrices_relative_similarity(),
+				                                        current_indices_pair);
 			}
 		}
 
 		return functions_cm_pairwise_similarity{
-			std::move(functions_info), std::move(similarity_data_by_func_indices_pair), std::move(func_indices_pair_by_similarity) };
+			std::move(functions_info), std::move(similarity_data_by_func_indices_pair),
+			std::move(func_indices_pair_by_similarity)
+		};
 	}
 }

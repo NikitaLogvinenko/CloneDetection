@@ -8,6 +8,6 @@ namespace clang_c_adaptation
 	{
 	public:
 		explicit wrong_cursor_kind_exception(const std::string_view what_msg)
-		: std::invalid_argument(what_msg.data()) {}
+			: std::invalid_argument(what_msg.data()) {}
 	};
 }

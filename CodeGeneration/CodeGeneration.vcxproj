@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="copying_delete_move_through_swap.h" />
+    <ClInclude Include="copying_delete.h" />
     <ClInclude Include="default_copy_move_constructor_assignment_virtual_destructor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

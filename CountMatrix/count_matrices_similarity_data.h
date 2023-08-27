@@ -21,15 +21,21 @@ namespace cm
 
 	public:
 		count_matrices_similarity_data() noexcept = default;
+
 		explicit count_matrices_similarity_data(
-			const relative_similarity& matrices_relative_similarity, 
+			const relative_similarity& matrices_relative_similarity,
 			std::vector<internal::cm_similar_vectors_data> vectors_similarity_data = {})
-			: matrices_relative_similarity_(matrices_relative_similarity), vectors_similarity_data_descending_order_(std::move(vectors_similarity_data))
+			: matrices_relative_similarity_(matrices_relative_similarity),
+			  vectors_similarity_data_descending_order_(std::move(vectors_similarity_data))
 		{
 			std::ranges::sort(vectors_similarity_data_descending_order_,
-			                  [](const internal::cm_similar_vectors_data& first_vectors_pair, 
-								  const internal::cm_similar_vectors_data& second_vectors_pair)
-			                  { return second_vectors_pair.relative_similarity() < first_vectors_pair.relative_similarity(); });
+			                  [](const internal::cm_similar_vectors_data& first_vectors_pair,
+			                     const internal::cm_similar_vectors_data& second_vectors_pair)
+			                  {
+				                  return second_vectors_pair.relative_similarity() < first_vectors_pair.
+					                  relative_similarity();
+			                  }
+			);
 		}
 
 		[[nodiscard]] const relative_similarity& matrices_relative_similarity() const noexcept

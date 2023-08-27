@@ -48,10 +48,14 @@ namespace cpp_code_analysis::internal
 		bool try_insert_cursor(const CXCursor& cursor, const CXCursorKind& kind);
 
 		[[nodiscard]] static clang_c_adaptation::var_origin determine_var_origin(const CXCursor& cursor_to_var_decl);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types(const CXCursor& cursor, const CXCursorKind& kind);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_binary_operator(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_unary_operator(const CXCursor& cursor);
-		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_compound_assign(const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types(
+			const CXCursor& cursor, const CXCursorKind& kind);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_binary_operator(
+			const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_unary_operator(
+			const CXCursor& cursor);
+		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_compound_assign(
+			const CXCursor& cursor);
 		[[nodiscard]] static std::vector<func_entity_type> determine_entity_types_of_call_expr(const CXCursor& cursor);
 
 		[[nodiscard]] static CXChildVisitResult visitor_direct_children_counter(

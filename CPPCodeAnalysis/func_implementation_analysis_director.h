@@ -22,12 +22,16 @@ namespace cpp_code_analysis
 		const std::vector<clang_c_adaptation::translation_unit_raii>& translation_units)
 	{
 		abstract_builder_ptr->initialize_builder();
+
 		for (const auto& translation_unit : translation_units)
 		{
 			abstract_builder_ptr->analyse_translation_unit(translation_unit);
 		}
-		auto returned_value = abstract_builder_ptr->build_analysed_functions_implementation_info();;
+
+		auto returned_value = abstract_builder_ptr->build_analysed_functions_implementation_info();
+
 		abstract_builder_ptr->clear_builder();
+
 		return returned_value;
 	}
 }

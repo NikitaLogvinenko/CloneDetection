@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <string_view>
 #include <stdexcept>
 
 namespace clang_c_adaptation

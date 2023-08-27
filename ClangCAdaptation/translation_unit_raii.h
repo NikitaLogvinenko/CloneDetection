@@ -2,7 +2,7 @@
 #include "clang-c/Index.h"
 #include "cxindex_raii.h"
 #include "create_translation_unit_exception.h"
-#include "copying_delete_move_through_swap.h"
+#include "copying_delete.h"
 #include <filesystem>
 
 namespace clang_c_adaptation
@@ -11,12 +11,12 @@ namespace clang_c_adaptation
 	{
 		CXTranslationUnit translation_unit_{};
 
-		static constexpr auto invalid_tu = nullptr;
-
 	public:
 		explicit translation_unit_raii(const cxindex_raii& cxindex, const std::filesystem::path& ast_filename)
-			: translation_unit_{ clang_createTranslationUnit(cxindex.index(), 
-				ast_filename.string().c_str()) }
+			: translation_unit_{
+				clang_createTranslationUnit(cxindex.index(),
+				                            ast_filename.string().c_str())
+			}
 		{
 			if (translation_unit_ == invalid_tu)
 			{
@@ -25,7 +25,18 @@ namespace clang_c_adaptation
 			}
 		}
 
-		COPYING_DELETE_MOVE_THROUGH_SWAP(translation_unit_raii)
+		COPYING_DELETE(translation_unit_raii)
+
+		translation_unit_raii(translation_unit_raii&& other) noexcept
+		{
+			std::swap(translation_unit_, other.translation_unit_);
+		}
+
+		translation_unit_raii& operator=(translation_unit_raii&& other) noexcept
+		{
+			std::swap(translation_unit_, other.translation_unit_);
+			return *this;
+		}
 
 		~translation_unit_raii()
 		{
@@ -36,5 +47,8 @@ namespace clang_c_adaptation
 		{
 			return translation_unit_;
 		}
+
+	private:
+		static constexpr auto invalid_tu = nullptr;
 	};
 }

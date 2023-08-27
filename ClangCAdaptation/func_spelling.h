@@ -12,6 +12,7 @@ namespace clang_c_adaptation
 
 	public:
 		func_spelling() noexcept = default;
+
 		explicit func_spelling(const CXCursor& cursor_to_func_decl) : spelling_(cursor_to_func_decl)
 		{
 			if (!common_checks::is_cursor_to_func_declaration(cursor_to_func_decl))
@@ -21,9 +22,9 @@ namespace clang_c_adaptation
 			}
 		}
 
-		[[nodiscard]] const std::string& to_string() const noexcept
+		[[nodiscard]] const code_entity_spelling& to_code_entity_spelling() const noexcept
 		{
-			return spelling_.to_string();
+			return spelling_;
 		}
 
 		[[nodiscard]] bool operator==(const func_spelling& other) const noexcept = default;

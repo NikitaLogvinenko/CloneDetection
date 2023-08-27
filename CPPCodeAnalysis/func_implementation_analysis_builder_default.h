@@ -25,7 +25,7 @@ namespace cpp_code_analysis
 		void analyse_translation_unit(const clang_c_adaptation::translation_unit_raii& translation_unit) override
 		{
 			for (const auto& func_def_cursor :
-				find_func_definitions_cursors(clang_getTranslationUnitCursor(translation_unit.translation_unit())))
+			     find_func_definitions_cursors(clang_getTranslationUnitCursor(translation_unit.translation_unit())))
 			{
 				analysed_functions_.emplace(
 					clang_c_adaptation::func_spelling(func_def_cursor),
@@ -36,7 +36,7 @@ namespace cpp_code_analysis
 
 		analysed_functions_info<default_conditions_total> build_analysed_functions_implementation_info() override
 		{
-			return analysed_functions_info{ std::move(analysed_functions_) };
+			return analysed_functions_info{std::move(analysed_functions_)};
 		}
 
 		void clear_builder() override
@@ -61,7 +61,7 @@ namespace cpp_code_analysis
 			clang_c_adaptation::cxcursors_equal>
 		create_unordered_map_count_arrays_by_var_cursors(
 			const std::unordered_map<
-				CXCursor, 
+				CXCursor,
 				internal::var_origin_and_usage_counter_pair,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& origin_and_usage_counter_by_var);
@@ -75,28 +75,28 @@ namespace cpp_code_analysis
 				std::array<cm::count_vector_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
-				var_usage_condition counted_condition);
+			var_usage_condition counted_condition);
 
 		static void count_first_variable_inside_entities(
 			const internal::func_entities_classifier& first_traversal_data,
 			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
-			CXCursor,
-			std::array<cm::count_vector_value, default_conditions_total>,
-			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
+				CXCursor,
+				std::array<cm::count_vector_value, default_conditions_total>,
+				clang_c_adaptation::cxcursor_hash,
+				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
 
 		static void count_from_second_variable_inside_entities(
 			const internal::func_entities_classifier& first_traversal_data,
 			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
-			CXCursor,
-			std::array<cm::count_vector_value, default_conditions_total>,
-			clang_c_adaptation::cxcursor_hash,
-			clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
+				CXCursor,
+				std::array<cm::count_vector_value, default_conditions_total>,
+				clang_c_adaptation::cxcursor_hash,
+				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
-		
+
 
 		static CXChildVisitResult visitor_find_func_definitions(
 			CXCursor cursor_inside_translation_unit, CXCursor parent, CXClientData func_definitions_cursors_void_ptr);
@@ -112,7 +112,8 @@ namespace cpp_code_analysis
 			CXCursor cursor_inside_entity, CXCursor parent, CXClientData count_all_variables_visit_data_void_ptr);
 
 		static CXChildVisitResult visitor_count_from_second_variable_inside_entity(
-			CXCursor cursor_inside_entity, CXCursor parent, CXClientData count_from_second_variable_visit_data_void_ptr);
+			CXCursor cursor_inside_entity, CXCursor parent,
+			CXClientData count_from_second_variable_visit_data_void_ptr);
 
 
 		static CXChildVisitResult visitor_traverse_var_definition(

@@ -8,6 +8,7 @@ namespace cm
 
 	public:
 		count_vector_value() noexcept = default;
+
 		explicit count_vector_value(const size_t value) noexcept : value_(value) {}
 
 		[[nodiscard]] size_t value() const noexcept

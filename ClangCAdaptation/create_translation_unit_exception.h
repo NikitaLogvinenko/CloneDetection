@@ -8,6 +8,6 @@ namespace clang_c_adaptation
 	{
 	public:
 		explicit create_translation_unit_exception(const std::string_view what_arg)
-		: std::runtime_error(what_arg.data()) {}
+			: std::runtime_error(what_arg.data()) {}
 	};
 }

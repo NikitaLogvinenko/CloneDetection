@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <string_view>
 #include <stdexcept>
 
 namespace common_exceptions
@@ -8,6 +7,6 @@ namespace common_exceptions
 	{
 	public:
 		explicit existed_file_rewriting_exception(const std::string_view what_arg)
-		: std::logic_error(what_arg.data()) {}
+			: std::logic_error(what_arg.data()) {}
 	};
 }
