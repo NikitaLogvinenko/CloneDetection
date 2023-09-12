@@ -23,23 +23,23 @@ namespace code_generation
 			: underlying_iterator_(std::move(underlying_iterator)) {}
 
 
-		[[nodiscard]] reference operator*() const
+		[[nodiscard]] reference operator*() const noexcept
 		{
 			return *underlying_iterator_;
 		}
 
-		[[nodiscard]] pointer operator->() const
+		[[nodiscard]] pointer operator->() const noexcept
 		{
 			return underlying_iterator_.operator->();
 		}
 
 
-		[[nodiscard]] bool operator==(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator==(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ == other.underlying_iterator_;
 		}
 
-		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ != other.underlying_iterator_;
 		}
@@ -65,35 +65,35 @@ namespace code_generation
 			: underlying_iterator_(std::move(underlying_iterator)) {}
 
 
-		[[nodiscard]] reference operator*() const
+		[[nodiscard]] reference operator*() const noexcept
 		{
 			return *underlying_iterator_;
 		}
 
-		[[nodiscard]] pointer operator->() const
+		[[nodiscard]] pointer operator->() const noexcept
 		{
 			return underlying_iterator_.operator->();
 		}
 
 
-		[[nodiscard]] bool operator==(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator==(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ == other.underlying_iterator_;
 		}
 
-		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ != other.underlying_iterator_;
 		}
 
 
-		iterator_wrapper& operator++()
+		iterator_wrapper& operator++() noexcept
 		{
 			++underlying_iterator_;
 			return *this;
 		}
 
-		iterator_wrapper operator++(int)
+		iterator_wrapper operator++(int) noexcept
 		{
 			iterator_wrapper tmp = *this;
 			++*this;
@@ -121,35 +121,35 @@ namespace code_generation
 			: underlying_iterator_(std::move(underlying_iterator)) {}
 
 
-		[[nodiscard]] reference operator*() const
+		[[nodiscard]] reference operator*() const noexcept
 		{
 			return *underlying_iterator_;
 		}
 
-		[[nodiscard]] pointer operator->() const
+		[[nodiscard]] pointer operator->() const noexcept
 		{
 			return underlying_iterator_.operator->();
 		}
 
 
-		[[nodiscard]] bool operator==(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator==(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ == other.underlying_iterator_;
 		}
 
-		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const
+		[[nodiscard]] bool operator!=(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ != other.underlying_iterator_;
 		}
 
 
-		iterator_wrapper& operator++()
+		iterator_wrapper& operator++() noexcept
 		{
 			++underlying_iterator_;
 			return *this;
 		}
 
-		iterator_wrapper operator++(int)
+		iterator_wrapper operator++(int) noexcept
 		{
 			iterator_wrapper tmp = *this;
 			++*this;
@@ -157,13 +157,13 @@ namespace code_generation
 		}
 
 
-		iterator_wrapper& operator--()
+		iterator_wrapper& operator--() noexcept
 		{
 			--underlying_iterator_;
 			return *this;
 		}
 
-		iterator_wrapper operator--(int)
+		iterator_wrapper operator--(int) noexcept
 		{
 			iterator_wrapper tmp = *this;
 			--*this;
@@ -191,24 +191,24 @@ namespace code_generation
 			: underlying_iterator_(std::move(underlying_iterator)) {}
 
 
-		[[nodiscard]] reference operator*() const
+		[[nodiscard]] reference operator*() const noexcept
 		{
 			return *underlying_iterator_;
 		}
 
-		[[nodiscard]] pointer operator->() const
+		[[nodiscard]] pointer operator->() const noexcept
 		{
 			return underlying_iterator_.operator->();
 		}
 
 
-		iterator_wrapper& operator++()
+		iterator_wrapper& operator++() noexcept
 		{
 			++underlying_iterator_;
 			return *this;
 		}
 
-		iterator_wrapper operator++(int)
+		iterator_wrapper operator++(int) noexcept
 		{
 			iterator_wrapper tmp = *this;
 			++*this;
@@ -216,13 +216,13 @@ namespace code_generation
 		}
 
 
-		iterator_wrapper& operator--()
+		iterator_wrapper& operator--() noexcept
 		{
 			--underlying_iterator_;
 			return *this;
 		}
 
-		iterator_wrapper operator--(int)
+		iterator_wrapper operator--(int) noexcept
 		{
 			iterator_wrapper tmp = *this;
 			--*this;
@@ -230,31 +230,31 @@ namespace code_generation
 		}
 
 
-		[[nodiscard]] auto operator<=>(const iterator_wrapper&) const = default;
+		[[nodiscard]] auto operator<=>(const iterator_wrapper&) const noexcept = default;
 
-		iterator_wrapper& operator+=(const difference_type n)
+		iterator_wrapper& operator+=(const difference_type n) noexcept
 		{
 			underlying_iterator_ += n;
 			return *this;
 		}
 
-		[[nodiscard]] iterator_wrapper operator+(const difference_type n)
+		[[nodiscard]] iterator_wrapper operator+(const difference_type n) const noexcept
 		{
 			return iterator_wrapper{ underlying_iterator_ + n };
 		}
 
-		iterator_wrapper& operator-=(const difference_type n)
+		iterator_wrapper& operator-=(const difference_type n) noexcept
 		{
 			underlying_iterator_ -= n;
 			return *this;
 		}
 
-		[[nodiscard]] iterator_wrapper operator-(const difference_type n)
+		[[nodiscard]] iterator_wrapper operator-(const difference_type n) const noexcept
 		{
 			return iterator_wrapper{ underlying_iterator_ - n };
 		}
 
-		[[nodiscard]] difference_type operator-(const iterator_wrapper& other) const
+		[[nodiscard]] difference_type operator-(const iterator_wrapper& other) const noexcept
 		{
 			return underlying_iterator_ - other.underlying_iterator_;
 		}
@@ -264,7 +264,7 @@ namespace code_generation
 			return iterator_wrapper{ n + iterator.underlying_iterator_ };
 		}
 
-		[[nodiscard]] reference operator[](const difference_type n) const
+		[[nodiscard]] reference operator[](const difference_type n) const noexcept
 		{
 			return underlying_iterator_[n];
 		}
