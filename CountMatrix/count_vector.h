@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "count_vector_value.h"
 #include "index_of_count_value.h"
+#include "iterator_wrapper.h"
 #include <array>
 #include <vector>
 
@@ -9,13 +10,6 @@ namespace cm
 	template <size_t Dimension>
 	class count_vector final
 	{
-		class const_iterator final : public std::vector<count_vector_value>::const_iterator
-		{
-		public:
-			explicit const_iterator(const std::vector<count_vector_value>::const_iterator& vector_iterator) noexcept
-				: std::vector<count_vector_value>::const_iterator(vector_iterator) {}
-		};
-
 		std::vector<count_vector_value> count_values_{std::vector<count_vector_value>(Dimension)};
 
 	public:
@@ -41,14 +35,14 @@ namespace cm
 			return count_values_.at(value_index.to_size_t());
 		}
 
-		[[nodiscard]] const_iterator begin() const noexcept
+		[[nodiscard]] auto begin() const noexcept
 		{
-			return const_iterator(count_values_.cbegin());
+			return code_generation::iterator_wrapper{count_values_.cbegin()};
 		}
 
-		[[nodiscard]] const_iterator end() const noexcept
+		[[nodiscard]] auto end() const noexcept
 		{
-			return const_iterator(count_values_.cend());
+			return code_generation::iterator_wrapper{count_values_.cend()};
 		}
 	};
 }

@@ -120,8 +120,8 @@ namespace clone_detection_io
 	{
 		output << "\t\t\tfunction spelling: " << func_info.spelling().to_code_entity_spelling().to_string() << "\n";
 		output << "\t\t\tfunction location: ";
-		output << "file: " << func_info.location().to_code_entity_location().filename().string() << "line: " << func_info.location().to_code_entity_location().line() <<
-			"column: " << func_info.location().to_code_entity_location().column() << "\n";
+		output << "\n\t\t\t\tfile: " << func_info.location().to_code_entity_location().filename().string() << "\n\t\t\t\tline: " << func_info.location().to_code_entity_location().line() <<
+			"\n\t\t\t\tcolumn: " << func_info.location().to_code_entity_location().column() << "\n";
 	}
 
 	template <size_t VarUsageConditionsN>
@@ -131,8 +131,8 @@ namespace clone_detection_io
 	{
 		output << "\t\t\t" << "variable_spelling: " << var_usage_info.spelling().to_code_entity_spelling().to_string() << "\n";
 		output << "\t\t\t" << "variable_location: ";
-		output << "file: " << var_usage_info.location().to_code_entity_location().filename().string();
-		output << "line: " << var_usage_info.location().to_code_entity_location().line() << "column: " <<
+		output << "\n\t\t\t\tfile: " << var_usage_info.location().to_code_entity_location().filename().string();
+		output << "\n\t\t\t\tline: " << var_usage_info.location().to_code_entity_location().line() << "\n\t\t\t\tcolumn: " <<
 			var_usage_info.location().to_code_entity_location().column() << "\n";
 	}
 }

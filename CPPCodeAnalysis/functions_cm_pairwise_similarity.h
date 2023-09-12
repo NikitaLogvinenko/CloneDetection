@@ -30,16 +30,6 @@ namespace cpp_code_analysis
 			[[nodiscard]] auto operator<=>(const func_indices_pair& other) const noexcept = default;
 		};
 
-		class const_func_indices_pair_by_similarity_iterator final
-			: public std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator
-		{
-		public:
-			explicit const_func_indices_pair_by_similarity_iterator(
-				const typename std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator&
-				multimap_iterator) noexcept
-				: std::multimap<cm::relative_similarity, func_indices_pair>::const_iterator(multimap_iterator) {}
-		};
-
 		analysed_functions_info<VarUsageConditionsN> analysed_functions_info_{};
 		std::map<func_indices_pair, cm::count_matrices_similarity_data> similarity_data_by_func_indices_pair_{};
 		std::multimap<cm::relative_similarity, func_indices_pair> func_indices_pair_by_similarity_{};
@@ -59,18 +49,18 @@ namespace cpp_code_analysis
 			return analysed_functions_info_;
 		}
 
-		[[nodiscard]] const_func_indices_pair_by_similarity_iterator lower_bound_similarity_func_indices_pair(
+		[[nodiscard]] auto lower_bound_similarity_func_indices_pair(
 			const cm::relative_similarity lower_similarity_bound) const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{
+			return code_generation::iterator_wrapper{
 				func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound)
 			};
 		}
 
-		[[nodiscard]] const_func_indices_pair_by_similarity_iterator upper_bound_similarity_func_indices_pair(
+		[[nodiscard]] auto upper_bound_similarity_func_indices_pair(
 			const cm::relative_similarity upper_similarity_bound) const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{
+			return code_generation::iterator_wrapper{
 				func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound)
 			};
 		}
@@ -81,14 +71,14 @@ namespace cpp_code_analysis
 			return similarity_data_by_func_indices_pair_.at(func_indices);
 		}
 
-		[[nodiscard]] const_func_indices_pair_by_similarity_iterator begin() const noexcept
+		[[nodiscard]] auto begin() const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{func_indices_pair_by_similarity_.cbegin()};
+			return code_generation::iterator_wrapper{func_indices_pair_by_similarity_.cbegin()};
 		}
 
-		[[nodiscard]] const_func_indices_pair_by_similarity_iterator end() const noexcept
+		[[nodiscard]] auto end() const noexcept
 		{
-			return const_func_indices_pair_by_similarity_iterator{func_indices_pair_by_similarity_.cend()};
+			return code_generation::iterator_wrapper{func_indices_pair_by_similarity_.cend()};
 		}
 
 	private:

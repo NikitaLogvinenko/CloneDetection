@@ -7,15 +7,6 @@ namespace cm
 {
 	class count_matrices_similarity_data final
 	{
-		class const_similar_vectors_data_iterator final
-			: public std::vector<internal::cm_similar_vectors_data>::const_iterator
-		{
-		public:
-			explicit const_similar_vectors_data_iterator(
-				const std::vector<internal::cm_similar_vectors_data>::const_iterator& vector_iterator) noexcept
-				: std::vector<internal::cm_similar_vectors_data>::const_iterator(vector_iterator) {}
-		};
-
 		relative_similarity matrices_relative_similarity_{};
 		std::vector<internal::cm_similar_vectors_data> vectors_similarity_data_descending_order_{};
 
@@ -60,14 +51,14 @@ namespace cm
 			return vectors_similarity_data_descending_order_[index_in_descending_similarity_order.to_size_t()];
 		}
 
-		[[nodiscard]] const_similar_vectors_data_iterator begin() const noexcept
+		[[nodiscard]] auto begin() const noexcept
 		{
-			return const_similar_vectors_data_iterator(vectors_similarity_data_descending_order_.cbegin());
+			return code_generation::iterator_wrapper{ vectors_similarity_data_descending_order_.cbegin() };
 		}
 
-		[[nodiscard]] const_similar_vectors_data_iterator end() const noexcept
+		[[nodiscard]] auto end() const noexcept
 		{
-			return const_similar_vectors_data_iterator(vectors_similarity_data_descending_order_.cend());
+			return code_generation::iterator_wrapper{ vectors_similarity_data_descending_order_.cend() };
 		}
 	};
 }

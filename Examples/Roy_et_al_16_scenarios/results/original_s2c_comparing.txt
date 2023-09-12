@@ -6,40 +6,70 @@ functions_similarity_threshold=0%
 		functions similarity: 100%
 >>		first clone function:
 			function spelling: sumProd
-			function location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cppline: 3column: 1
+			function location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp
+				line: 3
+				column: 1
 >>		second clone function:
 			function spelling: sumProd
-			function location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cppline: 3column: 1
+			function location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cpp
+				line: 3
+				column: 1
 		matched_variables:
 			variables_similarity: 100%
 			matched_variable_from_first_function:
 			variable_spelling: n
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cppline: 3column: 14
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp
+				line: 3
+				column: 14
 			matched_variable_from_second_function:
 			variable_spelling: n
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cppline: 3column: 14
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cpp
+				line: 3
+				column: 14
 
 			variables_similarity: 100%
 			matched_variable_from_first_function:
 			variable_spelling: sum
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cppline: 5column: 2
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp
+				line: 5
+				column: 2
 			matched_variable_from_second_function:
 			variable_spelling: s
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cppline: 5column: 2
-
-			variables_similarity: 100%
-			matched_variable_from_first_function:
-			variable_spelling: i
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cppline: 7column: 7
-			matched_variable_from_second_function:
-			variable_spelling: i
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cppline: 7column: 7
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cpp
+				line: 5
+				column: 2
 
 			variables_similarity: 100%
 			matched_variable_from_first_function:
 			variable_spelling: prod
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cppline: 6column: 2
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp
+				line: 6
+				column: 2
 			matched_variable_from_second_function:
 			variable_spelling: p
-			variable_location: file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cppline: 6column: 2
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cpp
+				line: 6
+				column: 2
+
+			variables_similarity: 100%
+			matched_variable_from_first_function:
+			variable_spelling: i
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\original.cpp
+				line: 7
+				column: 7
+			matched_variable_from_second_function:
+			variable_spelling: i
+			variable_location: 
+				file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\Roy_et_al_16_scenarios\sources\s2c.cpp
+				line: 7
+				column: 7
 

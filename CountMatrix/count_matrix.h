@@ -9,15 +9,6 @@ namespace cm
 	template <size_t CountVectorDimension>
 	class count_matrix final
 	{
-		class const_iterator final : public std::vector<count_vector<CountVectorDimension>>::const_iterator
-		{
-		public:
-			explicit const_iterator(
-				const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator)
-				noexcept
-				: std::vector<count_vector<CountVectorDimension>>::const_iterator(vector_iterator) {}
-		};
-
 		std::vector<count_vector<CountVectorDimension>> count_vectors_{};
 
 	public:
@@ -48,14 +39,14 @@ namespace cm
 			return count_vectors_.empty();
 		}
 
-		[[nodiscard]] const_iterator begin() const noexcept
+		[[nodiscard]] auto begin() const noexcept
 		{
-			return const_iterator(count_vectors_.cbegin());
+			return code_generation::iterator_wrapper{ count_vectors_.cbegin() };
 		}
 
-		[[nodiscard]] const_iterator end() const noexcept
+		[[nodiscard]] auto end() const noexcept
 		{
-			return const_iterator(count_vectors_.cend());
+			return code_generation::iterator_wrapper{ count_vectors_.cend() };
 		}
 	};
 }
