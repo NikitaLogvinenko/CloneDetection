@@ -230,7 +230,7 @@ namespace code_generation
 		}
 
 
-		auto operator<=>(const iterator_wrapper&) const = default;
+		[[nodiscard]] auto operator<=>(const iterator_wrapper&) const = default;
 
 		iterator_wrapper& operator+=(const difference_type n)
 		{
@@ -238,7 +238,7 @@ namespace code_generation
 			return *this;
 		}
 
-		iterator_wrapper operator+(const difference_type n)
+		[[nodiscard]] iterator_wrapper operator+(const difference_type n)
 		{
 			return iterator_wrapper{ underlying_iterator_ + n };
 		}
@@ -249,22 +249,22 @@ namespace code_generation
 			return *this;
 		}
 
-		iterator_wrapper operator-(const difference_type n)
+		[[nodiscard]] iterator_wrapper operator-(const difference_type n)
 		{
 			return iterator_wrapper{ underlying_iterator_ - n };
 		}
 
-		difference_type operator-(const iterator_wrapper& other) const
+		[[nodiscard]] difference_type operator-(const iterator_wrapper& other) const
 		{
 			return underlying_iterator_ - other.underlying_iterator_;
 		}
 
-		friend iterator_wrapper operator+(const difference_type n, const iterator_wrapper& iterator)
+		[[nodiscard]] friend iterator_wrapper operator+(const difference_type n, const iterator_wrapper& iterator)
 		{
 			return iterator_wrapper{ n + iterator.underlying_iterator_ };
 		}
 
-		reference operator[](const difference_type n) const
+		[[nodiscard]] reference operator[](const difference_type n) const
 		{
 			return underlying_iterator_[n];
 		}
