@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "count_vector_value.h"
 #include "index_of_count_value.h"
-#include "iterator_wrapper.h"
 #include <array>
 #include <vector>
 
@@ -37,12 +36,12 @@ namespace cm
 
 		[[nodiscard]] auto begin() const noexcept
 		{
-			return code_generation::iterator_wrapper{count_values_.cbegin()};
+			return count_values_.cbegin();
 		}
 
 		[[nodiscard]] auto end() const noexcept
 		{
-			return code_generation::iterator_wrapper{count_values_.cend()};
+			return count_values_.cend();
 		}
 	};
 }

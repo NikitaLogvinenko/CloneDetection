@@ -53,12 +53,12 @@ namespace cm
 
 		[[nodiscard]] auto begin() const noexcept
 		{
-			return code_generation::iterator_wrapper{ vectors_similarity_data_descending_order_.cbegin() };
+			return vectors_similarity_data_descending_order_.cbegin();
 		}
 
 		[[nodiscard]] auto end() const noexcept
 		{
-			return code_generation::iterator_wrapper{ vectors_similarity_data_descending_order_.cend() };
+			return vectors_similarity_data_descending_order_.cend();
 		}
 	};
 }

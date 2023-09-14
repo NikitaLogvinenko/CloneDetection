@@ -3,6 +3,5 @@
   <ItemGroup>
     <ClInclude Include="default_copy_move_constructor_assignment_virtual_destructor.h" />
     <ClInclude Include="copying_delete.h" />
-    <ClInclude Include="iterator_wrapper.h" />
   </ItemGroup>
 </Project>

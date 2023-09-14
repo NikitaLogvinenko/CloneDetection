@@ -41,12 +41,12 @@ namespace cm
 
 		[[nodiscard]] auto begin() const noexcept
 		{
-			return code_generation::iterator_wrapper{ count_vectors_.cbegin() };
+			return count_vectors_.cbegin();
 		}
 
 		[[nodiscard]] auto end() const noexcept
 		{
-			return code_generation::iterator_wrapper{ count_vectors_.cend() };
+			return count_vectors_.cend();
 		}
 	};
 }

@@ -52,17 +52,13 @@ namespace cpp_code_analysis
 		[[nodiscard]] auto lower_bound_similarity_func_indices_pair(
 			const cm::relative_similarity lower_similarity_bound) const noexcept
 		{
-			return code_generation::iterator_wrapper{
-				func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound)
-			};
+			return func_indices_pair_by_similarity_.lower_bound(lower_similarity_bound);
 		}
 
 		[[nodiscard]] auto upper_bound_similarity_func_indices_pair(
 			const cm::relative_similarity upper_similarity_bound) const noexcept
 		{
-			return code_generation::iterator_wrapper{
-				func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound)
-			};
+			return func_indices_pair_by_similarity_.upper_bound(upper_similarity_bound);
 		}
 
 		[[nodiscard]] const cm::count_matrices_similarity_data& get_functions_similarity_data(
@@ -73,12 +69,12 @@ namespace cpp_code_analysis
 
 		[[nodiscard]] auto begin() const noexcept
 		{
-			return code_generation::iterator_wrapper{func_indices_pair_by_similarity_.cbegin()};
+			return func_indices_pair_by_similarity_.cbegin();
 		}
 
 		[[nodiscard]] auto end() const noexcept
 		{
-			return code_generation::iterator_wrapper{func_indices_pair_by_similarity_.cend()};
+			return func_indices_pair_by_similarity_.cend();
 		}
 
 	private:
