@@ -65,19 +65,19 @@ namespace cm
 			const count_matrix<CountVectorDimension>& second_cm,
 			const dlib::matrix<size_t>& assignment_matrix) const;
 
-		[[nodiscard]] std::vector<internal::cm_similar_vectors_data> create_similar_vectors_pairs(
+		[[nodiscard]] std::vector<internal::cv_similarity_with_indices> create_similar_vectors_pairs(
 			const dlib::matrix<size_t>& assignment_matrix, const std::vector<long>& assignment,
 			size_t min_vectors_count, size_t first_matrix_axis_in_assignment_matrix,
 			size_t second_matrix_axis_in_assignment_matrix) const;
 
 		[[nodiscard]] static double calc_count_vectors_distance(
 			const count_vector<CountVectorDimension>& first_vector,
-			const count_vector<CountVectorDimension>& second_vector) noexcept;
+			const count_vector<CountVectorDimension>& second_vector);
 
 		[[nodiscard]] static double convert_distance_to_similarity(
 			const count_vector<CountVectorDimension>& first_vector,
 			const count_vector<CountVectorDimension>& second_vector,
-			double distance) noexcept;
+			double distance);
 	};
 
 
@@ -177,13 +177,13 @@ namespace cm
 	}
 
 	template <size_t CountVectorDimension>
-	std::vector<internal::cm_similar_vectors_data>
+	std::vector<internal::cv_similarity_with_indices>
 	cm_max_weighted_bipartite_matching<CountVectorDimension>::create_similar_vectors_pairs(
 		const dlib::matrix<size_t>& assignment_matrix, const std::vector<long>& assignment,
 		const size_t min_vectors_count,
 		const size_t first_matrix_axis_in_assignment_matrix, const size_t second_matrix_axis_in_assignment_matrix) const
 	{
-		std::vector<internal::cm_similar_vectors_data> similar_vectors{};
+		std::vector<internal::cv_similarity_with_indices> similar_vectors{};
 		similar_vectors.reserve(min_vectors_count);
 		long row = 0;
 		for (const long& assigned_column : assignment)
@@ -211,17 +211,18 @@ namespace cm
 	template <size_t CountVectorDimension>
 	double cm_max_weighted_bipartite_matching<CountVectorDimension>::calc_count_vectors_distance(
 		const count_vector<CountVectorDimension>& first_vector,
-		const count_vector<CountVectorDimension>& second_vector) noexcept
+		const count_vector<CountVectorDimension>& second_vector)
 	{
 		std::array<size_t, CountVectorDimension> squared_differences{};
 
-		std::transform(first_vector.begin(), first_vector.end(), second_vector.begin(), squared_differences.begin(),
-		               [](const count_vector_value& value_from_first, const count_vector_value& value_from_second)
-		               {
-			               return pow(
-				               static_cast<int>(value_from_first.value()) - static_cast<int>(value_from_second.value()),
-				               2);
-		               });
+		std::transform(first_vector.begin(), first_vector.end(), 
+			second_vector.begin(), squared_differences.begin(),
+			[](const counted_value& value_from_first, const counted_value& value_from_second)
+			{
+				const auto& value_1 = static_cast<long long>(value_from_first.value());
+				const auto& value_2 = static_cast<long long>(value_from_second.value());
+				return pow(value_1 - value_2, 2);
+			});
 
 		const size_t sum_of_squared_differences =
 			std::accumulate(squared_differences.cbegin(), squared_differences.cend(), size_t{});
@@ -232,7 +233,7 @@ namespace cm
 	double cm_max_weighted_bipartite_matching<CountVectorDimension>::convert_distance_to_similarity(
 		const count_vector<CountVectorDimension>& first_vector,
 		const count_vector<CountVectorDimension>& second_vector,
-		const double distance) noexcept
+		const double distance)
 	{
 		if (distance < min_not_zero_distance)
 		{
@@ -242,17 +243,17 @@ namespace cm
 		std::array<size_t, CountVectorDimension> max_squared_value_in_pair{};
 
 		std::transform(first_vector.begin(), first_vector.end(), second_vector.begin(),
-		               max_squared_value_in_pair.begin(),
-		               [](const count_vector_value& value_from_first, const count_vector_value& value_from_second)
-		               {
-			               return pow(std::max(value_from_first.value(), value_from_second.value()), 2);
-		               });
+			max_squared_value_in_pair.begin(),
+			[](const counted_value& value_from_first, const counted_value& value_from_second)
+			{
+				const auto& max_value_in_pair = std::max(value_from_first.value(), value_from_second.value());
+				return pow(max_value_in_pair, 2);
+			});
 
 		const size_t sum_of_max_squared_values =
 			std::accumulate(max_squared_value_in_pair.cbegin(), max_squared_value_in_pair.cend(), size_t{});
 		const double normilized_distance = distance / std::sqrt(sum_of_max_squared_values);
-		const double similarity = relative_similarity::min_similarity_value() + similarity_range_width * (1 -
-			normilized_distance);
+		const double similarity = relative_similarity::min_similarity_value() + similarity_range_width * (1 - normilized_distance);
 		return std::clamp(similarity, relative_similarity::min_similarity_value(),
 		                  relative_similarity::max_similarity_value());
 	}

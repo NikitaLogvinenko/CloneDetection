@@ -24,10 +24,10 @@ class count_matrix_dim3_test_f : public testing::Test
 protected:
 	void SetUp() override
 	{
-		values_1_ = std::array{count_vector_value(0), count_vector_value(1), count_vector_value(2)};
-		values_2_ = std::array{count_vector_value(3), count_vector_value(4), count_vector_value(5)};
-		values_3_ = std::array{count_vector_value(6), count_vector_value(7), count_vector_value(8)};
-		values_4_ = std::array{count_vector_value(9), count_vector_value(10), count_vector_value(11)};
+		values_1_ = std::array{counted_value(0), counted_value(1), counted_value(2)};
+		values_2_ = std::array{counted_value(3), counted_value(4), counted_value(5)};
+		values_3_ = std::array{counted_value(6), counted_value(7), counted_value(8)};
+		values_4_ = std::array{counted_value(9), counted_value(10), counted_value(11)};
 
 		cv_1_ = count_vector{values_1_};
 		cv_2_ = count_vector{values_2_};
@@ -40,10 +40,10 @@ protected:
 		cm_from_empty_vector_ = count_matrix(std::vector<count_vector<3>>{});
 	}
 
-	std::array<count_vector_value, 3> values_1_{};
-	std::array<count_vector_value, 3> values_2_{};
-	std::array<count_vector_value, 3> values_3_{};
-	std::array<count_vector_value, 3> values_4_{};
+	std::array<counted_value, 3> values_1_{};
+	std::array<counted_value, 3> values_2_{};
+	std::array<counted_value, 3> values_3_{};
+	std::array<counted_value, 3> values_4_{};
 
 	count_vector<3> cv_1_{};
 	count_vector<3> cv_2_{};

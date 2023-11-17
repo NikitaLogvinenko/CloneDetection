@@ -7,15 +7,15 @@ using namespace internal;
 class cm_max_weighted_bipartite_matching_dim3_test_f : public testing::Test
 {
 protected:
-	std::array<count_vector_value, 3> values_1_1_{};
-	std::array<count_vector_value, 3> values_2_1_{};
-	std::array<count_vector_value, 3> values_3_1_{};
-	std::array<count_vector_value, 3> values_4_1_{};
+	std::array<counted_value, 3> values_1_1_{};
+	std::array<counted_value, 3> values_2_1_{};
+	std::array<counted_value, 3> values_3_1_{};
+	std::array<counted_value, 3> values_4_1_{};
 
-	std::array<count_vector_value, 3> values_1_2_{};
-	std::array<count_vector_value, 3> values_2_2_{};
-	std::array<count_vector_value, 3> values_3_2_{};
-	std::array<count_vector_value, 3> values_4_2_{};
+	std::array<counted_value, 3> values_1_2_{};
+	std::array<counted_value, 3> values_2_2_{};
+	std::array<counted_value, 3> values_3_2_{};
+	std::array<counted_value, 3> values_4_2_{};
 
 
 	count_vector<3> cv_1_1_{};
@@ -50,15 +50,15 @@ protected:
 
 	void SetUp() override
 	{
-		values_1_1_ = std::array{count_vector_value(0), count_vector_value(1), count_vector_value(2)};
-		values_2_1_ = std::array{count_vector_value(3), count_vector_value(4), count_vector_value(5)};
-		values_3_1_ = std::array{count_vector_value(6), count_vector_value(7), count_vector_value(8)};
-		values_4_1_ = std::array{count_vector_value(9), count_vector_value(10), count_vector_value(11)};
+		values_1_1_ = std::array{counted_value(0), counted_value(1), counted_value(2)};
+		values_2_1_ = std::array{counted_value(3), counted_value(4), counted_value(5)};
+		values_3_1_ = std::array{counted_value(6), counted_value(7), counted_value(8)};
+		values_4_1_ = std::array{counted_value(9), counted_value(10), counted_value(11)};
 
-		values_1_2_ = std::array{count_vector_value(1), count_vector_value(2), count_vector_value(3)};
-		values_2_2_ = std::array{count_vector_value(4), count_vector_value(5), count_vector_value(6)};
-		values_3_2_ = std::array{count_vector_value(7), count_vector_value(8), count_vector_value(9)};
-		values_4_2_ = std::array{count_vector_value(10), count_vector_value(11), count_vector_value(12)};
+		values_1_2_ = std::array{counted_value(1), counted_value(2), counted_value(3)};
+		values_2_2_ = std::array{counted_value(4), counted_value(5), counted_value(6)};
+		values_3_2_ = std::array{counted_value(7), counted_value(8), counted_value(9)};
+		values_4_2_ = std::array{counted_value(10), counted_value(11), counted_value(12)};
 
 
 		cv_1_1_ = count_vector{values_1_1_};

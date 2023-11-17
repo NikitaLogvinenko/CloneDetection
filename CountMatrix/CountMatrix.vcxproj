@@ -169,14 +169,14 @@
   <ItemGroup>
     <ClInclude Include="cm_similarity_abstract_algorithm.h" />
     <ClInclude Include="count_matrices_similarity_data.h" />
-    <ClInclude Include="cm_similar_vectors_data.h" />
+    <ClInclude Include="cv_similarity_with_indices.h" />
     <ClInclude Include="count_matrix.h" />
-    <ClInclude Include="index_of_count_value.h" />
+    <ClInclude Include="index_of_counted_value.h" />
     <ClInclude Include="index_of_count_vectors_pair.h" />
     <ClInclude Include="index_of_count_vector.h" />
     <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="count_vector.h" />
-    <ClInclude Include="count_vector_value.h" />
+    <ClInclude Include="counted_value.h" />
     <ClInclude Include="cm_max_weighted_bipartite_matching.h" />
   </ItemGroup>
   <ItemGroup>

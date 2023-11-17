@@ -56,7 +56,7 @@ namespace cpp_code_analysis
 
 		static std::unordered_map<
 			CXCursor,
-			std::array<cm::count_vector_value, default_conditions_total>,
+			std::array<cm::counted_value, default_conditions_total>,
 			clang_c_adaptation::cxcursor_hash,
 			clang_c_adaptation::cxcursors_equal>
 		create_unordered_map_count_arrays_by_var_cursors(
@@ -72,7 +72,7 @@ namespace cpp_code_analysis
 			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
-				std::array<cm::count_vector_value, default_conditions_total>,
+				std::array<cm::counted_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
@@ -82,7 +82,7 @@ namespace cpp_code_analysis
 			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
-				std::array<cm::count_vector_value, default_conditions_total>,
+				std::array<cm::counted_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);
@@ -92,7 +92,7 @@ namespace cpp_code_analysis
 			const std::vector<internal::func_entity_type>& entity_types_to_traverse,
 			std::unordered_map<
 				CXCursor,
-				std::array<cm::count_vector_value, default_conditions_total>,
+				std::array<cm::counted_value, default_conditions_total>,
 				clang_c_adaptation::cxcursor_hash,
 				clang_c_adaptation::cxcursors_equal>& count_arrays_by_var_cursors,
 			var_usage_condition counted_condition);

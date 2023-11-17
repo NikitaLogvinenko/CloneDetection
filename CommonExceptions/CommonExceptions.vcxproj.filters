@@ -9,5 +9,9 @@
     <ClInclude Include="types_conversion_error.h" />
     <ClInclude Include="invalid_index_exception.h" />
     <ClInclude Include="nullptr_exception.h" />
+    <ClInclude Include="incorrect_order_exception.h" />
+    <ClInclude Include="nan_exception.h" />
+    <ClInclude Include="incorrect_vector_length.h" />
+    <ClInclude Include="invalid_iterator_operation.h" />
   </ItemGroup>
 </Project>

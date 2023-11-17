@@ -47,36 +47,36 @@ TEST(count_matrices_similarity_data_test, ctor_with_empty_vector)
 
 namespace
 {
-	std::vector<cm_similar_vectors_data> create_similar_cv_ascending_order()
+	std::vector<cv_similarity_with_indices> create_similar_cv_ascending_order()
 	{
-		const cm_similar_vectors_data first_pair_data{
+		const cv_similarity_with_indices first_pair_data{
 			index_of_count_vector{0}, index_of_count_vector{1}, relative_similarity{0.1}
 		};
-		const cm_similar_vectors_data second_pair_data{
+		const cv_similarity_with_indices second_pair_data{
 			index_of_count_vector{2}, index_of_count_vector{3}, relative_similarity{0.2}
 		};
-		const cm_similar_vectors_data third_pair_data{
+		const cv_similarity_with_indices third_pair_data{
 			index_of_count_vector{4}, index_of_count_vector{5}, relative_similarity{0.3}
 		};
-		const cm_similar_vectors_data fourth_pair_data{
+		const cv_similarity_with_indices fourth_pair_data{
 			index_of_count_vector{6}, index_of_count_vector{7}, relative_similarity{0.4}
 		};
 
 		return std::vector{first_pair_data, second_pair_data, third_pair_data, fourth_pair_data};
 	}
 
-	std::vector<cm_similar_vectors_data> create_similar_cv_descending_order()
+	std::vector<cv_similarity_with_indices> create_similar_cv_descending_order()
 	{
-		const cm_similar_vectors_data first_pair_data{
+		const cv_similarity_with_indices first_pair_data{
 			index_of_count_vector{0}, index_of_count_vector{1}, relative_similarity{0.4}
 		};
-		const cm_similar_vectors_data second_pair_data{
+		const cv_similarity_with_indices second_pair_data{
 			index_of_count_vector{2}, index_of_count_vector{3}, relative_similarity{0.3}
 		};
-		const cm_similar_vectors_data third_pair_data{
+		const cv_similarity_with_indices third_pair_data{
 			index_of_count_vector{4}, index_of_count_vector{5}, relative_similarity{0.2}
 		};
-		const cm_similar_vectors_data fourth_pair_data{
+		const cv_similarity_with_indices fourth_pair_data{
 			index_of_count_vector{6}, index_of_count_vector{7}, relative_similarity{0.1}
 		};
 
@@ -84,7 +84,7 @@ namespace
 	}
 
 	void compare_cm_data_from_ascending_vector_dont_check_index(
-		const std::vector<cm_similar_vectors_data>& ascending_cv_vector,
+		const std::vector<cv_similarity_with_indices>& ascending_cv_vector,
 		const count_matrices_similarity_data& cm_sim_data)
 	{
 		for (size_t initial_pair_index = 0; initial_pair_index < ascending_cv_vector.size(); ++initial_pair_index)
@@ -97,7 +97,7 @@ namespace
 	}
 
 	void compare_cm_data_from_ascending_vector_check_index(
-		const std::vector<cm_similar_vectors_data>& ascending_cv_vector,
+		const std::vector<cv_similarity_with_indices>& ascending_cv_vector,
 		const count_matrices_similarity_data& cm_sim_data)
 	{
 		for (size_t initial_pair_index = 0; initial_pair_index < ascending_cv_vector.size(); ++initial_pair_index)
@@ -156,7 +156,7 @@ TEST(count_matrices_similarity_data_test, similar_cv_pairs_count)
 	ASSERT_EQ(cm_similarity_data_without_cv.similar_cv_pairs_count(), 0);
 
 	const std::vector cv_similarities_data{
-		cm_similar_vectors_data{}, cm_similar_vectors_data{}, cm_similar_vectors_data{}
+		cv_similarity_with_indices{}, cv_similarity_with_indices{}, cv_similarity_with_indices{}
 	};
 	const count_matrices_similarity_data cm_similarity_data{cm_similarity, cv_similarities_data};
 	ASSERT_EQ(cm_similarity_data.similar_cv_pairs_count(), cv_similarities_data.size());

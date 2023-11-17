@@ -20,7 +20,7 @@ namespace cpp_code_analysis
 		explicit var_usage_info(
 			clang_c_adaptation::var_spelling spelling, clang_c_adaptation::var_location location,
 			const clang_c_adaptation::var_origin origin,
-			const std::array<cm::count_vector_value, VarUsageConditionsN>& usage_values_array) noexcept
+			const std::array<cm::counted_value, VarUsageConditionsN>& usage_values_array) noexcept
 			: spelling_(std::move(spelling)), location_(std::move(location)), origin_(origin),
 			  usage_count_vector_(usage_values_array) {}
 

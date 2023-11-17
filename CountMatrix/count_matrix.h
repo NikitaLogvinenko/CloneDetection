@@ -12,7 +12,7 @@ namespace cm
 		std::vector<count_vector<CountVectorDimension>> count_vectors_{};
 
 	public:
-		count_matrix() noexcept = default;
+		count_matrix() = default;
 
 		explicit count_matrix(std::vector<count_vector<CountVectorDimension>> count_vectors) noexcept
 			: count_vectors_(std::move(count_vectors)) {}

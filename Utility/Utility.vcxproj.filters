@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="non_const_arithmetic.h" />
+    <ClInclude Include="non_const_unsigned_arithmetic.h" />
+    <ClInclude Include="pow_throwing.h" />
+    <ClInclude Include="non_const_integral.h" />
+  </ItemGroup>
+</Project>

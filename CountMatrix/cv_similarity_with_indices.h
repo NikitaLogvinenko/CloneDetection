@@ -4,16 +4,16 @@
 
 namespace cm::internal
 {
-	class cm_similar_vectors_data final
+	class cv_similarity_with_indices final
 	{
 		index_of_count_vector index_of_first_vector_{};
 		index_of_count_vector index_of_second_vector_{};
 		relative_similarity relative_similarity_{};
 
 	public:
-		cm_similar_vectors_data() noexcept = default;
+		cv_similarity_with_indices() noexcept = default;
 
-		explicit cm_similar_vectors_data(
+		explicit cv_similarity_with_indices(
 			const index_of_count_vector& index_of_first_vector,
 			const index_of_count_vector& index_of_second_vector,
 			const relative_similarity& relative_similarity) noexcept

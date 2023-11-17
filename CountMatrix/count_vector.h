@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "count_vector_value.h"
-#include "index_of_count_value.h"
+#include "counted_value.h"
+#include "index_of_counted_value.h"
 #include <array>
 #include <vector>
 
@@ -9,39 +9,39 @@ namespace cm
 	template <size_t Dimension>
 	class count_vector final
 	{
-		std::vector<count_vector_value> count_values_{std::vector<count_vector_value>(Dimension)};
+		std::vector<counted_value> counted_values_{std::vector<counted_value>(Dimension)};
 
 	public:
-		count_vector() noexcept = default;
+		count_vector() = default;
 
-		explicit count_vector(const std::array<count_vector_value, Dimension>& count_values) : count_values_(
-			count_values.cbegin(), count_values.cend()) {}
+		explicit count_vector(const std::array<counted_value, Dimension>& counted_values) : counted_values_(
+			counted_values.cbegin(), counted_values.cend()) {}
 
 		[[nodiscard]] size_t size() const noexcept
 		{
-			return count_values_.size();
+			return counted_values_.size();
 		}
 
-		[[nodiscard]] const count_vector_value& operator[](
-			const internal::index_of_count_value value_index) const
+		[[nodiscard]] const counted_value& operator[](
+			const internal::index_of_counted_value value_index) const
 		{
-			return count_values_[value_index.to_size_t()];
+			return counted_values_[value_index.to_size_t()];
 		}
 
-		[[nodiscard]] const count_vector_value& at(
-			const internal::index_of_count_value value_index) const
+		[[nodiscard]] const counted_value& at(
+			const internal::index_of_counted_value value_index) const
 		{
-			return count_values_.at(value_index.to_size_t());
+			return counted_values_.at(value_index.to_size_t());
 		}
 
 		[[nodiscard]] auto begin() const noexcept
 		{
-			return count_values_.cbegin();
+			return counted_values_.cbegin();
 		}
 
 		[[nodiscard]] auto end() const noexcept
 		{
-			return count_values_.cend();
+			return counted_values_.cend();
 		}
 	};
 }
