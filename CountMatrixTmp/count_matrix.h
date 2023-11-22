@@ -6,7 +6,7 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires cv_dimension_concept<CountVectorDimension>
+	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
 	class count_matrix final
 	{
 		std::vector<count_vector<CountVectorDimension>> count_vectors_{};

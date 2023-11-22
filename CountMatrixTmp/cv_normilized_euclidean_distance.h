@@ -3,15 +3,15 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires cv_dimension_concept<CountVectorDimension>
+	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
 	class cv_normilized_euclidean_distance : public cv_euclidean_distance<CountVectorDimension>
 	{
 	public:
-		[[nodiscard]] distance_between_cv<double> calculate(
+		[[nodiscard]] distance_between_count_vectors<double> calculate(
 			const count_vector<CountVectorDimension>& first_vector,
 			const count_vector<CountVectorDimension>& second_vector) const override
 		{
-			const distance_between_cv<double> euclidean_distance = cv_euclidean_distance<CountVectorDimension>::calculate(first_vector, second_vector);
+			const distance_between_count_vectors<double> euclidean_distance = cv_euclidean_distance<CountVectorDimension>::calculate(first_vector, second_vector);
 
 			std::array<size_t, CountVectorDimension> max_squared_value_in_pair{};
 
@@ -28,11 +28,11 @@ namespace cm
 
 			if (sum_of_max_squared_values == 0)
 			{
-				return distance_between_cv<double>{};
+				return distance_between_count_vectors<double>{};
 			}
 
 			const double normilized_distance = euclidean_distance.to_edge_weight().value() / std::sqrt(sum_of_max_squared_values);
-			return distance_between_cv(std::clamp(normilized_distance, 0., 1.));
+			return distance_between_count_vectors(std::clamp(normilized_distance, 0., 1.));
 		}
 	};
 }

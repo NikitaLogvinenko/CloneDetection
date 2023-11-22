@@ -1,43 +1,35 @@
 ﻿#pragma once
 #include "bipartite_matching_abstract.h"
 #include "dlib/optimization/max_cost_assignment.h"
+#include "floating_weight_to_integral_transformation.h"
 #include "weights_transformation.h"
 
 namespace cm
 {
 	template <utility::non_const_arithmetic WeightT,
 		utility::non_const_integral CalculationsT = size_t,
-		class WeightTToCalcTTransform = weights_transformation<WeightT, CalculationsT>,
-		class CalcTToWeightTTransform = weights_transformation<WeightT, CalculationsT>>
-		requires (std::is_invocable_r_v<CalculationsT, WeightTToCalcTTransform, WeightT>
-	&& (std::is_copy_constructible_v<WeightTToCalcTTransform> || std::is_default_constructible_v<WeightTToCalcTTransform>)
-		&& std::is_invocable_r_v<WeightT, CalcTToWeightTTransform, CalculationsT>
-		&& (std::is_copy_constructible_v<CalcTToWeightTTransform> | std::is_default_constructible_v<CalcTToWeightTTransform>))
+		class WeightsTransform = floating_weight_to_integral_transformation<WeightT, CalculationsT>>
+		requires weights_transformation<WeightsTransform, WeightT, CalculationsT>
 		class bipartite_matching_max_total_weight final : public bipartite_matching_abstract<WeightT>
 	{
-		WeightTToCalcTTransform transform_type_before_calculations_{};
-		CalcTToWeightTTransform retrieve_type_after_calculations_{};
+		WeightsTransform weights_transform_{};
 		WeightT fictitious_edges_weight_{};
 		CalculationsT fictitious_matrix_cell_{};
 
 	public:
 		constexpr bipartite_matching_max_total_weight()
-			noexcept(std::is_nothrow_default_constructible_v<WeightTToCalcTTransform>
-				&& std::is_nothrow_default_constructible_v<CalcTToWeightTTransform>
-				&& std::is_nothrow_invocable_r_v<CalculationsT, WeightTToCalcTTransform, WeightT>)
-		: fictitious_matrix_cell_(transform_type_before_calculations_(fictitious_edges_weight_)) {}
+			noexcept(std::is_nothrow_default_constructible_v<WeightsTransform> 
+				&& std::is_nothrow_invocable_r_v<CalculationsT, WeightsTransform, WeightT>)
+		: fictitious_matrix_cell_(weights_transform_.to_calculations_t(fictitious_edges_weight_)) {}
 
 		constexpr explicit bipartite_matching_max_total_weight(
-			const WeightTToCalcTTransform& transform_type_before_calculations,
-			const CalcTToWeightTTransform& retrieve_type_after_calculations, 
-			const WeightT fictitious_edges_weight = {})
-			noexcept(std::is_nothrow_copy_constructible_v<WeightTToCalcTTransform>
-				&& std::is_nothrow_copy_constructible_v<CalcTToWeightTTransform>
-				&& std::is_nothrow_invocable_r_v<CalculationsT, WeightTToCalcTTransform, WeightT>)
-		: transform_type_before_calculations_(transform_type_before_calculations),
-		retrieve_type_after_calculations_(retrieve_type_after_calculations),
+			const WeightsTransform& weights_transform,
+			const WeightT fictitious_edges_weight = 0)
+			noexcept(std::is_nothrow_copy_constructible_v<WeightsTransform>
+				&& std::is_nothrow_invocable_r_v<CalculationsT, WeightsTransform, WeightT>)
+		: weights_transform_(weights_transform),
 		fictitious_edges_weight_(fictitious_edges_weight),
-		fictitious_matrix_cell_(transform_type_before_calculations_(fictitious_edges_weight_)) {}
+		fictitious_matrix_cell_(weights_transform_.to_calculations_t(fictitious_edges_weight_)) {}
 
 		[[nodiscard]] bipartite_matching_result<WeightT> match_parts(
 			const bipartite_graph_weights_matrix<WeightT>& bipartite_graph_weights) const override
@@ -75,7 +67,7 @@ namespace cm
 				{
 					const long row_as_long = row, column_as_long = column;
 					const WeightT weight = bipartite_graph_weights.at(row, column);
-					const CalculationsT assignment_matrix_cell = transform_type_before_calculations_(weight);
+					const CalculationsT assignment_matrix_cell = weights_transform_.to_calculations_t(weight);
 					assignment_matrix(row_as_long, column_as_long) = assignment_matrix_cell;
 				}
 			}
@@ -104,7 +96,7 @@ namespace cm
 		{
 			const std::vector assignment = dlib::max_cost_assignment(assignment_matrix);
 			const CalculationsT max_cost = dlib::assignment_cost(assignment_matrix, assignment);
-			const WeightT sum_of_matching_edges = retrieve_type_after_calculations_(max_cost);
+			const WeightT sum_of_matching_edges = weights_transform_.to_weight_t(max_cost);
 
 			std::vector<edge<WeightT>> matching_edges = fill_matching_edges(bipartite_graph_weights, assignment);
 
@@ -134,7 +126,7 @@ namespace cm
 				const vertex_index vertex_from_first_part(row);
 				const vertex_index vertex_from_second_part(assigned_column);
 				const WeightT matching_edge_weight = bipartite_graph_weights.at(vertex_from_first_part, vertex_from_second_part);
-				matching_edges.emplace_back(vertex_from_first_part, vertex_from_second_part, matching_edge_weight);
+				matching_edges.emplace_back(vertex_from_first_part, vertex_from_second_part, edge_weight<WeightT>(matching_edge_weight));
 				++row;
 			}
 

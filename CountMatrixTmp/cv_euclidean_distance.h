@@ -1,16 +1,16 @@
 ﻿#pragma once
-#include "cv_abstract_metrics.h"
+#include "count_vectors_metrics_abstract.h"
 #include "pow_throwing.h"
 #include <algorithm>
 #include <numeric>
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires cv_dimension_concept<CountVectorDimension>
-	class cv_euclidean_distance : public cv_abstract_metrics<CountVectorDimension, double>
+	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
+	class cv_euclidean_distance : public count_vectors_metrics_abstract<CountVectorDimension, double>
 	{
 	public:
-		[[nodiscard]] distance_between_cv<double> calculate(
+		[[nodiscard]] distance_between_count_vectors<double> calculate(
 			const count_vector<CountVectorDimension>& first_vector,
 			const count_vector<CountVectorDimension>& second_vector) const override
 		{
@@ -31,7 +31,7 @@ namespace cm
 
 			const size_t sum_of_squared_differences = std::accumulate(
 				squared_differences.cbegin(), squared_differences.cend(), size_t{});
-			return distance_between_cv(std::sqrt(sum_of_squared_differences));
+			return distance_between_count_vectors(std::sqrt(sum_of_squared_differences));
 		}
 	};
 }

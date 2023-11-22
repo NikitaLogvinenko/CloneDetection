@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "cv_dimension_concept.h"
+#include "count_vector_dimension.h"
 #include "counted_value.h"
 #include "index_of_counted_value.h"
 #include "invalid_iterator_operation.h"
@@ -9,7 +9,7 @@
 
 namespace cm
 {
-	template <size_t Dimension> requires cv_dimension_concept<Dimension>
+	template <size_t Dimension> requires count_vector_dimension<Dimension>
 	class count_vector final
 	{
 		class iterator final
@@ -30,9 +30,9 @@ namespace cm
 
 		public:
 			constexpr iterator() noexcept = default;
-			constexpr explicit iterator(const underlying_iterator& iter, const size_t index,
-				const bool from_default_count_vector = false) noexcept : iter_(iter), index_(index),
-				from_default_count_vector_(from_default_count_vector) {}
+			constexpr explicit iterator(underlying_iterator iter, const size_t index, 
+				const bool from_default_count_vector = false) noexcept
+			: iter_(std::move(iter)), index_(index), from_default_count_vector_(from_default_count_vector) {}
 
 			[[nodiscard]] reference operator*() const
 			{
@@ -50,7 +50,6 @@ namespace cm
 				return *this->operator+(n);
 			}
 
-
 			iterator& operator++()
 			{
 				return *this += 1;
@@ -63,7 +62,6 @@ namespace cm
 				return tmp;
 			}
 
-
 			iterator& operator--()
 			{
 				return *this -= 1;
@@ -75,7 +73,6 @@ namespace cm
 				--*this;
 				return tmp;
 			}
-
 
 			[[nodiscard]] iterator operator+(const difference_type n) const
 			{

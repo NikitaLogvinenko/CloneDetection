@@ -32,5 +32,5 @@ namespace cm
 		{
 			return std::move(matching_edges_);
 		}
- };
+	};
 }
