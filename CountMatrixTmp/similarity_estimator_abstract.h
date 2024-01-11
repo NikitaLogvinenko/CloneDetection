@@ -9,10 +9,9 @@ namespace cm
 	template <utility::non_const_arithmetic WeightT, continuous_similarity_bounded_below SimilarityT>
 	class similarity_estimator_abstract
 	{
-	protected:
+	public:
 		constexpr similarity_estimator_abstract() noexcept = default;
 
-	public:
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(similarity_estimator_abstract)
 
 		[[nodiscard]] constexpr virtual SimilarityT operator()(

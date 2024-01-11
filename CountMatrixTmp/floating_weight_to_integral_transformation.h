@@ -21,8 +21,8 @@ namespace cm
 			if (weight_decimals > max_decimals)
 			{
 				throw common_exceptions::initialized_value_out_of_range(
-					std::format("floating_weight_to_integral_transformation: max permitted weight_decimals is {}, but {} was passed.",
-						std::to_string(max_decimals), std::to_string(weight_decimals))
+					std::format("floating_weight_to_integral_transformation: max permitted "
+				 "weight_decimals is {}, but {} was passed.", std::to_string(max_decimals), std::to_string(weight_decimals))
 				);
 			}
 		}

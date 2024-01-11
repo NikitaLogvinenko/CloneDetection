@@ -7,9 +7,8 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension, utility::non_const_arithmetic DistanceT,
-	continuous_similarity_bounded_below SimilarityT>
-	requires count_vector_length<CountVectorDimension>
+	template <size_t CountVectorLength, utility::non_const_arithmetic DistanceT, continuous_similarity_bounded_below SimilarityT>
+	requires count_vector_length<CountVectorLength>
 	class matrices_comparing_result final
 	{
 		SimilarityT matrices_similarity_{};
@@ -23,7 +22,7 @@ namespace cm
 			noexcept(std::is_nothrow_copy_constructible_v<SimilarityT>)
 			: matrices_similarity_(matrices_similarity), matched_vectors_(std::move(matched_vectors)) {}
 
-		[[nodiscard]] constexpr SimilarityT matrices_similarity() const noexcept
+		[[nodiscard]] constexpr SimilarityT matrices_similarity() const noexcept(std::is_nothrow_copy_constructible_v<SimilarityT>)
 		{
 			return matrices_similarity_;
 		}
@@ -47,7 +46,7 @@ namespace cm
 			const matched_vectors_pair_index index_of_pair)
 		{
 			const edge_weight<DistanceT> weight = matched_vectors_.at(index_of_pair.to_size_t()).weight();
-			return distance_between_count_vectors<DistanceT>(weight.to_size_t());
+			return distance_between_count_vectors<DistanceT>(weight);
 		}
 	};
 }

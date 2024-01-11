@@ -17,7 +17,7 @@ namespace cm
 			std::vector<std::vector<edge_weight<WeightT>>> weights_matrix)
 		: weights_matrix_(std::move(weights_matrix))
 		{
-			validate_rows_lengths(weights_matrix_);			
+			bipartite_graph_weights_matrix::validate_rows_lengths(weights_matrix_);			
 		}
 
 		[[nodiscard]] constexpr edge_weight<WeightT> at(
@@ -58,7 +58,7 @@ namespace cm
 				if (weights_matrix[row_index].size() != columns_count)
 				{
 					throw common_exceptions::incorrect_vector_length(
-						"bipartite_graph_weights_matrix: rows length is inconsistent");
+						"bipartite_graph_weights_matrix: rows have different length.");
 				}
 			}
 		}

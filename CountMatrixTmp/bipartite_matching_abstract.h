@@ -8,10 +8,9 @@ namespace cm
 	template <utility::non_const_arithmetic WeightT>
 	class bipartite_matching_abstract
 	{
-	protected:
+	public:
 		constexpr bipartite_matching_abstract() noexcept = default;
 
-	public:
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(bipartite_matching_abstract)
 
 		[[nodiscard]] virtual bipartite_matching_result<WeightT> match_parts(

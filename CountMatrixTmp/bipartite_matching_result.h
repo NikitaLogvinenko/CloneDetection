@@ -23,7 +23,7 @@ namespace cm
 			return sum_of_matching_edges_;
 		}
 
-		[[nodiscard]] constexpr const auto& matching_edges() const noexcept
+		[[nodiscard]] constexpr auto& matching_edges() const noexcept
 		{
 			return matching_edges_;
 		}

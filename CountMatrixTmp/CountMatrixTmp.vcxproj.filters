@@ -12,7 +12,7 @@
     <ClInclude Include="bipartite_graph_on_count_matrices.h" />
     <ClInclude Include="cv_euclidean_distance.h" />
     <ClInclude Include="cv_normilized_euclidean_distance.h" />
-    <ClInclude Include="cv_similarity_by_normilized_eucl_dist.h" />
+    <ClInclude Include="cv_similarity_by_normilized_euclidean_dist.h" />
     <ClInclude Include="distance_between_count_vectors.h" />
     <ClInclude Include="edge.h" />
     <ClInclude Include="edge_weight.h" />

@@ -10,10 +10,9 @@ namespace cm
 
 	public:
 		constexpr distance_between_count_vectors() noexcept = default;
-		constexpr explicit distance_between_count_vectors(const DistanceT value)
-			noexcept(noexcept(edge_weight<DistanceT>(std::declval<DistanceT&>()))) : distance_(value) {}
+		constexpr explicit distance_between_count_vectors(const edge_weight<DistanceT> distance) noexcept : distance_(distance) {}
 
-		[[nodiscard]] constexpr const edge_weight<DistanceT>& to_edge_weight() const noexcept
+		[[nodiscard]] constexpr edge_weight<DistanceT> to_edge_weight() const noexcept
 		{
 			return distance_;
 		}
