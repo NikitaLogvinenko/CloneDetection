@@ -13,11 +13,11 @@ namespace cm
 	public:
 		constexpr bipartite_graph_on_count_matrices() = default;
 
-		template <size_t CountVectorDimension>
+		template <size_t CountVectorLength>
 		constexpr bipartite_graph_on_count_matrices(
-			const count_matrix<CountVectorDimension>& first_matrix,
-			const count_matrix<CountVectorDimension>& second_matrix,
-			const count_vectors_metrics_abstract<CountVectorDimension, DistanceT>& metrics)
+			const count_matrix<CountVectorLength>& first_matrix,
+			const count_matrix<CountVectorLength>& second_matrix,
+			const count_vectors_metrics_abstract<CountVectorLength, DistanceT>& metrics)
 		: distances_matrix_(calculate_weights(first_matrix, second_matrix, metrics)) {}
 		
 

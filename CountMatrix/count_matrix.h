@@ -6,45 +6,39 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension>
+	template <size_t CountVectorLength> requires count_vector_length<CountVectorLength>
 	class count_matrix final
 	{
-		std::vector<count_vector<CountVectorDimension>> count_vectors_{};
+		std::vector<count_vector<CountVectorLength>> count_vectors_{};
 
 	public:
-		count_matrix() = default;
+		constexpr count_matrix() noexcept = default;
 
-		explicit count_matrix(std::vector<count_vector<CountVectorDimension>> count_vectors) noexcept
+		constexpr explicit count_matrix(std::vector<count_vector<CountVectorLength>> count_vectors) noexcept
 			: count_vectors_(std::move(count_vectors)) {}
 
-		[[nodiscard]] size_t vectors_count() const noexcept
+		[[nodiscard]] constexpr size_t vectors_count() const noexcept
 		{
 			return count_vectors_.size();
 		}
 
-		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](
-			const internal::index_of_count_vector count_vector_index) const
-		{
-			return count_vectors_[count_vector_index.to_size_t()];
-		}
-
-		[[nodiscard]] const count_vector<CountVectorDimension>& at(
-			const internal::index_of_count_vector count_vector_index) const
+		[[nodiscard]] constexpr const count_vector<CountVectorLength>& at(
+			const index_of_count_vector count_vector_index) const
 		{
 			return count_vectors_.at(count_vector_index.to_size_t());
 		}
 
-		[[nodiscard]] bool empty() const noexcept
+		[[nodiscard]] constexpr bool empty() const noexcept
 		{
 			return count_vectors_.empty();
 		}
 
-		[[nodiscard]] auto begin() const noexcept
+		[[nodiscard]] constexpr auto begin() const noexcept
 		{
 			return count_vectors_.cbegin();
 		}
 
-		[[nodiscard]] auto end() const noexcept
+		[[nodiscard]] constexpr auto end() const noexcept
 		{
 			return count_vectors_.cend();
 		}

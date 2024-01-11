@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -167,22 +167,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cm_similarity_abstract_algorithm.h" />
-    <ClInclude Include="count_matrices_similarity_data.h" />
-    <ClInclude Include="cv_similarity_with_indices.h" />
-    <ClInclude Include="count_matrix.h" />
-    <ClInclude Include="index_of_counted_value.h" />
-    <ClInclude Include="index_of_count_vectors_pair.h" />
-    <ClInclude Include="index_of_count_vector.h" />
-    <ClInclude Include="relative_similarity.h" />
-    <ClInclude Include="count_vector.h" />
-    <ClInclude Include="counted_value.h" />
-    <ClInclude Include="cm_max_weighted_bipartite_matching.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
       <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bipartite_graph_on_count_matrices.h" />
+    <ClInclude Include="bipartite_graph_weights_matrix.h" />
+    <ClInclude Include="bipartite_matching_abstract.h" />
+    <ClInclude Include="bipartite_matching_max_total_weight.h" />
+    <ClInclude Include="bipartite_matching_result.h" />
+    <ClInclude Include="continuous_similarity_bounded.h" />
+    <ClInclude Include="continuous_similarity_bounded_below.h" />
+    <ClInclude Include="counted_value.h" />
+    <ClInclude Include="count_matrix.h" />
+    <ClInclude Include="count_vector.h" />
+    <ClInclude Include="count_vectors_metrics_abstract.h" />
+    <ClInclude Include="count_vector_length.h" />
+    <ClInclude Include="cv_euclidean_distance.h" />
+    <ClInclude Include="cv_normilized_euclidean_distance.h" />
+    <ClInclude Include="cv_similarity_by_normilized_euclidean_dist.h" />
+    <ClInclude Include="distance_between_count_vectors.h" />
+    <ClInclude Include="edge.h" />
+    <ClInclude Include="edge_weight.h" />
+    <ClInclude Include="floating_weight_to_integral_transformation.h" />
+    <ClInclude Include="index_of_counted_value.h" />
+    <ClInclude Include="index_of_count_vector.h" />
+    <ClInclude Include="matched_vectors_pair_index.h" />
+    <ClInclude Include="matrices_comparing_abstract.h" />
+    <ClInclude Include="matrices_comparing_by_bipartite_matching.h" />
+    <ClInclude Include="matrices_comparing_result.h" />
+    <ClInclude Include="mean_weight_in_matching.h" />
+    <ClInclude Include="relative_similarity.h" />
+    <ClInclude Include="similarity_estimator_abstract.h" />
+    <ClInclude Include="vertex_index.h" />
+    <ClInclude Include="weights_transformation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
