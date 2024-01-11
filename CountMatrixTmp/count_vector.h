@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "count_vector_dimension.h"
+#include "count_vector_length.h"
 #include "counted_value.h"
 #include "index_of_counted_value.h"
 #include "invalid_iterator_operation.h"
@@ -9,7 +9,7 @@
 
 namespace cm
 {
-	template <size_t Dimension> requires count_vector_dimension<Dimension>
+	template <size_t Length> requires count_vector_length<Length>
 	class count_vector final
 	{
 		class iterator final
@@ -17,7 +17,7 @@ namespace cm
 			using underlying_iterator = std::vector<counted_value>::const_iterator;
 
 		public:
-			using difference_type = long long;
+			using difference_type = std::iterator_traits<underlying_iterator>::difference_type;
 			using value_type = std::iterator_traits<underlying_iterator>::value_type;
 			using pointer = std::iterator_traits<underlying_iterator>::pointer;
 			using reference = std::iterator_traits<underlying_iterator>::reference;
@@ -26,13 +26,13 @@ namespace cm
 		private:
 			underlying_iterator iter_{};
 			size_t index_{};
-			bool from_default_count_vector_{};
+			bool from_zeroed_count_vector_{};
 
 		public:
 			constexpr iterator() noexcept = default;
 			constexpr explicit iterator(underlying_iterator iter, const size_t index, 
-				const bool from_default_count_vector = false) noexcept
-			: iter_(std::move(iter)), index_(index), from_default_count_vector_(from_default_count_vector) {}
+				const bool from_zeroed_count_vector = false) noexcept
+			: iter_(std::move(iter)), index_(index), from_zeroed_count_vector_(from_zeroed_count_vector) {}
 
 			[[nodiscard]] reference operator*() const
 			{
@@ -45,7 +45,7 @@ namespace cm
 				return iter_;
 			}
 
-			[[nodiscard]] const auto& operator[](const difference_type n) const
+			[[nodiscard]] auto& operator[](const difference_type n) const
 			{
 				return *this->operator+(n);
 			}
@@ -135,7 +135,7 @@ namespace cm
 
 			void throw_if_end_it(const std::string& msg) const
 			{
-				if (index_ == Dimension)
+				if (index_ == Length)
 				{
 					throw common_exceptions::invalid_iterator_operation(msg);
 				}
@@ -143,7 +143,7 @@ namespace cm
 
 			static void throw_if_invalid_index(const difference_type index, const std::string& msg)
 			{
-				if (index < 0 || index > Dimension)
+				if (index < 0 || index > Length)
 				{
 					throw common_exceptions::invalid_iterator_operation(msg);
 				}
@@ -152,7 +152,7 @@ namespace cm
 			static void shift_with_validation(iterator& it, const difference_type shift_by)
 			{
 				it.index_ = it.get_changed_index_with_validation(shift_by);
-				if (it.from_default_count_vector_)
+				if (it.from_zeroed_count_vector_)
 				{
 					return;
 				}
@@ -162,45 +162,45 @@ namespace cm
 		};
 
 
-		std::vector<counted_value> counted_values_{std::vector<count_vector>(default_count_vector_size)};
+		std::vector<counted_value> counted_values_{std::vector<count_vector>(zeroed_count_vector_size)};
 
-		static constexpr size_t default_count_vector_size = 1;
+		static constexpr size_t zeroed_count_vector_size = 1;
 
 	public:
 		constexpr count_vector() = default;
 
 		constexpr explicit count_vector(std::vector<counted_value> counted_values) : counted_values_(std::move(counted_values))
 		{
-			if (counted_values_.size() != Dimension)
+			if (counted_values_.size() != Length)
 			{
-				throw common_exceptions::incorrect_vector_length("count_vector: counted_values.size() must be equal to Dimension.");
+				throw common_exceptions::incorrect_vector_length("count_vector: counted_values.size() must be equal to Length.");
 			}
 		}
 
-		[[nodiscard]] constexpr const counted_value& at(const index_of_counted_value value_index) const
+		[[nodiscard]] constexpr auto& at(const index_of_counted_value value_index) const
 		{
-			return *(begin() + value_index);
+			return *(begin() + value_index.to_size_t());
 		}
 
 		[[nodiscard]] constexpr auto begin() const noexcept
 		{
-			return iterator{ counted_values_.cbegin(), 0, is_default() };
+			return iterator{ counted_values_.cbegin(), 0, zeroed() };
 		}
 
 		[[nodiscard]] constexpr auto end() const noexcept
 		{
-			return iterator{ counted_values_.cend(), Dimension, is_default() };
+			return iterator{ counted_values_.cend(), Length, zeroed() };
 		}
 
 		[[nodiscard]] static constexpr size_t size() noexcept
 		{
-			return Dimension;
+			return Length;
 		}
 
 	private:
-		[[nodiscard]] constexpr bool is_default() const noexcept
+		[[nodiscard]] constexpr bool zeroed() const noexcept
 		{
-			return Dimension != default_count_vector_size && counted_values_.size() == default_count_vector_size;
+			return Length != zeroed_count_vector_size && counted_values_.size() == zeroed_count_vector_size;
 		}
 	};
 }

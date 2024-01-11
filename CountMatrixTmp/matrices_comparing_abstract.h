@@ -5,7 +5,7 @@
 namespace cm
 {
 	template <size_t CountVectorDimension, utility::non_const_arithmetic WeightT, continuous_similarity_bounded_below SimilarityT>
-		requires count_vector_dimension<CountVectorDimension>
+		requires count_vector_length<CountVectorDimension>
 	class matrices_comparing_abstract
 	{
 	protected:

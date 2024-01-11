@@ -219,8 +219,8 @@ namespace cm
 			second_vector.begin(), squared_differences.begin(),
 			[](const counted_value& value_from_first, const counted_value& value_from_second)
 			{
-				const auto& value_1 = static_cast<long long>(value_from_first.value());
-				const auto& value_2 = static_cast<long long>(value_from_second.value());
+				const auto& value_1 = static_cast<long long>(value_from_first.to_size_t());
+				const auto& value_2 = static_cast<long long>(value_from_second.to_size_t());
 				return pow(value_1 - value_2, 2);
 			});
 
@@ -246,7 +246,7 @@ namespace cm
 			max_squared_value_in_pair.begin(),
 			[](const counted_value& value_from_first, const counted_value& value_from_second)
 			{
-				const auto& max_value_in_pair = std::max(value_from_first.value(), value_from_second.value());
+				const auto& max_value_in_pair = std::max(value_from_first.to_size_t(), value_from_second.to_size_t());
 				return pow(max_value_in_pair, 2);
 			});
 

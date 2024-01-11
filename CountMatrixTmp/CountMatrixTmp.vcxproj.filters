@@ -21,7 +21,7 @@
     <ClInclude Include="matched_vectors_pair_index.h" />
     <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="vertex_index.h" />
-    <ClInclude Include="count_vector_dimension.h" />
+    <ClInclude Include="count_vector_length.h" />
     <ClInclude Include="floating_weight_to_integral_transformation.h" />
     <ClInclude Include="matrices_comparing_result.h" />
     <ClInclude Include="matrices_comparing_abstract.h" />

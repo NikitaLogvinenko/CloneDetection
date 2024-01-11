@@ -4,7 +4,7 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
+	template <size_t CountVectorDimension> requires count_vector_length<CountVectorDimension>
 	class cv_similarity_by_normilized_eucl_dist final : public cv_normilized_euclidean_distance<CountVectorDimension>
 	{
 		double min_value_{0};

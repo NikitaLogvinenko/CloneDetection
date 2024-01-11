@@ -6,7 +6,7 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
+	template <size_t CountVectorDimension> requires count_vector_length<CountVectorDimension>
 	class cv_euclidean_distance : public count_vectors_metrics_abstract<CountVectorDimension, double>
 	{
 	public:
@@ -20,8 +20,8 @@ namespace cm
 				second_vector.begin(), squared_differences.begin(),
 				[](const counted_value& value_from_first, const counted_value& value_from_second)
 				{
-					const auto& value_1 = value_from_first.value();
-					const auto& value_2 = value_from_second.value();
+					const auto& value_1 = value_from_first.to_size_t();
+					const auto& value_2 = value_from_second.to_size_t();
 					if (value_1 > value_2)
 					{
 						return utility::pow_throwing(value_1 - value_2, 2, "euclidean_distance: pow failed");

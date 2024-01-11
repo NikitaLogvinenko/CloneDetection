@@ -11,7 +11,7 @@ namespace cm
 
 		explicit counted_value(const size_t value) noexcept : value_(value) {}
 
-		[[nodiscard]] size_t value() const noexcept
+		[[nodiscard]] size_t to_size_t() const noexcept
 		{
 			return value_;
 		}

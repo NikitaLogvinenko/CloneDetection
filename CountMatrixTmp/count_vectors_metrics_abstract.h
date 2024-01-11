@@ -6,7 +6,7 @@
 namespace cm
 {
 	template <size_t CountVectorDimension, utility::non_const_arithmetic DistanceT>
-	requires count_vector_dimension<CountVectorDimension>
+	requires count_vector_length<CountVectorDimension>
 	class count_vectors_metrics_abstract
 	{
 	protected:

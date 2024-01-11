@@ -176,7 +176,7 @@
     <ClInclude Include="counted_value.h" />
     <ClInclude Include="count_vectors_metrics_abstract.h" />
     <ClInclude Include="bipartite_graph_on_count_matrices.h" />
-    <ClInclude Include="count_vector_dimension.h" />
+    <ClInclude Include="count_vector_length.h" />
     <ClInclude Include="cv_euclidean_distance.h" />
     <ClInclude Include="cv_normilized_euclidean_distance.h" />
     <ClInclude Include="cv_similarity_by_normilized_eucl_dist.h" />

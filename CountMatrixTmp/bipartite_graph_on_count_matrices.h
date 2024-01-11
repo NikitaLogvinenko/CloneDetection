@@ -33,7 +33,7 @@ namespace cm
 
 			const edge_weight distance = distances_matrix_.at(vertex_from_first_part, vertex_from_second_part);
 
-			return distance_between_count_vectors<DistanceT>(distance.value());
+			return distance_between_count_vectors<DistanceT>(distance.to_size_t());
 		}
 
 		[[nodiscard]] constexpr const bipartite_graph_weights_matrix<DistanceT>& to_weights_matrix() const noexcept

@@ -3,7 +3,7 @@
 
 namespace cm
 {
-	template <size_t CountVectorDimension> requires count_vector_dimension<CountVectorDimension>
+	template <size_t CountVectorDimension> requires count_vector_length<CountVectorDimension>
 	class cv_normilized_euclidean_distance : public cv_euclidean_distance<CountVectorDimension>
 	{
 	public:
@@ -19,7 +19,7 @@ namespace cm
 				max_squared_value_in_pair.begin(),
 				[](const counted_value& value_from_first, const counted_value& value_from_second)
 				{
-					const auto& max_value_in_pair = std::max(value_from_first.value(), value_from_second.value());
+					const auto& max_value_in_pair = std::max(value_from_first.to_size_t(), value_from_second.to_size_t());
 					return utility::pow_throwing(max_value_in_pair, 2, "cv_normilized_euclidean_distance: pow failed");
 				});
 

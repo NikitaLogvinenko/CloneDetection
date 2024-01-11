@@ -21,7 +21,7 @@ TEST(count_vector_dim42_test, default_ctor)
 {
 	for (const auto& value : cm::count_vector<42>{})
 	{
-		ASSERT_EQ(value.value(), 0);
+		ASSERT_EQ(value.to_size_t(), 0);
 	}
 }
 
@@ -33,7 +33,7 @@ TEST(count_vector_dim42_test, ctor_with_array)
 	size_t index = 0;
 	for (const auto& value : count_vector{count_values})
 	{
-		ASSERT_EQ(value.value(), count_values[index].value());
+		ASSERT_EQ(value.to_size_t(), count_values[index].to_size_t());
 		++index;
 	}
 }
@@ -52,7 +52,7 @@ TEST(count_vector_dim4_test, operator_square_brackets)
 	const count_vector cv{count_values};
 	for (size_t index = 0; index < cv.size(); ++index)
 	{
-		ASSERT_EQ(count_values[index].value(), cv[internal::index_of_counted_value{index}].value());
+		ASSERT_EQ(count_values[index].to_size_t(), cv[internal::index_of_counted_value{index}].to_size_t());
 	}
 }
 
@@ -64,7 +64,7 @@ TEST(count_vector_dim4_test, at)
 	const count_vector cv{count_values};
 	for (size_t index = 0; index < cv.size(); ++index)
 	{
-		ASSERT_EQ(count_values[index].value(), cv.at(internal::index_of_counted_value{index}).value());
+		ASSERT_EQ(count_values[index].to_size_t(), cv.at(internal::index_of_counted_value{index}).to_size_t());
 	}
 }
 
@@ -87,7 +87,7 @@ TEST(count_vector_dim4_test, iterators)
 	size_t forward_index = 0;
 	for (auto iterator = cv.begin(); iterator != cv.end(); ++iterator)
 	{
-		ASSERT_EQ(iterator->value(), count_values[forward_index].value());
+		ASSERT_EQ(iterator->to_size_t(), count_values[forward_index].to_size_t());
 		ASSERT_EQ(cv.begin() + forward_index, iterator);
 		ASSERT_EQ(cv.end() - (cv.size() - forward_index), iterator);
 		++forward_index;
@@ -97,7 +97,7 @@ TEST(count_vector_dim4_test, iterators)
 	for (auto iterator = cv.end(); iterator > cv.begin();)
 	{
 		--iterator;
-		ASSERT_EQ(iterator->value(), count_values[backward_index].value());
+		ASSERT_EQ(iterator->to_size_t(), count_values[backward_index].to_size_t());
 		--backward_index;
 	}
 
@@ -110,7 +110,7 @@ TEST(count_vector_zero_dim_test, default_ctor)
 {
 	for (const auto& value : cm::count_vector<0>{})
 	{
-		ASSERT_EQ(value.value(), 0);
+		ASSERT_EQ(value.to_size_t(), 0);
 	}
 }
 
@@ -120,7 +120,7 @@ TEST(count_vector_zero_dim_test, ctor_with_array)
 	size_t index = 0;
 	for (const auto& value : count_vector{count_values})
 	{
-		ASSERT_EQ(value.value(), count_values[index].value());
+		ASSERT_EQ(value.to_size_t(), count_values[index].to_size_t());
 		++index;
 	}
 }

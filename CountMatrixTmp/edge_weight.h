@@ -16,7 +16,7 @@ namespace cm
 		{
 			if (value < 0)
 			{
-				throw common_exceptions::initialized_value_out_of_range("edge_weight: value can not be negative.");
+				throw common_exceptions::initialized_value_out_of_range("edge_weight: to_size_t can not be negative.");
 			}
 		}
 

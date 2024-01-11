@@ -17,7 +17,7 @@ namespace utility
 			throw common_exceptions::nan_exception(error_msg);
 		}
 
-		if (pow_result > std::numeric_limits<BaseT>::max() && pow_result < std::numeric_limits<BaseT>::min())
+		if (pow_result > std::numeric_limits<BaseT>::max() || pow_result < std::numeric_limits<BaseT>::min())
 		{
 			throw common_exceptions::overflow_exception(error_msg);
 		}
