@@ -17,9 +17,8 @@ namespace cm
 	public:
 		constexpr matrices_comparing_result() noexcept = default;
 
-		constexpr explicit matrices_comparing_result(const SimilarityT matrices_similarity,
-			std::vector<edge<DistanceT>> matched_vectors)
-			noexcept(std::is_nothrow_copy_constructible_v<SimilarityT>)
+		constexpr matrices_comparing_result(const SimilarityT matrices_similarity, 
+			std::vector<edge<DistanceT>> matched_vectors) noexcept(std::is_nothrow_copy_constructible_v<SimilarityT>)
 			: matrices_similarity_(matrices_similarity), matched_vectors_(std::move(matched_vectors)) {}
 
 		[[nodiscard]] constexpr SimilarityT matrices_similarity() const noexcept(std::is_nothrow_copy_constructible_v<SimilarityT>)

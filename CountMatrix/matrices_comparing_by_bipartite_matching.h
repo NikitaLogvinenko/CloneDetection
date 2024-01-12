@@ -24,9 +24,8 @@ namespace cm
 		similarity_estimator_ptr matching_result_to_similarity_{};
 
 	public:
-		constexpr explicit matrices_comparing_by_bipartite_matching(metrics_ptr metrics_for_count_vectors, 
-			bipartite_matching_ptr bipartite_matching, 
-			similarity_estimator_ptr matching_result_to_similarity)
+		constexpr matrices_comparing_by_bipartite_matching(metrics_ptr metrics_for_count_vectors, 
+			bipartite_matching_ptr bipartite_matching, similarity_estimator_ptr matching_result_to_similarity)
 		: metrics_(std::move(metrics_for_count_vectors)), bipartite_matching_(std::move(bipartite_matching)),
 		matching_result_to_similarity_(std::move(matching_result_to_similarity))
 		{

@@ -13,7 +13,7 @@ namespace cm
 	public:
 		constexpr cv_similarity_by_normilized_euclidean_dist() noexcept = default;
 
-		constexpr explicit cv_similarity_by_normilized_euclidean_dist(const double min_value, const double max_value) :
+		constexpr cv_similarity_by_normilized_euclidean_dist(const double min_value, const double max_value) :
 			min_value_(min_value), max_value_(max_value)
 		{
 			if (min_value_ > max_value_)

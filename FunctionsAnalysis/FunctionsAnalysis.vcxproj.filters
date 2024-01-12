@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="code_entity_spelling.h" />
+    <ClInclude Include="code_entity_location.h" />
+    <ClInclude Include="symbol_position.h" />
+    <ClInclude Include="code_entity_descriptor.h" />
+    <ClInclude Include="var_descriptor.h" />
+    <ClInclude Include="func_descriptor.h" />
+    <ClInclude Include="var_usage_info.h" />
+    <ClInclude Include="var_usage_condition_descriptor.h" />
+    <ClInclude Include="condition_index.h" />
+    <ClInclude Include="functions_traverser_abstract.h" />
+    <ClInclude Include="func_implementation_info.h" />
+    <ClInclude Include="funcs_implementations_info_builder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="funcs_implementations_info_builder.cpp" />
+  </ItemGroup>
+</Project>

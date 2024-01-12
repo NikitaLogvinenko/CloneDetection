@@ -14,8 +14,8 @@ namespace cm
 	public:
 		constexpr bipartite_matching_result() noexcept = default;
 
-		constexpr explicit bipartite_matching_result(const WeightT sum_of_matching_edges, 
-			std::vector<edge<WeightT>> matching_edges = {}) noexcept
+		constexpr bipartite_matching_result(const WeightT sum_of_matching_edges, 
+			std::vector<edge<WeightT>> matching_edges) noexcept
 		: sum_of_matching_edges_(sum_of_matching_edges), matching_edges_(std::move(matching_edges)) {}
 
 		[[nodiscard]] constexpr WeightT sum_of_matching_edges() const noexcept

@@ -14,7 +14,7 @@ namespace cm
 	public:
 		constexpr edge() noexcept = default;
 
-		constexpr edge(const vertex_index first_index, const vertex_index second_index,
+		constexpr edge(const vertex_index first_index, const vertex_index second_index, 
 			const edge_weight<WeightT> weight) noexcept
 			: first_index_(first_index), second_index_(second_index), weight_(weight) {}
 

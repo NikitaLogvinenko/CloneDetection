@@ -30,8 +30,8 @@ namespace cm
 
 		public:
 			constexpr iterator() noexcept = default;
-			constexpr explicit iterator(underlying_iterator iter, const size_t index, 
-				const bool from_zeroed_count_vector = false) noexcept
+			constexpr iterator(underlying_iterator iter, const size_t index, 
+				const bool from_zeroed_count_vector) noexcept
 			: iter_(std::move(iter)), index_(index), from_zeroed_count_vector_(from_zeroed_count_vector) {}
 
 			[[nodiscard]] reference operator*() const
