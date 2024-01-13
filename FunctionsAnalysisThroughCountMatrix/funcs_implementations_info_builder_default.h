@@ -1,26 +1,25 @@
 ﻿#pragma once
-#include "func_implementation_info.h"
-#include "var_usage_condition_descriptor.h"
+#include "funcs_implementations_info_builder_abstract.h"
 #include <unordered_map>
 
 namespace func_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	class funcs_implementations_info_builder final
+	class funcs_implementations_info_builder_default final : public funcs_implementations_info_builder_abstract<UsageConditionsCount>
 	{
+		using usage_conditions_counters = std::vector<cm::counted_value>;
+		using counters_by_var_descriptor = std::unordered_map<code_analysis::var_descriptor, usage_conditions_counters>;
+
 	public:
 		using func_info = func_implementation_info<UsageConditionsCount>;
 
 	private:
-		using usage_conditions_counters = std::vector<cm::counted_value>;
-		using counters_by_var_descriptor = std::unordered_map<code_analysis::var_descriptor, usage_conditions_counters>;
-
 		std::unordered_map<code_analysis::func_descriptor, counters_by_var_descriptor> vars_info_by_func_descriptor_{};
 
 	public:
-		void add_condition(var_usage_condition_descriptor<UsageConditionsCount> usage_condition);
+		void add_condition(var_usage_condition_descriptor<UsageConditionsCount> usage_condition) override;
 
-		[[nodiscard]] std::vector<func_info> build_and_reset();
+		[[nodiscard]] std::vector<func_info> build_and_reset() override;
 
 	private:
 		[[nodiscard]] func_info construct_func_info(code_analysis::func_descriptor func, 
@@ -28,7 +27,7 @@ namespace func_analysis_through_cm
 	};
 
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	void funcs_implementations_info_builder<UsageConditionsCount>::add_condition(
+	void funcs_implementations_info_builder_default<UsageConditionsCount>::add_condition(
 		var_usage_condition_descriptor<UsageConditionsCount> usage_condition)
 	{
 		condition_index<UsageConditionsCount> condition_index = usage_condition.index();
@@ -61,8 +60,8 @@ namespace func_analysis_through_cm
 	}
 
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	std::vector<typename funcs_implementations_info_builder<UsageConditionsCount>::func_info>
-	funcs_implementations_info_builder<UsageConditionsCount>::build_and_reset()
+	std::vector<typename funcs_implementations_info_builder_default<UsageConditionsCount>::func_info>
+	funcs_implementations_info_builder_default<UsageConditionsCount>::build_and_reset()
 	{
 		std::vector<func_info> funcs_implementations_info{};
 		funcs_implementations_info.reserve(vars_info_by_func_descriptor_.size());
@@ -78,7 +77,7 @@ namespace func_analysis_through_cm
 	}
 
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	typename funcs_implementations_info_builder<UsageConditionsCount>::func_info funcs_implementations_info_builder<
+	typename funcs_implementations_info_builder_default<UsageConditionsCount>::func_info funcs_implementations_info_builder_default<
 	UsageConditionsCount>::
 	construct_func_info(code_analysis::func_descriptor func, counters_by_var_descriptor counters_by_vars) const
 	{
