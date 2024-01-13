@@ -2,7 +2,7 @@
 #include "code_entity_spelling.h"
 #include "code_entity_location.h"
 
-namespace functions_analysis
+namespace code_analysis
 {
 	class code_entity_descriptor final
 	{

@@ -2,7 +2,7 @@
 #include "symbol_position.h"
 #include <filesystem>
 
-namespace functions_analysis
+namespace code_analysis
 {
 	class code_entity_location final
 	{

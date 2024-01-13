@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace functions_analysis
+namespace code_analysis
 {
 	class symbol_position final
 	{

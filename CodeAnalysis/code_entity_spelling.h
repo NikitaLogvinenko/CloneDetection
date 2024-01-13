@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <string>
 
-namespace functions_analysis
+namespace code_analysis
 {
 	class code_entity_spelling final
 	{

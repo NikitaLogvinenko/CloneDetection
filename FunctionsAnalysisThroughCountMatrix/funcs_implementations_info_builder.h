@@ -3,7 +3,7 @@
 #include "var_usage_condition_descriptor.h"
 #include <unordered_map>
 
-namespace functions_analysis
+namespace func_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_implementations_info_builder final
@@ -13,9 +13,9 @@ namespace functions_analysis
 
 	private:
 		using usage_conditions_counters = std::vector<cm::counted_value>;
-		using counters_by_var_descriptor = std::unordered_map<var_descriptor, usage_conditions_counters>;
+		using counters_by_var_descriptor = std::unordered_map<code_analysis::var_descriptor, usage_conditions_counters>;
 
-		std::unordered_map<func_descriptor, counters_by_var_descriptor> vars_info_by_func_descriptor_{};
+		std::unordered_map<code_analysis::func_descriptor, counters_by_var_descriptor> vars_info_by_func_descriptor_{};
 
 	public:
 		void add_condition(var_usage_condition_descriptor<UsageConditionsCount> usage_condition);
@@ -23,7 +23,8 @@ namespace functions_analysis
 		[[nodiscard]] std::vector<func_info> build_and_reset();
 
 	private:
-		[[nodiscard]] func_info construct_func_info(func_descriptor func, counters_by_var_descriptor counters_by_vars) const;
+		[[nodiscard]] func_info construct_func_info(code_analysis::func_descriptor func, 
+			counters_by_var_descriptor counters_by_vars) const;
 	};
 
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
@@ -79,7 +80,7 @@ namespace functions_analysis
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	typename funcs_implementations_info_builder<UsageConditionsCount>::func_info funcs_implementations_info_builder<
 	UsageConditionsCount>::
-	construct_func_info(func_descriptor func, counters_by_var_descriptor counters_by_vars) const
+	construct_func_info(code_analysis::func_descriptor func, counters_by_var_descriptor counters_by_vars) const
 	{
 		std::vector<cm::count_vector<UsageConditionsCount>> vector_of_count_vectors{};
 		vector_of_count_vectors.reserve(counters_by_vars.size());

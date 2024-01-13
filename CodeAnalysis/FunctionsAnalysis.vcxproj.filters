@@ -7,11 +7,5 @@
     <ClInclude Include="code_entity_descriptor.h" />
     <ClInclude Include="var_descriptor.h" />
     <ClInclude Include="func_descriptor.h" />
-    <ClInclude Include="var_usage_info.h" />
-    <ClInclude Include="var_usage_condition_descriptor.h" />
-    <ClInclude Include="condition_index.h" />
-    <ClInclude Include="functions_traverser_abstract.h" />
-    <ClInclude Include="func_implementation_info.h" />
-    <ClInclude Include="funcs_implementations_info_builder.h" />
   </ItemGroup>
 </Project>
