@@ -37,9 +37,6 @@
       <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="funcs_implementations_info_builder.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

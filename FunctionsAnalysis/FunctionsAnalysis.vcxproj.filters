@@ -14,7 +14,4 @@
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="funcs_implementations_info_builder.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="funcs_implementations_info_builder.cpp" />
-  </ItemGroup>
 </Project>
