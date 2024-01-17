@@ -3,7 +3,7 @@
 #include "func_descriptor.h"
 #include "condition_index.h"
 
-namespace func_analysis_through_cm
+namespace funcs_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class var_usage_condition_descriptor final

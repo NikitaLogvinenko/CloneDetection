@@ -10,5 +10,6 @@
     <ClInclude Include="functions_traversers_factory_abstract.h" />
     <ClInclude Include="funcs_implementations_info_director_abstract.h" />
     <ClInclude Include="funcs_implementations_info_builder_abstract.h" />
+    <ClInclude Include="funcs_implementations_info_director_multithreaded.h" />
   </ItemGroup>
 </Project>

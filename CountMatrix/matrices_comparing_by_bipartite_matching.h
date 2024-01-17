@@ -3,14 +3,15 @@
 #include "bipartite_graph_on_count_matrices.h"
 #include "bipartite_matching_abstract.h"
 #include "similarity_estimator_abstract.h"
-#include "nullptr_exception.h"
+#include "parameters_validation.h"
 #include <memory>
 
 namespace cm
 {
 	template <size_t CountVectorLength, utility::non_const_arithmetic DistanceT,
 	continuous_similarity_bounded_below SimilarityT> requires count_vector_length<CountVectorLength>
-	class matrices_comparing_by_bipartite_matching final : public matrices_comparing_abstract<CountVectorLength, DistanceT, SimilarityT>
+	class matrices_comparing_by_bipartite_matching final :
+	public matrices_comparing_abstract<CountVectorLength, DistanceT, SimilarityT>
 	{
 	public:
 		using metrics = count_vectors_metrics_abstract<CountVectorLength, DistanceT>;
@@ -29,10 +30,11 @@ namespace cm
 		: metrics_(std::move(metrics_for_count_vectors)), bipartite_matching_(std::move(bipartite_matching)),
 		matching_result_to_similarity_(std::move(matching_result_to_similarity))
 		{
-			if (metrics_ == nullptr || bipartite_matching_ == nullptr || matching_result_to_similarity_ == nullptr)
-			{
-				throw common_exceptions::nullptr_exception("matrices_comparing_by_bipartite_matching: nullptr was passed.");
-			}
+			const std::string method_name = "matrices_comparing_by_bipartite_matching::matrices_comparing_by_bipartite_matching";
+
+			utility::throw_if_nullptr(metrics_, method_name, "metrics_for_count_vectors");
+			utility::throw_if_nullptr(bipartite_matching_, method_name, "bipartite_matching");
+			utility::throw_if_nullptr(matching_result_to_similarity_, method_name, "matching_result_to_similarity");
 		}
 
 		[[nodiscard]] matrices_comparing_result<CountVectorLength, DistanceT, SimilarityT> operator()(

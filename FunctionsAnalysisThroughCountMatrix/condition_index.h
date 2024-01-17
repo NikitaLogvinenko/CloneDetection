@@ -2,7 +2,7 @@
 #include "count_vector_length.h"
 #include "invalid_index_exception.h"
 
-namespace func_analysis_through_cm
+namespace funcs_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class condition_index final

@@ -3,7 +3,7 @@
 #include "var_usage_info.h"
 #include "count_matrix.h"
 
-namespace func_analysis_through_cm
+namespace funcs_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class func_implementation_info final

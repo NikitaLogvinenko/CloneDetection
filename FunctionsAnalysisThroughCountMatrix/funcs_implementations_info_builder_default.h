@@ -2,7 +2,7 @@
 #include "funcs_implementations_info_builder_abstract.h"
 #include <unordered_map>
 
-namespace func_analysis_through_cm
+namespace funcs_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_implementations_info_builder_default final : public funcs_implementations_info_builder_abstract<UsageConditionsCount>

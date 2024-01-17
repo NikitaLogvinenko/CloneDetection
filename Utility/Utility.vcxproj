@@ -159,6 +159,7 @@
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="non_const_unsigned_arithmetic.h" />
     <ClInclude Include="pow_throwing.h" />
+    <ClInclude Include="parameters_validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
