@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "funcs_implementations_info_builder_abstract.h"
+#include "func_descriptor_hash.h"
+#include "var_descriptor_hash.h"
 #include <unordered_map>
 
 namespace funcs_analysis_through_cm
@@ -7,14 +9,16 @@ namespace funcs_analysis_through_cm
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_implementations_info_builder_default final : public funcs_implementations_info_builder_abstract<UsageConditionsCount>
 	{
-		using usage_conditions_counters = std::vector<cm::counted_value>;
-		using counters_by_var_descriptor = std::unordered_map<code_analysis::var_descriptor, usage_conditions_counters>;
-
 	public:
 		using func_info = func_implementation_info<UsageConditionsCount>;
 
 	private:
-		std::unordered_map<code_analysis::func_descriptor, counters_by_var_descriptor> vars_info_by_func_descriptor_{};
+		using usage_conditions_counters = std::vector<cm::counted_value>;
+		using counters_by_var_descriptor = std::unordered_map<
+			code_analysis::var_descriptor, usage_conditions_counters, code_analysis::var_descriptor_hash>;
+
+		std::unordered_map<code_analysis::func_descriptor, counters_by_var_descriptor,
+		code_analysis::func_descriptor_hash> vars_info_by_func_descriptor_{};
 
 	public:
 		void add_condition(var_usage_condition_descriptor<UsageConditionsCount> usage_condition) override;

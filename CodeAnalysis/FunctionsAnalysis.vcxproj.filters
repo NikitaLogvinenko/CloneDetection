@@ -7,5 +7,8 @@
     <ClInclude Include="code_entity_descriptor.h" />
     <ClInclude Include="var_descriptor.h" />
     <ClInclude Include="func_descriptor.h" />
+    <ClInclude Include="func_descriptor_hash.h" />
+    <ClInclude Include="var_descriptor_hash.h" />
+    <ClInclude Include="code_entity_descriptor_hash.h" />
   </ItemGroup>
 </Project>

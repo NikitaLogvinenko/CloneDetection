@@ -13,7 +13,7 @@ namespace funcs_analysis_through_cm
 
 		size_t traversing_threads_count_{ 1 };
 
-		static constexpr size_t max_traversing_threads_count = 10'000;
+		static constexpr size_t max_traversing_threads_count = 1000;
 
 	public:
 		constexpr funcs_implementations_info_director_multithreaded() noexcept = default;
