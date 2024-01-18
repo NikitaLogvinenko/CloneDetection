@@ -8,16 +8,17 @@
 
 namespace cm
 {
-	template <size_t CountVectorLength, utility::non_const_arithmetic DistanceT,
-	continuous_similarity_bounded_below SimilarityT> requires count_vector_length<CountVectorLength>
-	class matrices_comparing_by_bipartite_matching final :
-	public matrices_comparing_abstract<CountVectorLength, DistanceT, SimilarityT>
+	template <matrices_comparing_traits CompTraits>
+	class matrices_comparing_by_bipartite_matching final : public matrices_comparing_abstract<CompTraits>
 	{
+		using similarity_t = typename CompTraits::similarity_t;
+		using distance_t = typename CompTraits::distance_t;
+
 	public:
-		using metrics = count_vectors_metrics_abstract<CountVectorLength, DistanceT>;
+		using metrics = count_vectors_metrics_abstract<CompTraits::count_vector_length, distance_t>;
 		using metrics_ptr = std::unique_ptr<metrics>;
-		using bipartite_matching_ptr = std::unique_ptr<graphs::bipartite_matching_abstract<DistanceT>>;
-		using similarity_estimator_ptr = std::unique_ptr<similarity_estimator_abstract<DistanceT, SimilarityT>>;
+		using bipartite_matching_ptr = std::unique_ptr<graphs::bipartite_matching_abstract<distance_t>>;
+		using similarity_estimator_ptr = std::unique_ptr<similarity_estimator_abstract<distance_t, similarity_t>>;
 
 	private:
 		metrics_ptr metrics_{};
@@ -37,18 +38,19 @@ namespace cm
 			utility::throw_if_nullptr(matching_result_to_similarity_, method_name, "matching_result_to_similarity");
 		}
 
-		[[nodiscard]] matrices_comparing_result<CountVectorLength, DistanceT, SimilarityT> operator()(
-			const count_matrix<CountVectorLength>& first_matrix,
-			const count_matrix<CountVectorLength>& second_matrix) const override
+		[[nodiscard]] matrices_comparing_result<CompTraits> operator()(
+			const count_matrix<CompTraits::count_vector_length>& first_matrix,
+			const count_matrix<CompTraits::count_vector_length>& second_matrix) const override
 		{
-			const bipartite_graph_on_count_matrices<DistanceT> cv_distances_matrix{ first_matrix, second_matrix, *metrics_ };
-			const graphs::bipartite_graph_weights_matrix<DistanceT>& weights_matrix = cv_distances_matrix.to_weights_matrix();
+			const bipartite_graph_on_count_matrices<distance_t> cv_distances_matrix{ first_matrix, second_matrix, *metrics_ };
+			const graphs::bipartite_graph_weights_matrix<distance_t>& weights_matrix = cv_distances_matrix.to_weights_matrix();
 
-			graphs::bipartite_matching_result<DistanceT> bipartite_matching_result = bipartite_matching_->match_parts(weights_matrix);
+			graphs::bipartite_matching_result<distance_t> bipartite_matching_result = bipartite_matching_->match_parts(weights_matrix);
 
-			const SimilarityT matrices_similarity = (*matching_result_to_similarity_)(weights_matrix, bipartite_matching_result);
+			const similarity_t matrices_similarity = (*matching_result_to_similarity_)(weights_matrix, bipartite_matching_result);
 
-			return matrices_comparing_result<CountVectorLength, DistanceT, SimilarityT>{ matrices_similarity,
+			return matrices_comparing_result<CompTraits>{
+				cm::matrices_similarity<similarity_t>{ matrices_similarity },
 				std::move(bipartite_matching_result).matching_edges() };
 		}
 	};

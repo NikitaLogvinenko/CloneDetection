@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "funcs_implementations_info_builder_abstract.h"
-#include "functions_traversers_factory_abstract.h"
+#include "funcs_traversers_factory_abstract.h"
 
 namespace funcs_analysis_through_cm
 {
@@ -14,6 +14,6 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] virtual std::vector<func_implementation_info<UsageConditionsCount>> analyse_functions_implementations(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<functions_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) = 0;
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) = 0;
 	};
 }

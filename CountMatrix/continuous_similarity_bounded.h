@@ -7,6 +7,6 @@ namespace cm
 	concept continuous_similarity_bounded = continuous_similarity_bounded_below<T> &&
 		requires ()
 	{
-		{ T::max_similarity_value() } -> std::same_as<double>;
+		{ T::max_similarity_value() } noexcept -> std::same_as<double>;
 	};
 }

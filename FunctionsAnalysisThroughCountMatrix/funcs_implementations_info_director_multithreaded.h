@@ -28,7 +28,7 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] std::vector<func_implementation_info<UsageConditionsCount>> analyse_functions_implementations(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<functions_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) override
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) override
 		{
 			this_class::throw_if_nullptr(builder, functions_traversers_factory,
 				"funcs_implementations_info_director_multithreaded::analyse_functions_implementations");
@@ -52,7 +52,7 @@ namespace funcs_analysis_through_cm
 
 		static void throw_if_nullptr(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<functions_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
 			const std::string& method_name)
 		{
 			utility::throw_if_nullptr(builder, method_name, "builder");
@@ -60,7 +60,7 @@ namespace funcs_analysis_through_cm
 		}
 
 		[[nodiscard]] static std::vector<var_usage_condition_descriptor<UsageConditionsCount>>
-			throw_if_nullptr_traverse_otherwise(std::unique_ptr<functions_traverser_abstract<UsageConditionsCount>> traverser)
+			throw_if_nullptr_traverse_otherwise(std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser)
 		{
 			utility::throw_if_nullptr(traverser,
 				"funcs_implementations_info_director_multithreaded::throw_if_nullptr_traverse_otherwise",
@@ -79,7 +79,7 @@ namespace funcs_analysis_through_cm
 		}
 
 		static void traverse_and_add_conditions(
-			std::unique_ptr<functions_traverser_abstract<UsageConditionsCount>> traverser,
+			std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser,
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder)
 		{
 			auto vars_usage_conditions = this_class::throw_if_nullptr_traverse_otherwise(std::move(traverser));
@@ -88,7 +88,7 @@ namespace funcs_analysis_through_cm
 		}
 
 		static void traverse_and_add_conditions_threadsafe(
-			std::unique_ptr<functions_traverser_abstract<UsageConditionsCount>> traverser,
+			std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser,
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
 			std::mutex& builder_mutex)
 		{
@@ -100,7 +100,7 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> one_threaded_analysis(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<functions_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory)
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory)
 		{
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> shared_builder(std::move(builder));
 
@@ -110,7 +110,7 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> multi_threaded_analysis(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<functions_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
 			const size_t traversing_threads_count)
 		{
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> shared_builder(std::move(builder));
