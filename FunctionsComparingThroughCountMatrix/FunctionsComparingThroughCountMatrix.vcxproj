@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="funcs_pairwise_comparing_multithreaded.h" />
     <ClInclude Include="funcs_pairwise_comparing_result.h" />
     <ClInclude Include="funcs_pair_index.h" />
     <ClInclude Include="distance_between_vars.h" />

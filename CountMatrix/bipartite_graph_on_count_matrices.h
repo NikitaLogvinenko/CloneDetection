@@ -18,7 +18,7 @@ namespace cm
 			const count_matrix<CountVectorLength>& first_matrix,
 			const count_matrix<CountVectorLength>& second_matrix,
 			const count_vectors_metrics_abstract<CountVectorLength, DistanceT>& metrics)
-		: distances_matrix_((first_matrix, second_matrix, metrics)) {}
+		: distances_matrix_(calculate_weights(first_matrix, second_matrix, metrics)) {}
 		
 
 		[[nodiscard]] constexpr distance_between_count_vectors<DistanceT> at(
@@ -43,7 +43,7 @@ namespace cm
 
 	private:
 		template <size_t CountVectorDimension>
-		[[nodiscard]] constexpr auto calculate_weights(
+		[[nodiscard]] static constexpr auto calculate_weights(
 			const count_matrix<CountVectorDimension>& first_matrix,
 			const count_matrix<CountVectorDimension>& second_matrix,
 			const count_vectors_metrics_abstract<CountVectorDimension, DistanceT>& distance_func)

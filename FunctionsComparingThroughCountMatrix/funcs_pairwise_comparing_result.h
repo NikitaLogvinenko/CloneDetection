@@ -50,5 +50,10 @@ namespace funcs_comparing_through_cm
 		{
 			return funcs_pairs_decreasing_similarity_order_.at(pair_index_in_decreasing_similarity_order.to_size_t());
 		}
+
+		[[nodiscard]] size_t compared_pairs_count() const noexcept
+		{
+			return funcs_pairs_decreasing_similarity_order_.size();
+		}
 	};
 }

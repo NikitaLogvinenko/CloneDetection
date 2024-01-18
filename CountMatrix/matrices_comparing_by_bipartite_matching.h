@@ -16,9 +16,9 @@ namespace cm
 
 	public:
 		using metrics = count_vectors_metrics_abstract<CompTraits::count_vector_length, distance_t>;
-		using metrics_ptr = std::unique_ptr<metrics>;
-		using bipartite_matching_ptr = std::unique_ptr<graphs::bipartite_matching_abstract<distance_t>>;
-		using similarity_estimator_ptr = std::unique_ptr<similarity_estimator_abstract<distance_t, similarity_t>>;
+		using metrics_ptr = std::unique_ptr<const metrics>;
+		using bipartite_matching_ptr = std::unique_ptr<const graphs::bipartite_matching_abstract<distance_t>>;
+		using similarity_estimator_ptr = std::unique_ptr<const similarity_estimator_abstract<distance_t, similarity_t>>;
 
 	private:
 		metrics_ptr metrics_{};

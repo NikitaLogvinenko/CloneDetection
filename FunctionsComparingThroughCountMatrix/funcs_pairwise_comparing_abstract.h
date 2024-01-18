@@ -8,7 +8,7 @@ namespace funcs_comparing_through_cm
 	template <funcs_comparing_traits CompTraits>
 	class funcs_pairwise_comparing_abstract
 	{
-		using func_implementation_info = funcs_analysis_through_cm::func_implementation_info;
+		using func_implementation_info = funcs_analysis_through_cm::func_implementation_info<CompTraits::count_vector_length>;
 
 	public:
 		constexpr funcs_pairwise_comparing_abstract() noexcept = default;
@@ -17,6 +17,6 @@ namespace funcs_comparing_through_cm
 
 		[[nodiscard]] virtual funcs_pairwise_comparing_result<CompTraits> compare(
 			const std::vector<func_implementation_info>& first_set_of_functions, 
-			const std::vector<func_implementation_info>& second_set_of_functions) = 0;
+			const std::vector<func_implementation_info>& second_set_of_functions) const = 0;
 	};
 }
