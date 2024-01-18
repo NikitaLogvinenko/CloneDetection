@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="comparator.h" />
     <ClInclude Include="non_const_arithmetic.h" />
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="non_const_unsigned_arithmetic.h" />

@@ -7,5 +7,6 @@
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
+    <ClInclude Include="comparator.h" />
   </ItemGroup>
 </Project>

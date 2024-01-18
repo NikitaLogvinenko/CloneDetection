@@ -8,5 +8,9 @@
     <ClInclude Include="var_index.h" />
     <ClInclude Include="matched_vars_index.h" />
     <ClInclude Include="distance_between_vars.h" />
+    <ClInclude Include="funcs_pairwise_comparing_abstract.h" />
+    <ClInclude Include="pair_of_funcs_indices.h" />
+    <ClInclude Include="funcs_pair_index.h" />
+    <ClInclude Include="funcs_pairwise_comparing_result.h" />
   </ItemGroup>
 </Project>

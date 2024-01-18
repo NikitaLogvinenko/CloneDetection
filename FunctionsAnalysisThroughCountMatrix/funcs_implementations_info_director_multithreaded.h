@@ -49,7 +49,6 @@ namespace funcs_analysis_through_cm
 		}
 
 	private:
-
 		static void throw_if_nullptr(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
 			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
@@ -83,7 +82,6 @@ namespace funcs_analysis_through_cm
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder)
 		{
 			auto vars_usage_conditions = this_class::throw_if_nullptr_traverse_otherwise(std::move(traverser));
-
 			this_class::add_conditions(std::move(vars_usage_conditions, builder));
 		}
 
@@ -93,7 +91,6 @@ namespace funcs_analysis_through_cm
 			std::mutex& builder_mutex)
 		{
 			auto vars_usage_conditions = this_class::throw_if_nullptr_traverse_otherwise(std::move(traverser));
-
 			std::lock_guard builder_guard(builder_mutex);
 			this_class::add_conditions(std::move(vars_usage_conditions, builder));
 		}

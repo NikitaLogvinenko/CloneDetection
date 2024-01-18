@@ -30,8 +30,6 @@ namespace utility
 			return value_;
 		}
 
-		[[nodiscard]] constexpr auto operator<=>(const relative_similarity& other) const = default;
-
 		[[nodiscard]] constexpr static double min_similarity_value() noexcept
 		{
 			return min_value;

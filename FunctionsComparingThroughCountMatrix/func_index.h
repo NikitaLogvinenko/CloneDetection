@@ -15,5 +15,9 @@ namespace funcs_comparing_through_cm
 		{
 			return index_;
 		}
+
+		[[nodiscard]] constexpr bool operator==(const func_index&) const noexcept = default;
+
+		[[nodiscard]] constexpr auto operator<=>(const func_index&) const noexcept = default;
 	};
 }
