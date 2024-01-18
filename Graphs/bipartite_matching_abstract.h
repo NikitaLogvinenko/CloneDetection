@@ -3,7 +3,7 @@
 #include "bipartite_matching_result.h"
 #include "constexpr_default_copy_move_constructor_assignment_virtual_destructor_move_noexcept.h"
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT>
 	class bipartite_matching_abstract

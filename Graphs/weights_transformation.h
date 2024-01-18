@@ -3,7 +3,7 @@
 #include "non_const_arithmetic.h"
 #include <concepts>
 
-namespace cm
+namespace graphs
 {
 	template <class WeightsTransform, utility::non_const_arithmetic WeightT, utility::non_const_integral CalculationsT>
 	concept weights_transformation = (std::is_copy_constructible_v<WeightsTransform> 

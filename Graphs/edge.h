@@ -2,7 +2,7 @@
 #include "vertex_index.h"
 #include "edge_weight.h"
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT>
 	class edge final

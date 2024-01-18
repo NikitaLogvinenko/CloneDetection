@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT>
 	class bipartite_matching_result final

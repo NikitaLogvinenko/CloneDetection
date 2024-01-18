@@ -33,7 +33,8 @@ namespace cm
 			}
 
 			const double normilized_distance = euclidean_distance.to_edge_weight().value() / std::sqrt(sum_of_max_squared_values);
-			return distance_between_count_vectors(edge_weight(std::clamp(normilized_distance, 0., 1.)));
+			return distance_between_count_vectors(graphs::edge_weight(
+				std::clamp(normilized_distance, 0., 1.)));
 		}
 	};
 }

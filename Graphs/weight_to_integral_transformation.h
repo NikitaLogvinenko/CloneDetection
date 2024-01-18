@@ -3,10 +3,10 @@
 #include "pow_throwing.h"
 #include "initialized_value_out_of_range.h"
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT, utility::non_const_integral CalculationsT>
-	class floating_weight_to_integral_transformation final
+	class weight_to_integral_transformation final
 	{
 		double weights_factor_;
 
@@ -14,14 +14,14 @@ namespace cm
 		static constexpr size_t max_decimals = 7;
 
 	public:
-		constexpr explicit floating_weight_to_integral_transformation(const size_t weight_decimals = default_decimals)
+		constexpr explicit weight_to_integral_transformation(const size_t weight_decimals = default_decimals)
 			: weights_factor_(utility::pow_throwing(10, weight_decimals, 
-				"floating_weight_to_integral_transformation: too large weight_decimals. Try to set less precision."))
+				"weight_to_integral_transformation: too large weight_decimals. Try to set less precision."))
 		{
 			if (weight_decimals > max_decimals)
 			{
 				throw common_exceptions::initialized_value_out_of_range(
-					std::format("floating_weight_to_integral_transformation: max permitted "
+					std::format("weight_to_integral_transformation: max permitted "
 				 "weight_decimals is {}, but {} was passed.", std::to_string(max_decimals), std::to_string(weight_decimals))
 				);
 			}
@@ -49,7 +49,7 @@ namespace cm
 	};
 
 	template <utility::non_const_integral WeightT, utility::non_const_integral CalculationsT>
-	class floating_weight_to_integral_transformation<WeightT, CalculationsT> final
+	class weight_to_integral_transformation<WeightT, CalculationsT> final
 	{
 	public:
 		[[nodiscard]] static constexpr CalculationsT to_calculations_t(const WeightT weight)

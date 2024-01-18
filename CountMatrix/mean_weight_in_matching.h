@@ -9,8 +9,8 @@ namespace cm
 	{
 	public:
 		[[nodiscard]] constexpr SimilarityT operator()(
-			const bipartite_graph_weights_matrix<WeightT>& weights_matrix,
-			const bipartite_matching_result<WeightT>& matching_result) const override
+			const graphs::bipartite_graph_weights_matrix<WeightT>& weights_matrix,
+			const graphs::bipartite_matching_result<WeightT>& matching_result) const override
 		{
 			const size_t max_part_cardinality = std::max(weights_matrix.rows(), weights_matrix.columns());
 			if (max_part_cardinality == 0)
@@ -28,8 +28,8 @@ namespace cm
 	{
 	public:
 		[[nodiscard]] constexpr SimilarityT operator()(
-			const bipartite_graph_weights_matrix<WeightT>& weights_matrix,
-			const bipartite_matching_result<WeightT>& matching_result) const override
+			const graphs::bipartite_graph_weights_matrix<WeightT>& weights_matrix,
+			const graphs::bipartite_matching_result<WeightT>& matching_result) const override
 		{
 			const size_t max_part_cardinality = std::max(weights_matrix.rows(), weights_matrix.columns());
 			if (max_part_cardinality == 0)

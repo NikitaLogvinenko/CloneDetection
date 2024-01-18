@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace cm
+namespace graphs
 {
 	class vertex_index final
 	{

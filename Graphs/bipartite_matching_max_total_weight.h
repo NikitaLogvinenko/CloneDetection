@@ -1,14 +1,14 @@
 ﻿#pragma once
 #include "bipartite_matching_abstract.h"
 #include "dlib/optimization/max_cost_assignment.h"
-#include "floating_weight_to_integral_transformation.h"
+#include "weight_to_integral_transformation.h"
 #include "weights_transformation.h"
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT,
 		utility::non_const_integral CalculationsT = size_t,
-		class WeightsTransform = floating_weight_to_integral_transformation<WeightT, CalculationsT>>
+		class WeightsTransform = weight_to_integral_transformation<WeightT, CalculationsT>>
 		requires weights_transformation<WeightsTransform, WeightT, CalculationsT>
 		class bipartite_matching_max_total_weight final : public bipartite_matching_abstract<WeightT>
 	{

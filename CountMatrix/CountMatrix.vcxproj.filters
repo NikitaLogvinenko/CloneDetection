@@ -2,10 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="bipartite_graph_on_count_matrices.h" />
-    <ClInclude Include="bipartite_graph_weights_matrix.h" />
-    <ClInclude Include="bipartite_matching_abstract.h" />
-    <ClInclude Include="bipartite_matching_max_total_weight.h" />
-    <ClInclude Include="bipartite_matching_result.h" />
     <ClInclude Include="continuous_similarity_bounded.h" />
     <ClInclude Include="continuous_similarity_bounded_below.h" />
     <ClInclude Include="count_matrix.h" />
@@ -17,19 +13,14 @@
     <ClInclude Include="cv_normilized_euclidean_distance.h" />
     <ClInclude Include="cv_similarity_by_normilized_euclidean_dist.h" />
     <ClInclude Include="distance_between_count_vectors.h" />
-    <ClInclude Include="edge.h" />
-    <ClInclude Include="edge_weight.h" />
-    <ClInclude Include="floating_weight_to_integral_transformation.h" />
     <ClInclude Include="index_of_count_vector.h" />
     <ClInclude Include="index_of_counted_value.h" />
-    <ClInclude Include="matched_vectors_pair_index.h" />
+    <ClInclude Include="matching_edge_index.h" />
     <ClInclude Include="matrices_comparing_abstract.h" />
     <ClInclude Include="matrices_comparing_by_bipartite_matching.h" />
     <ClInclude Include="matrices_comparing_result.h" />
     <ClInclude Include="mean_weight_in_matching.h" />
-    <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="similarity_estimator_abstract.h" />
-    <ClInclude Include="vertex_index.h" />
-    <ClInclude Include="weights_transformation.h" />
+    <ClInclude Include="count_vector_index.h" />
   </ItemGroup>
 </Project>

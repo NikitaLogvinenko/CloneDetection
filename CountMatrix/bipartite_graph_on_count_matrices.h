@@ -8,7 +8,7 @@ namespace cm
 	template <utility::non_const_arithmetic DistanceT>
 	class bipartite_graph_on_count_matrices final
 	{
-		bipartite_graph_weights_matrix<DistanceT> distances_matrix_{};
+		graphs::bipartite_graph_weights_matrix<DistanceT> distances_matrix_{};
 
 	public:
 		constexpr bipartite_graph_on_count_matrices() = default;
@@ -18,7 +18,7 @@ namespace cm
 			const count_matrix<CountVectorLength>& first_matrix,
 			const count_matrix<CountVectorLength>& second_matrix,
 			const count_vectors_metrics_abstract<CountVectorLength, DistanceT>& metrics)
-		: distances_matrix_(calculate_weights(first_matrix, second_matrix, metrics)) {}
+		: distances_matrix_((first_matrix, second_matrix, metrics)) {}
 		
 
 		[[nodiscard]] constexpr distance_between_count_vectors<DistanceT> at(
@@ -28,15 +28,15 @@ namespace cm
 			const size_t row = index_from_first_count_matrix.to_size_t();
 			const size_t column = index_from_second_count_matrix.to_size_t();
 
-			const vertex_index vertex_from_first_part(row);
-			const vertex_index vertex_from_second_part(column);
+			const graphs::vertex_index vertex_from_first_part(row);
+			const graphs::vertex_index vertex_from_second_part(column);
 
-			const edge_weight distance = distances_matrix_.at(vertex_from_first_part, vertex_from_second_part);
+			const graphs::edge_weight distance = distances_matrix_.at(vertex_from_first_part, vertex_from_second_part);
 
-			return distance_between_count_vectors<DistanceT>(distance.to_size_t());
+			return distance_between_count_vectors<DistanceT>(distance);
 		}
 
-		[[nodiscard]] constexpr const bipartite_graph_weights_matrix<DistanceT>& to_weights_matrix() const noexcept
+		[[nodiscard]] constexpr const graphs::bipartite_graph_weights_matrix<DistanceT>& to_weights_matrix() const noexcept
 		{
 			return distances_matrix_;
 		}
@@ -50,10 +50,10 @@ namespace cm
 		{
 			if (first_matrix.vectors_count() == 0 || second_matrix.vectors_count() == 0)
 			{
-				return std::vector<std::vector<edge_weight<DistanceT>>>{};
+				return std::vector<std::vector<graphs::edge_weight<DistanceT>>>{};
 			}
 
-			std::vector<std::vector<edge_weight<DistanceT>>> weights_matrix{};
+			std::vector<std::vector<graphs::edge_weight<DistanceT>>> weights_matrix{};
 			weights_matrix.reserve(first_matrix.vectors_count());
 
 			size_t row = 0;

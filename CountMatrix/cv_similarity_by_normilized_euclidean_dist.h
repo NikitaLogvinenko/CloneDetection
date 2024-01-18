@@ -37,13 +37,14 @@ namespace cm
 			const count_vector<CountVectorLength>& first_vector,
 			const count_vector<CountVectorLength>& second_vector) const override
 		{
-			const distance_between_count_vectors<double> normilized_distance = cv_normilized_euclidean_distance<CountVectorLength>::calculate(first_vector, second_vector);
+			const distance_between_count_vectors<double> normilized_distance = 
+				cv_normilized_euclidean_distance<CountVectorLength>::calculate(first_vector, second_vector);
 
 			const double similarity_ratio = 1 - normilized_distance.to_edge_weight().value();
 			const double scale = max_value_ - min_value_;
 			const double similarity = min_value_ + scale * similarity_ratio;
 
-			return distance_between_count_vectors(edge_weight(std::clamp(similarity, min_value_, max_value_)));
+			return distance_between_count_vectors(graphs::edge_weight(std::clamp(similarity, min_value_, max_value_)));
 		}
 	};
 }

@@ -15,7 +15,7 @@ namespace cm
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(similarity_estimator_abstract)
 
 		[[nodiscard]] constexpr virtual SimilarityT operator()(
-			const bipartite_graph_weights_matrix<WeightT>& weights_matrix,
-			const bipartite_matching_result<WeightT>& matching_result) const = 0;
+			const graphs::bipartite_graph_weights_matrix<WeightT>& weights_matrix,
+			const graphs::bipartite_matching_result<WeightT>& matching_result) const = 0;
 	};
 }

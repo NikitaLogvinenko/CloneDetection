@@ -3,7 +3,7 @@
 #include "incorrect_vector_length.h"
 #include <vector>
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT>
 	class bipartite_graph_weights_matrix final

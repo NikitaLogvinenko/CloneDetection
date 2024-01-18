@@ -3,7 +3,7 @@
 #include <string>
 #include <format>
 
-namespace cm
+namespace utility
 {
 	class relative_similarity final
 	{

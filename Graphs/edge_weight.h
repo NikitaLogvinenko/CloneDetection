@@ -3,7 +3,7 @@
 #include "non_const_arithmetic.h"
 #include "non_const_unsigned_arithmetic.h"
 
-namespace cm
+namespace graphs
 {
 	template <utility::non_const_arithmetic WeightT>
 	class edge_weight final
@@ -12,6 +12,7 @@ namespace cm
 
 	public:
 		constexpr edge_weight() noexcept = default;
+
 		constexpr explicit edge_weight(const WeightT value) : value_(value)
 		{
 			if (value < 0)
@@ -33,6 +34,7 @@ namespace cm
 
 	public:
 		constexpr edge_weight() noexcept = default;
+
 		constexpr explicit edge_weight(const WeightT value) noexcept : value_(value) {}
 
 		[[nodiscard]] constexpr WeightT value() const noexcept

@@ -31,7 +31,7 @@ namespace cm
 
 			const size_t sum_of_squared_differences = std::accumulate(
 				squared_differences.cbegin(), squared_differences.cend(), size_t{});
-			return distance_between_count_vectors(edge_weight(std::sqrt(sum_of_squared_differences)));
+			return distance_between_count_vectors(graphs::edge_weight(std::sqrt(sum_of_squared_differences)));
 		}
 	};
 }

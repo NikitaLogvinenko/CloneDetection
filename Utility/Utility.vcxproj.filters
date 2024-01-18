@@ -6,5 +6,6 @@
     <ClInclude Include="pow_throwing.h" />
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="parameters_validation.h" />
+    <ClInclude Include="relative_similarity.h" />
   </ItemGroup>
 </Project>
