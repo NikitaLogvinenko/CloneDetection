@@ -36,7 +36,7 @@ namespace cm
 
 			[[nodiscard]] reference operator*() const
 			{
-				throw_if_end_it( "count_vector::iterator: can not dereference end iterator");
+				throw_if_end_it( "count_vector::iterator::operator*: can not dereference end iterator.");
 				return *iter_;
 			}
 
@@ -129,7 +129,8 @@ namespace cm
 			[[nodiscard]] difference_type get_changed_index_with_validation(const difference_type increase_by) const
 			{
 				const difference_type changed_index = index_ + increase_by;
-				throw_if_invalid_index(changed_index, "count_vector::iterator: attempt to get iterator out of range");
+				throw_if_invalid_index(changed_index, 
+					"count_vector::iterator::get_changed_index_with_validation: attempt to get iterator out of range.");
 				return changed_index;
 			}
 
@@ -173,7 +174,8 @@ namespace cm
 		{
 			if (counted_values_.size() != Length)
 			{
-				throw common_exceptions::incorrect_vector_length("count_vector: counted_values.size() must be equal to Length.");
+				throw common_exceptions::incorrect_vector_length("count_vector::count_vector: "
+													 "counted_values.size() must be equal to Length.");
 			}
 		}
 

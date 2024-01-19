@@ -22,11 +22,13 @@ namespace cm
 				{
 					const size_t value_1 = value_from_first.to_size_t();
 					const size_t value_2 = value_from_second.to_size_t();
+
+					const auto pow_error_msg = "cv_euclidean_distance::cv_euclidean_distance: pow failed.";
 					if (value_1 > value_2)
 					{
-						return utility::pow_throwing(value_1 - value_2, 2, "cv_euclidean_distance: pow failed");
+						return utility::pow_throwing(value_1 - value_2, 2, pow_error_msg);
 					}
-					return utility::pow_throwing(value_2 - value_1, 2, "cv_euclidean_distance: pow failed");
+					return utility::pow_throwing(value_2 - value_1, 2, pow_error_msg);
 				});
 
 			const size_t sum_of_squared_differences = std::accumulate(

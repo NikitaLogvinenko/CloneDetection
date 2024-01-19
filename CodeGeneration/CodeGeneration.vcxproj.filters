@@ -4,5 +4,6 @@
     <ClInclude Include="default_copy_move_constructor_assignment_virtual_destructor.h" />
     <ClInclude Include="copying_delete.h" />
     <ClInclude Include="constexpr_default_copy_move_constructor_assignment_virtual_destructor_move_noexcept.h" />
+    <ClInclude Include="copying_moving_delete.h" />
   </ItemGroup>
 </Project>

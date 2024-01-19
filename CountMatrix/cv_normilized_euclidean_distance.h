@@ -21,7 +21,8 @@ namespace cm
 				[](const counted_value& value_from_first, const counted_value& value_from_second)
 				{
 					const size_t max_value_in_pair = std::max(value_from_first.to_size_t(), value_from_second.to_size_t());
-					return utility::pow_throwing(max_value_in_pair, 2, "cv_normilized_euclidean_distance: pow failed");
+					return utility::pow_throwing(max_value_in_pair, 2, 
+						"cv_normilized_euclidean_distance::cv_normilized_euclidean_distance: pow failed.");
 				});
 
 			const size_t sum_of_max_squared_values =

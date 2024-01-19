@@ -19,7 +19,8 @@ namespace cm
 			if (min_value_ > max_value_)
 			{
 				throw common_exceptions::incorrect_order_exception(
-					"cv_normilized_euclidean_distance: min_value can not be greater than max_value.");
+					"cv_normilized_euclidean_dist::cv_normilized_euclidean_dist: "
+					"min_value can not be greater than max_value.");
 			}
 		}
 

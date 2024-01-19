@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="constexpr_default_copy_move_constructor_assignment_virtual_destructor_move_noexcept.h" />
     <ClInclude Include="copying_delete.h" />
+    <ClInclude Include="copying_moving_delete.h" />
     <ClInclude Include="default_copy_move_constructor_assignment_virtual_destructor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

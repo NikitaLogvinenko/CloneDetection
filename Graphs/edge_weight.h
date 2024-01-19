@@ -17,7 +17,8 @@ namespace graphs
 		{
 			if (value < 0)
 			{
-				throw common_exceptions::initialized_value_out_of_range("edge_weight: value can not be negative.");
+				throw common_exceptions::initialized_value_out_of_range(
+					"edge_weight::edge_weight: value can not be negative.");
 			}
 		}
 

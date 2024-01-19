@@ -35,13 +35,15 @@ namespace clang_c_adaptation::internal
 
 		[[nodiscard]] std::string string() const
 		{
-			if (cxstring_.data == nullptr)
+			const char* const c_string = clang_getCString(cxstring_);
+
+			if (c_string == nullptr)
 			{
 				throw common_exceptions::nullptr_exception(
-					"Attempt to get string from CXString with data = nullptr.");
+					"cxstring_raii::string: initial CXString contains nullptr.");
 			}
 
-			return {clang_getCString(cxstring_)};
+			return std::string{ c_string };
 		}
 	};
 }

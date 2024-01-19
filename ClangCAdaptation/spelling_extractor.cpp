@@ -2,7 +2,7 @@
 #include "cxstring_raii.h"
 #include "wrong_cursor_kind_exception.h"
 #include "nullptr_exception.h"
-#include "cxtokens_raii.h"
+#include "tokenizer.h"
 #include <numeric>
 
 namespace
@@ -32,14 +32,14 @@ namespace clang_c_adaptation
 			return {};
 		}
 
-		const internal::cxtokens_raii tokens{translation_unit, tokens_extent};
+		const internal::tokenizer tokens{translation_unit, tokens_extent};
 		std::vector<std::string> tokens_vector{};
-		tokens_vector.reserve(tokens.tokens_n());
+		tokens_vector.reserve(tokens.tokens_count());
 
-		for (unsigned token_index = 0; token_index < tokens.tokens_n(); ++token_index)
+		for (unsigned token_index = 0; token_index < tokens.tokens_count(); ++token_index)
 		{
 			const internal::token_index typed_index{token_index};
-			tokens_vector.emplace_back(tokens[typed_index]);
+			tokens_vector.emplace_back(tokens.at(typed_index));
 		}
 
 		return tokens_vector;

@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -179,9 +179,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cxtokens_raii.h" />
-    <ClInclude Include="code_entity_location.h" />
-    <ClInclude Include="code_entity_spelling.h" />
+    <ClInclude Include="clang_range_exception.h" />
+    <ClInclude Include="tokenizer.h" />
+    <ClInclude Include="code_entity_location_creator.h" />
+    <ClInclude Include="code_entity_spelling_creator.h" />
     <ClInclude Include="common_checks.h" />
     <ClInclude Include="create_cxindex_exception.h" />
     <ClInclude Include="create_translation_unit_exception.h" />
@@ -189,18 +190,16 @@
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxindex_raii.h" />
     <ClInclude Include="cxstring_raii.h" />
-    <ClInclude Include="func_location.h" />
-    <ClInclude Include="func_spelling.h" />
+    <ClInclude Include="func_descriptor_creator.h" />
     <ClInclude Include="spelling_extractor.h" />
     <ClInclude Include="token_index.h" />
     <ClInclude Include="translation_unit_raii.h" />
-    <ClInclude Include="var_origin.h" />
-    <ClInclude Include="var_location.h" />
-    <ClInclude Include="var_spelling.h" />
+    <ClInclude Include="var_descriptor_creator.h" />
     <ClInclude Include="wrong_cursor_kind_exception.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="spelling_extractor.cpp" />
+    <ClCompile Include="tokenizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

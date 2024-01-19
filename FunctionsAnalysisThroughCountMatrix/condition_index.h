@@ -16,7 +16,8 @@ namespace funcs_analysis_through_cm
 		{
 			if (index >= UsageConditionsCount)
 			{
-				throw common_exceptions::invalid_index_exception("condition_index: index must be less than UsageConditionsCount.");
+				throw common_exceptions::invalid_index_exception("condition_index::condition_index: "
+					"index must be less than UsageConditionsCount.");
 			}
 		}
 

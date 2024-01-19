@@ -4,12 +4,15 @@
 #include "create_translation_unit_exception.h"
 #include "copying_delete.h"
 #include <filesystem>
+#include <format>
 
 namespace clang_c_adaptation
 {
 	class translation_unit_raii final
 	{
 		CXTranslationUnit translation_unit_{};
+
+		static constexpr auto invalid_translation_unit = nullptr;
 
 	public:
 		explicit translation_unit_raii(const cxindex_raii& cxindex, const std::filesystem::path& ast_filename)
@@ -18,10 +21,11 @@ namespace clang_c_adaptation
 				                            ast_filename.string().c_str())
 			}
 		{
-			if (translation_unit_ == invalid_tu)
+			if (translation_unit_ == invalid_translation_unit)
 			{
-				throw create_translation_unit_exception(
-					"Failure during translation unit creating. AST file: " + ast_filename.string());
+				throw create_translation_unit_exception(std::format(
+					"translation_unit_raii::translation_unit_raii: failure during translation unit creating. "
+					"AST file: {}.", ast_filename.string()));
 			}
 		}
 
@@ -47,8 +51,5 @@ namespace clang_c_adaptation
 		{
 			return translation_unit_;
 		}
-
-	private:
-		static constexpr auto invalid_tu = nullptr;
 	};
 }

@@ -17,8 +17,8 @@ namespace utility
 			if (value_ < min_value || value_ > max_value)
 			{
 				const std::string invalid_similarity_msg{std::format(
-					"relative_similarity: value must be from {} (absolutely different entities) to "
-					"{} (equal entities), but {} was gotten",
+					"relative_similarity::relative_similarity: "
+					"value must be from {} (absolutely different entities) to {} (equal entities), but {} was gotten",
 					std::to_string(min_value), std::to_string(max_value), std::to_string(value_))};
 
 				throw common_exceptions::initialized_value_out_of_range(invalid_similarity_msg);

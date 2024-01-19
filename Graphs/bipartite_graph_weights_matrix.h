@@ -58,7 +58,7 @@ namespace graphs
 				if (weights_matrix[row_index].size() != columns_count)
 				{
 					throw common_exceptions::incorrect_vector_length(
-						"bipartite_graph_weights_matrix: rows have different length.");
+						"bipartite_graph_weights_matrix::validate_rows_lengths: rows have different length.");
 				}
 			}
 		}

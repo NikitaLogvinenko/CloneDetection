@@ -9,13 +9,15 @@ namespace clang_c_adaptation
 	{
 		CXIndex index_{};
 
+		static constexpr auto invalid_index = nullptr;
+
 	public:
-		explicit cxindex_raii(const bool exclude_decls_from_pch = true, const bool display_diagnostics = true)
-			: index_{clang_createIndex(exclude_decls_from_pch, display_diagnostics)}
+		explicit cxindex_raii(const int exclude_declarations_from_pch = 1, const int display_diagnostics = 0)
+			: index_{clang_createIndex(exclude_declarations_from_pch, display_diagnostics)}
 		{
 			if (index_ == invalid_index)
 			{
-				throw create_cxindex_exception("Failure during CXIndex creating.");
+				throw create_cxindex_exception("cxindex_raii::cxindex_raii: failure during CXIndex creating.");
 			}
 		}
 
@@ -41,8 +43,5 @@ namespace clang_c_adaptation
 		{
 			return index_;
 		}
-
-	private:
-		static constexpr auto invalid_index = nullptr;
 	};
 }
