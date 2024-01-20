@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "initialized_value_out_of_range.h"
+#include "param_out_of_range_error.h"
 #include <string>
 #include <format>
 
@@ -21,7 +21,7 @@ namespace utility
 					"value must be from {} (absolutely different entities) to {} (equal entities), but {} was gotten",
 					std::to_string(min_value), std::to_string(max_value), std::to_string(value_))};
 
-				throw common_exceptions::initialized_value_out_of_range(invalid_similarity_msg);
+				throw common_exceptions::param_out_of_range_error(invalid_similarity_msg);
 			}
 		}
 

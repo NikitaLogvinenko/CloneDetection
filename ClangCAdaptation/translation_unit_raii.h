@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
 #include "cxindex_raii.h"
-#include "create_translation_unit_exception.h"
+#include "create_translation_unit_error.h"
 #include "copying_delete.h"
 #include <filesystem>
 #include <format>
@@ -23,7 +23,7 @@ namespace clang_c_adaptation
 		{
 			if (translation_unit_ == invalid_translation_unit)
 			{
-				throw create_translation_unit_exception(std::format(
+				throw create_translation_unit_error(std::format(
 					"translation_unit_raii::translation_unit_raii: failure during translation unit creating. "
 					"AST file: {}.", ast_filename.string()));
 			}

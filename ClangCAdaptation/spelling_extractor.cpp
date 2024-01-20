@@ -1,7 +1,7 @@
 ﻿#include "spelling_extractor.h"
 #include "cxstring_raii.h"
-#include "wrong_cursor_kind_exception.h"
-#include "nullptr_exception.h"
+#include "wrong_cursor_kind_error.h"
+#include "nullptr_error.h"
 #include "tokenizer.h"
 #include <numeric>
 
@@ -21,7 +21,7 @@ namespace clang_c_adaptation
 
 		if (translation_unit == nullptr)
 		{
-			throw common_exceptions::nullptr_exception(
+			throw common_exceptions::nullptr_error(
 				"spelling_extractor::get_cursor_extent_tokens: cursor's translation unit is nullptr."
 			);
 		}
@@ -84,7 +84,7 @@ namespace clang_c_adaptation
 			return entire_spelling.substr(part_without_operator.size());
 		}
 
-		throw wrong_cursor_kind_exception(
+		throw wrong_cursor_kind_error(
 			"get_unary_operator_spelling: unexpected cursor was passed to get_unary_operator_spelling method");
 	}
 
@@ -119,7 +119,7 @@ namespace clang_c_adaptation
 			if (!entire_spelling.starts_with(left_subtree) || !entire_spelling.ends_with(right_subtree)
 				|| left_subtree.size() + right_subtree.size() >= entire_spelling.size())
 			{
-				throw wrong_cursor_kind_exception(
+				throw wrong_cursor_kind_error(
 					"get_spelling_of_cursor_between_two_children_parts: cursor is not between two children msg. Unable to get its spelling.");
 			}
 
@@ -133,7 +133,7 @@ namespace clang_c_adaptation
 	{
 		if (clang_getCursorKind(cursor) != expected_cursor_kind)
 		{
-			throw wrong_cursor_kind_exception(
+			throw wrong_cursor_kind_error(
 				"get_entire_spelling_and_subtrees_spellings: actual cursor kind differ from expected.");
 		}
 
@@ -146,7 +146,7 @@ namespace clang_c_adaptation
 
 		if (entire_and_subtrees_spellings.size() != total_spellings)
 		{
-			throw wrong_cursor_kind_exception(
+			throw wrong_cursor_kind_error(
 				"get_entire_spelling_and_subtrees_spellings: wrong children count. Can not get spelling.");
 		}
 

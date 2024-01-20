@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "non_const_arithmetic.h"
-#include "overflow_exception.h"
-#include "nan_exception.h"
+#include "overflow_error.h"
+#include "nan_error.h"
 #include <string>
 #include <cmath>
 
@@ -14,12 +14,12 @@ namespace utility
 
 		if (std::isnan(pow_result))
 		{
-			throw common_exceptions::nan_exception(error_msg);
+			throw common_exceptions::nan_error(error_msg);
 		}
 
 		if (pow_result > std::numeric_limits<BaseT>::max() || pow_result < std::numeric_limits<BaseT>::min())
 		{
-			throw common_exceptions::overflow_exception(error_msg);
+			throw common_exceptions::overflow_error(error_msg);
 		}
 
 		return static_cast<BaseT>(pow_result);

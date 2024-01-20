@@ -2,8 +2,8 @@
 #include "count_vector_length.h"
 #include "counted_value.h"
 #include "index_of_counted_value.h"
-#include "invalid_iterator_operation.h"
-#include "incorrect_vector_length.h"
+#include "iterator_operation_error.h"
+#include "incorrect_vector_length_error.h"
 #include <vector>
 #include <string>
 
@@ -138,7 +138,7 @@ namespace cm
 			{
 				if (index_ == Length)
 				{
-					throw common_exceptions::invalid_iterator_operation(msg);
+					throw common_exceptions::iterator_operation_error(msg);
 				}
 			}
 
@@ -146,7 +146,7 @@ namespace cm
 			{
 				if (index < 0 || index > Length)
 				{
-					throw common_exceptions::invalid_iterator_operation(msg);
+					throw common_exceptions::iterator_operation_error(msg);
 				}
 			}
 
@@ -174,7 +174,7 @@ namespace cm
 		{
 			if (counted_values_.size() != Length)
 			{
-				throw common_exceptions::incorrect_vector_length("count_vector::count_vector: "
+				throw common_exceptions::incorrect_vector_length_error("count_vector::count_vector: "
 													 "counted_values.size() must be equal to Length.");
 			}
 		}

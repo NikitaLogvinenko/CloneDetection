@@ -49,7 +49,7 @@ namespace clang_c_adaptation::internal
 		const CXToken* tokens_array = tokens_tmp.tokens();
 		if (tokens_array == nullptr)
 		{
-			throw common_exceptions::nullptr_exception("tokenizer::tokenizer: nullptr tokens.");
+			throw common_exceptions::nullptr_error("tokenizer::tokenizer: nullptr tokens.");
 		}
 		tokens_.reserve(tokens_tmp.tokens_count());
 

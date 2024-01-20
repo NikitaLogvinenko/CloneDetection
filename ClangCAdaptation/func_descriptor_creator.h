@@ -3,7 +3,7 @@
 #include "code_entity_location_creator.h"
 #include "code_entity_spelling_creator.h"
 #include "common_checks.h"
-#include "wrong_cursor_kind_exception.h"
+#include "wrong_cursor_kind_error.h"
 
 
 namespace clang_c_adaptation
@@ -17,7 +17,7 @@ namespace clang_c_adaptation
 		{
 			if (!common_checks::is_cursor_to_func_declaration(cursor_to_func_decl))
 			{
-				throw wrong_cursor_kind_exception(
+				throw wrong_cursor_kind_error(
 					"func_descriptor_creator::create: cursor does not represent any kind of function declaration.");
 			}
 

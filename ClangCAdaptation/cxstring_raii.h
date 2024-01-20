@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include "nullptr_exception.h"
+#include "nullptr_error.h"
 #include "copying_delete.h"
 
 namespace clang_c_adaptation::internal
@@ -39,7 +39,7 @@ namespace clang_c_adaptation::internal
 
 			if (c_string == nullptr)
 			{
-				throw common_exceptions::nullptr_exception(
+				throw common_exceptions::nullptr_error(
 					"cxstring_raii::string: initial CXString contains nullptr.");
 			}
 

@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include "create_cxindex_exception.h"
+#include "create_cxindex_error.h"
 #include "copying_delete.h"
 
 namespace clang_c_adaptation
@@ -17,7 +17,7 @@ namespace clang_c_adaptation
 		{
 			if (index_ == invalid_index)
 			{
-				throw create_cxindex_exception("cxindex_raii::cxindex_raii: failure during CXIndex creating.");
+				throw create_cxindex_error("cxindex_raii::cxindex_raii: failure during CXIndex creating.");
 			}
 		}
 

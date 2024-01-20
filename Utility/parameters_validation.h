@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "nullptr_exception.h"
-#include "initialized_value_out_of_range.h"
+#include "nullptr_error.h"
+#include "param_out_of_range_error.h"
 #include <memory>
 #include <format>
 
@@ -11,7 +11,7 @@ namespace utility
 	{
 		if (ptr == nullptr)
 		{
-			throw common_exceptions::nullptr_exception(std::format("{}: {} is nullptr.", 
+			throw common_exceptions::nullptr_error(std::format("{}: {} is nullptr.", 
 				func_name, ptr_name));
 		}
 	}
@@ -21,13 +21,13 @@ namespace utility
 	{
 		if (threads_count == 0)
 		{
-			throw common_exceptions::initialized_value_out_of_range(std::format(
+			throw common_exceptions::param_out_of_range_error(std::format(
 				"{}: {} can not be 0.", func_name, param_name));
 		}
 
 		if (threads_count > max_threads_count)
 		{
-			throw common_exceptions::initialized_value_out_of_range(std::format(
+			throw common_exceptions::param_out_of_range_error(std::format(
 				"{}: {} can not be greater than {}.", func_name, param_name, std::to_string(max_threads_count)));
 		}
 	}

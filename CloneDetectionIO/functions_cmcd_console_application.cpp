@@ -5,8 +5,8 @@
 #include "cxindex_raii.h"
 #include "translation_unit_raii.h"
 #include "cm_clone_functions_typer.h"
-#include "existed_file_rewriting_exception.h"
-#include "file_not_opened_exception.h"
+#include "existed_file_rewriting_error.h"
+#include "file_not_opened_error.h"
 #include "types_conversion_error.h"
 #include <fstream>
 #include <iostream>
@@ -80,7 +80,7 @@ namespace clone_detection_io
 			const std::filesystem::path save_filename(argv[save_filename_index]);
 			if (exists(save_filename))
 			{
-				throw common_exceptions::existed_file_rewriting_exception(
+				throw common_exceptions::existed_file_rewriting_error(
 					"Filename for results saving is not empty. Try another filename.\n");
 			}
 
@@ -108,7 +108,7 @@ namespace clone_detection_io
 			std::ofstream save_file(save_filename);
 			if (!save_file)
 			{
-				throw common_exceptions::file_not_opened_exception(
+				throw common_exceptions::file_not_opened_error(
 					"Can not create or open file for results saving.\n");
 			}
 

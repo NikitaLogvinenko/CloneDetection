@@ -1,7 +1,7 @@
 ﻿#include "func_entities_classifier.h"
 #include "spelling_extractor.h"
 #include "code_entity_spelling.h"
-#include "wrong_cursor_kind_exception.h"
+#include "wrong_cursor_kind_error.h"
 #include <string>
 
 namespace cpp_code_analysis::internal
@@ -165,7 +165,7 @@ namespace cpp_code_analysis::internal
 			}
 
 		default:
-			throw clang_c_adaptation::wrong_cursor_kind_exception(
+			throw clang_c_adaptation::wrong_cursor_kind_error(
 				"determine_var_origin: cursor does not point to any type of variables declarations.");
 		}
 	}

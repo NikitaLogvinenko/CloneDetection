@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "cv_normilized_euclidean_distance.h"
-#include "incorrect_order_exception.h"
+#include "incorrect_order_error.h"
 
 namespace cm
 {
@@ -18,7 +18,7 @@ namespace cm
 		{
 			if (min_value_ > max_value_)
 			{
-				throw common_exceptions::incorrect_order_exception(
+				throw common_exceptions::incorrect_order_error(
 					"cv_normilized_euclidean_dist::cv_normilized_euclidean_dist: "
 					"min_value can not be greater than max_value.");
 			}

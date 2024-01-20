@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "initialized_value_out_of_range.h"
+#include "param_out_of_range_error.h"
 #include "non_const_arithmetic.h"
 #include "non_const_unsigned_arithmetic.h"
 
@@ -17,7 +17,7 @@ namespace graphs
 		{
 			if (value < 0)
 			{
-				throw common_exceptions::initialized_value_out_of_range(
+				throw common_exceptions::param_out_of_range_error(
 					"edge_weight::edge_weight: value can not be negative.");
 			}
 		}

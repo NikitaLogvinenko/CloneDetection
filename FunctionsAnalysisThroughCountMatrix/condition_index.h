@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "count_vector_length.h"
-#include "invalid_index_exception.h"
+#include "invalid_index_error.h"
 
 namespace funcs_analysis_through_cm
 {
@@ -16,7 +16,7 @@ namespace funcs_analysis_through_cm
 		{
 			if (index >= UsageConditionsCount)
 			{
-				throw common_exceptions::invalid_index_exception("condition_index::condition_index: "
+				throw common_exceptions::invalid_index_error("condition_index::condition_index: "
 					"index must be less than UsageConditionsCount.");
 			}
 		}

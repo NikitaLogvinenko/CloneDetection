@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "non_const_integral.h"
 #include "pow_throwing.h"
-#include "initialized_value_out_of_range.h"
+#include "param_out_of_range_error.h"
 
 namespace graphs
 {
@@ -21,7 +21,7 @@ namespace graphs
 		{
 			if (weight_decimals > max_decimals)
 			{
-				throw common_exceptions::initialized_value_out_of_range(
+				throw common_exceptions::param_out_of_range_error(
 					std::format("weight_to_integral_transformation::weight_to_integral_transformation: "
 						"max permitted weight_decimals is {}, but {} was passed.", 
 						std::to_string(max_decimals), std::to_string(weight_decimals))

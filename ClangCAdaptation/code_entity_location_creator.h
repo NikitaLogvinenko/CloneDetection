@@ -2,7 +2,7 @@
 #include "clang-c/Index.h"
 #include "cxstring_raii.h"
 #include "code_entity_location.h"
-#include "clang_range_exception.h"
+#include "clang_range_error.h"
 
 namespace clang_c_adaptation
 {
@@ -16,7 +16,7 @@ namespace clang_c_adaptation
 			const CXSourceRange range = clang_getCursorExtent(cursor);
 			if (clang_Range_isNull(range))
 			{
-				throw clang_range_exception("code_entity_location_creator::create: range of cursor is null.");
+				throw clang_range_error("code_entity_location_creator::create: range of cursor is null.");
 			}
 
 			const CXSourceLocation location = clang_getRangeStart(range);
