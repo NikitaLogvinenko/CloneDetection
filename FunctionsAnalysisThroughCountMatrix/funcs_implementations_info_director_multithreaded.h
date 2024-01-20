@@ -18,8 +18,7 @@ namespace funcs_analysis_through_cm
 		constexpr funcs_implementations_info_director_multithreaded() noexcept = default;
 
 		explicit constexpr funcs_implementations_info_director_multithreaded(const size_t traversing_threads_count)
-		: funcs_implementations_info_director_abstract<UsageConditionsCount>(),
-		traversing_threads_count_(traversing_threads_count)
+		: traversing_threads_count_(traversing_threads_count)
 		{
 			utility::throw_if_wrong_threads_count(traversing_threads_count, max_traversing_threads(), 
 				"funcs_implementations_info_director_multithreaded::funcs_implementations_info_director_multithreaded",
@@ -52,14 +51,14 @@ namespace funcs_analysis_through_cm
 			std::unique_ptr<const funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
 			const std::string& method_name)
 		{
-			utility::throw_if_nullptr(builder, method_name, "builder");
-			utility::throw_if_nullptr(functions_traversers_factory, method_name, "functions_traversers_factory");
+			utility::throw_if_nullptr(builder.get(), method_name, "builder");
+			utility::throw_if_nullptr(functions_traversers_factory.get(), method_name, "functions_traversers_factory");
 		}
 
 		[[nodiscard]] static std::vector<var_usage_condition_descriptor<UsageConditionsCount>>
 			throw_if_nullptr_traverse_otherwise(std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser)
 		{
-			utility::throw_if_nullptr(traverser,
+			utility::throw_if_nullptr(traverser.get(),
 				"funcs_implementations_info_director_multithreaded::throw_if_nullptr_traverse_otherwise",
 				"traverser");
 			return traverser->traverse();

@@ -26,7 +26,7 @@ namespace funcs_comparing_through_cm
 		: matrices_comparator_(std::move(matrices_comparator)), threads_count_(threads_count)
 		{
 			const std::string method_name{ "funcs_pairwise_comparing_multithreaded::funcs_pairwise_comparing_multithreaded" };
-			utility::throw_if_nullptr(matrices_comparator_, method_name, "matrices_comparator");
+			utility::throw_if_nullptr(matrices_comparator_.get(), method_name, "matrices_comparator");
 			utility::throw_if_wrong_threads_count(threads_count_, max_threads(), method_name, "threads_count");
 		}
 

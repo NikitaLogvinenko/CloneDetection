@@ -8,5 +8,6 @@
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="comparator.h" />
+    <ClInclude Include="disposable_container.h" />
   </ItemGroup>
 </Project>

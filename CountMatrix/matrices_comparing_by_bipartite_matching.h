@@ -33,9 +33,9 @@ namespace cm
 		{
 			const std::string method_name = "matrices_comparing_by_bipartite_matching::matrices_comparing_by_bipartite_matching";
 
-			utility::throw_if_nullptr(metrics_, method_name, "metrics_for_count_vectors");
-			utility::throw_if_nullptr(bipartite_matching_, method_name, "bipartite_matching");
-			utility::throw_if_nullptr(matching_result_to_similarity_, method_name, "matching_result_to_similarity");
+			utility::throw_if_nullptr(metrics_.get(), method_name, "metrics_for_count_vectors");
+			utility::throw_if_nullptr(bipartite_matching_.get(), method_name, "bipartite_matching");
+			utility::throw_if_nullptr(matching_result_to_similarity_.get(), method_name, "matching_result_to_similarity");
 		}
 
 		[[nodiscard]] matrices_comparing_result<CompTraits> operator()(

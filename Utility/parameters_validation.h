@@ -1,14 +1,14 @@
 ﻿#pragma once
 #include "nullptr_error.h"
 #include "param_out_of_range_error.h"
-#include <memory>
 #include <format>
 
 namespace utility
 {
 	template <class T>
-	void throw_if_nullptr(std::unique_ptr<T> ptr, const std::string& func_name, const std::string& ptr_name)
+	void throw_if_nullptr(const T* const ptr, const std::string& func_name, const std::string& ptr_name)
 	{
+		
 		if (ptr == nullptr)
 		{
 			throw common_exceptions::nullptr_error(std::format("{}: {} is nullptr.", 
