@@ -9,9 +9,10 @@ namespace cm
 	requires count_vector_length<CountVectorLength>
 	class count_vectors_metrics_abstract
 	{
-	public:
+	protected:
 		constexpr count_vectors_metrics_abstract() noexcept = default;
 
+	public:
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(count_vectors_metrics_abstract)
 
 		[[nodiscard]] virtual distance_between_count_vectors<DistanceT> calculate(

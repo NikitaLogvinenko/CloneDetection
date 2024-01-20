@@ -8,11 +8,9 @@ namespace funcs_analysis_through_cm
 	class funcs_traverser_abstract
 	{
 	protected:
-		std::vector<var_usage_condition_descriptor<UsageConditionsCount>> usage_conditions_descriptors_{};
-
-	public:
 		constexpr funcs_traverser_abstract() noexcept = default;
 
+	public:
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(funcs_traverser_abstract)
 
 		[[nodiscard]] virtual std::vector<var_usage_condition_descriptor<UsageConditionsCount>> traverse() = 0;

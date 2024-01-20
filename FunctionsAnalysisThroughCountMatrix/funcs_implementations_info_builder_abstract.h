@@ -8,10 +8,12 @@ namespace funcs_analysis_through_cm
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_implementations_info_builder_abstract
 	{
+	protected:
+		constexpr funcs_implementations_info_builder_abstract() noexcept = default;
+
 	public:
 		using func_info = func_implementation_info<UsageConditionsCount>;
 
-		constexpr funcs_implementations_info_builder_abstract() noexcept = default;
 
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(funcs_implementations_info_builder_abstract)
 
