@@ -136,8 +136,8 @@ namespace funcs_comparing_through_cm
 
 					first_func_index_under_lock = first_func_index;
 					second_func_index_under_lock = second_func_index;
-					first_func_info = &first_set_of_functions[first_func_index];
-					second_func_info = &second_set_of_functions[second_func_index];
+					first_func_info = &first_set_of_functions[first_func_index_under_lock];
+					second_func_info = &second_set_of_functions[second_func_index_under_lock];
 
 					increase_indices(first_func_index, second_func_index, second_set_of_functions.size());
 				}
@@ -148,8 +148,10 @@ namespace funcs_comparing_through_cm
 				auto matrices_comparing_result = (*matrices_comparator_)(
 					first_func_info->vars_usage_count_matrix(), second_func_info->vars_usage_count_matrix());
 
-				std::lock_guard results_guard{ results_mutex };
-				comparing_results_by_funcs_indices.emplace(funcs_indices, std::move(matrices_comparing_result));
+				{
+					std::lock_guard results_guard{ results_mutex };
+					comparing_results_by_funcs_indices.emplace(funcs_indices, std::move(matrices_comparing_result));
+				}
 			}
 		}
 

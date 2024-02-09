@@ -25,7 +25,7 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] funcs_traverser_sharing_units_ptr generate() const override
 		{
-
+			return funcs_traverser_sharing_units_ptr{ not_traversed_units_, units_container_mutex_ };
 		}
 	};
 }

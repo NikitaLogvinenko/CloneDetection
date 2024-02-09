@@ -79,7 +79,7 @@ namespace funcs_analysis_through_cm
 			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder)
 		{
 			auto vars_usage_conditions = throw_if_nullptr_traverse_otherwise(std::move(traverser));
-			add_conditions(std::move(vars_usage_conditions, builder));
+			add_conditions(std::move(vars_usage_conditions), builder);
 		}
 
 		static void traverse_and_add_conditions_threadsafe(
@@ -89,7 +89,7 @@ namespace funcs_analysis_through_cm
 		{
 			auto vars_usage_conditions = throw_if_nullptr_traverse_otherwise(std::move(traverser));
 			std::lock_guard builder_guard(builder_mutex);
-			add_conditions(std::move(vars_usage_conditions, builder));
+			add_conditions(std::move(vars_usage_conditions), builder);
 		}
 
 		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> single_threaded_analysis(

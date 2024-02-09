@@ -19,16 +19,19 @@ namespace funcs_analysis_through_cm
 		std::shared_ptr<translation_units_container> not_traversed_units_;
 		std::shared_ptr<std::mutex> units_container_mutex_;
 
-	public:
+	protected:
 		funcs_traverser_sharing_units(std::shared_ptr<translation_units_container> not_traversed_units, 
 			std::shared_ptr<std::mutex> units_container_mutex) : not_traversed_units_(std::move(not_traversed_units)),
-		units_container_mutex_(std::move(units_container_mutex_))
+		units_container_mutex_(std::move(units_container_mutex))
 		{
 			const auto method_name = "funcs_traverser_sharing_units::funcs_traverser_sharing_units";
 			utility::throw_if_nullptr(not_traversed_units_.get(), method_name, "not_traversed_units");
 			utility::throw_if_nullptr(units_container_mutex_.get(), method_name, "units_container_mutex");
 		}
 
+		[[nodiscard]] virtual traverse_results traverse_unit(std::unique_ptr<TranslationUnitT> translation_unit) = 0;
+
+	public:
 		[[nodiscard]] traverse_results traverse() override
 		{
 			traverse_results vars_usage_descriptors{};
@@ -55,7 +58,5 @@ namespace funcs_analysis_through_cm
 
 			return vars_usage_descriptors;
 		}
-
-		[[nodiscard]] virtual traverse_results traverse_unit(std::unique_ptr<TranslationUnitT> translation_unit) = 0;
 	};
 }

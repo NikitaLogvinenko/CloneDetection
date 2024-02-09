@@ -29,7 +29,7 @@ namespace funcs_comparing_through_cm
 			{
 				const funcs_similarity<similarity_t> funcs_similarity = comparing_result.similarity();
 				const similarity_t similarity = funcs_similarity.to_matrices_similarity().to_similarity_t();
-				funcs_indices_by_decreasing_similarity.emplace(funcs_indices, similarity);
+				funcs_indices_by_decreasing_similarity.emplace(similarity, funcs_indices);
 			}
 
 			funcs_pairs_decreasing_similarity_order_.reserve(comparing_results_by_funcs_indices_.size());
