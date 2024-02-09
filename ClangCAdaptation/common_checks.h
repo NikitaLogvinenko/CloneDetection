@@ -22,11 +22,11 @@ namespace clang_c_adaptation
 	public:
 		common_checks() = delete;
 
-		static void throw_if_null(const CXClientData client_data)
+		static void throw_if_null(const CXClientData client_data, const std::string& error_msg)
 		{
 			if (client_data == nullptr)
 			{
-				throw common_exceptions::nullptr_error("Null client data passed to visitor.");
+				throw common_exceptions::nullptr_error(error_msg);
 			}
 		}
 
@@ -37,7 +37,8 @@ namespace clang_c_adaptation
 
 		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept
 		{
-			if (clang_getCursorKind(cursor) != CXCursor_DeclRefExpr)
+			if (const auto cursor_kind = clang_getCursorKind(cursor); 
+				cursor_kind != CXCursor_DeclRefExpr && cursor_kind != CXCursor_MemberRefExpr)
 			{
 				return false;
 			}
