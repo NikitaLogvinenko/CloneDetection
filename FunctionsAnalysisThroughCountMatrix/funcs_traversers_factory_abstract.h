@@ -11,6 +11,6 @@ namespace funcs_analysis_through_cm
 
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(funcs_traversers_factory_abstract)
 
-		[[nodiscard]] virtual std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> generate() const = 0;
+		[[nodiscard]] virtual std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> generate() = 0;
 	};
 }

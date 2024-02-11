@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "edge.h"
-#include "incorrect_vector_length_error.h"
+#include "incorrect_size_error.h"
 #include <vector>
 
 namespace graphs
@@ -57,7 +57,7 @@ namespace graphs
 			{
 				if (weights_matrix[row_index].size() != columns_count)
 				{
-					throw common_exceptions::incorrect_vector_length_error(
+					throw common_exceptions::incorrect_size_error(
 						"bipartite_graph_weights_matrix::validate_rows_lengths: rows have different length.");
 				}
 			}

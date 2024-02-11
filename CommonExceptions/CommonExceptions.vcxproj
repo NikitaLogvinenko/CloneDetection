@@ -161,7 +161,7 @@
     <ClInclude Include="nullptr_error.h" />
     <ClInclude Include="overflow_error.h" />
     <ClInclude Include="param_out_of_range_error.h" />
-    <ClInclude Include="incorrect_vector_length_error.h" />
+    <ClInclude Include="incorrect_size_error.h" />
     <ClInclude Include="types_conversion_error.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

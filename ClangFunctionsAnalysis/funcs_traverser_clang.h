@@ -13,11 +13,12 @@ namespace clang_funcs_analysis
 	public:
 		using translation_unit_raii = clang_c_adaptation::translation_unit_raii;
 		using translation_units_container = utility::disposable_container<translation_unit_raii>;
-		using var_usage_condition_descriptor = funcs_analysis_through_cm::var_usage_condition_descriptor<UsageConditionsCount>;
 		using traverse_results = std::vector<var_usage_condition_descriptor>;
 
 	private:
 		using base = funcs_analysis_through_cm::funcs_traverser_sharing_units<UsageConditionsCount, translation_unit_raii>;
+
+		using var_usage_callback = typename base::var_usage_callback;
 
 	public:
 		funcs_traverser_clang(std::shared_ptr<translation_units_container> not_traversed_units,
@@ -26,9 +27,6 @@ namespace clang_funcs_analysis
 
 
 	private:
-		[[nodiscard]] traverse_results traverse_unit(std::unique_ptr<translation_unit_raii> translation_unit) override
-		{
-			
-		}
+		void traverse_unit(std::unique_ptr<translation_unit_raii> translation_unit, const var_usage_callback& callback) override;
 	};
 }

@@ -170,8 +170,6 @@
     <ClInclude Include="funcs_traversers_factory_abstract.h" />
     <ClInclude Include="funcs_traverser_sharing_units.h" />
     <ClInclude Include="func_implementation_info.h" />
-    <ClInclude Include="var_usage_condition_descriptor.h" />
-    <ClInclude Include="var_usage_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

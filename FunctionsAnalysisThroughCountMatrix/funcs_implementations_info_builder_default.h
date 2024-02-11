@@ -10,95 +10,88 @@ namespace funcs_analysis_through_cm
 	class funcs_implementations_info_builder_default final : public funcs_implementations_info_builder_abstract<UsageConditionsCount>
 	{
 	public:
-		using func_info = func_implementation_info<UsageConditionsCount>;
+		using code_analysis::func_descriptor;
+		using code_analysis::var_descriptor;
+
+		using func_implementation_info = func_implementation_info<UsageConditionsCount>;
+
+		using condition_index = condition_index<UsageConditionsCount>;
 
 	private:
-		using usage_conditions_counters = std::vector<cm::counted_value>;
-		using counters_by_var_descriptor = std::unordered_map<
-			code_analysis::var_descriptor, usage_conditions_counters, code_analysis::var_descriptor_hash>;
+		using conditions_counters = std::vector<cm::counted_value>;
 
-		std::unordered_map<code_analysis::func_descriptor, counters_by_var_descriptor,
-		code_analysis::func_descriptor_hash> vars_info_by_func_descriptor_{};
+		using var_descriptor_conditions_counters_map = std::unordered_map<
+			var_descriptor, conditions_counters, code_analysis::var_descriptor_hash>;
+
+		using func_descriptor_vars_usage_info_map = std::unordered_map<
+			func_descriptor, var_descriptor_conditions_counters_map, code_analysis::func_descriptor_hash>;
+
+		func_descriptor_vars_usage_info_map vars_info_by_func_descriptor_{};
 
 	public:
-		void add_condition(var_usage_condition_descriptor<UsageConditionsCount> usage_condition) override;
-
-		[[nodiscard]] std::vector<func_info> build_and_reset() override;
-
-	private:
-		[[nodiscard]] func_info construct_func_info(code_analysis::func_descriptor func, 
-			counters_by_var_descriptor counters_by_vars) const;
-	};
-
-	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	void funcs_implementations_info_builder_default<UsageConditionsCount>::add_condition(
-		var_usage_condition_descriptor<UsageConditionsCount> usage_condition)
-	{
-		condition_index<UsageConditionsCount> condition_index = usage_condition.index();
-		const auto [var_descr, func_descr] = std::move(usage_condition).var_and_func();
-
-		if (vars_info_by_func_descriptor_.contains(func_descr))
+		void add_condition(const func_descriptor& func, const var_descriptor& var, condition_index index) override
 		{
-			auto& conditions_counters_by_var_descrs = vars_info_by_func_descriptor_[func_descr];
-			if (conditions_counters_by_var_descrs.contains(var_descr))
+			if (vars_info_by_func_descriptor_.contains(func))
 			{
-				++conditions_counters_by_var_descrs[var_descr][condition_index];
+				auto& conditions_counters_by_var_descr = vars_info_by_func_descriptor_[func];
+				if (conditions_counters_by_var_descr.contains(var))
+				{
+					++conditions_counters_by_var_descr[var][index.to_size_t()];
+					return;
+				}
+
+				auto [iterator_conditions_by_var, _] = conditions_counters_by_var_descr.emplace(
+					std::move(var), conditions_counters(UsageConditionsCount));
+				auto& conditions_counters = iterator_conditions_by_var->second;
+				++conditions_counters[index.to_size_t()];
 				return;
 			}
 
-			auto [iterator_conditions_by_var, _] = conditions_counters_by_var_descrs.emplace(
-				std::move(var_descr), usage_conditions_counters(UsageConditionsCount));
-			auto& conditions_counters = iterator_conditions_by_var->second;
-			++conditions_counters[condition_index];
-			return;
+			var_descriptor_conditions_counters_map new_var_with_zeroed_counters{
+				{ std::move(var), conditions_counters(UsageConditionsCount) }
+			};
+			auto [iterator_vars_info_by_func, _] =
+				vars_info_by_func_descriptor_.emplace(std::move(func), std::move(new_var_with_zeroed_counters));
+			auto& counters_by_var_descr = iterator_vars_info_by_func->second;
+			auto& conditions_counters = counters_by_var_descr.begin()->second;
+			++conditions_counters[index.to_size_t()];
 		}
 
-		counters_by_var_descriptor new_var_with_zeroed_counters{
-			{ std::move(var_descr), usage_conditions_counters(UsageConditionsCount) }
-		};
-		auto [iterator_vars_info_by_func, _] =
-			vars_info_by_func_descriptor_.emplace(std::move(func_descr), std::move(new_var_with_zeroed_counters));
-		auto& counters_by_var_descr = iterator_vars_info_by_func->second;
-		auto& conditions_counters = counters_by_var_descr.begin()->second;
-		++conditions_counters[condition_index];
-	}
-
-	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	std::vector<typename funcs_implementations_info_builder_default<UsageConditionsCount>::func_info>
-	funcs_implementations_info_builder_default<UsageConditionsCount>::build_and_reset()
-	{
-		std::vector<func_info> funcs_implementations_info{};
-		funcs_implementations_info.reserve(vars_info_by_func_descriptor_.size());
-
-		for (auto& [func_descriptor, counters_by_vars] : vars_info_by_func_descriptor_)
+		[[nodiscard]] std::vector<func_implementation_info> build_and_reset() override
 		{
-			func_info implementation_info = construct_func_info(std::move(func_descriptor), std::move(counters_by_vars));
-			funcs_implementations_info.emplace_back(std::move(implementation_info));
+			std::vector<func_implementation_info> funcs_implementations_info{};
+			funcs_implementations_info.reserve(vars_info_by_func_descriptor_.size());
+
+			for (auto& [func_descriptor, counters_by_var] : vars_info_by_func_descriptor_)
+			{
+				func_implementation_info func_info = construct_func_info(std::move(func_descriptor), std::move(counters_by_var));
+				funcs_implementations_info.emplace_back(std::move(func_info));
+			}
+
+			vars_info_by_func_descriptor_.clear();
+			return funcs_implementations_info;
 		}
 
-		vars_info_by_func_descriptor_.clear();
-		return funcs_implementations_info;
-	}
-
-	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
-	typename funcs_implementations_info_builder_default<UsageConditionsCount>::func_info funcs_implementations_info_builder_default<
-	UsageConditionsCount>::
-	construct_func_info(code_analysis::func_descriptor func, counters_by_var_descriptor counters_by_vars) const
-	{
-		std::vector<cm::count_vector<UsageConditionsCount>> vector_of_count_vectors{};
-		vector_of_count_vectors.reserve(counters_by_vars.size());
-		std::vector<var_usage_info<UsageConditionsCount>> vector_of_vars_usage_info{};
-		vector_of_vars_usage_info.reserve(counters_by_vars.size());
-
-		for (auto& [var_descr, conditions_counters] : counters_by_vars)
+	private:
+		[[nodiscard]] func_implementation_info construct_func_info(func_descriptor func, 
+			var_descriptor_conditions_counters_map condition_counters_by_var) const
 		{
-			vector_of_vars_usage_info.emplace_back(std::move(var_descr), std::move(conditions_counters));
-			auto& last_created_count_vector = vector_of_vars_usage_info.back().conditions_counters();
-			vector_of_count_vectors.emplace_back(last_created_count_vector);
+			std::vector<var_descriptor> vector_of_vars_descriptors{};
+			vector_of_vars_descriptors.reserve(condition_counters_by_var.size());
+
+			std::vector<cm::count_vector<UsageConditionsCount>> vector_of_count_vectors{};
+			vector_of_count_vectors.reserve(condition_counters_by_var.size());
+
+			while (!condition_counters_by_var.empty())
+			{
+				auto var_descr_and_counters_node = condition_counters_by_var.extract(condition_counters_by_var.cbegin());
+				vector_of_vars_descriptors.emplace_back(std::move(var_descr_and_counters_node.key()));
+				vector_of_count_vectors.emplace_back(std::move(var_descr_and_counters_node.mapped()));
+			}
+
+			cm::count_matrix<UsageConditionsCount> vars_usage_count_matrix(std::move(vector_of_count_vectors));
+
+			return func_implementation_info{ std::move(func), std::move(vector_of_vars_descriptors), std::move(vars_usage_count_matrix) };
 		}
-
-		cm::count_matrix<UsageConditionsCount> vars_usage_count_matrix(std::move(vector_of_count_vectors));
-
-		return func_info{ std::move(func), std::move(vector_of_vars_usage_info), std::move(vars_usage_count_matrix) };
-	}
+	};
 }

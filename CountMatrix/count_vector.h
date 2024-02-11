@@ -3,7 +3,7 @@
 #include "counted_value.h"
 #include "index_of_counted_value.h"
 #include "iterator_operation_error.h"
-#include "incorrect_vector_length_error.h"
+#include "incorrect_size_error.h"
 #include <vector>
 #include <string>
 
@@ -174,7 +174,7 @@ namespace cm
 		{
 			if (counted_values_.size() != Length)
 			{
-				throw common_exceptions::incorrect_vector_length_error("count_vector::count_vector: "
+				throw common_exceptions::incorrect_size_error("count_vector::count_vector: "
 													 "counted_values.size() must be equal to Length.");
 			}
 		}

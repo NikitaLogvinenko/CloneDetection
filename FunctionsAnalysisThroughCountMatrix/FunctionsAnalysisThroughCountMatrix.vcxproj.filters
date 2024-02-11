@@ -5,8 +5,6 @@
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="funcs_implementations_info_builder_default.h" />
     <ClInclude Include="funcs_traverser_abstract.h" />
-    <ClInclude Include="var_usage_condition_descriptor.h" />
-    <ClInclude Include="var_usage_info.h" />
     <ClInclude Include="funcs_traversers_factory_abstract.h" />
     <ClInclude Include="funcs_implementations_info_director_abstract.h" />
     <ClInclude Include="funcs_implementations_info_builder_abstract.h" />

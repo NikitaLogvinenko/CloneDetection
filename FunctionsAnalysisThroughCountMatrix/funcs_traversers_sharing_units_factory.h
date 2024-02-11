@@ -23,7 +23,7 @@ namespace funcs_analysis_through_cm
 		explicit funcs_traversers_sharing_units_factory(std::vector<TranslationUnitT> units_for_traversing)
 			: not_traversed_units_{ std::make_shared<translation_units_container>(std::move(units_for_traversing)) } {}
 
-		[[nodiscard]] funcs_traverser_sharing_units_ptr generate() const override
+		[[nodiscard]] funcs_traverser_sharing_units_ptr generate() override
 		{
 			return funcs_traverser_sharing_units_ptr{ not_traversed_units_, units_container_mutex_ };
 		}

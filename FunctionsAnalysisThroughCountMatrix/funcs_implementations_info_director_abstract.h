@@ -15,6 +15,6 @@ namespace funcs_analysis_through_cm
 
 		[[nodiscard]] virtual std::vector<func_implementation_info<UsageConditionsCount>> analyse_functions_implementations(
 			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
-			std::unique_ptr<const funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) const = 0;
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) const = 0;
 	};
 }

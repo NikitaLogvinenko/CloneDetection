@@ -3,7 +3,6 @@
 #include "disposable_container.h"
 #include "parameters_validation.h"
 #include <mutex>
-#include <iterator>
 
 namespace funcs_analysis_through_cm
 {
@@ -13,7 +12,8 @@ namespace funcs_analysis_through_cm
 	{
 	public:
 		using translation_units_container = utility::disposable_container<TranslationUnitT>;
-		using traverse_results = std::vector<var_usage_condition_descriptor<UsageConditionsCount>>;
+	
+		using var_usage_callback = typename funcs_traverser_abstract<UsageConditionsCount>::var_usage_callback;
 
 	private:
 		std::shared_ptr<translation_units_container> not_traversed_units_;
@@ -29,14 +29,13 @@ namespace funcs_analysis_through_cm
 			utility::throw_if_nullptr(units_container_mutex_.get(), method_name, "units_container_mutex");
 		}
 
-		[[nodiscard]] virtual traverse_results traverse_unit(std::unique_ptr<TranslationUnitT> translation_unit) = 0;
+		virtual void traverse_unit(std::unique_ptr<TranslationUnitT> translation_unit, 
+			const var_usage_callback& callback) = 0;
 
 	public:
-		[[nodiscard]] traverse_results traverse() override
+		void traverse(const var_usage_callback& callback) override
 		{
-			traverse_results vars_usage_descriptors{};
-
-			while(true)
+			while (true)
 			{
 				std::unique_ptr<TranslationUnitT> translation_unit{};
 
@@ -49,14 +48,8 @@ namespace funcs_analysis_through_cm
 					translation_unit = std::make_unique<TranslationUnitT>(not_traversed_units_->pop_front());
 				}
 
-				traverse_results unit_traverse_results = traverse_unit(std::move(translation_unit));
-				vars_usage_descriptors.reserve(unit_traverse_results.size());
-				vars_usage_descriptors.insert(vars_usage_descriptors.end(),
-					std::make_move_iterator(unit_traverse_results.begin()),
-					std::make_move_iterator(unit_traverse_results.end()));
+				traverse_unit(std::move(translation_unit), callback);
 			}
-
-			return vars_usage_descriptors;
 		}
 	};
 }

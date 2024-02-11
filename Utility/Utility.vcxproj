@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="comparator.h" />
+    <ClInclude Include="strict_weak_order.h" />
     <ClInclude Include="disposable_container.h" />
     <ClInclude Include="non_const_arithmetic.h" />
     <ClInclude Include="non_const_integral.h" />
