@@ -2,5 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="funcs_traverser_clang.h" />
+    <ClInclude Include="funcs_definitions_finder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="funcs_definitions_finder.cpp" />
   </ItemGroup>
 </Project>

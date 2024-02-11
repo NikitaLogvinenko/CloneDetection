@@ -1,12 +1,14 @@
 ﻿#pragma once
 #include "translation_unit_raii.h"
 #include "funcs_traverser_sharing_units.h"
+#include "funcs_definitions_finder.h"
 
 namespace clang_funcs_analysis
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_traverser_clang final :
-		public funcs_analysis_through_cm::funcs_traverser_sharing_units<UsageConditionsCount, clang_c_adaptation::translation_unit_raii>
+		public funcs_analysis_through_cm::funcs_traverser_sharing_units<
+			UsageConditionsCount, clang_c_adaptation::translation_unit_raii>
 	{
 	public:
 		using translation_unit_raii = clang_c_adaptation::translation_unit_raii;
@@ -19,9 +21,11 @@ namespace clang_funcs_analysis
 
 	public:
 		funcs_traverser_clang(std::shared_ptr<translation_units_container> not_traversed_units,
-			std::shared_ptr<std::mutex> units_container_mutex)
-		: base(std::move(not_traversed_units), std::move(units_container_mutex)) {}
+		                      std::shared_ptr<std::mutex> units_container_mutex)
+			: base(std::move(not_traversed_units), std::move(units_container_mutex)) {}
 
+
+	private:
 		[[nodiscard]] traverse_results traverse_unit(std::unique_ptr<translation_unit_raii> translation_unit) override
 		{
 			

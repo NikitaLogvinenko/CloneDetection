@@ -163,7 +163,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="funcs_definitions_finder.h" />
     <ClInclude Include="funcs_traverser_clang.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="funcs_definitions_finder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

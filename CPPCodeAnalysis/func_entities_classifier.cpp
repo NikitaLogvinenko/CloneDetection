@@ -86,7 +86,7 @@ namespace cpp_code_analysis::internal
 
 	bool func_entities_classifier::try_insert_reference_to_var(const CXCursor& cursor, const CXCursorKind& kind)
 	{
-		if (kind != CXCursor_DeclRefExpr && kind != CXCursor_MemberRefExpr)
+		if (!clang_c_adaptation::common_checks::is_ref_expr(kind))
 		{
 			return false;
 		}

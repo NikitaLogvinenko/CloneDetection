@@ -35,10 +35,14 @@ namespace clang_c_adaptation
 			return var_decl_kinds.contains(clang_getCursorKind(cursor));
 		}
 
+		[[nodiscard]] static bool is_ref_expr(const CXCursorKind& cursor_kind) noexcept
+		{
+			return cursor_kind == CXCursor_DeclRefExpr || cursor_kind == CXCursor_MemberRefExpr;
+		}
+
 		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept
 		{
-			if (const auto cursor_kind = clang_getCursorKind(cursor); 
-				cursor_kind != CXCursor_DeclRefExpr && cursor_kind != CXCursor_MemberRefExpr)
+			if (const auto cursor_kind = clang_getCursorKind(cursor); !is_ref_expr(cursor_kind))
 			{
 				return false;
 			}

@@ -1,5 +1,4 @@
 ﻿#include "func_implementation_analysis_builder_default.h"
-#include "insertion_error.h"
 
 namespace cpp_code_analysis
 {
@@ -252,13 +251,8 @@ namespace cpp_code_analysis
 		count_arrays_by_var_cursors.reserve(origin_and_usage_counter_by_var.size());
 		for (const auto& [var_cursor, origin_used_counter_pair] : origin_and_usage_counter_by_var)
 		{
-			const auto [iterator, inserted] = count_arrays_by_var_cursors.try_emplace(
+			const auto [iterator, _] = count_arrays_by_var_cursors.try_emplace(
 				var_cursor, std::array<cm::counted_value, default_conditions_total>{});
-			if (!inserted)
-			{
-				throw common_exceptions::insertion_error(
-					"Failure during preparing container for variables usage info.");
-			}
 
 			auto& count_array = iterator->second;
 			count_array[static_cast<size_t>(var_usage_condition::used_n_times)] = cm::counted_value(
