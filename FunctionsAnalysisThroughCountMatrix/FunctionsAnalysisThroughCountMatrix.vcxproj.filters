@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="condition_index.h" />
+    <ClInclude Include="func_implementation_info.h" />
+    <ClInclude Include="funcs_implementations_info_builder_default.h" />
+    <ClInclude Include="funcs_traverser_abstract.h" />
+    <ClInclude Include="funcs_traversers_factory_abstract.h" />
+    <ClInclude Include="funcs_implementations_info_director_abstract.h" />
+    <ClInclude Include="funcs_implementations_info_builder_abstract.h" />
+    <ClInclude Include="funcs_implementations_info_director_multithreaded.h" />
+    <ClInclude Include="funcs_traverser_sharing_units.h" />
+    <ClInclude Include="funcs_traversers_sharing_units_factory.h" />
+  </ItemGroup>
+</Project>
