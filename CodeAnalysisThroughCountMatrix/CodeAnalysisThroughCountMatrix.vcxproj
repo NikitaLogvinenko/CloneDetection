@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
+    <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</ProjectGuid>
-    <RootNamespace>Utility</RootNamespace>
+    <ProjectGuid>{e9499bf9-a277-4e6a-957b-5b2fdb57a89e}</ProjectGuid>
+    <RootNamespace>FunctionsAnalysisThroughCountMatrix</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,28 +71,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -155,21 +155,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="continuous_similarity_bounded.h" />
-    <ClInclude Include="continuous_similarity_bounded_below.h" />
-    <ClInclude Include="hash_combine.h" />
-    <ClInclude Include="id_concept.h" />
-    <ClInclude Include="id_hash.h" />
-    <ClInclude Include="spinlock.h" />
-    <ClInclude Include="strict_weak_order.h" />
-    <ClInclude Include="one_off_container.h" />
-    <ClInclude Include="non_const_arithmetic.h" />
-    <ClInclude Include="non_const_integral.h" />
-    <ClInclude Include="non_const_unsigned_arithmetic.h" />
-    <ClInclude Include="pow_throwing.h" />
-    <ClInclude Include="parameters_validation.h" />
-    <ClInclude Include="relative_similarity.h" />
-    <ClInclude Include="unique_id_generator_threadsafe.h" />
+    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
+      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code_analysis_traits.h" />
+    <ClInclude Include="condition_index.h" />
+    <ClInclude Include="code_implementation_info_builder_default.h" />
+    <ClInclude Include="code_implementation_info_builder_abstract.h" />
+    <ClInclude Include="code_implementations_info_director_abstract.h" />
+    <ClInclude Include="code_implementation_info_director_multithreaded.h" />
+    <ClInclude Include="code_traversers_sharing_units_factory.h" />
+    <ClInclude Include="code_traverser_abstract.h" />
+    <ClInclude Include="code_traversers_factory_abstract.h" />
+    <ClInclude Include="code_traverser_sharing_units.h" />
+    <ClInclude Include="code_entity_implementation_info.h" />
+    <ClInclude Include="nested_entity_condition_callback.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

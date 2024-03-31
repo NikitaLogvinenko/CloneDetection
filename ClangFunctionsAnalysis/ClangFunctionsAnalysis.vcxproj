@@ -71,25 +71,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\FunctionsAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\FunctionsAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\FunctionsAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\FunctionsAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>

@@ -8,7 +8,7 @@ namespace code_analysis
 	class code_entity_descriptor_hash final
 	{
 	public:
-		size_t operator()(const code_entity_descriptor& descriptor) const
+		[[nodiscard]] size_t operator()(const code_entity_descriptor& descriptor) const
 		{
 			auto& spelling = descriptor.spelling();
 			auto& location = descriptor.location();

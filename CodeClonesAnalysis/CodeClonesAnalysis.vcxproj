@@ -73,25 +73,25 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -155,11 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="funcs_pairwise_comparer_abstract.h" />
-    <ClInclude Include="funcs_pairwise_comparing_result.h" />
-    <ClInclude Include="funcs_similarity.h" />
-    <ClInclude Include="pair_of_funcs_ids.h" />
-    <ClInclude Include="pair_of_funcs_ids_hash.h" />
+    <ClInclude Include="code_entities_pairwise_comparer_abstract.h" />
+    <ClInclude Include="code_entities_pairwise_comparing_result.h" />
+    <ClInclude Include="pair_of_ids.h" />
+    <ClInclude Include="pair_of_ids_hash.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,13 +1,13 @@
 ﻿#pragma once
 #include "translation_unit_raii.h"
-#include "funcs_traverser_sharing_units.h"
+#include "code_traverser_sharing_units.h"
 #include "funcs_definitions_finder.h"
 
 namespace clang_funcs_analysis
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class funcs_traverser_clang final :
-		public funcs_analysis_through_cm::funcs_traverser_sharing_units<
+		public code_analysis_through_cm::code_traverser_sharing_units<
 			UsageConditionsCount, clang_c_adaptation::translation_unit_raii>
 	{
 	public:
@@ -16,7 +16,7 @@ namespace clang_funcs_analysis
 		using traverse_results = std::vector<var_usage_condition_descriptor>;
 
 	private:
-		using base = funcs_analysis_through_cm::funcs_traverser_sharing_units<UsageConditionsCount, translation_unit_raii>;
+		using base = code_analysis_through_cm::code_traverser_sharing_units<UsageConditionsCount, translation_unit_raii>;
 
 		using var_usage_callback = typename base::var_usage_callback;
 

@@ -3,12 +3,8 @@
 
 namespace utility
 {
-    template <class T>
-    [[nodiscard]] size_t hash_combine(size_t seed, const T& v)
+    [[nodiscard]] constexpr size_t hash_combine(const size_t first, const size_t second) noexcept
     {
-        std::hash<T> hasher{};
-        seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
-
-        return seed;
+        return first ^ (second + 0x9e3779b9 + (first << 6) + (first >> 2));
     }
 }

@@ -7,7 +7,7 @@ namespace code_analysis
 	class func_id_hash final
 	{
 	public:
-		size_t operator()(const func_id& id) const
+		[[nodiscard]] size_t operator()(const func_id& id) const
 		{
 			return std::hash<size_t>{}(id.to_size_t());
 		}
