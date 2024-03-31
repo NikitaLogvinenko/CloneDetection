@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "funcs_traverser_abstract.h"
+#include <memory>
 
 namespace funcs_analysis_through_cm
 {

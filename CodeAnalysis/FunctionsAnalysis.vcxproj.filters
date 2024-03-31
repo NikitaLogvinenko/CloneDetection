@@ -10,5 +10,12 @@
     <ClInclude Include="func_descriptor_hash.h" />
     <ClInclude Include="var_descriptor_hash.h" />
     <ClInclude Include="code_entity_descriptor_hash.h" />
+    <ClInclude Include="func_id.h" />
+    <ClInclude Include="var_id.h" />
+    <ClInclude Include="code_entity_location_hash.h" />
+    <ClInclude Include="code_entity_spelling_hash.h" />
+    <ClInclude Include="symbol_position_hash.h" />
+    <ClInclude Include="func_id_hash.h" />
+    <ClInclude Include="var_id_hash.h" />
   </ItemGroup>
 </Project>

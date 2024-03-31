@@ -12,7 +12,7 @@ namespace clang_funcs_analysis
 	{
 	public:
 		using translation_unit_raii = clang_c_adaptation::translation_unit_raii;
-		using translation_units_container = utility::disposable_container<translation_unit_raii>;
+		using translation_units_container = utility::one_off_container<translation_unit_raii>;
 		using traverse_results = std::vector<var_usage_condition_descriptor>;
 
 	private:

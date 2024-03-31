@@ -1,29 +1,21 @@
 ﻿#pragma once
-#include "count_vector_length.h"
-#include "invalid_index_error.h"
+#include "index_of_counted_value.h"
 
 namespace funcs_analysis_through_cm
 {
 	template <size_t UsageConditionsCount> requires cm::count_vector_length<UsageConditionsCount>
 	class condition_index final
 	{
-		size_t index_{};
+		cm::index_of_counted_value<UsageConditionsCount> index_{};
 
 	public:
 		constexpr condition_index() noexcept = default;
 
-		constexpr explicit condition_index(const size_t index) : index_(index)
-		{
-			if (index >= UsageConditionsCount)
-			{
-				throw common_exceptions::invalid_index_error("condition_index::condition_index: "
-					"index must be less than UsageConditionsCount.");
-			}
-		}
+		constexpr explicit condition_index(const size_t index) : index_(index) {}
 
 		[[nodiscard]] constexpr size_t to_size_t() const noexcept
 		{
-			return index_;
+			return index_.to_size_t();
 		}
 	};
 }

@@ -15,6 +15,6 @@ namespace cm
 		requires utility::non_const_arithmetic<typename Traits::distance_t>;
 
 		typename Traits::similarity_t;
-		requires continuous_similarity_bounded_below<typename Traits::similarity_t>;
+		requires utility::continuous_similarity_bounded_below<typename Traits::similarity_t>;
 	};
 }

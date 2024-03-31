@@ -1,20 +1,22 @@
 ﻿#pragma once
 #include "code_entity_descriptor.h"
+#include "code_entity_spelling_hash.h"
+#include "code_entity_location_hash.h"
 
 namespace code_analysis
 {
 	class code_entity_descriptor_hash final
 	{
 	public:
-		size_t operator()(const code_entity_descriptor& code_entity_descr) const
+		size_t operator()(const code_entity_descriptor& descriptor) const
 		{
-			auto& spelling = code_entity_descr.spelling();
-			auto& location = code_entity_descr.location();
-			auto& first_symbol = location.first_symbol_position();
+			auto& spelling = descriptor.spelling();
+			auto& location = descriptor.location();
 
-			return std::hash<std::string>{}(std::format(
-				R"({}\{}\{}\{}\{})", spelling.to_string(), location.filename().string(), 
-				first_symbol.column(), first_symbol.line(), first_symbol.offset_from_file_start()));
+			const size_t spelling_hash = code_entity_spelling_hash{}(spelling);
+			const size_t location_hash = code_entity_location_hash{}(location);
+
+			return utility::hash_combine(spelling_hash, location_hash);
 		}
 	};
 }

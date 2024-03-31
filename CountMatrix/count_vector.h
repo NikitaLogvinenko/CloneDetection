@@ -179,7 +179,7 @@ namespace cm
 			}
 		}
 
-		[[nodiscard]] constexpr auto& at(const index_of_counted_value value_index) const
+		[[nodiscard]] constexpr auto& at(const index_of_counted_value<Length> value_index) const noexcept
 		{
 			return *(begin() + value_index.to_size_t());
 		}

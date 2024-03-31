@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "continuous_similarity_bounded_below.h"
 
-namespace cm
+namespace utility
 {
 	template <class T>
 	concept continuous_similarity_bounded = continuous_similarity_bounded_below<T> &&

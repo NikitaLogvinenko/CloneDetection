@@ -6,14 +6,14 @@
 namespace utility
 {
 	template <std::move_constructible T>
-	class disposable_container final
+	class one_off_container final
 	{
-		std::queue<T, std::list<T>> elements_{};
+		std::queue<T, std::deque<T>> elements_{};
 
 	public:
-		disposable_container() = default;
+		one_off_container() = default;
 
-		explicit disposable_container(std::vector<T> elements)
+		explicit one_off_container(std::vector<T> elements)
 		{
 			for (auto& element : elements)
 			{
@@ -31,7 +31,7 @@ namespace utility
 			if (elements_.empty())
 			{
 				throw common_exceptions::invalid_index_error(
-					"disposable_container<T>::pop_front: container is empty.");
+					"one_off_container<T>::pop_front: container is empty.");
 			}
 
 			T front_element = std::move(elements_.front());

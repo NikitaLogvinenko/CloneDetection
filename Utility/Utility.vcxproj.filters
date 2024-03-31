@@ -8,6 +8,12 @@
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="strict_weak_order.h" />
-    <ClInclude Include="disposable_container.h" />
+    <ClInclude Include="one_off_container.h" />
+    <ClInclude Include="unique_id_generator_threadsafe.h" />
+    <ClInclude Include="id_concept.h" />
+    <ClInclude Include="hash_combine.h" />
+    <ClInclude Include="continuous_similarity_bounded_below.h" />
+    <ClInclude Include="continuous_similarity_bounded.h" />
+    <ClInclude Include="spinlock.h" />
   </ItemGroup>
 </Project>

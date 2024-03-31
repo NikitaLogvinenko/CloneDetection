@@ -4,7 +4,6 @@
     <ClInclude Include="func_index.h" />
     <ClInclude Include="funcs_comparing_result.h" />
     <ClInclude Include="funcs_comparing_traits.h" />
-    <ClInclude Include="funcs_similarity.h" />
     <ClInclude Include="var_index.h" />
     <ClInclude Include="matched_vars_index.h" />
     <ClInclude Include="distance_between_vars.h" />

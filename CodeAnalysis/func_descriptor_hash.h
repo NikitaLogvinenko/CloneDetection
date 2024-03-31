@@ -7,9 +7,10 @@ namespace code_analysis
 	class func_descriptor_hash final
 	{
 	public:
-		size_t operator()(const func_descriptor& func_descr) const
+		size_t operator()(const func_descriptor& descriptor) const
 		{
-			return code_entity_descriptor_hash{}(func_descr.to_code_entity_descriptor());
+			const size_t code_entity_hash = code_entity_descriptor_hash{}(descriptor.to_code_entity_descriptor());
+			return utility::hash_combine(code_entity_hash, descriptor.id().to_size_t());
 		}
 	};
 }

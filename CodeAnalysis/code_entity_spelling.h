@@ -16,7 +16,5 @@ namespace code_analysis
 		{
 			return spelling_;
 		}
-
-		[[nodiscard]] constexpr bool operator==(const code_entity_spelling&) const noexcept = default;
 	};
 }

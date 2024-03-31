@@ -10,15 +10,6 @@ namespace funcs_analysis_through_cm
 	class funcs_implementations_info_director_multithreaded final
 		: public funcs_implementations_info_director_abstract<UsageConditionsCount>
 	{
-		using funcs_traverser_abstract = funcs_traverser_abstract<UsageConditionsCount>;
-		using condition_index = condition_index<UsageConditionsCount>;
-
-	public:
-		using func_implementation_info = func_implementation_info<UsageConditionsCount>;
-		using funcs_implementations_info_builder_abstract = funcs_implementations_info_builder_abstract<UsageConditionsCount>;
-		using funcs_traversers_factory_abstract = funcs_traversers_factory_abstract<UsageConditionsCount>;
-
-	private:
 		size_t traversing_threads_count_{ 1 };
 
 		static constexpr size_t max_traversing_threads_count = 100;
@@ -34,9 +25,9 @@ namespace funcs_analysis_through_cm
 				"traversing_threads_count");
 		}
 
-		[[nodiscard]] std::vector<func_implementation_info> analyse_functions_implementations(
-			std::unique_ptr<funcs_implementations_info_builder_abstract> builder,
-			std::unique_ptr<funcs_traversers_factory_abstract> functions_traversers_factory) const override
+		[[nodiscard]] std::vector<func_implementation_info<UsageConditionsCount>> analyse_functions_implementations(
+			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory) const override
 		{
 			throw_if_nullptr(builder, functions_traversers_factory,
 				"funcs_implementations_info_director_multithreaded::analyse_functions_implementations");
@@ -56,43 +47,51 @@ namespace funcs_analysis_through_cm
 
 	private:
 		static void throw_if_nullptr(
-			std::unique_ptr<funcs_implementations_info_builder_abstract>& builder,
-			std::unique_ptr<funcs_traversers_factory_abstract>& functions_traversers_factory,
+			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>>& builder,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>>& functions_traversers_factory,
 			const std::string& method_name)
 		{
 			utility::throw_if_nullptr(builder.get(), method_name, "builder");
 			utility::throw_if_nullptr(functions_traversers_factory.get(), method_name, "functions_traversers_factory");
 		}
 
-		[[nodiscard]] static std::vector<func_implementation_info> traverse_and_return_funcs_info_single_threaded(
-			std::unique_ptr<funcs_traverser_abstract> traverser,
-			std::unique_ptr<funcs_implementations_info_builder_abstract> builder)
+		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> traverse_and_return_funcs_info_single_threaded(
+			std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser,
+			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder)
 		{
-			traverser->traverse([&builder](
-				const code_analysis::func_descriptor& func, const code_analysis::var_descriptor& var, condition_index index)
+			var_usage_callback<UsageConditionsCount> callback{
+				[&builder](
+				const code_analysis::func_id& func, const code_analysis::var_id& var, condition_index<UsageConditionsCount> index)
 				{
-					builder->add_condition(func, var, index);
-				});
+					builder->increment_condition(func, var, index);
+				}
+			};
+
+			traverser->traverse(std::move(callback));
 			
 			return builder->build_and_reset();
 		}
 
 		static void traverse_and_add_conditions_multithreaded(
-			std::unique_ptr<funcs_traverser_abstract> traverser,
-			std::shared_ptr<funcs_implementations_info_builder_abstract> builder,
+			std::unique_ptr<funcs_traverser_abstract<UsageConditionsCount>> traverser,
+			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
 			std::mutex& builder_mutex)
 		{
-			traverser->traverse([&builder, &builder_mutex](
-				const code_analysis::func_descriptor& func, const code_analysis::var_descriptor& var, condition_index index)
+			var_usage_callback<UsageConditionsCount> callback{
+				[&builder, &builder_mutex](
+				const code_analysis::func_id& func, const code_analysis::var_id& var, condition_index<UsageConditionsCount> index)
 				{
 					std::lock_guard builder_guard(builder_mutex);
-					builder->add_condition(func, var, index);
-				});
+					builder->increment_condition(func, var, index);
+				}
+			};
+
+			traverser->traverse(std::move(callback));
 		}
 
-		[[nodiscard]] static std::vector<func_implementation_info> single_threaded_analysis(
-			std::unique_ptr<funcs_implementations_info_builder_abstract> builder,
-			std::unique_ptr<funcs_traversers_factory_abstract> functions_traversers_factory)
+		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> single_threaded_analysis(
+			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory)
 		{
 			auto traverser = functions_traversers_factory->generate();
 			utility::throw_if_nullptr(traverser.get(),
@@ -101,12 +100,12 @@ namespace funcs_analysis_through_cm
 			return traverse_and_return_funcs_info_single_threaded(std::move(traverser), std::move(builder));
 		}
 
-		[[nodiscard]] static std::vector<func_implementation_info> multithreaded_analysis(
-			std::unique_ptr<funcs_implementations_info_builder_abstract> builder,
-			std::unique_ptr<funcs_traversers_factory_abstract> functions_traversers_factory,
+		[[nodiscard]] static std::vector<func_implementation_info<UsageConditionsCount>> multithreaded_analysis(
+			std::unique_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> builder,
+			std::unique_ptr<funcs_traversers_factory_abstract<UsageConditionsCount>> functions_traversers_factory,
 			const size_t traversing_threads_count)
 		{
-			std::shared_ptr<funcs_implementations_info_builder_abstract> shared_builder(std::move(builder));
+			std::shared_ptr<funcs_implementations_info_builder_abstract<UsageConditionsCount>> shared_builder(std::move(builder));
 
 			std::mutex builder_mutex{};
 			std::vector<std::future<void>> traversers_futures{};

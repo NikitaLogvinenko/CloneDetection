@@ -13,5 +13,6 @@
     <ClInclude Include="nan_error.h" />
     <ClInclude Include="incorrect_size_error.h" />
     <ClInclude Include="iterator_operation_error.h" />
+    <ClInclude Include="empty_argument_error.h" />
   </ItemGroup>
 </Project>

@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include <concepts>
 
-namespace cm
+namespace utility
 {
 	template <class T>
-	concept continuous_similarity_bounded_below = 
+	concept continuous_similarity_bounded_below =
 		std::is_nothrow_default_constructible_v<T> &&
 		std::is_nothrow_copy_constructible_v<T> &&
 		std::is_constructible_v<T, double> &&

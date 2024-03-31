@@ -6,7 +6,7 @@
 
 namespace cm
 {
-	template <utility::non_const_arithmetic WeightT, continuous_similarity_bounded_below SimilarityT>
+	template <utility::non_const_arithmetic WeightT, utility::continuous_similarity_bounded_below SimilarityT>
 	class similarity_estimator_abstract
 	{
 	protected:

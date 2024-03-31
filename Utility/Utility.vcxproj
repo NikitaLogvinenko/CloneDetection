@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\CommonExceptions\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CommonExceptions\;$(SolutionDir)\CodeGeneration\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -155,14 +155,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="continuous_similarity_bounded.h" />
+    <ClInclude Include="continuous_similarity_bounded_below.h" />
+    <ClInclude Include="hash_combine.h" />
+    <ClInclude Include="id_concept.h" />
+    <ClInclude Include="spinlock.h" />
     <ClInclude Include="strict_weak_order.h" />
-    <ClInclude Include="disposable_container.h" />
+    <ClInclude Include="one_off_container.h" />
     <ClInclude Include="non_const_arithmetic.h" />
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="non_const_unsigned_arithmetic.h" />
     <ClInclude Include="pow_throwing.h" />
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
+    <ClInclude Include="unique_id_generator_threadsafe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
