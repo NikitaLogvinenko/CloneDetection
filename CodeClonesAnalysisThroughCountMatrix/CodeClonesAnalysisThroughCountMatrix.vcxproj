@@ -19,17 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="funcs_pairwise_comparing_multithreaded.h" />
-    <ClInclude Include="funcs_pairwise_comparing_result.h" />
-    <ClInclude Include="funcs_pair_index.h" />
-    <ClInclude Include="distance_between_vars.h" />
-    <ClInclude Include="funcs_comparing_result.h" />
-    <ClInclude Include="funcs_comparing_traits.h" />
-    <ClInclude Include="funcs_pairwise_comparing_abstract.h" />
-    <ClInclude Include="func_index.h" />
-    <ClInclude Include="matched_vars_index.h" />
-    <ClInclude Include="pair_of_funcs_indices.h" />
-    <ClInclude Include="var_index.h" />
+    <ClInclude Include="code_entities_pairwise_comparer_through_cm.h" />
+    <ClInclude Include="code_entities_pairwise_comparing_through_cm_result.h" />
+    <ClInclude Include="code_entities_comparing_traits.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

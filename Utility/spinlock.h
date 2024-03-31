@@ -26,7 +26,6 @@ namespace utility
 
 		void unlock()
 		{
-
 			locked_.store(false, std::memory_order_release);
 		}
 	};

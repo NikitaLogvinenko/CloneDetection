@@ -10,8 +10,13 @@ namespace code_analysis_through_cm
 	class code_implementation_info_director_multithreaded final
 		: public code_implementations_info_director_abstract<AnalysisTraits>
 	{
-		using analyzed_entity_id = typename AnalysisTraits::AnalyzedEntityId;
-		using nested_entity_id = typename AnalysisTraits::NestedEntityId;
+	public:
+		using implementations_info_map = typename code_implementations_info_director_abstract<AnalysisTraits>::implementations_info_map;
+
+	private:
+
+		using analyzed_entity_id = typename AnalysisTraits::analyzed_entity_id;
+		using nested_entity_id = typename AnalysisTraits::nested_entity_id;
 
 		size_t traversing_threads_count_{ 1 };
 
@@ -28,7 +33,7 @@ namespace code_analysis_through_cm
 				"traversing_threads_count");
 		}
 
-		[[nodiscard]] std::vector<code_entity_implementation_info<AnalysisTraits>> analyse_implementations(
+		[[nodiscard]] implementations_info_map analyse_implementations(
 			std::unique_ptr<code_implementation_info_builder_abstract<AnalysisTraits>> builder,
 			std::unique_ptr<code_traversers_factory_abstract<AnalysisTraits>> traversers_factory) const override
 		{
@@ -58,7 +63,7 @@ namespace code_analysis_through_cm
 			utility::throw_if_nullptr(traversers_factory.get(), method_name, "traversers_factory");
 		}
 
-		[[nodiscard]] static std::vector<code_entity_implementation_info<AnalysisTraits>> traverse_and_return_funcs_info_single_threaded(
+		[[nodiscard]] static implementations_info_map traverse_and_return_funcs_info_single_threaded(
 			std::unique_ptr<code_traverser_abstract<AnalysisTraits>> traverser,
 			std::unique_ptr<code_implementation_info_builder_abstract<AnalysisTraits>> builder)
 		{
@@ -91,7 +96,7 @@ namespace code_analysis_through_cm
 			traverser->traverse(std::move(callback));
 		}
 
-		[[nodiscard]] static std::vector<code_entity_implementation_info<AnalysisTraits>> single_threaded_analysis(
+		[[nodiscard]] static implementations_info_map single_threaded_analysis(
 			std::unique_ptr<code_implementation_info_builder_abstract<AnalysisTraits>> builder,
 			std::unique_ptr<code_traversers_factory_abstract<AnalysisTraits>> traversers_factory)
 		{
@@ -102,7 +107,7 @@ namespace code_analysis_through_cm
 			return traverse_and_return_funcs_info_single_threaded(std::move(traverser), std::move(builder));
 		}
 
-		[[nodiscard]] static std::vector<code_entity_implementation_info<AnalysisTraits>> multithreaded_analysis(
+		[[nodiscard]] static implementations_info_map multithreaded_analysis(
 			std::unique_ptr<code_implementation_info_builder_abstract<AnalysisTraits>> builder,
 			std::unique_ptr<code_traversers_factory_abstract<AnalysisTraits>> traversers_factory,
 			const size_t traversing_threads_count)

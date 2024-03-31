@@ -14,7 +14,7 @@
     <ClInclude Include="index_of_count_vector.h" />
     <ClInclude Include="index_of_counted_value.h" />
     <ClInclude Include="matched_vectors_index.h" />
-    <ClInclude Include="matrices_comparing_abstract.h" />
+    <ClInclude Include="matrices_comparer_abstract.h" />
     <ClInclude Include="matrices_comparing_by_bipartite_matching.h" />
     <ClInclude Include="matrices_comparing_result.h" />
     <ClInclude Include="mean_weight_in_matching.h" />

@@ -5,13 +5,13 @@
 namespace cm
 {
 	template <matrices_comparing_traits CompTraits>
-	class matrices_comparing_abstract
+	class matrices_comparer_abstract
 	{
 	protected:
-		constexpr matrices_comparing_abstract() noexcept = default;
+		constexpr matrices_comparer_abstract() noexcept = default;
 
 	public:
-		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(matrices_comparing_abstract)
+		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(matrices_comparer_abstract)
 
 		[[nodiscard]] virtual matrices_comparing_result<CompTraits> operator()(
 			const count_matrix<CompTraits::count_vector_length>& first_matrix,

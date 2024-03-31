@@ -14,7 +14,7 @@ namespace code_clones_analysis
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(code_entities_pairwise_comparer_abstract)
 
 		[[nodiscard]] virtual code_entities_pairwise_comparing_result<IdT, SimilarityT> compare(
-			const std::vector<IdT>& first_set_of_funcs,
-			const std::vector<IdT>& second_set_of_funcs) = 0;
+			const std::vector<IdT>& first_set_of_entities,
+			const std::vector<IdT>& second_set_of_entities) = 0;
 	};
 }

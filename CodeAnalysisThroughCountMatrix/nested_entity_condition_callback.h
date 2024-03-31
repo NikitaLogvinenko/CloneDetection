@@ -10,8 +10,8 @@ namespace code_analysis_through_cm
 	class nested_entity_condition_callback final
 	{
 	public:
-		using analyzed_entity_id = typename AnalysisTraits::AnalyzedEntityId;
-		using nested_entity_id = typename AnalysisTraits::NestedEntityId;
+		using analyzed_entity_id = typename AnalysisTraits::analyzed_entity_id;
+		using nested_entity_id = typename AnalysisTraits::nested_entity_id;
 
 		using callback_t = std::function<void(analyzed_entity_id, nested_entity_id, condition_index<AnalysisTraits::conditions_count>)>;
 

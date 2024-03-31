@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "matrices_comparing_abstract.h"
+#include "matrices_comparer_abstract.h"
 #include "bipartite_graph_on_count_matrices.h"
 #include "bipartite_matching_abstract.h"
 #include "similarity_estimator_abstract.h"
@@ -9,7 +9,7 @@
 namespace cm
 {
 	template <matrices_comparing_traits CompTraits>
-	class matrices_comparing_by_bipartite_matching final : public matrices_comparing_abstract<CompTraits>
+	class matrices_comparing_by_bipartite_matching final : public matrices_comparer_abstract<CompTraits>
 	{
 		using similarity_t = typename CompTraits::similarity_t;
 		using distance_t = typename CompTraits::distance_t;

@@ -10,11 +10,11 @@ namespace code_analysis_through_cm
 		: public code_implementation_info_builder_abstract<AnalysisTraits>
 	{
 	public:
-		using analyzed_entity_id = typename AnalysisTraits::AnalyzedEntityId;
-		using nested_entity_id = typename AnalysisTraits::NestedEntityId;
+		using analyzed_entity_id = typename AnalysisTraits::analyzed_entity_id;
+		using nested_entity_id = typename AnalysisTraits::nested_entity_id;
+		using implementations_info_map = typename code_implementation_info_builder_abstract<AnalysisTraits>::implementations_info_map;
 
 	private:
-
 		using conditions_counters = std::vector<cm::counted_value>;
 
 		using conditions_counters_by_nested_id_unordered_map = std::unordered_map<
@@ -52,15 +52,15 @@ namespace code_analysis_through_cm
 			++conditions_counters[condition.to_size_t()];
 		}
 
-		[[nodiscard]] std::vector<code_entity_implementation_info<AnalysisTraits>> build_and_reset() override
+		[[nodiscard]] implementations_info_map build_and_reset() override
 		{
-			std::vector<code_entity_implementation_info<AnalysisTraits>> entities_implementations_info{};
+			implementations_info_map entities_implementations_info{};
 			entities_implementations_info.reserve(nested_info_by_analyzed_id_.size());
 
 			for (auto& [analysed_id, conditions_counters_by_nested_id] : nested_info_by_analyzed_id_)
 			{
-				auto implementation_info = construct_info(analysed_id, std::move(conditions_counters_by_nested_id));
-				entities_implementations_info.emplace_back(std::move(implementation_info));
+				auto implementation_info = construct_info(std::move(conditions_counters_by_nested_id));
+				entities_implementations_info.emplace_back(analysed_id, std::move(implementation_info));
 			}
 
 			nested_info_by_analyzed_id_.clear();
@@ -69,7 +69,7 @@ namespace code_analysis_through_cm
 
 	private:
 		[[nodiscard]] code_entity_implementation_info<AnalysisTraits> construct_info(
-			analyzed_entity_id analyzed_id, conditions_counters_by_nested_id_unordered_map conditions_counters_by_nested_id) const
+			conditions_counters_by_nested_id_unordered_map conditions_counters_by_nested_id) const
 		{
 			std::vector<nested_entity_id> vector_of_nested_ids{};
 			vector_of_nested_ids.reserve(conditions_counters_by_nested_id.size());
@@ -87,7 +87,7 @@ namespace code_analysis_through_cm
 			cm::count_matrix<AnalysisTraits::conditions_count> conditions_count_matrix(std::move(vector_of_count_vectors));
 
 			return code_entity_implementation_info<AnalysisTraits>{
-				analyzed_id, std::move(vector_of_nested_ids), std::move(conditions_count_matrix) };
+				std::move(vector_of_nested_ids), std::move(conditions_count_matrix) };
 		}
 	};
 }
