@@ -163,8 +163,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cursors_storage_threadsafe.h" />
+    <ClInclude Include="funcs_analysis_traits.h" />
     <ClInclude Include="funcs_definitions_finder.h" />
-    <ClInclude Include="funcs_traverser_clang.h" />
+    <ClInclude Include="clang_funcs_traverser.h" />
+    <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="funcs_definitions_finder.cpp" />

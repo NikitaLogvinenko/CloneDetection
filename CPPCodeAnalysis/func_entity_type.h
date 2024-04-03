@@ -33,6 +33,8 @@ namespace cpp_code_analysis::internal
 		switch_stmt,
 		conditional_operator,
 
+		do_stmt,
+
 		for_stmt,
 		for_range_stmt,
 		while_stmt
