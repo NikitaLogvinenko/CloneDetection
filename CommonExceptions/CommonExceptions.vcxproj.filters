@@ -14,5 +14,6 @@
     <ClInclude Include="incorrect_size_error.h" />
     <ClInclude Include="iterator_operation_error.h" />
     <ClInclude Include="empty_argument_error.h" />
+    <ClInclude Include="unexpected_behaviour_error.h" />
   </ItemGroup>
 </Project>

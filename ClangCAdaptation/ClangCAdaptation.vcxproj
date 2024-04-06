@@ -180,7 +180,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="clang_range_error.h" />
-    <ClInclude Include="common_checks.h" />
     <ClInclude Include="create_cxindex_error.h" />
     <ClInclude Include="create_translation_unit_error.h" />
     <ClInclude Include="cxcursors_equal.h" />

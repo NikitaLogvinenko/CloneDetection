@@ -7,7 +7,6 @@
     <ClInclude Include="cxindex_raii.h" />
     <ClInclude Include="cxstring_raii.h" />
     <ClInclude Include="spelling_extractor.h" />
-    <ClInclude Include="common_checks.h" />
     <ClInclude Include="wrong_cursor_kind_error.h" />
     <ClInclude Include="create_translation_unit_error.h" />
     <ClInclude Include="create_cxindex_error.h" />

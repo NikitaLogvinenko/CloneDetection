@@ -2,7 +2,7 @@
 #include "func_descriptor.h"
 #include "code_entity_location_creator.h"
 #include "code_entity_spelling_creator.h"
-#include "common_checks.h"
+#include "cursor_classifier.h"
 #include "wrong_cursor_kind_error.h"
 
 namespace clang_code_analysis
@@ -14,7 +14,7 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::func_descriptor create(const CXCursor& cursor_to_func_decl)
 		{
-			if (!clang_c_adaptation::common_checks::is_func_declaration(cursor_to_func_decl))
+			if (!cursor_classifier::is_func_declaration(cursor_to_func_decl))
 			{
 				throw clang_c_adaptation::wrong_cursor_kind_error(
 					"func_descriptor_creator::create: cursor does not represent any kind of function declaration.");

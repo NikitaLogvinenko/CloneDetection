@@ -3,7 +3,7 @@
 #include "cxcursors_equal.h"
 #include "func_entity_type.h"
 #include "var_origin_and_usage_counter_pair.h"
-#include "common_checks.h"
+#include "cursor_classifier.h"
 #include <unordered_map>
 #include <unordered_set>
 
@@ -61,7 +61,7 @@ namespace cpp_code_analysis::internal
 		[[nodiscard]] static CXChildVisitResult visitor_direct_children_counter(
 			CXCursor cursor, CXCursor parent, const CXClientData void_ptr_to_size_t_counter)
 		{
-			clang_c_adaptation::common_checks::throw_if_null(void_ptr_to_size_t_counter);
+			clang_c_adaptation::cursor_classifier::throw_if_null(void_ptr_to_size_t_counter);
 			++*static_cast<size_t* const>(void_ptr_to_size_t_counter);
 			return CXChildVisit_Continue;
 		}

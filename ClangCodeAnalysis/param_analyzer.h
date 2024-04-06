@@ -2,7 +2,7 @@
 #include "condition_analyzer_abstract.h"
 #include "funcs_analysis_traits.h"
 #include "cursors_storage_threadsafe.h"
-#include "common_checks.h"
+#include "cursor_classifier.h"
 
 namespace clang_code_analysis
 {
@@ -28,7 +28,7 @@ namespace clang_code_analysis
 
 		void analyse(const func_id analyzed_id, const CXCursor& nested_cursor, const var_usage_callback& callback) override
 		{
-			if (!clang_c_adaptation::common_checks::is_param_declaration(nested_cursor))
+			if (!cursor_classifier::is_param_declaration(nested_cursor))
 			{
 				return;
 			}

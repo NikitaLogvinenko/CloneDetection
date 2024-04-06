@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "common_checks.h"
+#include "cursor_classifier.h"
 
 namespace clang_c_adaptation
 {

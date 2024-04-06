@@ -4,7 +4,10 @@ namespace cpp_code_analysis::internal
 {
 	enum class func_entity_type
 	{
-		local_var,
+		local_var,//
+		param,//
+		field,//
+		global_var,//
 
 		any_call_expr,
 
@@ -29,15 +32,14 @@ namespace cpp_code_analysis::internal
 		square_brackets_operator,
 		array_subscript_expr,
 
-		if_stmt,
-		switch_stmt,
-		conditional_operator,
+		if_stmt,//
+		switch_stmt,//
+		conditional_operator,//
 
-		do_stmt,
-
-		for_stmt,
-		for_range_stmt,
-		while_stmt
+		do_stmt,//
+		for_stmt,//
+		for_range_stmt,//
+		while_stmt//
 	};
 
 	constexpr size_t total_func_entities_types = static_cast<size_t>(func_entity_type::while_stmt) + 1;

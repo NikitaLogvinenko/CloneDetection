@@ -168,6 +168,7 @@
     <ClInclude Include="code_entity_spelling_creator.h" />
     <ClInclude Include="condition_analyzer_abstract.h" />
     <ClInclude Include="cursors_storage_threadsafe.h" />
+    <ClInclude Include="cursor_classifier.h" />
     <ClInclude Include="field_analyzer.h" />
     <ClInclude Include="funcs_definitions_finder.h" />
     <ClInclude Include="clang_funcs_traverser.h" />
@@ -175,13 +176,16 @@
     <ClInclude Include="func_nested_entitity.h" />
     <ClInclude Include="global_var_analyzer.h" />
     <ClInclude Include="local_var_analyzer.h" />
+    <ClInclude Include="operator_classifier.h" />
+    <ClInclude Include="operator_kind.h" />
     <ClInclude Include="param_analyzer.h" />
-    <ClInclude Include="variables_nested_in_condition_finder_abstract.h" />
+    <ClInclude Include="vars_nested_in_condition_finder_abstract.h" />
     <ClInclude Include="var_descriptor_creator.h" />
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="funcs_definitions_finder.cpp" />
+    <ClCompile Include="operator_classifier.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

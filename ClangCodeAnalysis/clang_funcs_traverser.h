@@ -5,7 +5,7 @@
 #include "funcs_definitions_finder.h"
 #include "cursors_storage_threadsafe.h"
 #include "condition_analyzer_abstract.h"
-#include "common_checks.h"
+#include "cursor_classifier.h"
 
 namespace clang_code_analysis
 {
@@ -82,7 +82,7 @@ namespace clang_code_analysis
 
 		static bool save_if_var_declaration(const CXCursor& cursor)
 		{
-			if (!clang_c_adaptation::common_checks::is_var_declaration(cursor))
+			if (!cursor_classifier::is_var_declaration(cursor))
 			{
 				return false;
 			}
@@ -93,7 +93,7 @@ namespace clang_code_analysis
 
 		static bool save_if_reference_to_var_declaration(const CXCursor& cursor)
 		{
-			if (!clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor))
+			if (!cursor_classifier::is_reference_to_var_declaration(cursor))
 			{
 				return false;
 			}

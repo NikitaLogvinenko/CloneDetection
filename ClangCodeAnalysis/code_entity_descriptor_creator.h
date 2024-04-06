@@ -12,8 +12,8 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::code_entity_descriptor create(const CXCursor& cursor)
 		{
-			code_analysis::code_entity_location location = code_entity_location_creator::create(cursor_to_var_decl);
-			code_analysis::code_entity_spelling spelling = code_entity_spelling_creator::create(cursor_to_var_decl);
+			code_analysis::code_entity_location location = code_entity_location_creator::create(cursor);
+			code_analysis::code_entity_spelling spelling = code_entity_spelling_creator::create(cursor);
 
 			code_analysis::code_entity_descriptor descriptor{ std::move(spelling), std::move(location) };
 			return descriptor;

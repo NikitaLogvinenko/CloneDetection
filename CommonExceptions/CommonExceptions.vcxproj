@@ -164,6 +164,7 @@
     <ClInclude Include="param_out_of_range_error.h" />
     <ClInclude Include="incorrect_size_error.h" />
     <ClInclude Include="types_conversion_error.h" />
+    <ClInclude Include="unexpected_behaviour_error.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
