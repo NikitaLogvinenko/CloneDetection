@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "code_traversers_factory_abstract.h"
-#include "code_traverser_sharing_units.h"
+#include "code_traverser_sharing_units_container_abstract.h"
 
 namespace code_analysis_through_cm
 {
@@ -10,7 +10,7 @@ namespace code_analysis_through_cm
 		using translation_units_container = utility::one_off_container<TranslationUnitT>;
 
 	public:
-		using funcs_traverser_ptr = std::unique_ptr<code_traverser_sharing_units<AnalysisTraits, TranslationUnitT>>;
+		using funcs_traverser_ptr = std::unique_ptr<code_traverser_sharing_units_container_abstract<AnalysisTraits, TranslationUnitT>>;
 
 	private:
 		std::shared_ptr<translation_units_container> not_traversed_units_{};

@@ -5,7 +5,7 @@
 #include "common_checks.h"
 #include "wrong_cursor_kind_error.h"
 
-namespace clang_c_adaptation
+namespace clang_code_analysis
 {
 	class var_descriptor_creator final
 	{
@@ -14,9 +14,9 @@ namespace clang_c_adaptation
 
 		[[nodiscard]] static code_analysis::var_descriptor create(const CXCursor& cursor_to_var_decl)
 		{
-			if (!common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
+			if (!clang_c_adaptation::common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
 			{
-				throw wrong_cursor_kind_error(
+				throw clang_c_adaptation::wrong_cursor_kind_error(
 					"var_descriptor_creator::create: cursor does not represent any kind of variables.");
 			}
 

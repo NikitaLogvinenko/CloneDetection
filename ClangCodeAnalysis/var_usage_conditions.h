@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace clang_funcs_analysis
+namespace clang_code_analysis
 {
 	enum class var_usage_condition
 	{

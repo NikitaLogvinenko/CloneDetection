@@ -8,7 +8,7 @@
 #include <shared_mutex>
 #include <unordered_map>
 
-namespace clang_funcs_analysis
+namespace clang_code_analysis
 {
 	template <utility::id_concept IdT>
 	class cursors_storage_threadsafe final

@@ -2,7 +2,7 @@
 #include "common_checks.h"
 #include "cursors_storage_threadsafe.h"
 
-namespace clang_funcs_analysis
+namespace clang_code_analysis
 {
 	namespace
 	{

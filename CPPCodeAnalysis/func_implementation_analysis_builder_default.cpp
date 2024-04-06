@@ -6,6 +6,7 @@ namespace cpp_code_analysis
 
 	namespace
 	{
+		
 		using unordered_map_count_arrays_by_var_cursors =
 		std::unordered_map<
 			CXCursor,
@@ -76,7 +77,7 @@ namespace cpp_code_analysis
 
 			{
 				var_usage_condition::used_inside_loop, std::vector{
-					func_entity_type::for_stmt, func_entity_type::for_range_stmt, func_entity_type::while_stmt
+					func_entity_type::for_stmt, func_entity_type::for_range_stmt, func_entity_type::while_stmt, func_entity_type::do_stmt
 				}
 			}
 		};

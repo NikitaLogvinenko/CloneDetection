@@ -97,8 +97,6 @@ namespace clang_c_adaptation
 	CXChildVisitResult spelling_extractor::visitor_append_subtrees_spellings(
 		const CXCursor cursor, CXCursor, const CXClientData ptr_to_vector)
 	{
-		common_checks::throw_if_null(ptr_to_vector);
-
 		const auto vector_append_to = static_cast<std::vector<std::string>*const>(ptr_to_vector);
 		vector_append_to->push_back(join(get_cursor_extent_tokens(cursor), {}));
 

@@ -29,5 +29,11 @@ namespace code_analysis_through_cm
 				throw common_exceptions::empty_argument_error{"nested_entity_condition_callback::nested_entity_condition_callback: callback is empty."};
 			}
 		}
+
+		void operator()(const analyzed_entity_id analyzed_id, const nested_entity_id nested_id,
+			const condition_index<AnalysisTraits::conditions_count> condition) const
+		{
+			callback_(analyzed_id, nested_id, condition);
+		}
 	};
 }

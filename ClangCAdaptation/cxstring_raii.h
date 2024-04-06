@@ -3,7 +3,7 @@
 #include "nullptr_error.h"
 #include "copying_delete.h"
 
-namespace clang_c_adaptation::internal
+namespace clang_c_adaptation
 {
 	class cxstring_raii final
 	{

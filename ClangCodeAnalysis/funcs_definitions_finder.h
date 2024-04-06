@@ -3,7 +3,7 @@
 #include "func_id.h"
 #include <vector>
 
-namespace clang_funcs_analysis
+namespace clang_code_analysis
 {
 	class funcs_definitions_finder final
 	{
