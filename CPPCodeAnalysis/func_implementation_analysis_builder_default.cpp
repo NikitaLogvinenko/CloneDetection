@@ -333,7 +333,7 @@ namespace cpp_code_analysis
 			return CXChildVisit_Continue;
 		}
 
-		if (clang_c_adaptation::common_checks::is_cursor_to_func_definition(cursor_inside_translation_unit))
+		if (clang_c_adaptation::common_checks::is_func_definition(cursor_inside_translation_unit))
 		{
 			static_cast<unordered_set_cursors* const>(func_definitions_cursors_void_ptr)->insert(
 				cursor_inside_translation_unit);
@@ -362,7 +362,7 @@ namespace cpp_code_analysis
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/,
 		const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor_inside_entity))
 		{
 			static_cast<count_all_variables_visit_data* const>(
 				count_all_variables_visit_data_void_ptr)->increment_condition(
@@ -378,7 +378,7 @@ namespace cpp_code_analysis
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/,
 		const CXClientData count_all_variables_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor_inside_entity))
 
 		{
 			if (static_cast<count_all_variables_visit_data* const>(
@@ -398,7 +398,7 @@ namespace cpp_code_analysis
 		const CXCursor cursor_inside_entity, const CXCursor /*parent*/,
 		const CXClientData count_from_second_variable_visit_data_void_ptr)
 	{
-		if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor_inside_entity))
+		if (clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor_inside_entity))
 		{
 			if (const auto count_from_second_variable_visit_data_ptr =
 					static_cast<count_from_second_variable_visit_data* const>(
@@ -428,7 +428,7 @@ namespace cpp_code_analysis
 			static_cast<class var_definition_visit_data* const>(var_definition_visit_data_void_ptr);
 		const auto& first_traversal_data = var_definition_visit_data_ptr->first_traversal_data();
 
-		if (clang_c_adaptation::common_checks::is_cursor_to_literal(cursor_inside_var_definition))
+		if (clang_c_adaptation::common_checks::is_literal(cursor_inside_var_definition))
 		{
 			var_definition_visit_data_ptr->increment_condition(var_usage_condition::defined_with_literals);
 			clang_visitChildren(cursor_inside_var_definition, visitor_traverse_var_definition,

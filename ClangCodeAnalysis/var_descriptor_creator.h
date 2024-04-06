@@ -14,7 +14,7 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::var_descriptor create(const CXCursor& cursor_to_var_decl)
 		{
-			if (!clang_c_adaptation::common_checks::is_cursor_to_var_decl(cursor_to_var_decl))
+			if (!clang_c_adaptation::common_checks::is_var_declaration(cursor_to_var_decl))
 			{
 				throw clang_c_adaptation::wrong_cursor_kind_error(
 					"var_descriptor_creator::create: cursor does not represent any kind of variables.");

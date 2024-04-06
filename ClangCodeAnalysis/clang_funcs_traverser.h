@@ -82,7 +82,7 @@ namespace clang_code_analysis
 
 		static bool save_if_var_declaration(const CXCursor& cursor)
 		{
-			if (!clang_c_adaptation::common_checks::is_cursor_to_var_decl(cursor))
+			if (!clang_c_adaptation::common_checks::is_var_declaration(cursor))
 			{
 				return false;
 			}
@@ -93,7 +93,7 @@ namespace clang_code_analysis
 
 		static bool save_if_reference_to_var_declaration(const CXCursor& cursor)
 		{
-			if (!clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor))
+			if (!clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor))
 			{
 				return false;
 			}

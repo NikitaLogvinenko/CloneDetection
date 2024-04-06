@@ -9,10 +9,9 @@ namespace clang_code_analysis
 		is_member_field,
 		is_global_var,
 
-		used_n_times,
 		changed_n_times,
 		used_inside_call_expr,
-		used_inside_square_brackets,
+		used_for_subscription,
 		used_with_square_brackets,
 
 		used_for_sum_or_diff,

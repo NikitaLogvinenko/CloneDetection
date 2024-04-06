@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="translation_unit_raii.h" />
-    <ClInclude Include="func_descriptor_creator.h" />
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxindex_raii.h" />

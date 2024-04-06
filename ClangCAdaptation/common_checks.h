@@ -12,7 +12,8 @@ namespace clang_c_adaptation
 			CXCursor_StringLiteral, CXCursor_CharacterLiteral, CXCursor_CXXBoolLiteralExpr
 		};
 
-		inline static const std::unordered_set var_decl_kinds{CXCursor_VarDecl, CXCursor_FieldDecl, CXCursor_ParmDecl};
+		inline static const std::unordered_set var_decl_kinds{ CXCursor_VarDecl, CXCursor_FieldDecl,
+			CXCursor_ParmDecl, CXCursor_NonTypeTemplateParameter };
 
 		inline static const std::unordered_set func_decl_kinds{
 			CXCursor_CXXMethod, CXCursor_FunctionDecl, CXCursor_Constructor, CXCursor_Destructor, CXCursor_FunctionTemplate
@@ -29,37 +30,57 @@ namespace clang_c_adaptation
 			}
 		}
 
-		[[nodiscard]] static bool is_cursor_to_var_decl(const CXCursor& cursor) noexcept
+		[[nodiscard]] static bool is_var_declaration(const CXCursor& cursor) noexcept
 		{
 			return var_decl_kinds.contains(clang_getCursorKind(cursor));
 		}
 
-		[[nodiscard]] static bool is_ref_expr(const CXCursorKind& cursor_kind) noexcept
+		[[nodiscard]] static bool is_reference_expression(const CXCursorKind& cursor_kind) noexcept
 		{
 			return cursor_kind == CXCursor_DeclRefExpr || cursor_kind == CXCursor_MemberRefExpr;
 		}
 
-		[[nodiscard]] static bool is_cursor_referring_to_var_decl(const CXCursor& cursor) noexcept
+		[[nodiscard]] static bool is_reference_to_var_declaration(const CXCursor& cursor) noexcept
 		{
-			if (const auto cursor_kind = clang_getCursorKind(cursor); !is_ref_expr(cursor_kind))
+			if (const auto cursor_kind = clang_getCursorKind(cursor); !is_reference_expression(cursor_kind))
 			{
 				return false;
 			}
 			
-			return is_cursor_to_var_decl(clang_getCursorReferenced(cursor));
+			return is_var_declaration(clang_getCursorReferenced(cursor));
 		}
 
-		[[nodiscard]] static bool is_cursor_to_func_declaration(const CXCursor& cursor) noexcept
+		[[nodiscard]] static bool is_func_declaration(const CXCursor& cursor) noexcept
 		{
 			return func_decl_kinds.contains(clang_getCursorKind(cursor));
 		}
 
-		[[nodiscard]] static bool is_cursor_to_func_definition(const CXCursor& cursor) noexcept
+		[[nodiscard]] static bool is_func_definition(const CXCursor& cursor) noexcept
 		{
-			return is_cursor_to_func_declaration(cursor) && clang_isCursorDefinition(cursor) != 0;
+			return is_func_declaration(cursor) && clang_isCursorDefinition(cursor) != 0;
 		}
 
-		[[nodiscard]] static bool is_cursor_to_literal(const CXCursor& cursor) noexcept
+		[[nodiscard]] static bool is_local_var_declaration(const CXCursor& cursor) noexcept
+		{
+			return clang_getCursorKind(cursor) == CXCursor_VarDecl && clang_getCursorLinkage(cursor) == CXLinkage_NoLinkage;
+		}
+
+		[[nodiscard]] static bool is_param_declaration(const CXCursor& cursor) noexcept
+		{
+			return clang_getCursorKind(cursor) == CXCursor_ParmDecl;
+		}
+
+		[[nodiscard]] static bool is_field_declaration(const CXCursor& cursor) noexcept
+		{
+			return clang_getCursorKind(cursor) == CXCursor_FieldDecl;
+		}
+
+		[[nodiscard]] static bool is_reference_to_field_declaration(const CXCursor& cursor) noexcept
+		{
+			return clang_getCursorKind(cursor) == CXCursor_MemberRefExpr && is_field_declaration(clang_getCursorReferenced(cursor));
+		}
+
+		[[nodiscard]] static bool is_literal(const CXCursor& cursor) noexcept
 		{
 			return literals_kinds.contains(clang_getCursorKind(cursor));
 		}

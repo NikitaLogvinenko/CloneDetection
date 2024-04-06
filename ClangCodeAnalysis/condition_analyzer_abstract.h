@@ -15,7 +15,7 @@ namespace clang_code_analysis
 	public:
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(condition_analyzer_abstract)
 
-		virtual void analyse(analyzed_entity_id analyzed_id, const CXCursor& nested_cursor, const condition_callback& callback) const = 0;
+		virtual void analyse(analyzed_entity_id analyzed_id, const CXCursor& nested_cursor, const condition_callback& callback) = 0;
 
 	protected:
 		condition_analyzer_abstract() noexcept = default;

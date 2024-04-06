@@ -24,27 +24,28 @@ namespace clang_code_analysis
 		{
 			const func_id func;
 			const std::reference_wrapper<const var_usage_callback> callback;
-			const condition_index index;
+			std::reference_wrapper<const std::vector<condition_index>> indices;
 		};
 
-		condition_index index_{};
+		std::vector<condition_index> indices_{};
 
 	public:
-		void analyse(const func_id analyzed_id, const CXCursor& nested_cursor, const var_usage_callback& callback) const override
+		void analyse(const func_id analyzed_id, const CXCursor& nested_cursor, const var_usage_callback& callback) override
 		{
 			if (!cursor_satisfy_condition(nested_cursor))
 			{
 				return;
 			}
 
-			const finding_all_nested_variables_data data{ analyzed_id, std::ref(callback), index_ };
+			const finding_all_nested_variables_data data{ analyzed_id, std::ref(callback), std::ref(indices_) };
 			clang_visitChildren(nested_cursor, visitor_finding_all_nested_variables, &data);
 		}
 
 	protected:
 		variables_nested_in_condition_finder_abstract() noexcept = default;
 
-		explicit variables_nested_in_condition_finder_abstract(const condition_index index) noexcept : index_(index) {}
+		explicit variables_nested_in_condition_finder_abstract(std::vector<condition_index> indices) noexcept
+		: indices_(std::move(indices)) {}
 
 		[[nodiscard]] virtual bool cursor_satisfy_condition(const CXCursor& parent) const = 0;
 
@@ -53,11 +54,14 @@ namespace clang_code_analysis
 			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
 			const auto data_ptr = static_cast<const finding_all_nested_variables_data*>(data_void_ptr);
-			if (clang_c_adaptation::common_checks::is_cursor_referring_to_var_decl(cursor))
+			if (clang_c_adaptation::common_checks::is_reference_to_var_declaration(cursor))
 			{
 				const auto referenced_var = clang_getCursorReferenced(cursor);
 				const var_id var = cursors_storage_threadsafe<var_id>::get_instance().insert(referenced_var);
-				data_ptr->callback(data_ptr->func, var, data_ptr->index);
+				for (const auto index : data_ptr->indices)
+				{
+					data_ptr->callback(data_ptr->func, var, index);
+				}
 			}
 
 			clang_visitChildren(cursor, visitor_finding_all_nested_variables, data_void_ptr);

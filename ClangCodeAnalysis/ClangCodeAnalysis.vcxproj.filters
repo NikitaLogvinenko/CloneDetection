@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="funcs_definitions_finder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cursors_storage_threadsafe.h" />
+    <ClInclude Include="funcs_definitions_finder.h" />
+    <ClInclude Include="clang_funcs_traverser.h" />
+    <ClInclude Include="func_nested_entitity.h" />
+    <ClInclude Include="var_usage_conditions.h" />
+    <ClInclude Include="local_var_analyzer.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="param_analyzer.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="field_analyzer.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="global_var_analyzer.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="analyzers">
+      <UniqueIdentifier>{74e4f032-965e-440e-8c8b-575f5644eb10}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -14,7 +14,7 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::func_descriptor create(const CXCursor& cursor_to_func_decl)
 		{
-			if (!clang_c_adaptation::common_checks::is_cursor_to_func_declaration(cursor_to_func_decl))
+			if (!clang_c_adaptation::common_checks::is_func_declaration(cursor_to_func_decl))
 			{
 				throw clang_c_adaptation::wrong_cursor_kind_error(
 					"func_descriptor_creator::create: cursor does not represent any kind of function declaration.");

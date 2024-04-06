@@ -17,7 +17,7 @@ namespace clang_code_analysis
 				return CXChildVisit_Continue;
 			}
 
-			if (clang_c_adaptation::common_checks::is_cursor_to_func_definition(current_cursor))
+			if (clang_c_adaptation::common_checks::is_func_definition(current_cursor))
 			{
 				const auto id = cursors_storage_threadsafe<func_id>::get_instance().insert(current_cursor);
 				static_cast<std::vector<func_id>* const>(funcs_ids_vector)->push_back(id);

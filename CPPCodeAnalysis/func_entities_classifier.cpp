@@ -86,13 +86,13 @@ namespace cpp_code_analysis::internal
 
 	bool func_entities_classifier::try_insert_reference_to_var(const CXCursor& cursor, const CXCursorKind& kind)
 	{
-		if (!clang_c_adaptation::common_checks::is_ref_expr(kind))
+		if (!clang_c_adaptation::common_checks::is_reference_expression(kind))
 		{
 			return false;
 		}
 
 		if (const CXCursor referenced_cursor = clang_getCursorReferenced(cursor);
-			clang_c_adaptation::common_checks::is_cursor_to_var_decl(referenced_cursor))
+			clang_c_adaptation::common_checks::is_var_declaration(referenced_cursor))
 		{
 			const auto [iterator, inserted] =
 				var_origin_and_usage_counter_by_decl_cursor_.try_emplace(
@@ -109,7 +109,7 @@ namespace cpp_code_analysis::internal
 
 	bool func_entities_classifier::try_insert_variable(const CXCursor& cursor)
 	{
-		if (!clang_c_adaptation::common_checks::is_cursor_to_var_decl(cursor))
+		if (!clang_c_adaptation::common_checks::is_var_declaration(cursor))
 		{
 			return false;
 		}

@@ -187,7 +187,6 @@
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxindex_raii.h" />
     <ClInclude Include="cxstring_raii.h" />
-    <ClInclude Include="func_descriptor_creator.h" />
     <ClInclude Include="spelling_extractor.h" />
     <ClInclude Include="tokenizer.h" />
     <ClInclude Include="token_index.h" />
