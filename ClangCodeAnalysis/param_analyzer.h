@@ -11,6 +11,7 @@ namespace clang_code_analysis
 		: public condition_analyzer_abstract<code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>>
 	{
 		using funcs_analysis_traits = code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>;
+		using base = condition_analyzer_abstract<funcs_analysis_traits>;
 		using condition_index = code_analysis_through_cm::condition_index<ConditionsCount>;
 		using var_id = code_analysis::var_id;
 
@@ -18,13 +19,9 @@ namespace clang_code_analysis
 		using var_usage_callback = code_analysis_through_cm::nested_entity_condition_callback<funcs_analysis_traits>;
 		using func_id = code_analysis::func_id;
 
-	private:
-		std::vector<condition_index> indices_{};
-
-	public:
 		param_analyzer() noexcept = default;
 
-		explicit param_analyzer(std::vector<condition_index> indices) noexcept : indices_(std::move(indices)) {}
+		explicit param_analyzer(std::vector<condition_index> indices) noexcept : base(std::move(indices)) {}
 
 		void analyse(const func_id analyzed_id, const CXCursor& nested_cursor, const var_usage_callback& callback) override
 		{
@@ -33,11 +30,8 @@ namespace clang_code_analysis
 				return;
 			}
 
-			const auto var = cursors_storage_threadsafe<var_id>::get_instance().insert(nested_cursor);
-			for (const auto index : indices_)
-			{
-				callback(analyzed_id, var, index);
-			}
+			const auto param_id = cursors_storage_threadsafe<var_id>::get_instance().insert(nested_cursor);
+			base::invoke_callback_for_all_indices(analyzed_id, param_id, callback);
 		}
 	};
 }

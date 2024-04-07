@@ -12,6 +12,7 @@ namespace clang_code_analysis
 		: public condition_analyzer_abstract<code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>>
 	{
 		using funcs_analysis_traits = code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>;
+		using base = condition_analyzer_abstract<funcs_analysis_traits>;
 		using condition_index = code_analysis_through_cm::condition_index<ConditionsCount>;
 		using var_id = code_analysis::var_id;
 		using ids_set = std::unordered_set<var_id, utility::id_hash<var_id>>;
@@ -21,13 +22,12 @@ namespace clang_code_analysis
 		using func_id = code_analysis::func_id;
 
 	private:
-		std::vector<condition_index> indices_{};
 		ids_set vars_processed_already_{};
 
 	public:
 		global_var_analyzer() noexcept = default;
 
-		explicit global_var_analyzer(std::vector<condition_index> indices) noexcept : indices_(std::move(indices)) {}
+		explicit global_var_analyzer(std::vector<condition_index> indices) noexcept : base(std::move(indices)) {}
 
 		void analyse(const func_id analyzed_id, const CXCursor& nested_cursor, const var_usage_callback& callback) override
 		{
@@ -45,16 +45,13 @@ namespace clang_code_analysis
 				return;
 			}
 
-			const auto var = cursors_storage_threadsafe<var_id>::get_instance().insert(declaration_cursor);
-			if (vars_processed_already_.contains(var))
+			const auto global_var_id = cursors_storage_threadsafe<var_id>::get_instance().insert(declaration_cursor);
+			if (vars_processed_already_.contains(global_var_id))
 			{
 				return;
 			}
 
-			for (const auto index : indices_)
-			{
-				callback(analyzed_id, var, index);
-			}
+			base::invoke_callback_for_all_indices(analyzed_id, global_var_id, callback);
 		}
 	};
 }

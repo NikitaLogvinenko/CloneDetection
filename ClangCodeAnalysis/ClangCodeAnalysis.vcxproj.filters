@@ -22,7 +22,7 @@
     <ClInclude Include="global_var_analyzer.h">
       <Filter>analyzers</Filter>
     </ClInclude>
-    <ClInclude Include="vars_nested_in_condition_finder_abstract.h">
+    <ClInclude Include="vars_nested_in_condition_finder.h">
       <Filter>analyzers</Filter>
     </ClInclude>
     <ClInclude Include="code_entity_descriptor_creator.h" />
@@ -34,6 +34,12 @@
     <ClInclude Include="cursor_classifier.h" />
     <ClInclude Include="operator_kind.h" />
     <ClInclude Include="operator_classifier.h" />
+    <ClInclude Include="nth_var_nested_in_condition_finder.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="from_nth_vars_nested_in_condition_finder.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="analyzers">
