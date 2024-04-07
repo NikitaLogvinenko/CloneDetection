@@ -3,12 +3,14 @@
   <ItemGroup>
     <ClCompile Include="funcs_definitions_finder.cpp" />
     <ClCompile Include="operator_classifier.cpp" />
+    <ClCompile Include="vars_usage_analyzers_factory_default.cpp">
+      <Filter>analyzers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cursors_storage_threadsafe.h" />
     <ClInclude Include="funcs_definitions_finder.h" />
     <ClInclude Include="clang_funcs_traverser.h" />
-    <ClInclude Include="func_nested_entitity.h" />
     <ClInclude Include="var_usage_conditions.h" />
     <ClInclude Include="local_var_analyzer.h">
       <Filter>analyzers</Filter>
@@ -28,7 +30,6 @@
     <ClInclude Include="code_entity_descriptor_creator.h" />
     <ClInclude Include="code_entity_location_creator.h" />
     <ClInclude Include="code_entity_spelling_creator.h" />
-    <ClInclude Include="condition_analyzer_abstract.h" />
     <ClInclude Include="func_descriptor_creator.h" />
     <ClInclude Include="var_descriptor_creator.h" />
     <ClInclude Include="cursor_classifier.h" />
@@ -41,6 +42,15 @@
       <Filter>analyzers</Filter>
     </ClInclude>
     <ClInclude Include="condition_nested_in_local_var_definition_finder.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="condition_analyzer_abstract.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="conditions_analyzers_factory_abstract.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="vars_usage_analyzers_factory_default.h">
       <Filter>analyzers</Filter>
     </ClInclude>
   </ItemGroup>

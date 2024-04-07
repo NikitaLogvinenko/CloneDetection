@@ -7,7 +7,7 @@
 namespace clang_code_analysis
 {
 	template <size_t ConditionsCount, size_t N, class Predicate>
-		requires (cm::count_vector_length<ConditionsCount> && std::predicate<Predicate, CXCursor> && N > 0)
+		requires (cm::count_vector_length<ConditionsCount> && std::predicate<Predicate, const CXCursor&> && N > 0)
 	class from_nth_vars_nested_in_condition_finder final
 		: public condition_analyzer_abstract<code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>>
 	{
@@ -25,8 +25,8 @@ namespace clang_code_analysis
 		struct finding_from_nth_nested_variables_data final
 		{
 			const func_id func;
-			const std::reference_wrapper<const var_usage_callback> callback;
-			const std::reference_wrapper<const base> this_as_base;
+			const var_usage_callback& callback;
+			const from_nth_vars_nested_in_condition_finder& this_ref;
 
 			size_t variables_passed{};
 		};
@@ -46,14 +46,14 @@ namespace clang_code_analysis
 				return;
 			}
 
-			finding_from_nth_nested_variables_data data{ analyzed_id, std::ref(callback), std::ref(*this) };
+			finding_from_nth_nested_variables_data data{ analyzed_id, callback, *this };
 			clang_visitChildren(nested_cursor, visitor_finding_from_nth_nested_variables, &data);
 		}
 
 	private:
 		// ReSharper disable once CppPassValueParameterByConstReference
 		static CXChildVisitResult visitor_finding_from_nth_nested_variables(
-			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
+			const CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
 			if (const auto data_ptr = static_cast<finding_from_nth_nested_variables_data*>(data_void_ptr); 
 				cursor_classifier::is_reference_to_var_declaration(cursor))
@@ -63,7 +63,7 @@ namespace clang_code_analysis
 				{
 					const auto referenced_var = clang_getCursorReferenced(cursor);
 					const var_id referenced_var_id = cursors_storage_threadsafe<var_id>::get_instance().insert(referenced_var);
-					data_ptr->this_as_base.invoke_callback_for_all_indices(data_ptr->func, referenced_var_id, data_ptr->callback);
+					data_ptr->this_ref.invoke_callback_for_all_indices(data_ptr->func, referenced_var_id, data_ptr->callback);
 				}
 			}
 

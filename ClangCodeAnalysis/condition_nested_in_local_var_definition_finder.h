@@ -7,7 +7,7 @@
 namespace clang_code_analysis
 {
 	template <size_t ConditionsCount, class Predicate>
-		requires (cm::count_vector_length<ConditionsCount> && std::predicate<Predicate, CXCursor>)
+		requires (cm::count_vector_length<ConditionsCount> && std::predicate<Predicate, const CXCursor&>)
 	class condition_nested_in_local_var_definition_finder final
 		: public condition_analyzer_abstract<code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>>
 	{
@@ -26,9 +26,9 @@ namespace clang_code_analysis
 		{
 			const func_id func;
 			const var_id var;
-			const std::reference_wrapper<Predicate> predicate;
-			const std::reference_wrapper<const var_usage_callback> callback;
-			const std::reference_wrapper<const base> this_as_base;
+			Predicate& predicate;
+			const var_usage_callback& callback;
+			const condition_nested_in_local_var_definition_finder& this_ref;
 		};
 
 		Predicate predicate_{};
@@ -48,19 +48,19 @@ namespace clang_code_analysis
 
 			const var_id local_var_id = cursors_storage_threadsafe<var_id>::get_instance().insert(nested_cursor);
 
-			const finding_nested_condition_data data{ analyzed_id, local_var_id, std::ref(predicate_), std::ref(callback), std::ref(*this) };
+			finding_nested_condition_data data{ analyzed_id, local_var_id, predicate_, callback, *this };
 			clang_visitChildren(nested_cursor, visitor_finding_nested_condition, &data);
 		}
 
 	private:
 		// ReSharper disable once CppPassValueParameterByConstReference
 		static CXChildVisitResult visitor_finding_nested_condition(
-			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
+			const CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
 			if (const auto data_ptr = static_cast<const finding_nested_condition_data*>(data_void_ptr); 
 				data_ptr->predicate(cursor))
 			{
-				data_ptr->this_as_base.invoke_callback_for_all_indices(data_ptr->func, data_ptr->var, data_ptr->callback);
+				data_ptr->this_ref.invoke_callback_for_all_indices(data_ptr->func, data_ptr->var, data_ptr->callback);
 			}
 
 			clang_visitChildren(cursor, visitor_finding_nested_condition, data_void_ptr);

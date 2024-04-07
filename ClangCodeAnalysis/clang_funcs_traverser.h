@@ -29,8 +29,8 @@ namespace clang_code_analysis
 		struct traversing_all_cursors_inside_function_data final
 		{
 			const func_id func;
-			const std::reference_wrapper<const conditions_analyzers_vector> analyzers;
-			const std::reference_wrapper<const var_usage_callback> callback;
+			const conditions_analyzers_vector& analyzers;
+			const var_usage_callback& callback;
 		};
 
 		conditions_analyzers_vector analyzers_{};
@@ -51,13 +51,14 @@ namespace clang_code_analysis
 			{
 				const auto& func_cursor = cursors_storage_threadsafe<code_analysis::func_id>::get_instance().at(func_id);
 
-				const traversing_all_cursors_inside_function_data data{ func_id, std::ref(analyzers_), std::ref(callback) };
+				traversing_all_cursors_inside_function_data data{ func_id, analyzers_, callback };
 				clang_visitChildren(func_cursor, visitor_traversing_all_cursors_inside_function, &data);
 			}
 		}
 
+		// ReSharper disable once CppPassValueParameterByConstReference
 		static CXChildVisitResult visitor_traversing_all_cursors_inside_function(
-			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
+			const CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
 			const auto data_ptr = static_cast<const traversing_all_cursors_inside_function_data*>(data_void_ptr);
 			save_if_var_declaration_or_reference_to_declaration(cursor);

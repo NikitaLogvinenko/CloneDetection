@@ -9,8 +9,8 @@ namespace clang_code_analysis
 		using func_id = code_analysis::func_id;
 
 		// ReSharper disable twice CppPassValueParameterByConstReference
-		CXChildVisitResult visitor_finding_funcs_definitions(const CXCursor current_cursor, const CXCursor,
-		                                                     const CXClientData funcs_ids_vector)
+		CXChildVisitResult visitor_finding_funcs_definitions(
+			const CXCursor current_cursor, CXCursor /*parent*/, const CXClientData funcs_ids_vector)
 		{
 			if (clang_Location_isInSystemHeader(clang_getCursorLocation(current_cursor)))
 			{

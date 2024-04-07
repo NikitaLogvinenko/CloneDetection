@@ -31,7 +31,7 @@ namespace clang_code_analysis
 		built_in_unary_plus,
 		built_in_unary_minus,
 
-		built_in_subscription,
+		built_in_subscript,
 
 		method_addition,
 		method_subtraction,
@@ -60,7 +60,7 @@ namespace clang_code_analysis
 		method_unary_plus,
 		method_unary_minus,
 
-		method_subscription,
+		method_subscript,
 
 		another_built_in,
 		another_method,

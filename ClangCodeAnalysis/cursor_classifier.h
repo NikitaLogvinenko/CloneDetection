@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "clang-c/Index.h"
-#include "nullptr_error.h"
 #include <unordered_set>
 
 namespace clang_code_analysis
@@ -22,22 +21,9 @@ namespace clang_code_analysis
 	public:
 		cursor_classifier() = delete;
 
-		static void throw_if_null(const CXClientData client_data, const std::string& error_msg)
-		{
-			if (client_data == nullptr)
-			{
-				throw common_exceptions::nullptr_error(error_msg);
-			}
-		}
-
 		[[nodiscard]] static bool is_var_declaration(const CXCursor& cursor)
 		{
 			return var_declaration_kinds.contains(clang_getCursorKind(cursor));
-		}
-
-		[[nodiscard]] static bool is_reference_expression(const CXCursorKind& cursor_kind) noexcept
-		{
-			return cursor_kind == CXCursor_DeclRefExpr || cursor_kind == CXCursor_MemberRefExpr;
 		}
 
 		[[nodiscard]] static bool is_reference_to_var_declaration(const CXCursor& cursor)
@@ -124,6 +110,12 @@ namespace clang_code_analysis
 		[[nodiscard]] static bool is_literal(const CXCursor& cursor)
 		{
 			return literals_kinds.contains(clang_getCursorKind(cursor));
+		}
+
+	private:
+		[[nodiscard]] static bool is_reference_expression(const CXCursorKind& cursor_kind) noexcept
+		{
+			return cursor_kind == CXCursor_DeclRefExpr || cursor_kind == CXCursor_MemberRefExpr;
 		}
 	};
 }

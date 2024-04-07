@@ -93,7 +93,7 @@ namespace
 	{
 		if (clang_getCursorKind(cursor) == CXCursor_ArraySubscriptExpr)
 		{
-			return operator_kind::built_in_subscription;
+			return operator_kind::built_in_subscript;
 		}
 
 		const auto built_in_binary_operator_kind = clang_getCursorBinaryOperatorKind(cursor);
@@ -136,7 +136,7 @@ namespace
 		const std::string operator_spelling_end = spelling.substr(operator_spelling_start.size());
 		if (operator_spelling_end == "[]")
 		{
-			return operator_kind::method_subscription;
+			return operator_kind::method_subscript;
 		}
 
 		if (binary_operator_method_by_spelling.contains(operator_spelling_end) 
