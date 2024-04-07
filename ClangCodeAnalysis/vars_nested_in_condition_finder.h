@@ -53,8 +53,8 @@ namespace clang_code_analysis
 		static CXChildVisitResult visitor_finding_all_nested_variables(
 			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
-			const auto data_ptr = static_cast<const finding_all_nested_variables_data*>(data_void_ptr);
-			if (cursor_classifier::is_reference_to_var_declaration(cursor))
+			if (const auto data_ptr = static_cast<const finding_all_nested_variables_data*>(data_void_ptr); 
+				cursor_classifier::is_reference_to_var_declaration(cursor))
 			{
 				const auto referenced_var = clang_getCursorReferenced(cursor);
 				const var_id referenced_var_id = cursors_storage_threadsafe<var_id>::get_instance().insert(referenced_var);

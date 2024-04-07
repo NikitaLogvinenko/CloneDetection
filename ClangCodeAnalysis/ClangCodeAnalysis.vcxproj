@@ -182,6 +182,7 @@
     <ClInclude Include="operator_kind.h" />
     <ClInclude Include="param_analyzer.h" />
     <ClInclude Include="vars_nested_in_condition_finder.h" />
+    <ClInclude Include="condition_nested_in_local_var_definition_finder.h" />
     <ClInclude Include="var_descriptor_creator.h" />
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>

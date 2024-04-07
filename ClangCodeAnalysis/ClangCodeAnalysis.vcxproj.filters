@@ -40,6 +40,9 @@
     <ClInclude Include="from_nth_vars_nested_in_condition_finder.h">
       <Filter>analyzers</Filter>
     </ClInclude>
+    <ClInclude Include="condition_nested_in_local_var_definition_finder.h">
+      <Filter>analyzers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="analyzers">

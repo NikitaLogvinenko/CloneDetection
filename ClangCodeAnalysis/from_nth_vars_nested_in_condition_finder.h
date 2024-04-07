@@ -46,7 +46,7 @@ namespace clang_code_analysis
 				return;
 			}
 
-			const finding_from_nth_nested_variables_data data{ analyzed_id, std::ref(callback), std::ref(*this) };
+			finding_from_nth_nested_variables_data data{ analyzed_id, std::ref(callback), std::ref(*this) };
 			clang_visitChildren(nested_cursor, visitor_finding_from_nth_nested_variables, &data);
 		}
 
@@ -55,8 +55,8 @@ namespace clang_code_analysis
 		static CXChildVisitResult visitor_finding_from_nth_nested_variables(
 			CXCursor cursor, CXCursor /*parent*/, const CXClientData data_void_ptr)
 		{
-			const auto data_ptr = static_cast<const finding_from_nth_nested_variables_data*>(data_void_ptr);
-			if (cursor_classifier::is_reference_to_var_declaration(cursor))
+			if (const auto data_ptr = static_cast<finding_from_nth_nested_variables_data*>(data_void_ptr); 
+				cursor_classifier::is_reference_to_var_declaration(cursor))
 			{
 				++data_ptr->variables_passed;
 				if (data_ptr->variables_passed >= N)
