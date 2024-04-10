@@ -8,6 +8,7 @@ namespace clone_detection_io
 	{
 	public:
 		functions_cmcd_console_application() = delete;
+
 		static void execute(const std::vector<std::string>& argv);
 	};
 }

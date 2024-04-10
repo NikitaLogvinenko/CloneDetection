@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace cpp_code_analysis
+namespace cpp_code_analysis::internal
 {
 	class analysed_func_info_index final
 	{
@@ -8,6 +8,7 @@ namespace cpp_code_analysis
 
 	public:
 		analysed_func_info_index() noexcept = default;
+
 		explicit analysed_func_info_index(const size_t index) noexcept : index_(index) {}
 
 		[[nodiscard]] size_t to_size_t() const noexcept

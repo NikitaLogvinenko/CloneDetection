@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="non_const_arithmetic.h" />
+    <ClInclude Include="non_const_unsigned_arithmetic.h" />
+    <ClInclude Include="pow_throwing.h" />
+    <ClInclude Include="non_const_integral.h" />
+    <ClInclude Include="parameters_validation.h" />
+    <ClInclude Include="relative_similarity.h" />
+    <ClInclude Include="strict_weak_order.h" />
+    <ClInclude Include="one_off_container.h" />
+    <ClInclude Include="unique_id_generator_threadsafe.h" />
+    <ClInclude Include="id_concept.h" />
+    <ClInclude Include="hash_combine.h" />
+    <ClInclude Include="continuous_similarity_bounded_below.h" />
+    <ClInclude Include="continuous_similarity_bounded.h" />
+    <ClInclude Include="spinlock.h" />
+    <ClInclude Include="id_hash.h" />
+  </ItemGroup>
+</Project>

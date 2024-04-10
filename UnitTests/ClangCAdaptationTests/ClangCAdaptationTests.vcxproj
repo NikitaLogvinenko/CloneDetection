@@ -71,25 +71,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\include\;$(SolutionDir)\UnitTests\googletest-1.13.0\googletest\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
