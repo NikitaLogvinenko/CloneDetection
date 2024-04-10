@@ -7,7 +7,6 @@ namespace cpp_code_analysis
 		is_param,
 		is_local_var,
 		is_member_field,
-		is_static_filed,
 		is_global_var,
 
 
@@ -35,5 +34,5 @@ namespace cpp_code_analysis
 		defined_with_literals
 	};
 
-	inline constexpr size_t default_conditions_total = static_cast<size_t>(var_usage_condition::defined_with_literals) + 1;
+	constexpr size_t default_conditions_total = static_cast<size_t>(var_usage_condition::defined_with_literals) + 1;
 }

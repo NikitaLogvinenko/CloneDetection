@@ -1,7 +1,7 @@
 # CloneDetection
 
 ## What is it?
-This is console application that can find repeated fragments (particularly - functions and methods) in C++ source code, so-called **_code clones_**. The algorithm is independent from code entities' names and can find even **near-clones** (slightly modified fragments, for example: two rows with variables declarations can be swapped, variables can be renamed or *for* statement replaced with *while*). Such **clones** usually occurs as a result of copy-pasting of some working code, maybe slightly changing it. In programmers circles that approach is considered as extremely harmful, since it is hardly maintainable and might lead to vexing bugs. 
+This is console application that can find repeated fragments (particularly - functions and methods) in C++ source code, so-called **_code clones_**. The algorithm is independent from code entities' names and can find even **near-clones** (slightly modified fragments, for example: two rows with variables declarations can be swapped, variables can be renamed or *for* statement replaced with *while*). Such **clones** usually occur as a result of copy-pasting of some working code, maybe slightly changing it. In programmers circles that approach is considered as extremely harmful, since it is hardly maintainable and might lead to vexing bugs. 
 
 ## Examples
 - Examples/Roy_et_al_16_scenarios/sources - different scenarios clones
@@ -25,7 +25,6 @@ To *compare two functions* the *bipartite graph* is built: the *vertices* in the
 - `is_param`- 0 or 1
 - `is_local_var` - 0 or 1
 - `is_field` - 0 or 1
-- `is_static_field` - 0 or 1
 - `is_global_var` - 0 or 1
 
 - `used_n_times` - counter

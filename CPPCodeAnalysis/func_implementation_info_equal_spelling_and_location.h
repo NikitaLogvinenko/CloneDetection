@@ -8,10 +8,11 @@ namespace cpp_code_analysis
 	{
 	public:
 		[[nodiscard]] bool operator()(
-			const func_implementation_info<VarUsageConditionsN>& first_func_info, 
+			const func_implementation_info<VarUsageConditionsN>& first_func_info,
 			const func_implementation_info<VarUsageConditionsN>& second_func_info) const noexcept
 		{
-			return first_func_info.spelling() == second_func_info.spelling() && first_func_info.location() == second_func_info.location();
+			return first_func_info.spelling() == second_func_info.spelling() && first_func_info.location() ==
+				second_func_info.location();
 		}
 	};
 }

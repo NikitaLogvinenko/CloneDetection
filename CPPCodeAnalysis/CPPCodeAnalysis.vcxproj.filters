@@ -9,15 +9,16 @@
     <ClInclude Include="func_implementation_analysis_director.h" />
     <ClInclude Include="func_implementation_analysis_builder_default.h" />
     <ClInclude Include="func_entity_type.h" />
-    <ClInclude Include="var_linkage_usage_counter_pair.h" />
-    <ClInclude Include="func_entities_cursors.h" />
+    <ClInclude Include="var_origin_and_usage_counter_pair.h" />
+    <ClInclude Include="func_entities_classifier.h" />
     <ClInclude Include="functions_cm_pairwise_similarity.h" />
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="analysed_functions_info.h" />
     <ClInclude Include="analysed_func_info_index.h" />
+    <ClInclude Include="index_of_var_usage_info.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="func_entities_cursors.cpp" />
+    <ClCompile Include="func_entities_classifier.cpp" />
     <ClCompile Include="func_implementation_analysis_builder_default.cpp" />
   </ItemGroup>
 </Project>

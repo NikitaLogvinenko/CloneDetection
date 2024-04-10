@@ -74,25 +74,25 @@
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
-    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\CodeGeneration\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\CommonExceptions\;$(SolutionDir)\LLVM\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -201,18 +201,19 @@
     <ClInclude Include="func_implementation_analysis_builder_default.h" />
     <ClInclude Include="func_implementation_analysis_director.h" />
     <ClInclude Include="func_implementation_analysis_builder_abstract.h" />
-    <ClInclude Include="func_entities_cursors.h" />
+    <ClInclude Include="func_entities_classifier.h" />
     <ClInclude Include="func_implementation_info.h" />
     <ClInclude Include="func_implementation_info_equal_spelling_and_location.h" />
     <ClInclude Include="func_implementation_info_hash.h" />
     <ClInclude Include="func_entity_type.h" />
-    <ClInclude Include="var_linkage_usage_counter_pair.h" />
+    <ClInclude Include="index_of_var_usage_info.h" />
+    <ClInclude Include="var_origin_and_usage_counter_pair.h" />
     <ClInclude Include="var_usage_info.h" />
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="func_implementation_analysis_builder_default.cpp" />
-    <ClCompile Include="func_entities_cursors.cpp" />
+    <ClCompile Include="func_entities_classifier.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

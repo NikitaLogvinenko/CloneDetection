@@ -2,7 +2,8 @@
 #include "count_matrix.h"
 #include "count_matrix_tests_miscellanious.h"
 
-using namespace count_matrix;
+using namespace cm;
+using namespace internal;
 
 TEST(index_of_count_vector_test, ctor_default)
 {
@@ -17,39 +18,32 @@ TEST(index_of_count_vector_test, ctor_with_index)
 	ASSERT_EQ(index_of_count_value.to_size_t(), index);
 }
 
-TEST(index_of_count_vector_test, methods_through_base_class)
+
+class count_matrix_dim3_test_f : public testing::Test
 {
-	constexpr size_t index = 42;
-	const index_of_count_vector index_of_count_value(index);
-	const typed_index* const typed_index_ptr = &index_of_count_value;
-	ASSERT_EQ(typed_index_ptr->to_size_t(), index);
-}
-
-
-class count_matrix_dim3_test_f: public ::testing::Test {
 protected:
 	void SetUp() override
 	{
-		values_1_ = std::array{ count_vector_value(0), count_vector_value(1), count_vector_value(2) };
-		values_2_ = std::array{ count_vector_value(3), count_vector_value(4), count_vector_value(5) };
-		values_3_ = std::array{ count_vector_value(6), count_vector_value(7), count_vector_value(8) };
-		values_4_ = std::array{ count_vector_value(9), count_vector_value(10), count_vector_value(11) };
+		values_1_ = std::array{counted_value(0), counted_value(1), counted_value(2)};
+		values_2_ = std::array{counted_value(3), counted_value(4), counted_value(5)};
+		values_3_ = std::array{counted_value(6), counted_value(7), counted_value(8)};
+		values_4_ = std::array{counted_value(9), counted_value(10), counted_value(11)};
 
-		cv_1_ = count_vector{ values_1_ };
-		cv_2_ = count_vector{ values_2_ };
-		cv_3_ = count_vector{ values_3_ };
-		cv_4_ = count_vector{ values_4_ };
+		cv_1_ = count_vector{values_1_};
+		cv_2_ = count_vector{values_2_};
+		cv_3_ = count_vector{values_3_};
+		cv_4_ = count_vector{values_4_};
 
-		count_vectors_ = std::vector{ cv_1_, cv_2_, cv_3_, cv_4_ };
-		cm_ = ::count_matrix::count_matrix{ count_vectors_ };
+		count_vectors_ = std::vector{cv_1_, cv_2_, cv_3_, cv_4_};
+		cm_ = count_matrix{count_vectors_};
 
-		cm_from_empty_vector_ = ::count_matrix::count_matrix(std::vector<count_vector<3>>{});
+		cm_from_empty_vector_ = count_matrix(std::vector<count_vector<3>>{});
 	}
 
-	std::array<count_vector_value, 3> values_1_{};
-	std::array<count_vector_value, 3> values_2_{};
-	std::array<count_vector_value, 3> values_3_{};
-	std::array<count_vector_value, 3> values_4_{};
+	std::array<counted_value, 3> values_1_{};
+	std::array<counted_value, 3> values_2_{};
+	std::array<counted_value, 3> values_3_{};
+	std::array<counted_value, 3> values_4_{};
 
 	count_vector<3> cv_1_{};
 	count_vector<3> cv_2_{};
@@ -58,12 +52,12 @@ protected:
 
 	std::vector<count_vector<3>> count_vectors_{};
 
-	::count_matrix::count_matrix<3> cm_{};
+	count_matrix<3> cm_{};
 
-	::count_matrix::count_matrix<3> cm_from_empty_vector_{};
+	count_matrix<3> cm_from_empty_vector_{};
 
 	count_vector<3> default_cv_{};
-	::count_matrix::count_matrix<3> default_cm_{};
+	count_matrix<3> default_cm_{};
 };
 
 TEST_F(count_matrix_dim3_test_f, ctor_default)
@@ -149,25 +143,26 @@ TEST_F(count_matrix_dim3_test_f, iterators)
 }
 
 
-class count_matrix_zero_dim_test_f : public ::testing::Test {
+class count_matrix_zero_dim_test_f : public testing::Test
+{
 protected:
 	void SetUp() override
 	{
-		count_vectors_ = std::vector{ cv_default_, cv_default_, cv_default_, cv_default_ };
-		cm_ = ::count_matrix::count_matrix{ count_vectors_ };
+		count_vectors_ = std::vector{cv_default_, cv_default_, cv_default_, cv_default_};
+		cm_ = count_matrix{count_vectors_};
 
-		cm_from_empty_vector_ = ::count_matrix::count_matrix(std::vector<count_vector<0>>{});
+		cm_from_empty_vector_ = count_matrix(std::vector<count_vector<0>>{});
 	}
 
 	count_vector<0> cv_default_{};
-	
+
 	std::vector<count_vector<0>> count_vectors_{};
 
-	::count_matrix::count_matrix<0> cm_{};
+	count_matrix<0> cm_{};
 
-	::count_matrix::count_matrix<0> cm_from_empty_vector_{};
+	count_matrix<0> cm_from_empty_vector_{};
 
-	::count_matrix::count_matrix<0> default_cm_{};
+	count_matrix<0> default_cm_{};
 };
 
 TEST_F(count_matrix_zero_dim_test_f, ctor_default)
