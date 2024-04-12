@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLib", "TestLib\TestLib.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestClrLibrary", "TestClrLibrary\TestClrLibrary.vcxproj", "{10F1A047-CA80-4A43-8C5F-2441DE92495A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CountMatrixWrapper", "CountMatrixWrapper\CountMatrixWrapper.vcxproj", "{E74B1C2B-52A1-424E-A641-3274D0CC596A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{10F1A047-CA80-4A43-8C5F-2441DE92495A}.Release|x64.Build.0 = Release|x64
 		{10F1A047-CA80-4A43-8C5F-2441DE92495A}.Release|x86.ActiveCfg = Release|Win32
 		{10F1A047-CA80-4A43-8C5F-2441DE92495A}.Release|x86.Build.0 = Release|Win32
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|Any CPU.Build.0 = Debug|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|x64.ActiveCfg = Debug|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|x64.Build.0 = Debug|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|x86.ActiveCfg = Debug|Win32
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Debug|x86.Build.0 = Debug|Win32
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|Any CPU.ActiveCfg = Release|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|Any CPU.Build.0 = Release|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|x64.ActiveCfg = Release|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|x64.Build.0 = Release|x64
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|x86.ActiveCfg = Release|Win32
+		{E74B1C2B-52A1-424E-A641-3274D0CC596A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

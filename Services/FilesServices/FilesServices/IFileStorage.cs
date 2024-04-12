@@ -1,6 +1,5 @@
 using System.IO;
 using System.Threading.Tasks;
-using MetaDataCreator;
 
 namespace FilesServices
 {

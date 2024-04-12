@@ -11,21 +11,14 @@ namespace FilesServices
             StorageSystem fileSystem = new StorageSystem();
             
             FileStorageExceptionChecker.CheckForNull(initFileName);
-            
-            if (!File.Exists(initFileName))
-            {
-                throw new ArgumentException("No such input file");
-            }
+            FileStorageExceptionChecker.CheckExistFile(initFileName);
 
-            FileStream stream = new FileStream(initFileName, FileMode.Open);
+            FileStream stream = new FileStream(initFileName, FileMode.Open, FileAccess.Read, FileShare.Read);
             var reader = new StreamReader(stream);
 
             while ((await reader.ReadLineAsync()!)! is { } filePath)
             {
-                if (!File.Exists(filePath))
-                {
-                    throw new ArgumentException("No such file from dictionary");
-                }
+                FileStorageExceptionChecker.CheckExistFile(filePath);
 
                 await fileSystem.AddNewFile(new FileId(filePath))!;
             }

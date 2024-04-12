@@ -18,8 +18,8 @@ namespace TestProject2
         {
             AlreadyCSharp class1 = new AlreadyCSharp(10);
 
-            Console.WriteLine(class1.GetA());
-            Console.WriteLine(class1.GetName());
+            Assert.True(class1.GetA() == 10);
+            Assert.True(class1.GetName().ToString() == "test");
         }
     }
 }

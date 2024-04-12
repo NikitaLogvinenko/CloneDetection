@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace FilesServices
 {
     public static class FileStorageExceptionChecker
@@ -7,6 +9,22 @@ namespace FilesServices
             if (obj == null)
             {
                 throw new FileStorageArgumentException("FileId cant be Null");
+            }
+        }
+
+        public static void CheckExistFile(string initFileName)
+        {
+            if (!File.Exists(initFileName))
+            {
+                throw new FileStorageArgumentException("No such file");
+            }
+        }
+
+        public static void CheckExistInSystem(bool flag)
+        {
+            if (!flag)
+            {
+                throw new FileStorageArgumentException("No such file in system");
             }
         }
     }

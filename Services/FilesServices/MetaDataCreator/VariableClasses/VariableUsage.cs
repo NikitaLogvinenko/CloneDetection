@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace MetaDataCreator
 {
+    [Serializable]
     public class VariableUsage : IEnumerable, ICloneable
     {
         private readonly List<OperationCounter> _usageCount = new List<OperationCounter>();
@@ -13,24 +14,22 @@ namespace MetaDataCreator
         
         private VariableUsage(List<OperationCounter> usageCount)
         {
-            _usageCount = usageCount ?? throw new Exception("Null Input");
+            MetaDataExceptionChecker.CheckForNull(usageCount);
+
+            _usageCount = usageCount;
         }
 
         public void Add(OperationCounter operationCounter)
         {
-            if (operationCounter == null)
-            {
-                throw new Exception("Null input");
-            }
+            MetaDataExceptionChecker.CheckForNull(operationCounter);
+
             _usageCount.Add(operationCounter);
         }
 
         public void Remove(OperationCounter operationCounter)
         {
-            if (operationCounter == null)
-            {
-                throw new Exception("Null input");
-            }
+            MetaDataExceptionChecker.CheckForNull(operationCounter);
+
             _usageCount.Remove(operationCounter);
         }
 

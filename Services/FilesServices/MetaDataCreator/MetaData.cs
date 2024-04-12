@@ -5,12 +5,11 @@ using System.Linq;
 
 namespace MetaDataCreator
 {
+    [Serializable]
     public class MetaData : IEnumerable<KeyValuePair<VariableUsage, Variable>>
     {
         private readonly Dictionary<VariableUsage, Variable> _metaData =
             new Dictionary<VariableUsage, Variable>(new UsageComparer());
-
-        private int _currentIndex = -1;
 
         public int GetSize()
         {
@@ -21,11 +20,7 @@ namespace MetaDataCreator
         {
             MetaDataExceptionChecker.CheckForNull(usage);
             MetaDataExceptionChecker.CheckForNull(variable);
-
-            if (_metaData.ContainsKey(usage))
-            {
-                throw new Exception("Already have such key");
-            }
+            MetaDataExceptionChecker.CheckKeyAddAvailability(usage, _metaData);
             
             _metaData.Add(usage, variable);
         }
@@ -33,11 +28,8 @@ namespace MetaDataCreator
         public void RemoveVariable(VariableUsage key)
         {
             MetaDataExceptionChecker.CheckForNull(key);
+            MetaDataExceptionChecker.CheckKeyRemoveAvailability(key, _metaData);
 
-            if (!_metaData.ContainsKey(key))
-            {
-                throw new ArgumentException("No such key");
-            }
             _metaData.Remove(key);
         }
 

@@ -8,7 +8,9 @@ namespace MetaDataCreator
 
         public UnaryOperation(OperationId operation)
         {
-            _operation = operation ?? throw new Exception("Null input");
+            MetaDataExceptionChecker.CheckForNull(operation);
+
+            _operation = operation;
         }
         
         public OperationId GetOperationId()

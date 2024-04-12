@@ -1,5 +1,3 @@
-using System;
-
 namespace MetaDataCreator
 {
     public class OperationId
@@ -8,7 +6,9 @@ namespace MetaDataCreator
 
         public OperationId(string operationName)
         {
-            _operationId = operationName ?? throw new Exception("Null input");
+            MetaDataExceptionChecker.CheckForNull(operationName);
+
+            _operationId = operationName;
         }
 
         public string GetId()

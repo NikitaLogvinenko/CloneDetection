@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.IO;
-using System.Linq;
-using System.Threading;
 using MetaDataCreator;
 using System.Threading.Tasks;
 
@@ -37,13 +33,7 @@ namespace FilesServices
         public Task<FileInfo> GetFile(FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
-            
-            var result = _fileSystem.TryGetValue(inputFileId, out var metaData);
-            
-            if (!result)
-            {
-                throw new ArgumentException("No such file");
-            }
+            FileStorageExceptionChecker.CheckExistInSystem(_fileSystem.TryGetValue(inputFileId, out var metaData));
 
             return Task.FromResult(new FileInfo(inputFileId.GetId()));
         }
@@ -65,11 +55,7 @@ namespace FilesServices
         public async Task<string> GetFileText(FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
-            
-            if (!_fileSystem.TryGetValue(inputFileId, out var metaData))
-            {
-                throw new ArgumentException("No such file");
-            }
+            FileStorageExceptionChecker.CheckExistInSystem(_fileSystem.TryGetValue(inputFileId, out var metaData));
                 
             var reader = new StreamReader(inputFileId.GetId()!);
                 

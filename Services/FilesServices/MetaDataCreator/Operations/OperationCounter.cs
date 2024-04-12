@@ -2,15 +2,19 @@ using System;
 
 namespace MetaDataCreator
 {
+    [Serializable]
     public class OperationCounter
     {
         public IOperation Operation { get; }
-        public int UsageNum { get; }
+        public uint UsageNum { get; }
         
-        public OperationCounter(IOperation operation, int usageNum)
+        public OperationCounter(IOperation operation, uint usageNum)
         {
             UsageNum = usageNum;
-            Operation = operation ?? throw new Exception("Null Input");
+
+            MetaDataExceptionChecker.CheckForNull(operation);
+
+            Operation = operation;
         }
     }
 }

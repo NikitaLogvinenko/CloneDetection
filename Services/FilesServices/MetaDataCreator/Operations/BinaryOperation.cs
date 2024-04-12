@@ -7,15 +7,13 @@ namespace MetaDataCreator
         private readonly OperationId _operation;
         private readonly Variable _operandSecond;
 
-        public BinaryOperation(OperationId operation, Variable second)
+        public BinaryOperation(OperationId operation, Variable secondOperand)
         {
-            if (operation == null || second == null)
-            {
-                throw new Exception("Null input");
-            }
+            MetaDataExceptionChecker.CheckForNull(operation);
+            MetaDataExceptionChecker.CheckForNull(secondOperand);
 
             _operation = operation;
-            _operandSecond = second;
+            _operandSecond = secondOperand;
         }
         
         public OperationId GetOperationId()

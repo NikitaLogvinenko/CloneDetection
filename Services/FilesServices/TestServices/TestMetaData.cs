@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using MakeMetaData;
 using NUnit.Framework;
 using MetaDataCreator;
 
@@ -12,7 +14,7 @@ namespace TestMetaData
         {
             OperationId id = new OperationId("add");
             
-            Assert.Throws<Exception>(() =>
+            Assert.Throws<MetaDataArgumentException>(() =>
             {
                 var operationId = new OperationId(null);
             });
@@ -39,7 +41,7 @@ namespace TestMetaData
             OperationId id = new OperationId("++");
             UnaryOperation operation = new UnaryOperation(id);
             
-            Assert.Throws<Exception>(() =>
+            Assert.Throws<MetaDataArgumentException>(() =>
             {
                 UnaryOperation operation1 = new UnaryOperation(null);
             });
@@ -74,7 +76,7 @@ namespace TestMetaData
             Variable variable = new Variable("a");
             BinaryOperation operation = new BinaryOperation(id, variable);
             
-            Assert.Throws<Exception>(() =>
+            Assert.Throws<MetaDataArgumentException>(() =>
             {
                 BinaryOperation operation1 = new BinaryOperation(null, null);
                 BinaryOperation operation2 = new BinaryOperation(id, null);
@@ -147,7 +149,7 @@ namespace TestMetaData
             Assert.True(usage.GetSize() == 0);
         }
     }
-    
+
     [TestFixture]
     public class TestMetaData
     {
@@ -156,7 +158,7 @@ namespace TestMetaData
         {
             MetaData metaData = new MetaData();
         }
-    
+
         [Test]
         public void MetaDataInitUsages()
         {
@@ -165,7 +167,7 @@ namespace TestMetaData
             OperationCounter counter = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
             metaData.AddVariable(usage, new Variable("a"));
         }
-    
+
         [Test]
         public void MetaDataAdd()
         {
@@ -176,34 +178,62 @@ namespace TestMetaData
             VariableUsage usage1 = new VariableUsage();
             OperationCounter counter1 = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
             metaData.AddVariable(usage1, new Variable("a"));
-            
+
             Assert.True(metaData.GetSize() == 2);
         }
-        
+
         [Test]
         public void MetaDataRemove()
         {
             MetaData metaData = new MetaData();
-            
+
             VariableUsage usage = new VariableUsage();
             OperationCounter counter = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
             metaData.AddVariable(usage, new Variable("a"));
-            
+
             VariableUsage usage1 = new VariableUsage();
             OperationCounter counter1 = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
             metaData.AddVariable(usage1, new Variable("u"));
-            
+
             Assert.True(metaData.GetSize() == 2);
-            
+
             metaData.RemoveVariable(usage);
-            
+
             Assert.True(metaData.GetSize() == 1);
-            
-           Assert.Throws<MetaDataArgumentException>(()=>metaData.RemoveVariableByName(new Variable("gg")));
-            
+
+            Assert.Throws<MetaDataArgumentException>(() => metaData.RemoveVariableByName(new Variable("gg")));
+
             metaData.RemoveVariableByName(new Variable("u"));
-            
+
             Assert.True(metaData.GetSize() == 0);
+        }
+
+        [Test]
+        public void MetaDataSerializeDeserialize()
+        {
+            MetaData metaData = new MetaData();
+
+            VariableUsage usage = new VariableUsage();
+            OperationCounter counter = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
+            metaData.AddVariable(usage, new Variable("a"));
+
+            VariableUsage usage1 = new VariableUsage();
+            OperationCounter counter1 = new OperationCounter(new UnaryOperation(new OperationId("++")), 4);
+            metaData.AddVariable(usage1, new Variable("u"));
+
+            const string filePath = "out.txt";
+
+            Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+
+            MetaDataSerializer.Serialize(stream, metaData);
+
+            stream.Close();
+
+            Stream streamRead = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+
+            MetaData newOne = MetaDataSerializer.Deserialize(streamRead);
+
+            Assert.AreEqual(metaData.GetSize(), newOne.GetSize());
         }
     }
 }
