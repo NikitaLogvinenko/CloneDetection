@@ -155,6 +155,7 @@
     <ClInclude Include="existed_file_rewriting_error.h" />
     <ClInclude Include="file_not_opened_error.h" />
     <ClInclude Include="incorrect_order_error.h" />
+    <ClInclude Include="input_format_error.h" />
     <ClInclude Include="insertion_error.h" />
     <ClInclude Include="invalid_index_error.h" />
     <ClInclude Include="iterator_operation_error.h" />

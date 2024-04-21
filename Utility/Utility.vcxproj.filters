@@ -16,5 +16,9 @@
     <ClInclude Include="continuous_similarity_bounded.h" />
     <ClInclude Include="spinlock.h" />
     <ClInclude Include="id_hash.h" />
+    <ClInclude Include="line_parser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="line_parser.cpp" />
   </ItemGroup>
 </Project>

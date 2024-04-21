@@ -12,8 +12,10 @@
     <ClInclude Include="token_index.h" />
     <ClInclude Include="clang_range_error.h" />
     <ClInclude Include="tokenizer.h" />
+    <ClInclude Include="command_line_args_raii.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tokenizer.cpp" />
+    <ClCompile Include="command_line_args_raii.cpp" />
   </ItemGroup>
 </Project>

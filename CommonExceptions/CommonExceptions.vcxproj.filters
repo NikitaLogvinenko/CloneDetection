@@ -15,5 +15,6 @@
     <ClInclude Include="iterator_operation_error.h" />
     <ClInclude Include="empty_argument_error.h" />
     <ClInclude Include="unexpected_behaviour_error.h" />
+    <ClInclude Include="input_format_error.h" />
   </ItemGroup>
 </Project>

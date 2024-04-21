@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="line_parser.h" />
     <ClInclude Include="continuous_similarity_bounded.h" />
     <ClInclude Include="continuous_similarity_bounded_below.h" />
     <ClInclude Include="hash_combine.h" />
@@ -170,6 +171,9 @@
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
     <ClInclude Include="unique_id_generator_threadsafe.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="line_parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
