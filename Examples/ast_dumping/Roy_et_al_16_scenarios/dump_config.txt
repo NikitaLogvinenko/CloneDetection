@@ -1,0 +1,2 @@
+<DumpsDirectory> ".\dumps\"
+<SourcesDirectory> ".\sources\"

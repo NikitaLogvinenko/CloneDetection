@@ -6,8 +6,8 @@ void clang_ast_dumping::ast_dumping_config::set_dumps_dir(path dir)
 	if (!dumps_dir_.empty())
 	{
 		throw common_exceptions::invalid_operation_error{ std::format(
-		"::ast_dumping_config::set_dumps_dir: Can not reassign dumps directory. Previously"
-  "set directory: {}, reassigning directory: {}.", dumps_dir_.string(), dir.string()) };
+		"::ast_dumping_config::set_dumps_dir: Can not reassign dumps directory. Previously "
+  "set directory: \"{}\", reassigning directory: \"{}\".", dumps_dir_.string(), dir.string()) };
 	}
 
 	std::swap(dumps_dir_, dir);
@@ -18,7 +18,7 @@ void clang_ast_dumping::ast_dumping_config::add_source(path source, std::vector<
 	if (args_by_source_.contains(source))
 	{
 		throw common_exceptions::invalid_operation_error(std::format(
-			"::ast_dumping_config::add_source: {} arguments were set already, can not rewrite",
+			"::ast_dumping_config::add_source: \"{}\" arguments were set already, can not rewrite",
 			source.string()));
 	}
 

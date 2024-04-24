@@ -5,6 +5,7 @@
 
 #
 LLVM/
+*.ast
 
 # User-specific files
 *.rsuser

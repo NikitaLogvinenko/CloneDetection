@@ -1,4 +1,5 @@
 ﻿#include "source_to_ast_arguments_creator.h"
+#include "input_format_error.h"
 
 namespace
 {
@@ -13,7 +14,7 @@ namespace
 		const size_t include_dirs_args_count = config.include_dirs().size() * 2;
 		const size_t libs_dirs_args_count = config.libs_dirs().size() * 2;
 		const size_t libs_args_count = config.libs().size() * 2;
-		const size_t common_args_count = config.common_args() ? 0 : config.common_args().value().size();
+		const size_t common_args_count = config.common_args() ? config.common_args().value().size() : 0;
 
 		return specific_args_count + include_dirs_args_count + libs_dirs_args_count + libs_args_count + common_args_count;
 	}
@@ -57,6 +58,12 @@ std::vector<clang_ast_dumping::source_to_ast_arguments> clang_ast_dumping::sourc
 				config.common_args().value().cbegin(),
 				config.common_args().value().cend());
 		}
+
+		if (config.dumps_dir().empty())
+		{
+			throw common_exceptions::input_format_error{ "source_to_ast_arguments_creator::create: dumps directory wasn't provided." };
+		}
+		create_directories(config.dumps_dir());
 
 		std::filesystem::path ast_path{ (config.dumps_dir() / source.stem()).string() + ".ast" };
 

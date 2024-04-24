@@ -13,11 +13,14 @@ std::optional<std::vector<std::string>> utility::line_parser::parse_line(std::is
 
 	std::vector<std::string> args{};
 	auto arg_begin_cursor = line.cbegin();
-	while (arg_begin_cursor != line.cend())
+	size_t current_index = 0;
+
+	while (current_index != line.size())
 	{
 		if (*arg_begin_cursor == args_delimiter)
 		{
 			++arg_begin_cursor;
+			++current_index;
 			continue;
 		}
 
@@ -25,40 +28,43 @@ std::optional<std::vector<std::string>> utility::line_parser::parse_line(std::is
 
 		if (*arg_begin_cursor != multi_word_arg_boundary)
 		{
-			if (const size_t arg_size = line.find_first_of(args_delimiter, arg_begin_cursor - line.cbegin());
-				arg_size == std::string_view::npos)
+			if (const size_t arg_end_index = line.find_first_of(args_delimiter, current_index);
+				arg_end_index == std::string_view::npos)
 			{
 				arg_end_cursor = line.cend();
 			}
 
 			else
 			{
-				arg_end_cursor = arg_begin_cursor + arg_size;
+				arg_end_cursor = line.cbegin() + arg_end_index;
 			}
 		}
 
 		else
 		{
 			++arg_begin_cursor;
-			if (const size_t arg_size = line.find_first_of(multi_word_arg_boundary, arg_begin_cursor - line.cbegin());
-				arg_size == std::string_view::npos)
+			++current_index;
+
+			if (const size_t arg_end_index = line.find_first_of(multi_word_arg_boundary, current_index);
+				arg_end_index == std::string_view::npos)
 			{
 				throw common_exceptions::input_format_error{ "line_parser::parse_line: "
 												"multi word delimiter is not closed." };
 			}
-
 			else
 			{
-				arg_end_cursor = arg_begin_cursor + arg_size;
+				arg_end_cursor = line.cbegin() + arg_end_index;
 			}
 		}
 
 		args.emplace_back(arg_begin_cursor, arg_end_cursor);
-
+		current_index = arg_end_cursor - line.cbegin();
 		arg_begin_cursor = arg_end_cursor;
+
 		if (arg_begin_cursor != line.cend())
 		{
 			++arg_begin_cursor;
+			++current_index;
 		}
 	}
 

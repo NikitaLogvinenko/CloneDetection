@@ -81,7 +81,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_include_dir(s
 		tokens, first_dir_token_index + 1, 
 		include_dir_prefix, "ast_dumping_config_parser_default::process_include_dir");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_include_dir");
@@ -99,7 +99,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_include_dir_r
 		tokens, first_dir_token_index + 1, 
 		include_dir_recursive_prefix, "ast_dumping_config_parser_default::process_include_dir_recursive");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_include_dir_recursive");
@@ -125,7 +125,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_libs_dir(std:
 		tokens, first_dir_token_index + 1, 
 		libs_dir_prefix, "ast_dumping_config_parser_default::process_libs_dir");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_libs_dir");
@@ -143,7 +143,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_libs_dir_recu
 		tokens, first_dir_token_index + 1,
 		libs_dir_recursive_prefix, "ast_dumping_config_parser_default::process_libs_dir_recursive");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_libs_dir_recursive");
@@ -169,7 +169,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_lib(std::vect
 		tokens, first_lib_token_index + 1,
 		lib_prefix, "ast_dumping_config_parser_default::process_lib");
 
-	for (size_t token_index = first_lib_token_index; first_lib_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_lib_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path lib = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent<input_format_error>(lib, "ast_dumping_config_parser_default::process_lib");
@@ -187,7 +187,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir(s
 		tokens, first_dir_token_index + 1,
 		sources_dir_prefix, "ast_dumping_config_parser_default::process_sources_dir");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir");
@@ -211,7 +211,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir_r
 		tokens, first_dir_token_index + 1,
 		sources_dir_recursive_prefix, "ast_dumping_config_parser_default::process_sources_dir_recursive");
 
-	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
+	for (size_t token_index = first_dir_token_index; token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir_recursive");
@@ -248,7 +248,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_source(std::v
 	constexpr size_t first_arg_token_index = source_token_index + 1;
 
 	utility::throw_if_not_enough_elements<input_format_error>(
-		tokens, first_arg_token_index + 1,
+		tokens, source_token_index + 1,
 		source_prefix, "ast_dumping_config_parser_default::process_source");
 
 	auto source_path = std::filesystem::absolute(tokens[source_token_index]);

@@ -4,7 +4,6 @@
 #include "file_not_opened_error.h"
 #include <format>
 #include <filesystem>
-#include <fstream>
 
 namespace utility
 {
@@ -52,7 +51,7 @@ namespace utility
 	{
 		if (!exists(path))
 		{
-			throw Exception(std::format("{}: {} does not exist.", func_name, path.string()));
+			throw Exception(std::format("{}: \"{}\" does not exist.", func_name, path.string()));
 		}
 	}
 
@@ -63,7 +62,7 @@ namespace utility
 
 		if (!is_directory(dir))
 		{
-			throw Exception(std::format("{}: {} is not a directory.", func_name, dir.string()));
+			throw Exception(std::format("{}: \"{}\" is not a directory.", func_name, dir.string()));
 		}
 	}
 
