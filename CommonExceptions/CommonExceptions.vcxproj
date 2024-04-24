@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="arguments_count_error.h" />
     <ClInclude Include="empty_argument_error.h" />
     <ClInclude Include="existing_file_rewriting_error.h" />
     <ClInclude Include="file_not_opened_error.h" />

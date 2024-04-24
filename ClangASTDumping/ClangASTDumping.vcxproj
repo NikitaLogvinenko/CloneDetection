@@ -167,12 +167,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ast_dumping_config_parser.cpp" />
+    <ClCompile Include="ast_dumper_default.cpp" />
+    <ClCompile Include="ast_dumping_app.cpp" />
+    <ClCompile Include="ast_dumping_config.cpp" />
+    <ClCompile Include="ast_dumping_config_parser_default.cpp" />
+    <ClCompile Include="ast_dumping_director.cpp" />
     <ClCompile Include="ast_dumping_main.cpp" />
+    <ClCompile Include="source_to_ast_arguments_creator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ast_dumping_config_parser.h" />
+    <ClInclude Include="ast_dumper_abstract.h" />
+    <ClInclude Include="ast_dumper_default.h" />
+    <ClInclude Include="ast_dumping_app.h" />
+    <ClInclude Include="ast_dumping_config.h" />
+    <ClInclude Include="ast_dumping_config_parser_default.h" />
+    <ClInclude Include="ast_dumping_config_parser_abstract.h" />
+    <ClInclude Include="ast_dumping_director.h" />
     <ClInclude Include="source_to_ast_arguments.h" />
+    <ClInclude Include="source_to_ast_arguments_creator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

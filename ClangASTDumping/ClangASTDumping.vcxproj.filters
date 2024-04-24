@@ -2,10 +2,22 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="ast_dumping_main.cpp" />
-    <ClCompile Include="ast_dumping_config_parser.cpp" />
+    <ClCompile Include="ast_dumping_config_parser_default.cpp" />
+    <ClCompile Include="source_to_ast_arguments_creator.cpp" />
+    <ClCompile Include="ast_dumping_config.cpp" />
+    <ClCompile Include="ast_dumper_default.cpp" />
+    <ClCompile Include="ast_dumping_director.cpp" />
+    <ClCompile Include="ast_dumping_app.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ast_dumping_config_parser.h" />
+    <ClInclude Include="ast_dumping_config_parser_default.h" />
     <ClInclude Include="source_to_ast_arguments.h" />
+    <ClInclude Include="source_to_ast_arguments_creator.h" />
+    <ClInclude Include="ast_dumping_config.h" />
+    <ClInclude Include="ast_dumper_abstract.h" />
+    <ClInclude Include="ast_dumper_default.h" />
+    <ClInclude Include="ast_dumping_config_parser_abstract.h" />
+    <ClInclude Include="ast_dumping_director.h" />
+    <ClInclude Include="ast_dumping_app.h" />
   </ItemGroup>
 </Project>

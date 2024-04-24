@@ -9,7 +9,7 @@ clang_c_adaptation::command_line_args_raii::command_line_args_raii(const std::ve
 
 	argc_ = args.size();
 
-	argv_ = new char* [argc_];
+	argv_ = new char* [argc_ + 1];
 
 	try
 	{
@@ -19,6 +19,8 @@ clang_c_adaptation::command_line_args_raii::command_line_args_raii(const std::ve
 			argv_[argument_i] = new char[argument_size];
 			strcpy_s(argv_[argument_i], argument_size, args[argument_i].c_str());
 		}
+
+		argv_[argc_] = nullptr;
 	}
 	catch (const std::exception&)
 	{

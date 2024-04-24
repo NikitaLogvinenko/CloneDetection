@@ -1,8 +1,10 @@
 ﻿#pragma once
 #include "nullptr_error.h"
 #include "param_out_of_range_error.h"
+#include "file_not_opened_error.h"
 #include <format>
 #include <filesystem>
+#include <fstream>
 
 namespace utility
 {
@@ -62,6 +64,16 @@ namespace utility
 		if (!is_directory(dir))
 		{
 			throw Exception(std::format("{}: {} is not a directory.", func_name, dir.string()));
+		}
+	}
+
+	template <class FileT>
+	void throw_if_not_open(const FileT& file, const std::filesystem::path& filename, const std::string& func_name)
+	{
+		if (!file.is_open())
+		{
+			throw common_exceptions::file_not_opened_error{ std::format(
+				"{}: can not open file \"{}\".", func_name, filename.string()) };
 		}
 	}
 }

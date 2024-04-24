@@ -16,5 +16,6 @@
     <ClInclude Include="empty_argument_error.h" />
     <ClInclude Include="unexpected_behaviour_error.h" />
     <ClInclude Include="input_format_error.h" />
+    <ClInclude Include="arguments_count_error.h" />
   </ItemGroup>
 </Project>

@@ -15,8 +15,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CloneDetectionIO", "CloneDe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CloneDetectionApp", "CloneDetectionApp\CloneDetectionApp.vcxproj", "{8AFD1631-952F-46F0-88CB-3DA349D91505}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CountMatrixTests", "UnitTests\CountMatrixTests\CountMatrixTests.vcxproj", "{F4A9818E-9B4D-4881-8B04-141C0D47B41F}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTest", "UnitTests\GoogleTest\GoogleTest.vcxproj", "{9357295E-E1F8-43C2-9823-ADF6663EBE2B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommonExceptions", "CommonExceptions\CommonExceptions.vcxproj", "{E7ECACA5-1E1E-421A-B746-AB57F3891C15}"
@@ -38,6 +36,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClangCodeAnalysis", "ClangCodeAnalysis\ClangCodeAnalysis.vcxproj", "{25FC3897-99AA-4DD1-B892-D49E28694FAA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClangASTDumping", "ClangASTDumping\ClangASTDumping.vcxproj", "{C8D3BE8B-1F22-4708-8872-06C354BC03B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CountMatrixTests", "UnitTests\CountMatrixTests\CountMatrixTests.vcxproj", "{F4A9818E-9B4D-4881-8B04-141C0D47B41F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,14 +95,6 @@ Global
 		{8AFD1631-952F-46F0-88CB-3DA349D91505}.Release|x64.Build.0 = Release|x64
 		{8AFD1631-952F-46F0-88CB-3DA349D91505}.Release|x86.ActiveCfg = Release|Win32
 		{8AFD1631-952F-46F0-88CB-3DA349D91505}.Release|x86.Build.0 = Release|Win32
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x64.ActiveCfg = Debug|x64
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x64.Build.0 = Debug|x64
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x86.ActiveCfg = Debug|Win32
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x86.Build.0 = Debug|Win32
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x64.ActiveCfg = Release|x64
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x64.Build.0 = Release|x64
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x86.ActiveCfg = Release|Win32
-		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x86.Build.0 = Release|Win32
 		{9357295E-E1F8-43C2-9823-ADF6663EBE2B}.Debug|x64.ActiveCfg = Debug|x64
 		{9357295E-E1F8-43C2-9823-ADF6663EBE2B}.Debug|x64.Build.0 = Debug|x64
 		{9357295E-E1F8-43C2-9823-ADF6663EBE2B}.Debug|x86.ActiveCfg = Debug|Win32
@@ -191,6 +183,14 @@ Global
 		{C8D3BE8B-1F22-4708-8872-06C354BC03B8}.Release|x64.Build.0 = Release|x64
 		{C8D3BE8B-1F22-4708-8872-06C354BC03B8}.Release|x86.ActiveCfg = Release|Win32
 		{C8D3BE8B-1F22-4708-8872-06C354BC03B8}.Release|x86.Build.0 = Release|Win32
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x64.ActiveCfg = Debug|x64
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x64.Build.0 = Debug|x64
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Debug|x86.Build.0 = Debug|Win32
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x64.ActiveCfg = Release|x64
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x64.Build.0 = Release|x64
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x86.ActiveCfg = Release|Win32
+		{F4A9818E-9B4D-4881-8B04-141C0D47B41F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

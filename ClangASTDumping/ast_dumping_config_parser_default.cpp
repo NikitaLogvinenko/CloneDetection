@@ -1,5 +1,4 @@
-﻿#include "ast_dumping_config_parser.h"
-#include "invalid_operation_error.h"
+﻿#include "ast_dumping_config_parser_default.h"
 #include "line_parser.h"
 #include "input_format_error.h"
 #include "parameters_validation.h"
@@ -24,57 +23,7 @@ namespace
 		};
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::set_dumps_dir(path dir)
-{
-	if (!dumps_dir_.empty())
-	{
-		throw common_exceptions::invalid_operation_error{std::format(
-		"ast_dumping_config_parser::ast_dumping_config::set_dumps_dir: Can not reassign dumps directory. Previously"
-  "set directory: {}, reassigning directory: {}.", dumps_dir_.string(), dir.string())};
-	}
-
-	std::swap(dumps_dir_, dir);
-}
-
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::add_source(path source, std::vector<std::string> args)
-{
-	if (args_by_source_.contains(source))
-	{
-		throw common_exceptions::invalid_operation_error(std::format(
-			"ast_dumping_config_parser::ast_dumping_config::add_source: {} arguments were set already, can not rewrite", 
-			source.string()));
-	}
-
-	args_by_source_.try_emplace(std::move(source), std::move(args));
-}
-
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::add_include_dir(path dir)
-{
-	include_dirs_.emplace(std::move(dir));
-}
-
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::add_lib_dir(path dir)
-{
-	libs_dirs_.emplace(std::move(dir));
-}
-
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::add_lib(path lib)
-{
-	libs_.emplace(std::move(lib));
-}
-
-void clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config::add_args(std::vector<std::string> args)
-{
-	if (!common_args_)
-	{
-		common_args_ = args;
-		return;
-	}
-
-	args.insert(args.cend(), std::make_move_iterator(args.begin()), std::make_move_iterator(args.end()));
-}
-
-clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config clang_ast_dumping::ast_dumping_config_parser::parse(
+clang_ast_dumping::ast_dumping_config clang_ast_dumping::ast_dumping_config_parser_default::parse(
 	std::istream& input)
 {
 	ast_dumping_config config{};
@@ -93,7 +42,7 @@ clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config clang_ast_dumpi
 		if (!tokens_processing_by_prefix.contains(prefix))
 		{
 			throw input_format_error(std::format(
-				"ast_dumping_config_parser::parse: invalid prefix was encountered: {}.", prefix));
+				"ast_dumping_config_parser_default::parse: invalid prefix was encountered: {}.", prefix));
 		}
 
 		const auto processing = tokens_processing_by_prefix.at(prefix);
@@ -103,7 +52,7 @@ clang_ast_dumping::ast_dumping_config_parser::ast_dumping_config clang_ast_dumpi
 	return config;
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_dumps_dir(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_dumps_dir(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -111,18 +60,18 @@ void clang_ast_dumping::ast_dumping_config_parser::process_dumps_dir(std::vector
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, dumps_dir_token_index + 1, 
-		dumps_dir_prefix, "ast_dumping_config_parser::process_dumps_dir");
+		dumps_dir_prefix, "ast_dumping_config_parser_default::process_dumps_dir");
 
 	if (tokens.size() > dumps_dir_token_index + 1)
 	{
-		throw input_format_error{ "ast_dumping_config_parser::process_dumps_dir: "
+		throw input_format_error{ "ast_dumping_config_parser_default::process_dumps_dir: "
 											  "several dumps directories were provided." };
 	}
 
 	config.set_dumps_dir(std::filesystem::absolute(tokens[dumps_dir_token_index]));
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_include_dir(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_include_dir(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -130,17 +79,17 @@ void clang_ast_dumping::ast_dumping_config_parser::process_include_dir(std::vect
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1, 
-		include_dir_prefix, "ast_dumping_config_parser::process_include_dir");
+		include_dir_prefix, "ast_dumping_config_parser_default::process_include_dir");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_include_dir");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_include_dir");
 		config.add_include_dir(std::move(dir));
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_include_dir_recursive(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_include_dir_recursive(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -148,12 +97,12 @@ void clang_ast_dumping::ast_dumping_config_parser::process_include_dir_recursive
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1, 
-		include_dir_recursive_prefix, "ast_dumping_config_parser::process_include_dir_recursive");
+		include_dir_recursive_prefix, "ast_dumping_config_parser_default::process_include_dir_recursive");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_include_dir_recursive");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_include_dir_recursive");
 
 		auto nested_dirs = get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
 
@@ -166,7 +115,7 @@ void clang_ast_dumping::ast_dumping_config_parser::process_include_dir_recursive
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_libs_dir(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_libs_dir(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -174,17 +123,17 @@ void clang_ast_dumping::ast_dumping_config_parser::process_libs_dir(std::vector<
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1, 
-		libs_dir_prefix, "ast_dumping_config_parser::process_libs_dir");
+		libs_dir_prefix, "ast_dumping_config_parser_default::process_libs_dir");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_libs_dir");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_libs_dir");
 		config.add_lib_dir(std::move(dir));
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_libs_dir_recursive(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_libs_dir_recursive(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -192,12 +141,12 @@ void clang_ast_dumping::ast_dumping_config_parser::process_libs_dir_recursive(st
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1,
-		libs_dir_recursive_prefix, "ast_dumping_config_parser::process_libs_dir_recursive");
+		libs_dir_recursive_prefix, "ast_dumping_config_parser_default::process_libs_dir_recursive");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_libs_dir_recursive");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_libs_dir_recursive");
 
 		auto nested_dirs = get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
 
@@ -210,7 +159,7 @@ void clang_ast_dumping::ast_dumping_config_parser::process_libs_dir_recursive(st
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_lib(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_lib(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -218,17 +167,17 @@ void clang_ast_dumping::ast_dumping_config_parser::process_lib(std::vector<std::
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_lib_token_index + 1,
-		lib_prefix, "ast_dumping_config_parser::process_lib");
+		lib_prefix, "ast_dumping_config_parser_default::process_lib");
 
 	for (size_t token_index = first_lib_token_index; first_lib_token_index < tokens.size(); ++token_index)
 	{
 		path lib = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent<input_format_error>(lib, "ast_dumping_config_parser::process_lib");
+		utility::throw_if_nonexistent<input_format_error>(lib, "ast_dumping_config_parser_default::process_lib");
 		config.add_lib(std::move(lib));
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -236,12 +185,12 @@ void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir(std::vect
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1,
-		sources_dir_prefix, "ast_dumping_config_parser::process_sources_dir");
+		sources_dir_prefix, "ast_dumping_config_parser_default::process_sources_dir");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_sources_dir");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir");
 
 		for (auto nested_sources = get_nested_paths(
 			std::filesystem::directory_iterator{ dir }, is_source_file_predicate); 
@@ -252,7 +201,7 @@ void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir(std::vect
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir_recursive(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir_recursive(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -260,12 +209,12 @@ void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir_recursive
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_dir_token_index + 1,
-		sources_dir_recursive_prefix, "ast_dumping_config_parser::process_sources_dir_recursive");
+		sources_dir_recursive_prefix, "ast_dumping_config_parser_default::process_sources_dir_recursive");
 
 	for (size_t token_index = first_dir_token_index; first_dir_token_index < tokens.size(); ++token_index)
 	{
 		path dir = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser::process_sources_dir_recursive");
+		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir_recursive");
 
 		for (auto nested_sources = get_nested_paths(
 			std::filesystem::recursive_directory_iterator{ dir }, is_source_file_predicate);
@@ -276,7 +225,7 @@ void clang_ast_dumping::ast_dumping_config_parser::process_sources_dir_recursive
 	}
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_common_args(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_common_args(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -284,14 +233,14 @@ void clang_ast_dumping::ast_dumping_config_parser::process_common_args(std::vect
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_arg_token_index + 1,
-		common_args_prefix, "ast_dumping_config_parser::process_common_args");
+		common_args_prefix, "ast_dumping_config_parser_default::process_common_args");
 
 	config.add_args({ 
 		std::move_iterator{tokens.begin() + first_arg_token_index},
 		std::move_iterator{tokens.end()} });
 }
 
-void clang_ast_dumping::ast_dumping_config_parser::process_source(std::vector<std::string> tokens,
+void clang_ast_dumping::ast_dumping_config_parser_default::process_source(std::vector<std::string> tokens,
 	ast_dumping_config& config)
 {
 	constexpr size_t prefix_tokens = 1;
@@ -300,10 +249,10 @@ void clang_ast_dumping::ast_dumping_config_parser::process_source(std::vector<st
 
 	utility::throw_if_not_enough_elements<input_format_error>(
 		tokens, first_arg_token_index + 1,
-		source_prefix, "ast_dumping_config_parser::process_source");
+		source_prefix, "ast_dumping_config_parser_default::process_source");
 
 	auto source_path = std::filesystem::absolute(tokens[source_token_index]);
-	utility::throw_if_nonexistent<input_format_error>(source_path, "ast_dumping_config_parser::process_source");
+	utility::throw_if_nonexistent<input_format_error>(source_path, "ast_dumping_config_parser_default::process_source");
 
 	config.add_source(
 		std::move(source_path),

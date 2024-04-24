@@ -1,73 +1,17 @@
 ﻿#pragma once
-#include <vector>
-#include <string>
-#include <filesystem>
-#include <unordered_set>
-#include <unordered_map>
+#include "ast_dumping_config_parser_abstract.h"
 #include <functional>
+// ReSharper disable once CppUnusedIncludeDirective
 #include <istream>
 
 namespace clang_ast_dumping
 {
-	class ast_dumping_config_parser final
+	class ast_dumping_config_parser_default final : public ast_dumping_config_parser_abstract
 	{
 		using path = std::filesystem::path;
 
-		class ast_dumping_config final
-		{
-			path dumps_dir_{};
-
-			std::unordered_map<path, std::vector<std::string>> args_by_source_{};
-
-			std::unordered_set<path> include_dirs_{};
-			std::unordered_set<path> libs_dirs_{};
-			std::unordered_set<path> libs_{};
-
-			std::optional<std::vector<std::string>> common_args_{};
-
-		public:
-			[[nodiscard]] const path& dumps_dir() const noexcept
-			{
-				return dumps_dir_;
-			}
-
-			[[nodiscard]] const std::unordered_map<path, std::vector<std::string>>& args_by_source() const noexcept
-			{
-				return args_by_source_;
-			}
-
-			[[nodiscard]] const std::unordered_set<path>& include_dirs() const noexcept
-			{
-				return include_dirs_;
-			}
-
-			[[nodiscard]] const std::unordered_set<path>& libs_dirs() const noexcept
-			{
-				return libs_dirs_;
-			}
-
-			[[nodiscard]] const std::unordered_set<path>& libs() const noexcept
-			{
-				return libs_;
-			}
-
-			[[nodiscard]] const std::optional<std::vector<std::string>>& common_args() const noexcept
-			{
-				return common_args_;
-			}
-
-			void set_dumps_dir(path dir);
-			void add_source(path source, std::vector<std::string> args);
-			void add_include_dir(path dir);
-			void add_lib_dir(path dir);
-			void add_lib(path lib);
-			void add_args(std::vector<std::string> args);
-		};
-
 	public:
-		ast_dumping_config_parser() = delete;
-
-		static ast_dumping_config parse(std::istream& input);
+		[[nodiscard]] ast_dumping_config parse(std::istream& input) override;
 
 	private:
 		template <class DirIterator> requires (std::is_same_v<DirIterator, std::filesystem::directory_iterator> 

@@ -181,8 +181,8 @@
   <ItemGroup>
     <ClInclude Include="clang_range_error.h" />
     <ClInclude Include="command_line_args_raii.h" />
-    <ClInclude Include="create_cxindex_error.h" />
-    <ClInclude Include="create_translation_unit_error.h" />
+    <ClInclude Include="cxindex_error.h" />
+    <ClInclude Include="translation_unit_error.h" />
     <ClInclude Include="cxcursors_equal.h" />
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxindex_raii.h" />
