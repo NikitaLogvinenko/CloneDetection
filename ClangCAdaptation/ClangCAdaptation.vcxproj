@@ -196,6 +196,11 @@
     <ClCompile Include="command_line_args_raii.cpp" />
     <ClCompile Include="tokenizer.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
