@@ -75,4 +75,19 @@ namespace utility
 				"{}: can not open file \"{}\".", func_name, filename.string()) };
 		}
 	}
+
+	template <class T, class Exception> requires std::is_constructible_v<Exception, std::string>
+	T convert_argument(const std::string& token, std::string exception_description)
+	{
+		std::istringstream iss(token);
+		T argument;
+		iss >> argument;
+
+		if (!iss)
+		{
+			throw Exception(exception_description);
+		}
+
+		return argument;
+	}
 }

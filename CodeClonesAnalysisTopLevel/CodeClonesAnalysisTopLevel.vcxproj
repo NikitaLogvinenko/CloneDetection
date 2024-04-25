@@ -18,11 +18,33 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmcd_config_parser_abstract.h" />
+    <ClInclude Include="cmcd_config_parser_default.h" />
+    <ClInclude Include="count_matrix_clones_detection_config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
+      <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ClangCodeAnalysis\ClangCodeAnalysis.vcxproj">
+      <Project>{25fc3897-99aa-4dd1-b892-d49e28694faa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
+      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cmcd_config_parser_default.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e9499bf9-a277-4e6a-957b-5b2fdb57a89e}</ProjectGuid>
-    <RootNamespace>FunctionsAnalysisThroughCountMatrix</RootNamespace>
+    <ProjectGuid>{7cd09640-7791-4620-94ca-7bb38393ea71}</ProjectGuid>
+    <RootNamespace>CodeClonesAnalysisTopLevel</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,28 +93,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
+    <IncludePath>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+    <IncludePath>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
+    <IncludePath>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+    <IncludePath>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -154,29 +176,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
-      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.vcxproj">
-      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="code_analysis_traits.h" />
-    <ClInclude Include="condition_index.h" />
-    <ClInclude Include="code_implementation_info_builder_default.h" />
-    <ClInclude Include="code_implementation_info_builder_abstract.h" />
-    <ClInclude Include="code_implementations_info_director_abstract.h" />
-    <ClInclude Include="code_implementation_info_director_multithreaded.h" />
-    <ClInclude Include="code_traversers_sharing_units_factory.h" />
-    <ClInclude Include="code_traverser_abstract.h" />
-    <ClInclude Include="code_traversers_factory_abstract.h" />
-    <ClInclude Include="code_traverser_sharing_units_abstract.h" />
-    <ClInclude Include="code_entity_implementation_info.h" />
-    <ClInclude Include="funcs_analysis_traits.h" />
-    <ClInclude Include="nested_entity_condition_callback.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

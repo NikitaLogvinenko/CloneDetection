@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "translation_unit_raii.h"
-#include "code_traverser_sharing_units_container_abstract.h"
+#include "code_traverser_sharing_units_abstract.h"
 #include "funcs_analysis_traits.h"
 #include "funcs_definitions_finder.h"
 #include "cursors_storage_threadsafe.h"
@@ -11,7 +11,7 @@ namespace clang_code_analysis
 {
 	template <size_t ConditionsCount> requires cm::count_vector_length<ConditionsCount>
 	class clang_funcs_traverser final :
-		public code_analysis_through_cm::code_traverser_sharing_units_container_abstract<
+		public code_analysis_through_cm::code_traverser_sharing_units_abstract<
 		code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>, clang_c_adaptation::translation_unit_raii>
 	{
 	public:
@@ -22,7 +22,7 @@ namespace clang_code_analysis
 
 	private:
 		using var_usage_callback = code_analysis_through_cm::nested_entity_condition_callback<funcs_analysis_traits>;
-		using base = code_analysis_through_cm::code_traverser_sharing_units_container_abstract<funcs_analysis_traits, clang_c_adaptation::translation_unit_raii>;
+		using base = code_analysis_through_cm::code_traverser_sharing_units_abstract<funcs_analysis_traits, clang_c_adaptation::translation_unit_raii>;
 		using func_id = code_analysis::func_id;
 		using var_id = code_analysis::var_id;
 
