@@ -13,9 +13,11 @@
     <ClInclude Include="clang_range_error.h" />
     <ClInclude Include="tokenizer.h" />
     <ClInclude Include="command_line_args_raii.h" />
+    <ClInclude Include="translation_units_builder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tokenizer.cpp" />
     <ClCompile Include="command_line_args_raii.cpp" />
+    <ClCompile Include="translation_units_builder.cpp" />
   </ItemGroup>
 </Project>

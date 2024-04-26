@@ -180,6 +180,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="clang_range_error.h" />
+    <ClInclude Include="translation_units_builder.h" />
     <ClInclude Include="command_line_args_raii.h" />
     <ClInclude Include="cxindex_error.h" />
     <ClInclude Include="translation_unit_error.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="wrong_cursor_kind_error.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="translation_units_builder.cpp" />
     <ClCompile Include="command_line_args_raii.cpp" />
     <ClCompile Include="tokenizer.cpp" />
   </ItemGroup>

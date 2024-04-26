@@ -26,12 +26,14 @@
     <ClInclude Include="code_entity_spelling.h" />
     <ClInclude Include="code_entity_spelling_hash.h" />
     <ClInclude Include="func_descriptor.h" />
+    <ClInclude Include="func_descriptor_creator_abstract.h" />
     <ClInclude Include="func_descriptor_hash.h" />
     <ClInclude Include="func_id.h" />
     <ClInclude Include="func_id_hash.h" />
     <ClInclude Include="symbol_position.h" />
     <ClInclude Include="symbol_position_hash.h" />
     <ClInclude Include="var_descriptor.h" />
+    <ClInclude Include="var_descriptor_creator_abstract.h" />
     <ClInclude Include="var_descriptor_hash.h" />
     <ClInclude Include="var_id.h" />
     <ClInclude Include="var_id_hash.h" />

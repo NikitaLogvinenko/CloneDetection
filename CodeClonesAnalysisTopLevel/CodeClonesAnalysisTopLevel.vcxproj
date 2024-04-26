@@ -19,15 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clones_filter_abstract.h" />
+    <ClInclude Include="cmcd_results.h" />
+    <ClInclude Include="cmcd_results_saver_abstract.h" />
+    <ClInclude Include="cmcd_results_saver_config.h" />
     <ClInclude Include="cmcd_config_parser_abstract.h" />
     <ClInclude Include="cmcd_config_parser_default.h" />
+    <ClInclude Include="cmcd_results_saver_default.h" />
     <ClInclude Include="funcs_analysis_through_count_matrix_factory_abstract.h" />
     <ClInclude Include="cmcd_config.h" />
     <ClInclude Include="funcs_analysis_through_count_matrix_factory_default.h" />
     <ClInclude Include="funcs_comparing_through_count_matrix_factory_abstract.h" />
     <ClInclude Include="funcs_comparing_through_count_matrix_factory_default.h" />
     <ClInclude Include="funcs_pairwise_comparing_traits.h" />
-    <ClInclude Include="translation_units_builder.h" />
+    <ClInclude Include="funcs_pair_comparing_result.h" />
+    <ClInclude Include="funcs_pair_comparing_result_saver_abstract.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
@@ -45,9 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmcd_config_parser_default.cpp" />
-    <ClCompile Include="funcs_analysis_through_count_matrix_factory_default.cpp" />
-    <ClCompile Include="funcs_comparing_through_count_matrix_factory_default.cpp" />
-    <ClCompile Include="translation_units_builder.cpp" />
+    <ClCompile Include="cmcd_results_saver_default.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
