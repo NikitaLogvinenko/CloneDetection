@@ -21,7 +21,13 @@
   <ItemGroup>
     <ClInclude Include="cmcd_config_parser_abstract.h" />
     <ClInclude Include="cmcd_config_parser_default.h" />
-    <ClInclude Include="count_matrix_clones_detection_config.h" />
+    <ClInclude Include="funcs_analysis_through_count_matrix_factory_abstract.h" />
+    <ClInclude Include="cmcd_config.h" />
+    <ClInclude Include="funcs_analysis_through_count_matrix_factory_default.h" />
+    <ClInclude Include="funcs_comparing_through_count_matrix_factory_abstract.h" />
+    <ClInclude Include="funcs_comparing_through_count_matrix_factory_default.h" />
+    <ClInclude Include="funcs_pairwise_comparing_traits.h" />
+    <ClInclude Include="translation_units_builder.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
@@ -39,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmcd_config_parser_default.cpp" />
+    <ClCompile Include="funcs_analysis_through_count_matrix_factory_default.cpp" />
+    <ClCompile Include="funcs_comparing_through_count_matrix_factory_default.cpp" />
+    <ClCompile Include="translation_units_builder.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

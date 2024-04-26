@@ -6,19 +6,19 @@ namespace code_clones_analysis_top_level
 	class cmcd_config_parser_default final : public cmcd_config_parser_abstract
 	{
 	public:
-		[[nodiscard]] count_matrix_clones_detection_config parse(std::istream& input) override;
+		[[nodiscard]] cmcd_config parse(std::istream& input) override;
 
 	private:
-		static void process_output(std::string token, count_matrix_clones_detection_config& config);
-		static void process_framework(std::string token, count_matrix_clones_detection_config& config);
-		static void process_first_project_dir(std::string token, count_matrix_clones_detection_config& config);
-		static void process_second_project_dir(std::string token, count_matrix_clones_detection_config& config);
-		static void process_min_similarity(std::string token, count_matrix_clones_detection_config& config);
-		static void process_min_variables(std::string token, count_matrix_clones_detection_config& config);
-		static void process_code_analysis_threads(std::string token, count_matrix_clones_detection_config& config);
-		static void process_count_matrices_comparing_threads(std::string token, count_matrix_clones_detection_config& config);
-		static void process_matrices_comparing_algorithm(std::string token, count_matrix_clones_detection_config& config);
-		static void process_additional_argument(const std::string& argument_name, const std::string& token, count_matrix_clones_detection_config& config);
+		static void process_output(std::string token, cmcd_config& config);
+		static void process_framework(std::string token, cmcd_config& config);
+		static void process_first_project_dir(std::string token, cmcd_config& config);
+		static void process_second_project_dir(std::string token, cmcd_config& config);
+		static void process_min_similarity(std::string token, cmcd_config& config);
+		static void process_min_variables(std::string token, cmcd_config& config);
+		static void process_code_analysis_threads(std::string token, cmcd_config& config);
+		static void process_count_matrices_comparing_threads(std::string token, cmcd_config& config);
+		static void process_matrices_comparing_algorithm(std::string token, cmcd_config& config);
+		static void process_additional_argument(const std::string& argument_name, const std::string& token, cmcd_config& config);
 
 		inline static const std::string output_prefix{ "<Output>" };
 		inline static const std::string framework_prefix{ "<Framework>" };
@@ -32,7 +32,7 @@ namespace code_clones_analysis_top_level
 
 
 		inline static const std::unordered_map<
-			std::string, void(*)(std::string, count_matrix_clones_detection_config&)> arg_processing_by_prefix
+			std::string, void(*)(std::string, cmcd_config&)> arg_processing_by_prefix
 		{
 			{output_prefix, &process_output},
 			{framework_prefix, &process_framework},

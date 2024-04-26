@@ -50,14 +50,19 @@ namespace code_clones_analysis_through_cm
 		static constexpr size_t max_threads_count = 100;
 
 	public:
-		explicit code_entities_pairwise_comparer_through_cm(std::shared_ptr<implementations_info_map> implementations_info,
-			cm_comparing_ptr matrices_comparator, const size_t threads_count = 1) : implementations_info_(std::move(implementations_info)),
-			matrices_comparator_(std::move(matrices_comparator)), threads_count_(threads_count)
+		explicit code_entities_pairwise_comparer_through_cm(cm_comparing_ptr matrices_comparator, const size_t threads_count = 1)
+		: matrices_comparator_(std::move(matrices_comparator)), threads_count_(threads_count)
 		{
 			const std::string method_name{ "code_entities_pairwise_comparer_through_cm::code_entities_pairwise_comparer_through_cm" };
-			utility::throw_if_nullptr(implementations_info_.get(), method_name, "implementations_info");
 			utility::throw_if_nullptr(matrices_comparator_.get(), method_name, "matrices_comparator");
 			utility::throw_if_wrong_threads_count(threads_count_, max_threads(), method_name, "threads_count");
+		}
+
+		void set_implementations_info(std::shared_ptr<implementations_info_map> implementations_info)
+		{
+			const std::string method_name{ "code_entities_pairwise_comparer_through_cm::set_implementations_info" };
+			utility::throw_if_nullptr(implementations_info.get(), method_name, "implementations_info");
+			std::swap(implementations_info_, implementations_info);
 		}
 
 		[[nodiscard]] std::unique_ptr<detailed_results> extract_detailed_results()
@@ -69,6 +74,9 @@ namespace code_clones_analysis_through_cm
 			const std::vector<analyzed_entity_id>& first_set_of_entities,
 			const std::vector<analyzed_entity_id>& second_set_of_entities) override
 		{
+			const std::string method_name{ "code_entities_pairwise_comparer_through_cm::compare" };
+			utility::throw_if_nullptr(implementations_info_.get(), method_name, "implementations_info");
+
 			if (first_set_of_entities.empty() || second_set_of_entities.empty())
 			{
 				return code_entities_pairwise_comparing_result{};

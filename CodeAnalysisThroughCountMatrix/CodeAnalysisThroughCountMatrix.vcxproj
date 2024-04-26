@@ -176,6 +176,7 @@
     <ClInclude Include="code_entity_implementation_info.h" />
     <ClInclude Include="funcs_analysis_traits.h" />
     <ClInclude Include="nested_entity_condition_callback.h" />
+    <ClInclude Include="traverser_sharing_units_concept.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@
 
 namespace code_clones_analysis_top_level
 {
-	class count_matrix_clones_detection_config
+	class cmcd_config
 	{
 		std::string results_output_{};
 
@@ -24,7 +24,7 @@ namespace code_clones_analysis_top_level
 		std::unordered_map<std::string, std::string> additional_params_{};
 
 	public:
-		count_matrix_clones_detection_config() = default;
+		cmcd_config() = default;
 
 		void set_results_output(std::string output) noexcept
 		{

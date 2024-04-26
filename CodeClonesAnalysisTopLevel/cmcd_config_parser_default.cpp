@@ -14,10 +14,10 @@ namespace
 	constexpr size_t param_value_token = 1;
 }
 
-code_clones_analysis_top_level::count_matrix_clones_detection_config code_clones_analysis_top_level::
+code_clones_analysis_top_level::cmcd_config code_clones_analysis_top_level::
 cmcd_config_parser_default::parse(std::istream& input)
 {
-	count_matrix_clones_detection_config config{};
+	cmcd_config config{};
 	std::unordered_set<std::string> processed_args{};
 
 	while (true)
@@ -61,19 +61,19 @@ cmcd_config_parser_default::parse(std::istream& input)
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_output(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	config.set_results_output(std::move(token));
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_framework(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	config.set_framework(std::move(token));
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_first_project_dir(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	std::filesystem::path dir = std::filesystem::absolute(token);
 	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_first_project_dir");
@@ -81,7 +81,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_first_p
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_project_dir(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	std::filesystem::path dir = std::filesystem::absolute(token);
 	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_second_project_dir");
@@ -89,7 +89,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_similarity(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	const double min_similarity = utility::convert_argument<double, input_format_error>(token,
 		std::format("cmcd_config_parser_default::process_min_similarity: "
@@ -98,7 +98,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_sim
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_variables(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	const size_t min_variables = utility::convert_argument<size_t, input_format_error>(token,
 		std::format("cmcd_config_parser_default::process_min_variables: "
@@ -107,7 +107,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_var
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_code_analysis_threads(std::string token,
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	const size_t code_analysis_threads = utility::convert_argument<size_t, input_format_error>(token,
 		std::format("cmcd_config_parser_default::process_code_analysis_threads: "
@@ -116,7 +116,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_code_an
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_count_matrices_comparing_threads(std::string token, 
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	const size_t count_matrices_comparing_threads = utility::convert_argument<size_t, input_format_error>(token,
 		std::format("cmcd_config_parser_default::process_count_matrices_comparing_threads: "
@@ -125,13 +125,13 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_count_m
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_matrices_comparing_algorithm(std::string token, 
-	count_matrix_clones_detection_config& config)
+	cmcd_config& config)
 {
 	config.set_matrices_comparing_algorithm(std::move(token));
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_additional_argument(
-	const std::string& argument_name, const std::string& token, count_matrix_clones_detection_config& config)
+	const std::string& argument_name, const std::string& token, cmcd_config& config)
 {
 	config.add_param(argument_name, token);
 }

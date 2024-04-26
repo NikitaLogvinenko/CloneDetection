@@ -37,8 +37,13 @@ namespace clang_code_analysis
 
 	public:
 		clang_funcs_traverser(std::shared_ptr<translation_units_container> not_traversed_units,
-			std::shared_ptr<utility::spinlock> units_container_lock, conditions_analyzers_vector analyzers)
-			: base(std::move(not_traversed_units), std::move(units_container_lock)), analyzers_(std::move(analyzers)) {}
+			std::shared_ptr<utility::spinlock> units_container_lock)
+			: base(std::move(not_traversed_units), std::move(units_container_lock)) {}
+
+		void set_analyzers(conditions_analyzers_vector analyzers)
+		{
+			std::swap(analyzers_, analyzers);
+		}
 
 	private:
 		void traverse_unit(const std::unique_ptr<translation_unit_raii> translation_unit, const var_usage_callback& callback) const override
