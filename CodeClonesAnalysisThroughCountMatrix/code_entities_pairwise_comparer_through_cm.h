@@ -98,7 +98,7 @@ namespace code_clones_analysis_through_cm
 	private:
 		[[nodiscard]] code_entities_pairwise_comparing_result compare_single_threaded(
 			const std::vector<analyzed_entity_id>& first_set_of_entities,
-			const std::vector<analyzed_entity_id>& second_set_of_entities) const
+			const std::vector<analyzed_entity_id>& second_set_of_entities)
 		{
 			similarity_by_ids_map similarity_by_ids;
 			result_by_ids_map matrices_comparing_results_by_ids;
@@ -126,7 +126,7 @@ namespace code_clones_analysis_through_cm
 
 		[[nodiscard]] code_entities_pairwise_comparing_result compare_multithreaded(
 			const std::vector<analyzed_entity_id>& first_set_of_entities,
-			const std::vector<analyzed_entity_id>& second_set_of_entities) const
+			const std::vector<analyzed_entity_id>& second_set_of_entities)
 		{
 			similarity_by_ids_map similarity_by_ids;
 			result_by_ids_map matrices_comparing_results_by_ids;
@@ -176,8 +176,8 @@ namespace code_clones_analysis_through_cm
 
 			while(true)
 			{
-				const code_entity_implementation_info* first_entity_info, second_entity_info;
-				size_t first_entity_id_under_lock, second_entity_id_under_lock;
+				const code_entity_implementation_info* first_entity_info, *second_entity_info;
+				analyzed_entity_id first_entity_id_under_lock, second_entity_id_under_lock;
 
 				{
 					std::lock_guard indices_guard{ indices_lock };

@@ -66,7 +66,7 @@ namespace graphs
 				for (size_t column = 0; column < bipartite_graph_weights.columns(); ++column)
 				{
 					const long row_as_long = row, column_as_long = column;
-					const WeightT weight = bipartite_graph_weights.at(row, column);
+					const WeightT weight = bipartite_graph_weights.at(vertex_index(row), vertex_index(column)).value();
 					const CalculationsT assignment_matrix_cell = weights_transform_.to_calculations_t(weight);
 					assignment_matrix(row_as_long, column_as_long) = assignment_matrix_cell;
 				}
@@ -125,7 +125,7 @@ namespace graphs
 
 				const vertex_index vertex_from_first_part(row);
 				const vertex_index vertex_from_second_part(assigned_column);
-				const WeightT matching_edge_weight = bipartite_graph_weights.at(vertex_from_first_part, vertex_from_second_part);
+				const WeightT matching_edge_weight = bipartite_graph_weights.at(vertex_from_first_part, vertex_from_second_part).value();
 				matching_edges.emplace_back(vertex_from_first_part, vertex_from_second_part, edge_weight<WeightT>(matching_edge_weight));
 				++row;
 			}

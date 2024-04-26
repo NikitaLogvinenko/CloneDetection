@@ -23,7 +23,7 @@ namespace graphs
 			return sum_of_matching_edges_;
 		}
 
-		[[nodiscard]] constexpr auto& matching_edges() const noexcept
+		[[nodiscard]] constexpr auto& matching_edges() const & noexcept
 		{
 			return matching_edges_;
 		}
