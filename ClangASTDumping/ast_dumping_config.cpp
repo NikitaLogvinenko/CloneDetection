@@ -35,7 +35,7 @@ void clang_ast_dumping::ast_dumping_config::add_lib_dir(path dir)
 	libs_dirs_.emplace(std::move(dir));
 }
 
-void clang_ast_dumping::ast_dumping_config::add_lib(path lib)
+void clang_ast_dumping::ast_dumping_config::add_lib(std::string lib)
 {
 	libs_.emplace(std::move(lib));
 }

@@ -188,15 +188,12 @@
     <ClInclude Include="cxcursor_hash.h" />
     <ClInclude Include="cxindex_raii.h" />
     <ClInclude Include="cxstring_raii.h" />
-    <ClInclude Include="tokenizer.h" />
-    <ClInclude Include="token_index.h" />
     <ClInclude Include="translation_unit_raii.h" />
     <ClInclude Include="wrong_cursor_kind_error.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="translation_units_builder.cpp" />
     <ClCompile Include="command_line_args_raii.cpp" />
-    <ClCompile Include="tokenizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utility\Utility.vcxproj">

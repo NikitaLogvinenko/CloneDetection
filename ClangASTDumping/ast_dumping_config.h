@@ -16,7 +16,7 @@ namespace clang_ast_dumping
 
 		std::unordered_set<path> include_dirs_{};
 		std::unordered_set<path> libs_dirs_{};
-		std::unordered_set<path> libs_{};
+		std::unordered_set<std::string> libs_{};
 
 		std::optional<std::vector<std::string>> common_args_{};
 
@@ -41,7 +41,7 @@ namespace clang_ast_dumping
 			return libs_dirs_;
 		}
 
-		[[nodiscard]] const std::unordered_set<path>& libs() const noexcept
+		[[nodiscard]] const std::unordered_set<std::string>& libs() const noexcept
 		{
 			return libs_;
 		}
@@ -55,7 +55,7 @@ namespace clang_ast_dumping
 		void add_source(path source, std::vector<std::string> args);
 		void add_include_dir(path dir);
 		void add_lib_dir(path dir);
-		void add_lib(path lib);
+		void add_lib(std::string lib);
 		void add_args(std::vector<std::string> args);
 	};
 }

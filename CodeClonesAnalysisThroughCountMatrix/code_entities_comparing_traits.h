@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "matrices_comparing_traits.h"
 #include "code_analysis_traits.h"
-#include "strict_weak_order.h"
 
 namespace code_clones_analysis_through_cm
 {

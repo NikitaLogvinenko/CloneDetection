@@ -7,7 +7,6 @@
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
-    <ClInclude Include="strict_weak_order.h" />
     <ClInclude Include="one_off_container.h" />
     <ClInclude Include="unique_id_generator_threadsafe.h" />
     <ClInclude Include="id_concept.h" />

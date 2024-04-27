@@ -162,7 +162,6 @@
     <ClInclude Include="id_concept.h" />
     <ClInclude Include="id_hash.h" />
     <ClInclude Include="spinlock.h" />
-    <ClInclude Include="strict_weak_order.h" />
     <ClInclude Include="one_off_container.h" />
     <ClInclude Include="non_const_arithmetic.h" />
     <ClInclude Include="non_const_integral.h" />

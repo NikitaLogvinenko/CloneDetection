@@ -171,9 +171,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_lib(std::vect
 
 	for (size_t token_index = first_lib_token_index; token_index < tokens.size(); ++token_index)
 	{
-		path lib = std::filesystem::absolute(tokens[token_index]);
-		utility::throw_if_nonexistent<input_format_error>(lib, "ast_dumping_config_parser_default::process_lib");
-		config.add_lib(std::move(lib));
+		config.add_lib(std::move(tokens[token_index]));
 	}
 }
 
