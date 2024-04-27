@@ -15,7 +15,7 @@ namespace
 }
 
 code_clones_analysis_top_level::cmcd_config code_clones_analysis_top_level::
-cmcd_config_parser_default::parse(std::istream& input)
+cmcd_config_parser_default::parse(std::istream& input) const
 {
 	cmcd_config config{};
 	std::unordered_set<std::string> processed_args{};

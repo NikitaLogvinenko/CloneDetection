@@ -49,7 +49,7 @@ namespace code_clones_analysis_top_level
 		}
 
 	private:
-		[[nodiscard]] static cv_metrics_ptr create_cv_metrics(const code_clones_analysis_top_level::cmcd_config& config)
+		[[nodiscard]] static cv_metrics_ptr create_cv_metrics(const cmcd_config& config)
 		{
 			if (config.additional_params().contains(count_vector_metrics_param)
 				&& config.additional_params().at(count_vector_metrics_param) != count_vector_metrics_normilized_euclidean_distance)
@@ -64,7 +64,7 @@ namespace code_clones_analysis_top_level
 		}
 
 
-		[[nodiscard]] static bipartite_matching_ptr create_bipartite_matching(const code_clones_analysis_top_level::cmcd_config& config)
+		[[nodiscard]] static bipartite_matching_ptr create_bipartite_matching(const cmcd_config& config)
 		{
 			if (config.additional_params().contains(bipartite_matching_param)
 				&& config.additional_params().at(bipartite_matching_param) != bipartite_matching_max_total_weight)
@@ -77,7 +77,7 @@ namespace code_clones_analysis_top_level
 		}
 
 
-		[[nodiscard]] static similarity_estimator_ptr create_similarity_estimator(const code_clones_analysis_top_level::cmcd_config& config)
+		[[nodiscard]] static similarity_estimator_ptr create_similarity_estimator(const cmcd_config& config)
 		{
 			if (config.additional_params().contains(similarity_estimator_param)
 				&& config.additional_params().at(similarity_estimator_param) != similarity_estimator_mean_weight)
@@ -90,7 +90,7 @@ namespace code_clones_analysis_top_level
 		}
 
 
-		[[nodiscard]] static cm_comparer_ptr create_comparer(const code_clones_analysis_top_level::cmcd_config& config)
+		[[nodiscard]] static cm_comparer_ptr create_comparer(const cmcd_config& config)
 		{
 			if (config.matrices_comparing_algorithm() != bipartite_matching_algorithm && !config.matrices_comparing_algorithm().empty())
 			{

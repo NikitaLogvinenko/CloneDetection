@@ -12,8 +12,6 @@ namespace clang_code_analysis
 	class func_descriptor_creator_clang final : public code_analysis::func_descriptor_creator_abstract
 	{
 	public:
-		func_descriptor_creator_clang() = delete;
-
 		[[nodiscard]] static code_analysis::func_descriptor create(const CXCursor& cursor_to_func_decl)
 		{
 			if (!cursor_classifier::is_func_declaration(cursor_to_func_decl))

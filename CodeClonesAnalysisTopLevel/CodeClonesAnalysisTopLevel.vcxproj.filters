@@ -16,9 +16,14 @@
     <ClInclude Include="clones_filter_abstract.h" />
     <ClInclude Include="funcs_pair_comparing_result.h" />
     <ClInclude Include="funcs_pair_comparing_result_saver_abstract.h" />
+    <ClInclude Include="funcs_pair_comparing_result_saver_default.h" />
+    <ClInclude Include="clones_filter_default.h" />
+    <ClInclude Include="cmcd_results_saver_factory_abstract.h" />
+    <ClInclude Include="cmcd_results_saver_factory_default.h" />
+    <ClInclude Include="cmcd_facade.h" />
+    <ClInclude Include="cmcd_output_provider_abstract.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmcd_config_parser_default.cpp" />
-    <ClCompile Include="cmcd_results_saver_default.cpp" />
   </ItemGroup>
 </Project>

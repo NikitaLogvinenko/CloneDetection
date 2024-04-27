@@ -12,8 +12,6 @@ namespace clang_code_analysis
 	class var_descriptor_creator_clang final : public code_analysis::var_descriptor_creator_abstract
 	{
 	public:
-		var_descriptor_creator_clang() = delete;
-
 		[[nodiscard]] static code_analysis::var_descriptor create(const CXCursor& cursor_to_var_decl)
 		{
 			if (!cursor_classifier::is_var_declaration(cursor_to_var_decl))

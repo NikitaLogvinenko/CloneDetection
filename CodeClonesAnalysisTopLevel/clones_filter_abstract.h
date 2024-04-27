@@ -8,8 +8,6 @@ namespace code_clones_analysis_top_level
 	template <size_t ConditionsCount>
 	class clones_filter_abstract
 	{
-	public:
-		
 	protected:
 		clones_filter_abstract() noexcept = default;
 

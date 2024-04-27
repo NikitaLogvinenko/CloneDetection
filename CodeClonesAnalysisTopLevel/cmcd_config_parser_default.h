@@ -6,7 +6,7 @@ namespace code_clones_analysis_top_level
 	class cmcd_config_parser_default final : public cmcd_config_parser_abstract
 	{
 	public:
-		[[nodiscard]] cmcd_config parse(std::istream& input) override;
+		[[nodiscard]] cmcd_config parse(std::istream& input) const override;
 
 	private:
 		static void process_output(std::string token, cmcd_config& config);

@@ -20,20 +20,21 @@ namespace code_clones_analysis_top_level
 		using funcs_descriptors_map = std::unordered_map<func_id, func_descriptor, utility::id_hash<func_id>>;
 		using vars_descriptors_map = std::unordered_map<var_id, var_descriptor, utility::id_hash<var_id>>;
 
-		std::unique_ptr<code_analysis::func_descriptor_creator_abstract> func_descriptor_creator_{};
-		std::unique_ptr<code_analysis::var_descriptor_creator_abstract> var_descriptor_creator_{};
-		std::unique_ptr<clones_filter_abstract<ConditionsCount>> clones_filter_{};
-		std::unique_ptr<funcs_pair_comparing_result_saver_abstract<ConditionsCount>> funcs_pair_saver_{};
+		std::unique_ptr<const code_analysis::func_descriptor_creator_abstract> func_descriptor_creator_{};
+		std::shared_ptr<const code_analysis::var_descriptor_creator_abstract> var_descriptor_creator_{};
+		std::unique_ptr<const clones_filter_abstract<ConditionsCount>> clones_filter_{};
+		std::unique_ptr<const funcs_pair_comparing_result_saver_abstract<ConditionsCount>> funcs_pair_saver_{};
 
 	public:
-		cmcd_results_saver_default(std::unique_ptr<code_analysis::func_descriptor_creator_abstract> func_descriptor_creator,
-			std::unique_ptr<code_analysis::var_descriptor_creator_abstract> var_descriptor_creator,
-			std::unique_ptr<clones_filter_abstract<ConditionsCount>> clones_filter,
-			std::unique_ptr<funcs_pair_comparing_result_saver_abstract<ConditionsCount>> funcs_pair_saver)
+		cmcd_results_saver_default(
+			std::unique_ptr<const code_analysis::func_descriptor_creator_abstract> func_descriptor_creator,
+			std::unique_ptr<const code_analysis::var_descriptor_creator_abstract> var_descriptor_creator,
+			std::unique_ptr<const clones_filter_abstract<ConditionsCount>> clones_filter,
+			std::unique_ptr<const funcs_pair_comparing_result_saver_abstract<ConditionsCount>> funcs_pair_saver)
 			: func_descriptor_creator_{ std::move(func_descriptor_creator) },
 			var_descriptor_creator_{ std::move(var_descriptor_creator) },
 			clones_filter_(std::move(clones_filter)),
-			funcs_pair_saver_(std::move(func_descriptor_creator))
+			funcs_pair_saver_(std::move(funcs_pair_saver))
 		{
 			utility::throw_if_nullptr(func_descriptor_creator_.get(), "cmcd_results_saver_default::cmcd_results_saver_default", "func_descriptor_creator");
 			utility::throw_if_nullptr(var_descriptor_creator_.get(), "cmcd_results_saver_default::cmcd_results_saver_default", "var_descriptor_creator");
@@ -48,7 +49,6 @@ namespace code_clones_analysis_top_level
 				config.min_similarity(), config.min_variables());
 
 			funcs_descriptors_map func_descriptor_by_id{};
-			vars_descriptors_map var_descriptor_by_id{};
 
 			for (const auto first_func_id : result.first_set_of_entities())
 			{
@@ -70,7 +70,7 @@ namespace code_clones_analysis_top_level
 						continue;
 					}
 
-					funcs_pair_saver_->save(output, funcs_pair_result);
+					funcs_pair_saver_->save(output, funcs_pair_result, var_descriptor_creator_);
 				}
 			}
 		}

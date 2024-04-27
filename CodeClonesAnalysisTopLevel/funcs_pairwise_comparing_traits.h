@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "relative_similarity.h"
 #include "funcs_analysis_traits.h"
-#include "code_entities_comparing_traits.h"
 
 namespace code_clones_analysis_top_level
 {

@@ -41,7 +41,7 @@ namespace code_clones_analysis_through_cm
 		using code_entity_implementation_info = code_analysis_through_cm::code_entity_implementation_info<code_analysis_traits>;
 
 
-		std::unique_ptr<detailed_results> detailed_results_{};
+		detailed_results detailed_results_{};
 		implementations_info_ptr implementations_info_{};
 		cm_comparing_ptr matrices_comparator_;
 		size_t threads_count_;
@@ -65,7 +65,7 @@ namespace code_clones_analysis_through_cm
 			std::swap(implementations_info_, implementations_info);
 		}
 
-		[[nodiscard]] std::unique_ptr<detailed_results> extract_detailed_results()
+		[[nodiscard]] detailed_results&& extract_detailed_results()
 		{
 			return std::move(detailed_results_);
 		}
@@ -120,7 +120,7 @@ namespace code_clones_analysis_through_cm
 				}
 			}
 
-			detailed_results_ = std::make_unique<detailed_results>(std::move(matrices_comparing_results_by_ids));
+			detailed_results_ = detailed_results{ std::move(matrices_comparing_results_by_ids) };
 			return code_entities_pairwise_comparing_result{ std::move(similarity_by_ids) };
 		}
 
@@ -157,7 +157,7 @@ namespace code_clones_analysis_through_cm
 				comparing_threads_futures[comparing_thread_index].get();
 			}
 
-			detailed_results_ = std::make_unique<detailed_results>(std::move(matrices_comparing_results_by_ids));
+			detailed_results_ = detailed_results{ std::move(matrices_comparing_results_by_ids) };
 			return code_entities_pairwise_comparing_result{ std::move(similarity_by_ids) };
 		}
 

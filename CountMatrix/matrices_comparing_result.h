@@ -35,18 +35,18 @@ namespace cm
 			return matched_vectors_.size();
 		}
 
-		[[nodiscard]] constexpr count_vector_index vector_from_first_cm(const matched_vectors_index matching_index)
+		[[nodiscard]] constexpr count_vector_index vector_from_first_cm(const matched_vectors_index matching_index) const
 		{
 			return count_vector_index{ matched_vectors_.at(matching_index.to_size_t()).first_vertex_index().to_size_t() };
 		}
 
-		[[nodiscard]] constexpr count_vector_index vector_from_second_cm(const matched_vectors_index matching_index)
+		[[nodiscard]] constexpr count_vector_index vector_from_second_cm(const matched_vectors_index matching_index) const
 		{
 			return count_vector_index{ matched_vectors_.at(matching_index.to_size_t()).second_vertex_index().to_size_t() };
 		}
 
 		[[nodiscard]] constexpr distance_between_count_vectors<distance_t> distance_between_matched_vectors(
-			const matched_vectors_index matching_index)
+			const matched_vectors_index matching_index) const
 		{
 			const graphs::edge_weight<distance_t> weight = matched_vectors_.at(matching_index.to_size_t()).weight();
 			return distance_between_count_vectors<distance_t>(weight);

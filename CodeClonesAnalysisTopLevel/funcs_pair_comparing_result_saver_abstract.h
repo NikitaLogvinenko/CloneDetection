@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "funcs_pair_comparing_result.h"
 #include "constexpr_default_copy_move_constructor_assignment_virtual_destructor_move_noexcept.h"
+#include "var_descriptor_creator_abstract.h"
 // ReSharper disable once CppUnusedIncludeDirective
 #include <ostream>
 
@@ -15,6 +16,7 @@ namespace code_clones_analysis_top_level
 		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(funcs_pair_comparing_result_saver_abstract)
 
 	public:
-		virtual void save(std::ostream& output, const funcs_pair_comparing_result<ConditionsCount>& result) const = 0;
+		virtual void save(std::ostream& output, const funcs_pair_comparing_result<ConditionsCount>& result,
+			std::shared_ptr<const code_analysis::var_descriptor_creator_abstract> var_descriptor_creator) const = 0;
 	};
 }
