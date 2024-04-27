@@ -8,11 +8,11 @@ namespace code_analysis
 	class func_descriptor_creator_abstract
 	{
 	protected:
-		func_descriptor_creator_abstract() noexcept = default;
-
-		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(func_descriptor_creator_abstract)
+		constexpr func_descriptor_creator_abstract() noexcept = default;
 
 	public:
+		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(func_descriptor_creator_abstract)
+
 		[[nodiscard]] virtual func_descriptor create(func_id id) const = 0;
 	};
 }

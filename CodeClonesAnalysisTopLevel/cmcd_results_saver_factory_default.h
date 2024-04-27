@@ -27,7 +27,7 @@ namespace code_clones_analysis_top_level
 			auto clones_filter = std::make_unique<clones_filter_default<ConditionsCount>>();
 			auto funcs_pair_saver = std::make_unique<funcs_pair_comparing_result_saver_default<ConditionsCount>>();
 
-			return std::make_unique<cmcd_results_saver_default>(std::move(func_descriptor_creator), std::move(var_descriptor_creator),
+			return std::make_unique<cmcd_results_saver_default<ConditionsCount>>(std::move(func_descriptor_creator), std::move(var_descriptor_creator),
 				std::move(clones_filter), std::move(funcs_pair_saver));
 		}
 	};

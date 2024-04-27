@@ -78,7 +78,7 @@ namespace code_clones_analysis_top_level
 	private:
 		template <class IdT, class DescriptorT, class DescriptorCreatorT>
 		[[nodiscard]] const DescriptorT& get_descriptor(
-			const std::unordered_map<IdT, DescriptorT, utility::id_hash<IdT>>& descriptors_map, 
+			std::unordered_map<IdT, DescriptorT, utility::id_hash<IdT>>& descriptors_map, 
 			const IdT id, const DescriptorCreatorT& creator) const
 		{
 			if (!descriptors_map.contains(id))

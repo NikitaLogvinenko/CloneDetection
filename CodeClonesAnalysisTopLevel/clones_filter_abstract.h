@@ -9,11 +9,11 @@ namespace code_clones_analysis_top_level
 	class clones_filter_abstract
 	{
 	protected:
-		clones_filter_abstract() noexcept = default;
-
-		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(clones_filter_abstract)
+		constexpr clones_filter_abstract() noexcept = default;
 
 	public:
+		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(clones_filter_abstract)
+
 		[[nodiscard]] virtual bool clones(const funcs_pair_comparing_result<ConditionsCount>& result, 
 			const cmcd_results_saver_config& config) const = 0;
 	};

@@ -18,17 +18,12 @@ namespace clang_code_analysis
 	private:
 		std::vector<condition_index> indices_{};
 
-	public:
-		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(condition_analyzer_abstract)
-
-		virtual void analyse(analyzed_entity_id analyzed_id, const CXCursor& nested_cursor, const condition_callback& callback) = 0;
-
 	protected:
-		condition_analyzer_abstract() noexcept = default;
+		constexpr condition_analyzer_abstract() noexcept = default;
 
-		explicit condition_analyzer_abstract(std::vector<condition_index> indices) noexcept : indices_(std::move(indices)) {}
+		constexpr explicit condition_analyzer_abstract(std::vector<condition_index> indices) noexcept : indices_(std::move(indices)) {}
 
-		void invoke_callback_for_all_indices(const analyzed_entity_id analyzed_id, 
+		void invoke_callback_for_all_indices(const analyzed_entity_id analyzed_id,
 			const nested_entity_id nested_id, const condition_callback& callback) const
 		{
 			for (const auto index : indices_)
@@ -36,5 +31,10 @@ namespace clang_code_analysis
 				callback(analyzed_id, nested_id, index);
 			}
 		}
+
+	public:
+		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(condition_analyzer_abstract)
+
+		virtual void analyse(analyzed_entity_id analyzed_id, const CXCursor& nested_cursor, const condition_callback& callback) = 0;
 	};
 }

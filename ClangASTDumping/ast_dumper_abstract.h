@@ -7,11 +7,11 @@ namespace clang_ast_dumping
 	class ast_dumper_abstract
 	{
 	protected:
-		ast_dumper_abstract() noexcept = default;
-
-		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(ast_dumper_abstract)
+		constexpr ast_dumper_abstract() noexcept = default;
 
 	public:
+		CONSTEXPR_DEFAULT_COPY_MOVE_CONSTRUCTOR_ASSIGNMENT_VIRTUAL_DESTRUCTOR_NOEXCEPT_MOVE(ast_dumper_abstract)
+
 		virtual void dump(const source_to_ast_arguments&) = 0;
 	};
 }

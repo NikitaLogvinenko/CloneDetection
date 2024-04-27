@@ -8,7 +8,7 @@ namespace code_clones_analysis_top_level
 	template <size_t ConditionsCount>
 	class funcs_pair_comparing_result_saver_default final : public funcs_pair_comparing_result_saver_abstract<ConditionsCount>
 	{
-		static const std::string start_end_line{ "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n" };
+		static inline const std::string start_end_line{ "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n" };
 		static constexpr size_t one_hundred_percentages = 100;
 
 	public:
@@ -39,13 +39,13 @@ namespace code_clones_analysis_top_level
 				const auto second_var_index = result.comparing_result().vector_from_second_cm(matched_vectors_pair);
 				const auto& first_func_vars_ids = result.first_func_implementation().nested_entities_ids();
 				const auto& second_func_vars_ids = result.second_func_implementation().nested_entities_ids();
-				if (first_var_index >= first_func_vars_ids.size() || second_var_index >= second_func_vars_ids.size())
+				if (first_var_index.to_size_t() >= first_func_vars_ids.size() || second_var_index.to_size_t() >= second_func_vars_ids.size())
 				{
 					continue;
 				}
 
-				const auto first_var_id = first_func_vars_ids.at(first_var_index);
-				const auto second_var_id = second_func_vars_ids.at(second_var_index);
+				const auto first_var_id = first_func_vars_ids.at(first_var_index.to_size_t());
+				const auto second_var_id = second_func_vars_ids.at(second_var_index.to_size_t());
 				const auto& first_var_descriptor = var_descriptor_creator->create(first_var_id);
 				const auto& second_var_descriptor = var_descriptor_creator->create(second_var_id);
 

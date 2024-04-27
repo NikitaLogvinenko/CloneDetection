@@ -22,8 +22,11 @@
     <ClInclude Include="cmcd_results_saver_factory_default.h" />
     <ClInclude Include="cmcd_facade.h" />
     <ClInclude Include="cmcd_output_provider_abstract.h" />
+    <ClInclude Include="cmcd_output_provider_file.h" />
+    <ClInclude Include="funcs_clones_analysis_through_cm_app.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmcd_config_parser_default.cpp" />
+    <ClCompile Include="funcs_clones_analysis_through_cm_app.cpp" />
   </ItemGroup>
 </Project>

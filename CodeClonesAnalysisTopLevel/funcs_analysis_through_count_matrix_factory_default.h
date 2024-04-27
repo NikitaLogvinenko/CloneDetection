@@ -47,7 +47,8 @@ namespace code_clones_analysis_top_level
 			auto translation_units = clang_c_adaptation::translation_units_builder{}.build(project_directory);
 
 			auto factory = std::make_unique<code_analysis_through_cm::code_traversers_sharing_units_factory<
-				traits, clang_c_adaptation::translation_unit_raii, clang_code_analysis::clang_funcs_traverser<ConditionsCount>>>(std::move(translation_units),
+				traits, clang_c_adaptation::translation_unit_raii, clang_code_analysis::clang_funcs_traverser<ConditionsCount>>>(
+					std::move(translation_units),
 					[](clang_code_analysis::clang_funcs_traverser<ConditionsCount>& traverser)
 					{
 						auto analyzers = clang_code_analysis::vars_usage_analyzers_factory_default{}.create_analyzers();

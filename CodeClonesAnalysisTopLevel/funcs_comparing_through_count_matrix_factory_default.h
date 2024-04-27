@@ -18,16 +18,16 @@ namespace code_clones_analysis_top_level
 		using funcs_pairwise_comparer_through_cm = code_clones_analysis_through_cm::code_entities_pairwise_comparer_through_cm<traits>;
 
 	private:
-		static const std::string bipartite_matching_algorithm{ "BipartiteMatching" };
+		static inline const std::string bipartite_matching_algorithm{ "BipartiteMatching" };
 
-		static const std::string count_vector_metrics_param{ "<CountVectorMetrics>" };
-		static const std::string count_vector_metrics_normilized_euclidean_distance{ "NormilizedEuclideanDistance" };
+		static inline const std::string count_vector_metrics_param{ "<CountVectorMetrics>" };
+		static inline const std::string count_vector_metrics_normilized_euclidean_distance{ "NormilizedEuclideanDistance" };
 
-		static const std::string bipartite_matching_param{ "<BipartiteMatchingAlgorithm>" };
-		static const std::string bipartite_matching_max_total_weight{ "MaxTotalWeight" };
+		static inline const std::string bipartite_matching_param{ "<BipartiteMatchingAlgorithm>" };
+		static inline const std::string bipartite_matching_max_total_weight{ "MaxTotalWeight" };
 
-		static const std::string similarity_estimator_param{ "<SimilarityEstimator>" };
-		static const std::string similarity_estimator_mean_weight{ "MeanWeight" };
+		static inline const std::string similarity_estimator_param{ "<SimilarityEstimator>" };
+		static inline const std::string similarity_estimator_mean_weight{ "MeanWeight" };
 
 		using distance_t = typename traits::matrices_comparing_traits::distance_t;
 		using similarity_t = typename traits::matrices_comparing_traits::similarity_t;

@@ -237,7 +237,7 @@ namespace
 
 namespace clang_code_analysis
 {
-	inline vars_usage_analyzers_factory_default::conditions_analyzers_vector vars_usage_analyzers_factory_default::create_analyzers()
+	vars_usage_analyzers_factory_default::conditions_analyzers_vector vars_usage_analyzers_factory_default::create_analyzers()
 	{
 		conditions_analyzers_vector analyzers{};
 
@@ -328,7 +328,6 @@ namespace clang_code_analysis
 		auto literals_in_local_var_definition_finder = create_condition_in_local_var_definition_finder(
 			literals_checking, var_usage_conditions_default::defined_with_literals);
 		analyzers.emplace_back(std::move(literals_in_local_var_definition_finder));
-
 
 		return analyzers;
 	}

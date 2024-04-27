@@ -22,7 +22,7 @@ namespace code_clones_analysis_top_level
 			{
 				min_similarity /= one_hundred_percentages;
 			}
-			if (result.comparing_result().similarity() < min_similarity)
+			if (result.comparing_result().similarity().to_similarity_t().to_double() < min_similarity)
 			{
 				return false;
 			}

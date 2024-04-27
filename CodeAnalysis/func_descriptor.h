@@ -17,5 +17,7 @@ namespace code_analysis
 		{
 			return entity_descriptor_;
 		}
+
+		[[nodiscard]] bool operator==(const func_descriptor& other) const noexcept = default;
 	};
 }
