@@ -189,6 +189,7 @@
     <ClInclude Include="from_nth_vars_nested_in_condition_finder.h" />
     <ClInclude Include="funcs_definitions_finder.h" />
     <ClInclude Include="clang_funcs_traverser.h" />
+    <ClInclude Include="translation_units_keeper_threadsafe.h" />
     <ClInclude Include="vars_usage_analyzers_factory_default.h" />
     <ClInclude Include="func_descriptor_creator_clang.h" />
     <ClInclude Include="global_var_analyzer.h" />

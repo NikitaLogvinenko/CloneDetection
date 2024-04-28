@@ -53,6 +53,7 @@
     <ClInclude Include="vars_usage_analyzers_factory_default.h">
       <Filter>analyzers</Filter>
     </ClInclude>
+    <ClInclude Include="translation_units_keeper_threadsafe.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="analyzers">

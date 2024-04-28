@@ -6,6 +6,7 @@
 #include "cursors_storage_threadsafe.h"
 #include "condition_analyzer_abstract.h"
 #include "cursor_classifier.h"
+#include "translation_units_keeper_threadsafe.h"
 
 namespace clang_code_analysis
 {
@@ -46,7 +47,7 @@ namespace clang_code_analysis
 		}
 
 	private:
-		void traverse_unit(const std::unique_ptr<translation_unit_raii> translation_unit, const var_usage_callback& callback) const override
+		void traverse_unit(std::unique_ptr<translation_unit_raii> translation_unit, const var_usage_callback& callback) const override
 		{
 			const auto& clang_translation_unit = translation_unit->translation_unit();
 			const auto translation_unit_cursor = clang_getTranslationUnitCursor(clang_translation_unit);
@@ -59,6 +60,8 @@ namespace clang_code_analysis
 				traversing_all_cursors_inside_function_data data{ func_id, analyzers_, callback };
 				clang_visitChildren(func_cursor, visitor_traversing_all_cursors_inside_function, &data);
 			}
+
+			translation_units_keeper_threadsafe::get_instance().insert(std::move(translation_unit));
 		}
 
 		// ReSharper disable once CppPassValueParameterByConstReference
