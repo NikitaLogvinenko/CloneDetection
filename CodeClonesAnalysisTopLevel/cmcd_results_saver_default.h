@@ -49,6 +49,7 @@ namespace code_clones_analysis_top_level
 				config.min_similarity(), config.min_variables());
 
 			funcs_descriptors_map func_descriptor_by_id{};
+			std::map<double, funcs_pair_comparing_result<ConditionsCount>, std::greater<double>> result_by_similarity{};
 
 			for (const auto first_func_id : result.first_set_of_entities())
 			{
@@ -61,8 +62,9 @@ namespace code_clones_analysis_top_level
 					const auto& second_func_descriptor = get_descriptor(func_descriptor_by_id, second_func_id, *func_descriptor_creator_);
 
 					const auto& comparing_result = result.comparing_result().get_result(first_func_id, second_func_id);
+					const double similarity = comparing_result.similarity().to_similarity_t().to_double();
 
-					const funcs_pair_comparing_result<ConditionsCount> funcs_pair_result{ first_func_descriptor, second_func_descriptor,
+					funcs_pair_comparing_result<ConditionsCount> funcs_pair_result{ first_func_descriptor, second_func_descriptor,
 						first_func_implementation, second_func_implementation, comparing_result };
 
 					if (!clones_filter_->clones(funcs_pair_result, config))
@@ -70,8 +72,13 @@ namespace code_clones_analysis_top_level
 						continue;
 					}
 
-					funcs_pair_saver_->save(output, funcs_pair_result, var_descriptor_creator_);
+					result_by_similarity.emplace(similarity, std::move(funcs_pair_result));
 				}
+			}
+
+			for (const auto& [_, funcs_pair_result] : result_by_similarity)
+			{
+				funcs_pair_saver_->save(output, funcs_pair_result, var_descriptor_creator_);
 			}
 		}
 

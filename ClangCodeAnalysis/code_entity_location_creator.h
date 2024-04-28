@@ -13,8 +13,6 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::code_entity_location create(const CXCursor& cursor)
 		{
-			const auto tu = clang_Cursor_getTranslationUnit(cursor);
-			const auto tu_cursor = clang_getTranslationUnitCursor(tu);
 			const CXSourceRange range = clang_getCursorExtent(cursor);
 			if (clang_Range_isNull(range))
 			{

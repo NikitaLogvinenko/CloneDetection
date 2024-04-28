@@ -1,0 +1,9 @@
+<Output> ".\results\CloneDetection.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
+<SecondProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
+<MinSimilarity> 0.7
+<MinVariables> 4
+<CodeAnalysisThreads> 1
+<CountMatricesComparingThreads> 1
+<MatricesComparingAlgorithm> BipartiteMatching

@@ -3,6 +3,8 @@
 <LibsDirectory> "..\..\..\LLVM\lib\"
 <Lib> "libclang.lib"
 
+<SourcesDirectory> "..\..\..\CMCDApp\"
+<SourcesDirectory> "..\..\..\ClangASTDumping\"
 <SourcesDirectory> "..\..\..\CodeClonesAnalysisTopLevel\"
 <SourcesDirectory> "..\..\..\ClangCodeAnalysis\"
 <SourcesDirectory> "..\..\..\ClangCAdaptation\"
@@ -16,8 +18,9 @@
 <SourcesDirectory> "..\..\..\CodeGeneration\"
 <SourcesDirectory> "..\..\..\CommonExceptions\"
 
-
 <IncludeDirectory> "..\..\..\LLVM\include\clang-c\"
+<IncludeDirectory> "..\..\..\CMCDApp\"
+<IncludeDirectory> "..\..\..\ClangASTDumping\"
 <IncludeDirectory> "..\..\..\CodeClonesAnalysisTopLevel\"
 <IncludeDirectory> "..\..\..\ClangCodeAnalysis\"
 <IncludeDirectory> "..\..\..\ClangCAdaptation\"

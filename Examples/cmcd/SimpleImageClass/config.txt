@@ -1,0 +1,9 @@
+<Output> ".\results\SimpleImageClass.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\ast_dumping\SimpleImageClass\dumps\"
+<SecondProjectDirectory> "..\..\ast_dumping\SimpleImageClass\dumps\"
+<MinSimilarity> 0.6
+<MinVariables> 3
+<CodeAnalysisThreads> 4
+<CountMatricesComparingThreads> 4
+<MatricesComparingAlgorithm> BipartiteMatching
