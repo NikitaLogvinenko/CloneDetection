@@ -1,0 +1,9 @@
+<Output> "A:\original_s1a.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\Examples\ast_dumping\Roy_et_al_16_scenarios\dumps\original\"
+<SecondProjectDirectory> "..\Examples\ast_dumping\Roy_et_al_16_scenarios\dumps\s1a\"
+<MinSimilarity> 0.5
+<MinVariables> 3
+<CodeAnalysisThreads> 1
+<CountMatricesComparingThreads> 1
+<MatricesComparingAlgorithm> BipartiteMatching

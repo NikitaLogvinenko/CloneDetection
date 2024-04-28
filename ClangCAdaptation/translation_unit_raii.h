@@ -72,7 +72,7 @@ namespace clang_c_adaptation
 				0, nullptr);
 		}
 
-		void throw_if_invalid_translation_unit(const std::string& description)
+		void throw_if_invalid_translation_unit(const std::string& description) const
 		{
 			if (translation_unit_ == invalid_translation_unit)
 			{

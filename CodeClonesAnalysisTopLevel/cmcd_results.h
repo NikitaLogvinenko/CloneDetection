@@ -19,8 +19,8 @@ namespace code_clones_analysis_top_level
 		using funcs_pairwise_comparing_result = code_clones_analysis_through_cm::code_entities_pairwise_comparing_through_cm_result<traits>;
 
 	private:
-		const std::vector<analyzed_entity_id>& first_set_of_entities_{};
-		const std::vector<analyzed_entity_id>& second_set_of_entities_{};
+		std::vector<analyzed_entity_id> first_set_of_entities_{};
+		std::vector<analyzed_entity_id> second_set_of_entities_{};
 
 		implementations_info_map first_project_implementations_info_{};
 		implementations_info_map second_project_implementations_info_{};

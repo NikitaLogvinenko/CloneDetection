@@ -1,0 +1,9 @@
+<Output> ".\results\original1_original2.txt"
+<Framework> clang
+<FirstProjectDirectory> "A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\dumps\original1\"
+<SecondProjectDirectory> "A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\dumps\original2\"
+<MinSimilarity> 0.5
+<MinVariables> 3
+<CodeAnalysisThreads> 1
+<CountMatricesComparingThreads> 1
+<MatricesComparingAlgorithm> BipartiteMatching

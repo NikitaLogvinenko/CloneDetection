@@ -85,21 +85,21 @@ namespace
 		operator_kind::method_not_equal
 	} };
 	
-	const std::vector<cursor_predicate_t> call_expr_checking{ cursor_classifier::is_call_expr };
+	const std::vector call_expr_checking{ cursor_predicate_t{&cursor_classifier::is_call_expr} };
 
-	const std::vector<cursor_predicate_t> literals_checking{ cursor_classifier::is_literal };
+	const std::vector literals_checking{ cursor_predicate_t{&cursor_classifier::is_literal} };
 
-	const std::vector<cursor_predicate_t> conditional_stmt_checking{
-		cursor_classifier::is_if_stmt,
-		cursor_classifier::is_switch_stmt,
-		cursor_classifier::is_ternary_operator_stmt
+	const std::vector conditional_stmt_checking{
+		cursor_predicate_t{&cursor_classifier::is_if_stmt},
+		cursor_predicate_t{&cursor_classifier::is_switch_stmt},
+		cursor_predicate_t{&cursor_classifier::is_ternary_operator_stmt}
 	};
 
-	const std::vector<cursor_predicate_t> loop_checking{
-		cursor_classifier::is_while_stmt,
-		cursor_classifier::is_for_stmt,
-		cursor_classifier::is_for_range_stmt,
-		cursor_classifier::is_do_stmt
+	const std::vector loop_checking{
+		cursor_predicate_t{&cursor_classifier::is_while_stmt},
+		cursor_predicate_t{&cursor_classifier::is_for_stmt},
+		cursor_predicate_t{&cursor_classifier::is_for_range_stmt},
+		cursor_predicate_t{&cursor_classifier::is_do_stmt}
 	};
 	
 	const std::unordered_set subscript_operators{ {
@@ -145,10 +145,10 @@ namespace
 	}
 	
 	[[nodiscard]] std::unique_ptr<vars_nested_in_condition_finder> create_vars_nested_in_condition_finder(
-		std::vector<cursor_predicate_t> predicates, const var_usage_conditions_default condition)
+		const std::vector<cursor_predicate_t>& predicates, const var_usage_conditions_default condition)
 	{
 		cursor_predicate_t any_predicate{
-			[&predicates](const CXCursor& cursor)
+			[predicates](const CXCursor& cursor)
 			{
 				for (const auto& predicate : predicates)
 				{
@@ -214,10 +214,10 @@ namespace
 	}
 
 	[[nodiscard]] std::unique_ptr<condition_nested_in_local_var_definition_finder> create_condition_in_local_var_definition_finder(
-		std::vector<cursor_predicate_t> predicates, const var_usage_conditions_default condition)
+		const std::vector<cursor_predicate_t>& predicates, const var_usage_conditions_default condition)
 	{
 		cursor_predicate_t any_predicate{
-			[&predicates](const CXCursor& cursor)
+			[predicates](const CXCursor& cursor)
 			{
 				for (const auto& predicate : predicates)
 				{

@@ -18,9 +18,10 @@ namespace code_clones_analysis_top_level
 				throw common_exceptions::invalid_operation_error{ "cmcd_output_provider_file::init: initialized already." };
 			}
 
-
-			output_.open(config.results_output(), std::ios_base::out | std::ios_base::trunc);
-			utility::throw_if_not_open(output_, config.results_output(), "cmcd_output_provider_file::init");
+			const auto path = std::filesystem::absolute(config.results_output());
+			output_.open(path, std::ios_base::out | std::ios_base::trunc);
+			utility::throw_if_not_open(output_, std::filesystem::absolute(config.results_output()),
+				"cmcd_output_provider_file::init");
 		}
 
 		[[nodiscard]] std::ostream& output() override

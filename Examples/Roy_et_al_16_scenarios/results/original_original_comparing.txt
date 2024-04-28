@@ -1,3 +1,0 @@
-
-~~~ Count matrix based clone-functions detection ~~~
-functions_similarity_threshold=0%
