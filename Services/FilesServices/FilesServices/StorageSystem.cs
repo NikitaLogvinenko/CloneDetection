@@ -2,27 +2,28 @@
 using System.IO;
 using MetaDataCreator;
 using System.Threading.Tasks;
+using FilesServices.Exceptions;
 
 namespace FilesServices
 {
     public sealed class StorageSystem : IFilesStorage
     {
-        private readonly ConcurrentDictionary<FileId, MetaData> _fileSystem =
-            new ConcurrentDictionary<FileId, MetaData>();
+        private readonly ConcurrentDictionary<FileId.FileId, MetaData> _fileSystem =
+            new ConcurrentDictionary<FileId.FileId, MetaData>();
 
         public int GetSize()
         {
             return _fileSystem!.Count;
         }
         
-        public Task<bool> AddNewFile(FileId inputFileId)
+        public Task<bool> AddNewFile(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             
             return Task.FromResult(_fileSystem.TryAdd(inputFileId, FileHandler.CreateMetaDataFromSourceFile(inputFileId.GetId())));
         }
         
-        public Task RemoveFile(FileId inputFileId)
+        public Task RemoveFile(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             
@@ -30,7 +31,7 @@ namespace FilesServices
             return Task.CompletedTask;
         }
 
-        public Task<FileInfo> GetFile(FileId inputFileId)
+        public Task<FileInfo> GetFile(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             FileStorageExceptionChecker.CheckExistInSystem(_fileSystem.TryGetValue(inputFileId, out var metaData));
@@ -38,21 +39,21 @@ namespace FilesServices
             return Task.FromResult(new FileInfo(inputFileId.GetId()));
         }
 
-        public Task<bool> GetMetaDataForFile(FileId inputFileId)
+        public Task<bool> GetMetaDataForFile(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             
             return Task.FromResult(_fileSystem!.TryGetValue(inputFileId, out var metaData));
         }
 
-        public bool HasSuchKey(FileId inputFileId)
+        public bool HasSuchKey(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             
             return _fileSystem.TryGetValue(inputFileId, out var metaData);
         }
         
-        public async Task<string> GetFileText(FileId inputFileId)
+        public async Task<string> GetFileText(FileId.FileId inputFileId)
         {
             FileStorageExceptionChecker.CheckForNull(inputFileId);
             FileStorageExceptionChecker.CheckExistInSystem(_fileSystem.TryGetValue(inputFileId, out var metaData));

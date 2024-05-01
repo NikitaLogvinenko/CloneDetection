@@ -1,6 +1,6 @@
-using System;
+using FilesServices.Exceptions;
 
-namespace FilesServices
+namespace FilesServices.FileId
 {
     public class FileId
     {

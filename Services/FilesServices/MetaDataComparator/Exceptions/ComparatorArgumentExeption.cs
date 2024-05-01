@@ -1,6 +1,4 @@
-using System;
-
-namespace MetaDataComparator
+namespace CodeMetaDataComparator.Exceptions
 {
     public class ComparatorInputArgumentException : ArgumentException
     {

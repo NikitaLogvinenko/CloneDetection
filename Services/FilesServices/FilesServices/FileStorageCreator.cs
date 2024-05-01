@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using FilesServices.Exceptions;
 
 namespace FilesServices
 {
@@ -20,7 +21,7 @@ namespace FilesServices
             {
                 FileStorageExceptionChecker.CheckExistFile(filePath);
 
-                await fileSystem.AddNewFile(new FileId(filePath))!;
+                await fileSystem.AddNewFile(new FileId.FileId(filePath))!;
             }
 
             return fileSystem;

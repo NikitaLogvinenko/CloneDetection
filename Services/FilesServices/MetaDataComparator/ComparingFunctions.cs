@@ -1,23 +1,24 @@
-﻿using System;
-using MetaDataComparator.Exceptions;
-using MetaDataCreator;
+﻿using CodeMetaData;
+using CodeMetaData.Operations;
+using CodeMetaData.VariableClasses;
+using CodeMetaDataComparator.Exceptions;
+using Exceptions;
 
-namespace MetaDataComparator
+namespace CodeMetaDataComparator
 {
     public static class ComparerMetaData
     {
-        public static float CompareOperationCounting(OperationCounter first, OperationCounter second)
+        public static float CompareOperationCounters(OperationCounter first, OperationCounter second)
         {
-            ComparatorExceptionChecker.CheckForNull(first);
-            ComparatorExceptionChecker.CheckForNull(second);
+            ExceptionsChecker.IsNull(first);
+            ExceptionsChecker.IsNull(second);
 
             if (first.Operation.GetOperationId().GetId() != second.Operation.GetOperationId().GetId())
             {
                 return 0;
             }
 
-            if (first.Operation.GetSecondOperand() == null && second.Operation.GetSecondOperand() != null ||
-                first.Operation.GetSecondOperand() != null && second.Operation.GetSecondOperand() == null)
+            if (first.Operation.GetType() != second.Operation.GetType())
             {
                 return 0;
             }
@@ -27,8 +28,8 @@ namespace MetaDataComparator
         
         public static float CompareUsages(VariableUsage first, VariableUsage second)
         {
-            ComparatorExceptionChecker.CheckForNull(first);
-            ComparatorExceptionChecker.CheckForNull(second);
+            ExceptionsChecker.IsNull(first);
+            ExceptionsChecker.IsNull(second);
             
             float equationParam = 0;
             
@@ -48,7 +49,7 @@ namespace MetaDataComparator
                 
                 foreach (var operationCountingSecond in secondCounting)
                 {
-                    var compareOperationResult = CompareOperationCounting(operationCountingFirst, operationCountingSecond);
+                    var compareOperationResult = CompareOperationCounters(operationCountingFirst, operationCountingSecond);
                     if (compareOperationResult > equationParamMax)
                     {
                         toDeleteSecond = operationCountingSecond;
@@ -63,19 +64,19 @@ namespace MetaDataComparator
             return equationParam / Math.Max(first.GetSize(), second.GetSize());
         }
     
-        public static float CompareMetaData(MetaData first, MetaData second)
+        public static float CompareMetaData(CodeMetaData.SourceCodeMetaData first, CodeMetaData.SourceCodeMetaData second)
         {
-            ComparatorExceptionChecker.CheckForNull(first);
-            ComparatorExceptionChecker.CheckForNull(second);
+            ExceptionsChecker.IsNull(first);
+            ExceptionsChecker.IsNull(second);
             
-            ComparatorExceptionChecker.CheckForZero(first.GetSize());
-            ComparatorExceptionChecker.CheckForZero(second.GetSize());
+            ComparatorExceptionChecker.IsZeroValueParametr(first.GetSize());
+            ComparatorExceptionChecker.IsZeroValueParametr(second.GetSize());
             
             float equationReal = 0;
     
             foreach (var firstIt in first)
             {
-                if (second.HasSuchUsages(firstIt.Key))
+                if (second.HasUsages(firstIt.Key))
                 {
                     equationReal++;
                 }
@@ -99,21 +100,11 @@ namespace MetaDataComparator
             return equationReal/first.GetSize();
         }
         
-        public static bool CheckEquationOfMetaData(MetaData first, MetaData second, float equationParam)
+        public static bool CheckEquationOfMetaData(CodeMetaData.SourceCodeMetaData first, CodeMetaData.SourceCodeMetaData second, float equationParam)
         {
-            ComparatorExceptionChecker.CheckForRange(equationParam);
+            ComparatorExceptionChecker.IsParametrInAvailableRange(equationParam);
             
             return CompareMetaData(first, second) >= equationParam;
-        }
-        
-        public static bool CheckEquationOfFile(string firstFilePath, string secondFilePath, float equationParam)
-        {
-            ComparatorExceptionChecker.CheckForRange(equationParam);
-    
-            MetaData firstMetaData = FileHandler.CreateMetaDataFromSourceFile(firstFilePath);
-            MetaData secondMetaData = FileHandler.CreateMetaDataFromSourceFile(secondFilePath);
-            
-            return CheckEquationOfMetaData(firstMetaData, secondMetaData, equationParam);
         }
     }
 }

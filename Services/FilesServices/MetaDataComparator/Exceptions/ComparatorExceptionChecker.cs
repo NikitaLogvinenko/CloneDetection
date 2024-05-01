@@ -1,16 +1,8 @@
-namespace MetaDataComparator.Exceptions
+namespace CodeMetaDataComparator.Exceptions
 {
     public static class ComparatorExceptionChecker
-    {
-        public static void CheckForNull(object obj)
-        {
-            if (obj == null)
-            {
-                throw new ComparatorInputArgumentException("Input cant be null");
-            }
-        }
-        
-        public static void CheckForZero(int param)
+    {   
+        public static void IsZeroValueParametr(int param)
         {
             if (param == 0)
             {
@@ -18,7 +10,7 @@ namespace MetaDataComparator.Exceptions
             }
         }
         
-        public static void CheckForRange(float param)
+        public static void IsParametrInAvailableRange(float param)
         {
             if (param <= 0 || param >= 1)
             {

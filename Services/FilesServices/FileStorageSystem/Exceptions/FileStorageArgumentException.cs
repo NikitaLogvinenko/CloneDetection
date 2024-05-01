@@ -1,6 +1,4 @@
-using System;
-
-namespace FilesServices.Exceptions
+namespace FileStorageSystem.Exceptions
 {
     public class FileStorageArgumentException : ArgumentException
     {
