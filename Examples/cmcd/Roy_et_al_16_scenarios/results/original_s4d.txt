@@ -18,7 +18,7 @@ Functions similarity: 100%
 > second clone function:
 >> Spelling: sumProd
 >> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4a.cpp
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4d.cpp
 >>>> line: 3
 >>>> column: 1
 >>>> offset: 27
@@ -37,7 +37,7 @@ Matched variables:
 > Matched variable from second function:
 >> Spelling: n
 >> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4a.cpp
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4d.cpp
 >>>> line: 3
 >>>> column: 14
 >>>> offset: 40
@@ -53,10 +53,10 @@ Matched variables:
 > Matched variable from second function:
 >> Spelling: sum
 >> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4a.cpp
->>>> line: 6
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4d.cpp
+>>>> line: 5
 >>>> column: 2
->>>> offset: 72
+>>>> offset: 52
 
 >> Variables similarity: 100%
 > Matched variable from first function:
@@ -69,10 +69,10 @@ Matched variables:
 > Matched variable from second function:
 >> Spelling: prod
 >> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4a.cpp
->>>> line: 5
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4d.cpp
+>>>> line: 6
 >>>> column: 2
->>>> offset: 52
+>>>> offset: 75
 
 >> Variables similarity: 100%
 > Matched variable from first function:
@@ -85,8 +85,8 @@ Matched variables:
 > Matched variable from second function:
 >> Spelling: i
 >> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4a.cpp
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s4d.cpp
 >>>> line: 7
->>>> column: 7
->>>> offset: 100
+>>>> column: 2
+>>>> offset: 95
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

@@ -2,16 +2,20 @@
 #include <string>
 #include <filesystem>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace code_clones_analysis_top_level
 {
-	class cmcd_config
+	class cmcd_config final
 	{
 		std::string results_output_{};
 
 		std::string framework_{};
 		std::filesystem::path first_project_dir_{};
 		std::filesystem::path second_project_dir_{};
+
+		std::unordered_set<std::filesystem::path> excluded_dirs_{};
+		std::unordered_set<std::filesystem::path> excluded_sources_{};
 
 		double min_similarity_{};
 		size_t min_variables_{};
@@ -44,6 +48,16 @@ namespace code_clones_analysis_top_level
 		void set_second_project_dir(std::filesystem::path path) noexcept
 		{
 			std::swap(second_project_dir_, path);
+		}
+
+		void add_excluded_dir(std::filesystem::path excluded_dir) noexcept
+		{
+			excluded_dirs_.emplace(std::move(excluded_dir));
+		}
+
+		void add_excluded_source(std::filesystem::path excluded_source) noexcept
+		{
+			excluded_sources_.emplace(std::move(excluded_source));
 		}
 
 		void set_min_similarity(const double value) noexcept
@@ -94,6 +108,16 @@ namespace code_clones_analysis_top_level
 		[[nodiscard]] const std::filesystem::path& second_project_dir() const noexcept
 		{
 			return second_project_dir_;
+		}
+
+		[[nodiscard]] const std::unordered_set<std::filesystem::path>& excluded_dirs() const noexcept
+		{
+			return excluded_dirs_;
+		}
+
+		[[nodiscard]] const std::unordered_set<std::filesystem::path>& excluded_sources() const noexcept
+		{
+			return excluded_sources_;
 		}
 
 		[[nodiscard]] double min_similarity() const noexcept

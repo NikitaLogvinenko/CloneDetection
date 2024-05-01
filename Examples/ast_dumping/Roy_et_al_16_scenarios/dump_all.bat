@@ -19,5 +19,6 @@ cd .\configs\
 ..\..\..\..\_build\x64\Debug\ClangASTDumping-x64-dbg.exe dump_s4a_config.txt
 ..\..\..\..\_build\x64\Debug\ClangASTDumping-x64-dbg.exe dump_s4b_config.txt
 ..\..\..\..\_build\x64\Debug\ClangASTDumping-x64-dbg.exe dump_s4c_config.txt
+..\..\..\..\_build\x64\Debug\ClangASTDumping-x64-dbg.exe dump_s4d_config.txt
 
 PAUSE

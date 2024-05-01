@@ -12,8 +12,13 @@ namespace clang_code_analysis
 
 		[[nodiscard]] static code_analysis::code_entity_spelling create(const CXCursor& cursor)
 		{
-			std::string spelling = clang_c_adaptation::cxstring_raii(clang_getCursorSpelling(cursor)).string();
-			return code_analysis::code_entity_spelling{ std::move(spelling) };
+			if (const auto spelling = clang_c_adaptation::cxstring_raii(clang_getCursorSpelling(cursor)); 
+				spelling.is_valid())
+			{
+				return code_analysis::code_entity_spelling{ spelling.string() };
+			}
+
+			return {};
 		}
 	};
 }

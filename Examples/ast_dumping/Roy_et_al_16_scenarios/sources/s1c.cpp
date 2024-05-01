@@ -6,10 +6,8 @@ void sumProd(int n)
 	float prod = 1.0;
 
 
-	for (int i = 1; i <= n; i++)
-	{
+	for (int i = 1; i <= n; i++){
 		sum = sum + i;
 		prod = prod * i;
-		foo(sum, prod);
-	}
+		foo(sum, prod);}
 }

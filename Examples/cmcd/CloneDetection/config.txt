@@ -2,8 +2,11 @@
 <Framework> clang
 <FirstProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
 <SecondProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
-<MinSimilarity> 0.7
-<MinVariables> 4
+<ExcludedDirectory> "..\..\..\LLVM\"
+<ExcludedDirectory> "..\..\..\dlib-19.24\"
+<SecondProjectDirectory>
+<MinSimilarity> 0.6
+<MinVariables> 3
 <CodeAnalysisThreads> 1
 <CountMatricesComparingThreads> 1
 <MatricesComparingAlgorithm> BipartiteMatching

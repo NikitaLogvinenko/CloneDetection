@@ -19,6 +19,7 @@ START ..\..\..\..\_build\x64\Debug\CMCDApp-x64-dbg.exe original_s3e_config.txt
 START ..\..\..\..\_build\x64\Debug\CMCDApp-x64-dbg.exe original_s4a_config.txt
 START ..\..\..\..\_build\x64\Debug\CMCDApp-x64-dbg.exe original_s4b_config.txt
 START ..\..\..\..\_build\x64\Debug\CMCDApp-x64-dbg.exe original_s4c_config.txt
+START ..\..\..\..\_build\x64\Debug\CMCDApp-x64-dbg.exe original_s4d_config.txt
 
 ECHO all files were analysed, results were saved in the results directory
 PAUSE

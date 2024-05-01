@@ -51,7 +51,7 @@ namespace code_clones_analysis_top_level
 
 			const auto results_saver = saver_factory->create_saver(config);
 			output_provider->init(config);
-			const cmcd_results_saver_config saver_config{ config.min_similarity(), config.min_variables() };
+			const cmcd_results_saver_config saver_config{ config.min_similarity(), config.min_variables(), config.excluded_dirs(), config.excluded_sources() };
 			results_saver->save(output_provider->output(), final_result, saver_config);
 		}
 

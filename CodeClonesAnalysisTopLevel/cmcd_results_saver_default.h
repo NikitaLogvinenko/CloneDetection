@@ -72,6 +72,12 @@ namespace code_clones_analysis_top_level
 						continue;
 					}
 
+					if (config.exclude(first_func_descriptor.to_code_entity_descriptor().location().filename())
+					|| config.exclude(second_func_descriptor.to_code_entity_descriptor().location().filename()))
+					{
+						continue;
+					}
+
 					result_by_similarity.emplace(similarity, std::move(funcs_pair_result));
 				}
 			}

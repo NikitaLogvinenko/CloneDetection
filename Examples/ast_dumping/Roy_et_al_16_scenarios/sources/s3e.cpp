@@ -8,7 +8,7 @@ void sumProd(int n)
 	{
 		if (n % 2 == 0)
 		{
-			sum = sum + i;
+			sum += i;
 		}
 		prod = prod * i;
 		foo(sum, prod);

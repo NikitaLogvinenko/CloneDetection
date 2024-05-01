@@ -18,7 +18,6 @@ code_clones_analysis_top_level::cmcd_config code_clones_analysis_top_level::
 cmcd_config_parser_default::parse(std::istream& input) const
 {
 	cmcd_config config{};
-	std::unordered_set<std::string> processed_args{};
 
 	while (true)
 	{
@@ -37,13 +36,6 @@ cmcd_config_parser_default::parse(std::istream& input) const
 		}
 
 		const std::string& param_name = parsed_tokens.at(param_name_token);
-
-		if (processed_args.contains(param_name))
-		{
-			throw input_format_error{ std::format("cmcd_config_parser_default::parse: "
-										 "param {} reassigning is not allowed.", param_name) };
-		}
-		processed_args.emplace(param_name);
 
 		std::string param_value = parsed_tokens.at(param_value_token);
 		if (!arg_processing_by_prefix.contains(param_name))
@@ -88,8 +80,24 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_
 	config.set_second_project_dir(std::move(dir));
 }
 
-void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_similarity(std::string token,
+void code_clones_analysis_top_level::cmcd_config_parser_default::process_excluded_dir(std::string token,
 	cmcd_config& config)
+{
+	std::filesystem::path dir = std::filesystem::absolute(token);
+	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_excluded_dir");
+	config.add_excluded_dir(std::move(dir));
+}
+
+void code_clones_analysis_top_level::cmcd_config_parser_default::process_excluded_source(std::string token,
+	cmcd_config& config)
+{
+	std::filesystem::path source = std::filesystem::absolute(token);
+	utility::throw_if_nonexistent<input_format_error>(source, "cmcd_config_parser_default::process_excluded_source");
+	config.add_excluded_source(std::move(source));
+}
+
+void code_clones_analysis_top_level::cmcd_config_parser_default::process_min_similarity(std::string token,
+                                                                                        cmcd_config& config)
 {
 	const double min_similarity = utility::convert_argument<double, input_format_error>(token,
 		std::format("cmcd_config_parser_default::process_min_similarity: "

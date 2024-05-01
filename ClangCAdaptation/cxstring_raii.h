@@ -33,6 +33,11 @@ namespace clang_c_adaptation
 			clang_disposeString(cxstring_);
 		}
 
+		[[nodiscard]] bool is_valid() const
+		{
+			return clang_getCString(cxstring_) != nullptr;
+		}
+
 		[[nodiscard]] std::string string() const
 		{
 			const char* const c_string = clang_getCString(cxstring_);

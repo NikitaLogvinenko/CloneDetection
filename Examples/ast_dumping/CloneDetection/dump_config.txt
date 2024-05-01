@@ -33,5 +33,6 @@
 <IncludeDirectory> "..\..\..\Utility\"
 <IncludeDirectory> "..\..\..\CodeGeneration\"
 <IncludeDirectory> "..\..\..\CommonExceptions\"
+<IncludeDirectoryR> "..\..\..\dlib-19.24\"
 
 <CommonArgs> -std c++20
