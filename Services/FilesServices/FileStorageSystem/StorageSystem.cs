@@ -20,6 +20,7 @@ namespace FileStorageSystem
         public async Task<bool> TryAddNewFile(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
+            FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
             var metaData = await CreatorCodeMetaDataFromFile.MakeCodeMetaDataFromSourceFile(inputFileId.GetId());
 
@@ -28,8 +29,8 @@ namespace FileStorageSystem
         
         public async Task<bool> TryRemoveFile(FileId.FileId inputFileId)
         {
-
             ExceptionsChecker.IsNull(inputFileId);
+
             return await Task.Run(() => _fileStorageDictionary.TryRemove(inputFileId, out _));
         }
 
@@ -47,6 +48,7 @@ namespace FileStorageSystem
         public async Task<SourceCodeMetaData> GetCodeMetaDataForFile(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
+            FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
             var metaData = await Task.Run(() => _fileStorageDictionary.GetValueOrDefault(inputFileId));
 
@@ -65,6 +67,7 @@ namespace FileStorageSystem
         public async Task<string> GetFileText(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
+            FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
             await _semaphoreSlim.WaitAsync();
             FileStorageExceptionChecker.IsNotExistInSystem(_fileStorageDictionary, inputFileId);

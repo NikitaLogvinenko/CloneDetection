@@ -4,35 +4,35 @@ using FileStorageSystem;
 using FileStorageSystem.Exceptions;
 using FileStorageSystem.FileId;
 using NUnit.Framework;
-
+using FileStorageCreator;
 namespace TestFilesServices
 {
     [TestFixture]
     public class TestsFileStorage
     {
-        private readonly string _filePath = "System.txt";
-        private readonly string _filePath2 = "System1.txt";
+        private readonly FileInfo _initFileInfo = new FileInfo("System.txt");
+        private readonly FileInfo _initFileInfo2 =new FileInfo("System1.txt");
         private readonly FileInfo _fileInfo = new FileInfo("21345/Vinichenko.txt");
         private readonly FileInfo _fileInfo2 = new FileInfo("21345/Logvinenko.txt");
         private readonly FileInfo _fileInfo3 = new FileInfo("21345/Vileiko.txt");
         [Test]
         public void InitException()
         {
-            Assert.ThrowsAsync<Exceptions.Argument>(() => FileStorageCreator.CreateFileStorageFromSourceFile(""));
-            Assert.ThrowsAsync<Exceptions.Argument>(() => FileStorageCreator.CreateFileStorageFromSourceFile(null));
+            Assert.ThrowsAsync<System.ArgumentException>(() => FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(new FileInfo("")));
+            Assert.ThrowsAsync<Exceptions.Argument>(() => FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(null));
         }
 
         [Test]
         public void Init()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo);
             system.Wait();
         }
 
         [Test]
         public void Contains()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo);
             system.Wait();
 
             FileId id = new FileId(_fileInfo);
@@ -48,7 +48,7 @@ namespace TestFilesServices
         [Test]
         public void Remove()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo);
             system.Wait();
 
             var state = system.Result.TryRemoveFile(new FileId(_fileInfo));
@@ -66,7 +66,7 @@ namespace TestFilesServices
         [Test]
         public void Add()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath2);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo2);
 
             var state = system.Result.TryAddNewFile(new FileId(_fileInfo3));
 
@@ -76,7 +76,7 @@ namespace TestFilesServices
         [Test]
         public void Read()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath2);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo2);
 
             Assert.True("1234" == system.Result.GetFileText(new FileId(_fileInfo)).Result);
 
@@ -90,7 +90,7 @@ namespace TestFilesServices
         [Test]
         public void GetMetaData()
         {
-            var system = FileStorageCreator.CreateFileStorageFromSourceFile(_filePath2);
+            var system = FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(_initFileInfo2);
 
             Assert.True(system.Result.GetCodeMetaDataForFile(new FileId(_fileInfo)) != null);
         }

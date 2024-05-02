@@ -25,6 +25,7 @@
     <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\FileCodeMetaDataHandler\FileCodeMetaDataHandler.csproj" />
     <ProjectReference Include="..\FileStorageConverter\FileStorageConverter.csproj" />
+    <ProjectReference Include="..\FileStorageCreator\FileStorageCreator.csproj" />
     <ProjectReference Include="..\FileStorageSerializer\FileStorageSerializer.csproj" />
     <ProjectReference Include="..\FileStorageSystemHandler\FileStorageSystemHandler.csproj" />
     <ProjectReference Include="..\FileStorageSystem\FileStorageSystem.csproj" />

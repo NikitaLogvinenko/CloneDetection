@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeMetaDataHandler", "Code
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileStorageSystemHandler", "FileStorageSystemHandler\FileStorageSystemHandler.csproj", "{BA25AD5E-C863-433B-A360-55EE33851FE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStorageCreator", "FileStorageCreator\FileStorageCreator.csproj", "{B3A86BC5-45DD-46D1-91C3-63252165EAB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,18 @@ Global
 		{BA25AD5E-C863-433B-A360-55EE33851FE1}.Release|x64.Build.0 = Release|Any CPU
 		{BA25AD5E-C863-433B-A360-55EE33851FE1}.Release|x86.ActiveCfg = Release|Any CPU
 		{BA25AD5E-C863-433B-A360-55EE33851FE1}.Release|x86.Build.0 = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|x64.Build.0 = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|x64.ActiveCfg = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|x64.Build.0 = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{B3A86BC5-45DD-46D1-91C3-63252165EAB0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
