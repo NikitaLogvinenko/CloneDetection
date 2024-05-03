@@ -26,6 +26,7 @@ namespace code_clones_analysis_through_cm
 		using implementations_info_ptr = std::shared_ptr<implementations_info_map>;
 
 		using cm_comparing_ptr = std::unique_ptr<const cm::matrices_comparer_abstract<matrices_comparing_traits>>;
+		using matrices_comparing_result_type = cm::matrices_comparing_result<typename CompTraits::matrices_comparing_traits>;
 
 		using analyzed_entity_id = typename code_analysis_traits::analyzed_entity_id;
 		using similarity_t = typename matrices_comparing_traits::similarity_t;
@@ -137,15 +138,14 @@ namespace code_clones_analysis_through_cm
 			comparing_threads_futures.reserve(threads_count_);
 
 			std::size_t first_id_index{};
-			std::size_t second_id_index{};
 			utility::spinlock indices_lock{};
 
 			for (size_t comparing_thread_index = 0; comparing_thread_index < threads_count_; ++comparing_thread_index)
 			{
-				auto comparing_thread_future = std::async(std::launch::async, 
+				auto comparing_thread_future = std::async(std::launch::async,
 					&code_entities_pairwise_comparer_through_cm::comparing_thread_method, this,
 					std::ref(first_set_of_entities), std::ref(second_set_of_entities),
-					std::ref(first_id_index), std::ref(second_id_index), 
+					std::ref(first_id_index),
 					std::ref(similarity_by_ids), std::ref(matrices_comparing_results_by_ids),
 					std::ref(indices_lock), std::ref(results_lock));
 
@@ -164,7 +164,7 @@ namespace code_clones_analysis_through_cm
 		void comparing_thread_method(
 			const std::vector<analyzed_entity_id>& first_set_of_entities,
 			const std::vector<analyzed_entity_id>& second_set_of_entities,
-			size_t& first_entity_index, size_t& second_entity_index,
+			size_t& first_entity_index,
 			similarity_by_ids_map& similarity_by_ids,
 			result_by_ids_map& matrices_comparing_results_by_ids,
 			utility::spinlock& indices_lock, utility::spinlock& results_lock)
@@ -176,8 +176,8 @@ namespace code_clones_analysis_through_cm
 
 			while(true)
 			{
-				const code_entity_implementation_info* first_entity_info, *second_entity_info;
-				analyzed_entity_id first_entity_id_under_lock, second_entity_id_under_lock;
+				const code_entity_implementation_info* first_entity_info_ptr;
+				analyzed_entity_id first_entity_id_under_lock;
 
 				{
 					std::lock_guard indices_guard{ indices_lock };
@@ -187,23 +187,36 @@ namespace code_clones_analysis_through_cm
 					}
 
 					first_entity_id_under_lock = first_set_of_entities[first_entity_index];
-					second_entity_id_under_lock = second_set_of_entities[second_entity_index];
-
-					first_entity_info = &implementations_info_->at(first_entity_id_under_lock);
-					second_entity_info = &implementations_info_->at(second_entity_id_under_lock);
-
-					increase_indices(first_entity_index, second_entity_index, second_set_of_entities.size());
+					first_entity_info_ptr = &implementations_info_->at(first_entity_id_under_lock);
+					++first_entity_index;
 				}
 
-				const pair_of_ids compared_entities_ids{ first_entity_id_under_lock, second_entity_id_under_lock };
-				// ReSharper disable once CppTooWideScope
-				auto matrices_comparing_result = (*matrices_comparator_)(
-					first_entity_info->nested_entities_conditions_cm(), second_entity_info->nested_entities_conditions_cm());
+				std::vector<std::pair<pair_of_ids, matrices_comparing_result_type>> all_compares_for_first_entity;
+				all_compares_for_first_entity.reserve(second_set_of_entities.size());
+
+				for (size_t second_entity_index = 0; second_entity_index < second_set_of_entities.size(); ++second_entity_index)
+				{
+					analyzed_entity_id second_entity_id = second_set_of_entities[second_entity_index];
+					const code_entity_implementation_info& second_entity_info = implementations_info_->at(second_entity_id);
+
+					const pair_of_ids compared_entities_ids{ first_entity_id_under_lock, second_entity_id };
+					// ReSharper disable once CppTooWideScope
+					matrices_comparing_result_type matrices_comparing_result = (*matrices_comparator_)(
+						first_entity_info_ptr->nested_entities_conditions_cm(), second_entity_info.nested_entities_conditions_cm());
+
+					all_compares_for_first_entity.emplace_back(compared_entities_ids, std::move(matrices_comparing_result));
+				}
 
 				{
 					std::lock_guard results_guard{ results_lock };
-					similarity_by_ids.emplace(compared_entities_ids, matrices_comparing_result.similarity().to_similarity_t());
-					matrices_comparing_results_by_ids.emplace(compared_entities_ids, std::move(matrices_comparing_result));
+
+					for (size_t comparing_index = 0; comparing_index < all_compares_for_first_entity.size(); ++comparing_index)
+					{
+						const auto compared_entities_ids = all_compares_for_first_entity[comparing_index].first;
+						auto matrices_comparing_result = std::move(all_compares_for_first_entity[comparing_index].second);
+						similarity_by_ids.emplace(compared_entities_ids, matrices_comparing_result.similarity().to_similarity_t());
+						matrices_comparing_results_by_ids.emplace(compared_entities_ids, std::move(matrices_comparing_result));
+					}
 				}
 			}
 		}
