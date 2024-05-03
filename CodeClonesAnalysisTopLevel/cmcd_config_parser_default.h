@@ -47,7 +47,7 @@ namespace code_clones_analysis_top_level
 			{min_similarity_prefix, &process_min_similarity},
 			{min_variables_prefix, &process_min_variables},
 			{code_analysis_threads_prefix, &process_code_analysis_threads},
-			{count_matrices_comparing_threads_prefix, &process_matrices_comparing_algorithm},
+			{count_matrices_comparing_threads_prefix, &process_count_matrices_comparing_threads},
 			{matrices_comparing_algorithm_prefix, &process_matrices_comparing_algorithm}
 		};
 	};
