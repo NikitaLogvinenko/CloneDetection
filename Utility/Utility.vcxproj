@@ -169,6 +169,7 @@
     <ClInclude Include="pow_throwing.h" />
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
+    <ClInclude Include="timer.h" />
     <ClInclude Include="unique_id_generator_threadsafe.h" />
   </ItemGroup>
   <ItemGroup>

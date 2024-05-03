@@ -9,6 +9,7 @@ namespace code_clones_analysis_top_level
 		size_t min_variables_{};
 		std::unordered_set<std::filesystem::path> excluded_dirs_{};
 		std::unordered_set<std::filesystem::path> excluded_sources_{};
+		mutable std::unordered_map<std::filesystem::path, bool> already_seen_paths_{};
 
 	public:
 		cmcd_results_saver_config() noexcept = default;
@@ -31,14 +32,19 @@ namespace code_clones_analysis_top_level
 		[[nodiscard]] bool exclude(const std::filesystem::path& path) const
 		{
 			const auto absolute_path = absolute(path);
+			if (already_seen_paths_.contains(path))
+			{
+				return already_seen_paths_.at(path);
+			}
+
 			if (excluded_sources_.contains(absolute_path))
 			{
-				return true;
+				return set_and_return(path, true);
 			}
 
 			if (excluded_dirs_.empty())
 			{
-				return false;
+				return set_and_return(path, false);
 			}
 
 			auto possibly_excluded_directory = absolute_path;
@@ -46,10 +52,19 @@ namespace code_clones_analysis_top_level
 			{
 				if (excluded_dirs_.contains(possibly_excluded_directory))
 				{
-					return true;
+					return set_and_return(path, true);
 				}
 				possibly_excluded_directory = possibly_excluded_directory.parent_path();
 			} while (possibly_excluded_directory.has_relative_path());
+
+			return set_and_return(path, false);
+		}
+
+	private:
+		bool set_and_return(const std::filesystem::path& path, const bool exclude) const
+		{
+			already_seen_paths_[path] = exclude;
+			return exclude;
 		}
 	};
 }

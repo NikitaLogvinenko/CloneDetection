@@ -5,6 +5,7 @@
 #include "funcs_comparing_through_count_matrix_factory_abstract.h"
 #include "cmcd_results_saver_factory_abstract.h"
 #include "funcs_analysis_traits.h"
+#include "timer.h"
 
 namespace code_clones_analysis_top_level
 {
@@ -27,13 +28,23 @@ namespace code_clones_analysis_top_level
 		                 // ReSharper disable once CppPassValueParameterByConstReference
 		                 std::unique_ptr<cmcd_output_provider_abstract> output_provider)
 		{
+			utility::timer total_timer{};
+			total_timer.start();
+
 			const cmcd_config config = parser->parse(input);
 			const auto analysis_director = analysis_factory->create_director(config);
 
+			utility::timer stages_timer{};
+			stages_timer.start();
 			auto first_project_implementations_info = analyse_implementations(
 				config, config.first_project_dir(), *analysis_director, * analysis_factory);
+			stages_timer.stop();
+			const auto first_project_analysis_time = stages_timer.interval();
+			stages_timer.start();
 			auto second_project_implementations_info = analyse_implementations(
 				config, config.second_project_dir(), *analysis_director, *analysis_factory);
+			stages_timer.stop();
+			const auto second_project_analysis_time = stages_timer.interval();
 
 			const auto comparer = comparing_factory->create_funcs_comparer(config);
 
@@ -43,7 +54,10 @@ namespace code_clones_analysis_top_level
 
 			auto first_project_ids = get_analyzed_ids(first_project_implementations_info);
 			auto second_project_ids = get_analyzed_ids(second_project_implementations_info);
+			stages_timer.start();
 			auto _ = comparer->compare(first_project_ids, second_project_ids);
+			stages_timer.stop();
+			const auto comparing_time = stages_timer.interval();
 
 			auto comparing_results = comparer->extract_detailed_results();
 			const cmcd_result<ConditionsCount> final_result{std::move(first_project_ids), std::move(second_project_ids),
@@ -51,8 +65,23 @@ namespace code_clones_analysis_top_level
 
 			const auto results_saver = saver_factory->create_saver(config);
 			output_provider->init(config);
-			const cmcd_results_saver_config saver_config{ config.min_similarity(), config.min_variables(), config.excluded_dirs(), config.excluded_sources() };
+			const cmcd_results_saver_config saver_config{ config.min_similarity(), config.min_variables(),
+				config.excluded_dirs(), config.excluded_sources() };
+			stages_timer.start();
 			results_saver->save(output_provider->output(), final_result, saver_config);
+			stages_timer.stop();
+			const auto results_saving_time = stages_timer.interval();
+
+			total_timer.stop();
+			const auto total_time = total_timer.interval();
+
+
+			output_provider->output() << '\n';
+			output_provider->output() << std::format("Total time: {} seconds.\n", total_time);
+			output_provider->output() << std::format("First project analysis time: {} seconds.\n", first_project_analysis_time);
+			output_provider->output() << std::format("Second project analysis time: {} seconds.\n", second_project_analysis_time);
+			output_provider->output() << std::format("Comparing time: {} seconds.\n", comparing_time);
+			output_provider->output() << std::format("Results saving time: {} seconds.", results_saving_time);
 		}
 
 	private:

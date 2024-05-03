@@ -49,7 +49,10 @@ namespace code_clones_analysis_top_level
 				config.min_similarity(), config.min_variables());
 
 			funcs_descriptors_map func_descriptor_by_id{};
-			std::map<double, funcs_pair_comparing_result<ConditionsCount>, std::greater<double>> result_by_similarity{};
+			std::map<double, funcs_pair_comparing_result<ConditionsCount>, std::greater<>> result_by_similarity{};
+
+			size_t excluded_functions_first_project = 0;
+			size_t excluded_functions_second_project = 0;
 
 			for (const auto first_func_id : result.first_set_of_entities())
 			{
@@ -60,6 +63,16 @@ namespace code_clones_analysis_top_level
 				{
 					const auto& second_func_implementation = result.second_project_implementations_info().at(second_func_id);
 					const auto& second_func_descriptor = get_descriptor(func_descriptor_by_id, second_func_id, *func_descriptor_creator_);
+
+					const bool exclude_first_func = config.exclude(first_func_descriptor.to_code_entity_descriptor().location().filename());
+					const bool exclude_second_func = config.exclude(second_func_descriptor.to_code_entity_descriptor().location().filename());
+					excluded_functions_first_project += exclude_first_func;
+					excluded_functions_second_project += exclude_second_func;
+
+					if (exclude_first_func || exclude_second_func)
+					{
+						continue;
+					}
 
 					const auto& comparing_result = result.comparing_result().get_result(first_func_id, second_func_id);
 					const double similarity = comparing_result.similarity().to_similarity_t().to_double();
@@ -72,15 +85,20 @@ namespace code_clones_analysis_top_level
 						continue;
 					}
 
-					if (config.exclude(first_func_descriptor.to_code_entity_descriptor().location().filename())
-					|| config.exclude(second_func_descriptor.to_code_entity_descriptor().location().filename()))
-					{
-						continue;
-					}
-
 					result_by_similarity.emplace(similarity, std::move(funcs_pair_result));
 				}
 			}
+
+			size_t analysed_functions_first_project = result.first_set_of_entities().size();
+			size_t analysed_functions_second_project = result.second_set_of_entities().size();
+			excluded_functions_first_project /= analysed_functions_second_project;
+			excluded_functions_second_project /= analysed_functions_first_project;
+
+			output << std::format("Functions analysed, first project: {}.\n", analysed_functions_first_project);
+			output << std::format("Functions analysed, second project: {}.\n", analysed_functions_second_project);
+			output << std::format("Functions excluded from results, first project: {}.\n", excluded_functions_first_project);
+			output << std::format("Functions excluded from results, second project: {}.\n", excluded_functions_second_project);
+			output << std::format("Clones found: {}.\n\n", result_by_similarity.size());
 
 			for (const auto& [_, funcs_pair_result] : result_by_similarity)
 			{

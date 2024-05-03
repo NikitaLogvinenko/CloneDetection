@@ -3,6 +3,12 @@
 <MinSimilarity> 0.5
 <MinVariables> 3
 
+Functions analysed, first project: 1.
+Functions analysed, second project: 1.
+Functions excluded from results, first project: 0.
+Functions excluded from results, second project: 0.
+Clones found: 1.
+
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 Functions similarity: 72%
@@ -90,3 +96,9 @@ Matched variables:
 >>>> column: 7
 >>>> offset: 100
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Total time: 0 seconds.
+First project analysis time: 0 seconds.
+Second project analysis time: 0 seconds.
+Comparing time: 0 seconds.
+Results saving time: 0 seconds.

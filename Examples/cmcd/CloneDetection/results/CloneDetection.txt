@@ -1,5 +1,0 @@
-
-~~~ Count matrix based clone-functions detection ~~~
-<MinSimilarity> 0.7
-<MinVariables> 4
-
