@@ -77,11 +77,11 @@ namespace code_clones_analysis_top_level
 
 
 			output_provider->output() << '\n';
-			output_provider->output() << std::format("Total time: {} seconds.\n", total_time);
-			output_provider->output() << std::format("First project analysis time: {} seconds.\n", first_project_analysis_time);
-			output_provider->output() << std::format("Second project analysis time: {} seconds.\n", second_project_analysis_time);
-			output_provider->output() << std::format("Comparing time: {} seconds.\n", comparing_time);
-			output_provider->output() << std::format("Results saving time: {} seconds.", results_saving_time);
+			output_provider->output() << std::format("Total time: {} seconds\n", total_time);
+			output_provider->output() << std::format("First project analysis time: {} seconds\n", first_project_analysis_time);
+			output_provider->output() << std::format("Second project analysis time: {} seconds\n", second_project_analysis_time);
+			output_provider->output() << std::format("Comparing time: {} seconds\n", comparing_time);
+			output_provider->output() << std::format("Results saving time: {} seconds", results_saving_time);
 		}
 
 	private:

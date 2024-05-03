@@ -42,20 +42,19 @@ namespace code_clones_analysis_top_level
 				return set_and_return(path, true);
 			}
 
-			if (excluded_dirs_.empty())
+			if (excluded_dirs_.contains(absolute_path))
 			{
-				return set_and_return(path, false);
+				return set_and_return(path, true);
 			}
 
-			auto possibly_excluded_directory = absolute_path;
-			do
+			for (const auto& excluded_dir : excluded_dirs_)
 			{
-				if (excluded_dirs_.contains(possibly_excluded_directory))
+				const auto relative_path = relative(absolute_path, excluded_dir);
+				if (relative_path.string() == "." || !relative_path.empty() && relative_path.native().at(0) != '.')
 				{
 					return set_and_return(path, true);
 				}
-				possibly_excluded_directory = possibly_excluded_directory.parent_path();
-			} while (possibly_excluded_directory.has_relative_path());
+			}
 
 			return set_and_return(path, false);
 		}

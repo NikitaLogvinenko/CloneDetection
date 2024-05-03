@@ -1,11 +1,11 @@
-<Output> ".\results\CloneDetection_Sim0.5_Vars3_AnalysisThreads1_ComparingThreads4_ForceAsync.txt"
+<Output> ".\results\CloneDetection_Sim0.6_Vars4_AnalysisThreads1_ComparingThreads2_ForceAsync.txt"
 <Framework> clang
 <FirstProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
 <SecondProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
 <ExcludedDirectory> "..\..\..\LLVM\"
 <ExcludedDirectory> "..\..\..\dlib-19.24\"
-<MinSimilarity> 0.5
-<MinVariables> 3
+<MinSimilarity> 0.6
+<MinVariables> 4
 <CodeAnalysisThreads> 1
 <CountMatricesComparingThreads> 2
 <MatricesComparingAlgorithm> BipartiteMatching

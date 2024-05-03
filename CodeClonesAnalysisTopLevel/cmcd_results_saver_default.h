@@ -94,11 +94,11 @@ namespace code_clones_analysis_top_level
 			excluded_functions_first_project /= analysed_functions_second_project;
 			excluded_functions_second_project /= analysed_functions_first_project;
 
-			output << std::format("Functions analysed, first project: {}.\n", analysed_functions_first_project);
-			output << std::format("Functions analysed, second project: {}.\n", analysed_functions_second_project);
-			output << std::format("Functions excluded from results, first project: {}.\n", excluded_functions_first_project);
-			output << std::format("Functions excluded from results, second project: {}.\n", excluded_functions_second_project);
-			output << std::format("Clones found: {}.\n\n", result_by_similarity.size());
+			output << std::format("Functions analysed, first project: {}\n", analysed_functions_first_project);
+			output << std::format("Functions analysed, second project: {}\n", analysed_functions_second_project);
+			output << std::format("Functions excluded from results, first project: {}\n", excluded_functions_first_project);
+			output << std::format("Functions excluded from results, second project: {}\n", excluded_functions_second_project);
+			output << std::format("Clones found: {}\n\n", result_by_similarity.size());
 
 			for (const auto& [_, funcs_pair_result] : result_by_similarity)
 			{
