@@ -11,8 +11,7 @@ namespace code_clones_analysis_top_level
 		std::string results_output_{};
 
 		std::string framework_{};
-		std::filesystem::path first_project_dir_{};
-		std::filesystem::path second_project_dir_{};
+		
 		std::unordered_set<std::filesystem::path> first_project_dirs_{};
 		std::unordered_set<std::filesystem::path> second_project_dirs_{};
 
