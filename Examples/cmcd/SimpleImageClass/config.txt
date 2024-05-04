@@ -3,7 +3,7 @@
 <FirstProjectDirectory> "..\..\ast_dumping\SimpleImageClass\dumps\"
 <SecondProjectDirectory> "..\..\ast_dumping\SimpleImageClass\dumps\"
 <MinSimilarity> 0.6
-<MinVariables> 3
-<CodeAnalysisThreads> 4
-<CountMatricesComparingThreads> 4
+<MinVariables> 4
+<CodeAnalysisThreads> 2
+<CountMatricesComparingThreads> 2
 <MatricesComparingAlgorithm> BipartiteMatching

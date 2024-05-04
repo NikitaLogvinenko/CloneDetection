@@ -161,6 +161,7 @@
     <ClInclude Include="hash_combine.h" />
     <ClInclude Include="id_concept.h" />
     <ClInclude Include="id_hash.h" />
+    <ClInclude Include="nested_paths_provider.h" />
     <ClInclude Include="spinlock.h" />
     <ClInclude Include="one_off_container.h" />
     <ClInclude Include="non_const_arithmetic.h" />

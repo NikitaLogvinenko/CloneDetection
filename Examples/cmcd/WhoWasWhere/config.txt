@@ -1,0 +1,10 @@
+<Output> ".\results\WhoWasWhere.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\ast_dumping\WhoWasWhere\dumps\"
+<SecondProjectDirectory> "..\..\ast_dumping\WhoWasWhere\dumps\"
+<ExcludedDirectory> "..\..\ast_dumping\WhoWasWhere\sources\Alglib\"
+<MinSimilarity> 0.6
+<MinVariables> 3
+<CodeAnalysisThreads> 2
+<CountMatricesComparingThreads> 2
+<MatricesComparingAlgorithm> BipartiteMatching

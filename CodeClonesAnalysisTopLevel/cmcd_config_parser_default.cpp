@@ -2,12 +2,16 @@
 #include "line_parser.h"
 #include "input_format_error.h"
 #include "parameters_validation.h"
+#include "nested_paths_provider.h"
 #include <format>
 #include <unordered_set>
 
 namespace
 {
 	using common_exceptions::input_format_error;
+
+	using nested_paths_provider = utility::nested_paths_provider;
+	const auto& is_directory_predicate = nested_paths_provider::is_directory_predicate;
 
 	constexpr size_t tokens_per_line = 2;
 	constexpr size_t param_name_token = 0;
@@ -69,7 +73,7 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_first_p
 {
 	std::filesystem::path dir = std::filesystem::absolute(token);
 	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_first_project_dir");
-	config.set_first_project_dir(std::move(dir));
+	config.add_first_project_dir(std::move(dir));
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_project_dir(std::string token,
@@ -77,7 +81,41 @@ void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_
 {
 	std::filesystem::path dir = std::filesystem::absolute(token);
 	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_second_project_dir");
-	config.set_second_project_dir(std::move(dir));
+	config.add_second_project_dir(std::move(dir));
+}
+
+void code_clones_analysis_top_level::cmcd_config_parser_default::process_first_project_dir_recursive(std::string token,
+	cmcd_config& config)
+{
+	std::filesystem::path dir = std::filesystem::absolute(token);
+	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_first_project_dir_recursive");
+
+
+	auto nested_dirs = nested_paths_provider::get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
+
+	config.add_first_project_dir(std::move(dir));
+
+	for (auto& nested_path : nested_dirs)
+	{
+		config.add_first_project_dir(std::move(nested_path));
+	}
+}
+
+void code_clones_analysis_top_level::cmcd_config_parser_default::process_second_project_dir_recursive(std::string token,
+	cmcd_config& config)
+{
+	std::filesystem::path dir = std::filesystem::absolute(token);
+	utility::throw_if_nonexistent_directory<input_format_error>(dir, "cmcd_config_parser_default::process_second_project_dir_recursive");
+
+
+	auto nested_dirs = nested_paths_provider::get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
+
+	config.add_second_project_dir(std::move(dir));
+
+	for (auto& nested_path : nested_dirs)
+	{
+		config.add_second_project_dir(std::move(nested_path));
+	}
 }
 
 void code_clones_analysis_top_level::cmcd_config_parser_default::process_excluded_dir(std::string token,

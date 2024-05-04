@@ -35,6 +35,6 @@ namespace code_clones_analysis_top_level
 			const cmcd_config& config) const = 0;
 
 		[[nodiscard]] virtual std::unique_ptr<code_traversers_factory_abstract> create_traversers_factory(
-			const cmcd_config& config, const std::filesystem::path& project_directory) const = 0;
+			const cmcd_config& config, const std::unordered_set<std::filesystem::path>& project_directories) const = 0;
 	};
 }

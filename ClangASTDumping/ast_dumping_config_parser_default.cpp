@@ -2,17 +2,15 @@
 #include "line_parser.h"
 #include "input_format_error.h"
 #include "parameters_validation.h"
+#include "nested_paths_provider.h"
 #include <format>
 
 namespace
 {
 	using common_exceptions::input_format_error;
 
-	const std::function is_directory_predicate =
-		[](const std::filesystem::directory_entry& entry)
-		{
-			return entry.is_directory();
-		};
+	using nested_paths_provider = utility::nested_paths_provider;
+	const auto& is_directory_predicate = nested_paths_provider::is_directory_predicate;
 
 	const std::unordered_set<std::string> sources_extensions{ ".c", ".cpp" };
 
@@ -104,7 +102,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_include_dir_r
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_include_dir_recursive");
 
-		auto nested_dirs = get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
+		auto nested_dirs = nested_paths_provider::get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
 
 		config.add_include_dir(std::move(dir));
 
@@ -148,7 +146,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_libs_dir_recu
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_libs_dir_recursive");
 
-		auto nested_dirs = get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
+		auto nested_dirs = nested_paths_provider::get_nested_paths(std::filesystem::recursive_directory_iterator{ dir }, is_directory_predicate);
 
 		config.add_lib_dir(std::move(dir));
 
@@ -190,7 +188,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir(s
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir");
 
-		for (auto nested_sources = get_nested_paths(
+		for (auto nested_sources = nested_paths_provider::get_nested_paths(
 			std::filesystem::directory_iterator{ dir }, is_source_file_predicate); 
 			auto& nested_source : nested_sources)
 		{
@@ -214,7 +212,7 @@ void clang_ast_dumping::ast_dumping_config_parser_default::process_sources_dir_r
 		path dir = std::filesystem::absolute(tokens[token_index]);
 		utility::throw_if_nonexistent_directory<input_format_error>(dir, "ast_dumping_config_parser_default::process_sources_dir_recursive");
 
-		for (auto nested_sources = get_nested_paths(
+		for (auto nested_sources = nested_paths_provider::get_nested_paths(
 			std::filesystem::recursive_directory_iterator{ dir }, is_source_file_predicate);
 			auto & nested_source : nested_sources)
 		{

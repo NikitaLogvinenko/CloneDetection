@@ -13,6 +13,8 @@ namespace code_clones_analysis_top_level
 		std::string framework_{};
 		std::filesystem::path first_project_dir_{};
 		std::filesystem::path second_project_dir_{};
+		std::unordered_set<std::filesystem::path> first_project_dirs_{};
+		std::unordered_set<std::filesystem::path> second_project_dirs_{};
 
 		std::unordered_set<std::filesystem::path> excluded_dirs_{};
 		std::unordered_set<std::filesystem::path> excluded_sources_{};
@@ -40,14 +42,14 @@ namespace code_clones_analysis_top_level
 			std::swap(framework_, name);
 		}
 
-		void set_first_project_dir(std::filesystem::path path) noexcept
+		void add_first_project_dir(std::filesystem::path path) noexcept
 		{
-			std::swap(first_project_dir_, path);
+			first_project_dirs_.emplace(std::move(path));
 		}
 
-		void set_second_project_dir(std::filesystem::path path) noexcept
+		void add_second_project_dir(std::filesystem::path path) noexcept
 		{
-			std::swap(second_project_dir_, path);
+			second_project_dirs_.emplace(std::move(path));
 		}
 
 		void add_excluded_dir(std::filesystem::path excluded_dir) noexcept
@@ -100,14 +102,14 @@ namespace code_clones_analysis_top_level
 			return framework_;
 		}
 
-		[[nodiscard]] const std::filesystem::path& first_project_dir() const noexcept
+		[[nodiscard]] const std::unordered_set<std::filesystem::path>& first_project_dirs() const noexcept
 		{
-			return first_project_dir_;
+			return first_project_dirs_;
 		}
 
-		[[nodiscard]] const std::filesystem::path& second_project_dir() const noexcept
+		[[nodiscard]] const std::unordered_set<std::filesystem::path>& second_project_dirs() const noexcept
 		{
-			return second_project_dir_;
+			return second_project_dirs_;
 		}
 
 		[[nodiscard]] const std::unordered_set<std::filesystem::path>& excluded_dirs() const noexcept

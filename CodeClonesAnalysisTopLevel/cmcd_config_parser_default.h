@@ -13,6 +13,8 @@ namespace code_clones_analysis_top_level
 		static void process_framework(std::string token, cmcd_config& config);
 		static void process_first_project_dir(std::string token, cmcd_config& config);
 		static void process_second_project_dir(std::string token, cmcd_config& config);
+		static void process_first_project_dir_recursive(std::string token, cmcd_config& config);
+		static void process_second_project_dir_recursive(std::string token, cmcd_config& config);
 		static void process_excluded_dir(std::string token, cmcd_config& config);
 		static void process_excluded_source(std::string token, cmcd_config& config);
 		static void process_min_similarity(std::string token, cmcd_config& config);
@@ -26,6 +28,8 @@ namespace code_clones_analysis_top_level
 		inline static const std::string framework_prefix{ "<Framework>" };
 		inline static const std::string first_project_dir_prefix{ "<FirstProjectDirectory>" };
 		inline static const std::string second_project_dir_prefix{ "<SecondProjectDirectory>" };
+		inline static const std::string first_project_dir_recursive_prefix{ "<FirstProjectDirectoryR>" };
+		inline static const std::string second_project_dir_recursive_prefix{ "<SecondProjectDirectoryR>" };
 		inline static const std::string excluded_dir_prefix{ "<ExcludedDirectory>" };
 		inline static const std::string excluded_source_prefix{ "<ExcludedSource>" };
 		inline static const std::string min_similarity_prefix{ "<MinSimilarity>" };
@@ -42,6 +46,8 @@ namespace code_clones_analysis_top_level
 			{framework_prefix, &process_framework},
 			{first_project_dir_prefix, &process_first_project_dir},
 			{second_project_dir_prefix, &process_second_project_dir},
+			{first_project_dir_recursive_prefix, &process_first_project_dir_recursive},
+			{second_project_dir_recursive_prefix, &process_second_project_dir_recursive},
 			{excluded_dir_prefix, &process_excluded_dir},
 			{excluded_source_prefix, &process_excluded_source},
 			{min_similarity_prefix, &process_min_similarity},

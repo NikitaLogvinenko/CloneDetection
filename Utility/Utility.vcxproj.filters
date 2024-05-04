@@ -17,6 +17,7 @@
     <ClInclude Include="id_hash.h" />
     <ClInclude Include="line_parser.h" />
     <ClInclude Include="timer.h" />
+    <ClInclude Include="nested_paths_provider.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="line_parser.cpp" />

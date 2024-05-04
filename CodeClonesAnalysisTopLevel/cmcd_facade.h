@@ -37,12 +37,12 @@ namespace code_clones_analysis_top_level
 			utility::timer stages_timer{};
 			stages_timer.start();
 			auto first_project_implementations_info = analyse_implementations(
-				config, config.first_project_dir(), *analysis_director, * analysis_factory);
+				config, config.first_project_dirs(), *analysis_director, *analysis_factory);
 			stages_timer.stop();
 			const auto first_project_analysis_time = stages_timer.interval();
 			stages_timer.start();
 			auto second_project_implementations_info = analyse_implementations(
-				config, config.second_project_dir(), *analysis_director, *analysis_factory);
+				config, config.second_project_dirs(), *analysis_director, *analysis_factory);
 			stages_timer.stop();
 			const auto second_project_analysis_time = stages_timer.interval();
 
@@ -85,16 +85,16 @@ namespace code_clones_analysis_top_level
 		}
 
 	private:
-		[[nodiscard]] static implementations_info_map analyse_implementations(const cmcd_config& config, const std::filesystem::path& project_dir,
+		[[nodiscard]] static implementations_info_map analyse_implementations(const cmcd_config& config, const std::unordered_set<std::filesystem::path>& project_dirs,
 			const code_analysis_through_cm::code_implementations_info_director_abstract<code_analysis_through_cm::funcs_analysis_traits<ConditionsCount>>& analysis_director,
 			const funcs_analysis_through_count_matrix_factory_abstract<ConditionsCount>& analysis_factory)
 		{
 			auto project_analysis_builder = analysis_factory.create_builder(config);
-			auto project_traversers_factory = analysis_factory.create_traversers_factory(config, project_dir);
+			auto project_traversers_factory = analysis_factory.create_traversers_factory(config, project_dirs);
 
 			auto project_implementations_info = analysis_director.analyse_implementations(
 				std::move(project_analysis_builder), std::move(project_traversers_factory));
-			
+
 			return project_implementations_info;
 		}
 

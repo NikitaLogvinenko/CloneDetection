@@ -2,25 +2,29 @@
 #include "input_format_error.h"
 #include "parameters_validation.h"
 #include "cxindex_raii.h"
+#include <unordered_set>
 
 std::vector<clang_c_adaptation::translation_unit_raii> clang_c_adaptation::translation_units_builder::build(
-	const std::filesystem::path& directory) const
+	const std::unordered_set<std::filesystem::path>& directories) const
 {
 	static cxindex_raii cxindex{};
 
-	utility::throw_if_nonexistent_directory<common_exceptions::input_format_error>(
-		directory, "translation_units_builder::build");
-
 	std::vector<translation_unit_raii> result;
 
-	for (const auto& entry : std::filesystem::directory_iterator{directory})
+	for (const auto& dir : directories)
 	{
-		if (entry.path().extension() != ".ast")
-		{
-			continue;
-		}
+		utility::throw_if_nonexistent_directory<common_exceptions::input_format_error>(
+			dir, "translation_units_builder::build");
 
-		result.emplace_back(cxindex, entry.path());
+		for (const auto& entry : std::filesystem::directory_iterator{ dir })
+		{
+			if (entry.path().extension() != ".ast")
+			{
+				continue;
+			}
+
+			result.emplace_back(cxindex, entry.path());
+		}
 	}
 
 	return result;

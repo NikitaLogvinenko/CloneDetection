@@ -1,79 +1,14 @@
 
 ~~~ Count matrix based clone-functions detection ~~~
 <MinSimilarity> 0.6
-<MinVariables> 3
+<MinVariables> 4
 
+Functions analysed, first project: 53
+Functions analysed, second project: 53
+Functions excluded from results, first project: 0
+Functions excluded from results, second project: 0
+Clones found: 1
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-Functions similarity: 100%
-
-> first clone function:
->> Spelling: at
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 197
->>>> column: 1
->>>> offset: 4091
-
-> second clone function:
->> Spelling: at
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 203
->>>> column: 1
->>>> offset: 4221
-
-
-Matched variables:
-
->> Variables similarity: 100%
-> Matched variable from first function:
->> Spelling: index
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 197
->>>> column: 26
->>>> offset: 4116
-> Matched variable from second function:
->> Spelling: index
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 203
->>>> column: 32
->>>> offset: 4252
-
->> Variables similarity: 100%
-> Matched variable from first function:
->> Spelling: offset
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 199
->>>> column: 2
->>>> offset: 4138
-> Matched variable from second function:
->> Spelling: offset
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
->>>> line: 205
->>>> column: 2
->>>> offset: 4280
-
->> Variables similarity: 100%
-> Matched variable from first function:
->> Spelling: pixels_
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
->>>> line: 12
->>>> column: 5
->>>> offset: 206
-> Matched variable from second function:
->> Spelling: pixels_
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
->>>> line: 12
->>>> column: 5
->>>> offset: 206
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 Functions similarity: 68%
@@ -170,12 +105,12 @@ Matched variables:
 >>>> column: 5
 >>>> offset: 206
 > Matched variable from second function:
->> Spelling: current_boundaries_
+>> Spelling: pixels_
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
->>>> line: 10
+>>>> line: 12
 >>>> column: 5
->>>> offset: 128
+>>>> offset: 206
 
 >> Variables similarity: 100%
 > Matched variable from first function:
@@ -186,12 +121,12 @@ Matched variables:
 >>>> column: 5
 >>>> offset: 128
 > Matched variable from second function:
->> Spelling: pixels_
+>> Spelling: current_boundaries_
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
->>>> line: 12
+>>>> line: 10
 >>>> column: 5
->>>> offset: 206
+>>>> offset: 128
 
 >> Variables similarity: 100%
 > Matched variable from first function:
@@ -209,3 +144,9 @@ Matched variables:
 >>>> column: 5
 >>>> offset: 167
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Total time: 3 seconds
+First project analysis time: 0 seconds
+Second project analysis time: 0 seconds
+Comparing time: 3 seconds
+Results saving time: 0 seconds

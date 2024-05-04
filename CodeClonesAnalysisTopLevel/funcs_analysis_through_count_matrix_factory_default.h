@@ -36,7 +36,7 @@ namespace code_clones_analysis_top_level
 		}
 
 		[[nodiscard]] std::unique_ptr<code_traversers_factory_abstract> create_traversers_factory(
-			const cmcd_config& config, const std::filesystem::path& project_directory) const override
+			const cmcd_config& config, const std::unordered_set<std::filesystem::path>& project_directories) const override
 		{
 			if (config.framework() != "clang" && !config.framework().empty())
 			{
@@ -44,7 +44,7 @@ namespace code_clones_analysis_top_level
 													  "only clang framework supported now." };
 			}
 
-			auto translation_units = clang_c_adaptation::translation_units_builder{}.build(project_directory);
+			auto translation_units = clang_c_adaptation::translation_units_builder{}.build(project_directories);
 
 			auto factory = std::make_unique<code_analysis_through_cm::code_traversers_sharing_units_factory<
 				traits, clang_c_adaptation::translation_unit_raii, clang_code_analysis::clang_funcs_traverser<ConditionsCount>>>(
