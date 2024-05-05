@@ -1,0 +1,3 @@
+<DumpsDirectory> ".\dumps\"
+<SourcesDirectoryR> ".\"
+<IncludeDirectoryR> ".\"

@@ -8,7 +8,7 @@ namespace clang_c_adaptation
 	public:
 		[[nodiscard]] bool operator()(const CXCursor& first_cursor, const CXCursor& second_cursor) const noexcept
 		{
-			return clang_equalCursors(first_cursor, second_cursor);
+			return clang_equalCursors(first_cursor, second_cursor) != 0;
 		}
 	};
 }

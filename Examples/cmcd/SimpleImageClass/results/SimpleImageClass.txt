@@ -1,0 +1,152 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+<MinSimilarity> 0.6
+<MinVariables> 4
+
+Functions analysed, first project: 53
+Functions analysed, second project: 53
+Functions excluded from results, first project: 0
+Functions excluded from results, second project: 0
+Clones found: 1
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 68%
+
+> first clone function:
+>> Spelling: Image
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 35
+>>>> column: 1
+>>>> offset: 852
+
+> second clone function:
+>> Spelling: create
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 114
+>>>> column: 1
+>>>> offset: 2600
+
+
+Matched variables:
+
+>> Variables similarity: 73%
+> Matched variable from first function:
+>> Spelling: rows
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 35
+>>>> column: 14
+>>>> offset: 865
+> Matched variable from second function:
+>> Spelling: rows
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 114
+>>>> column: 20
+>>>> offset: 2619
+
+>> Variables similarity: 73%
+> Matched variable from first function:
+>> Spelling: cols
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 35
+>>>> column: 30
+>>>> offset: 881
+> Matched variable from second function:
+>> Spelling: cols
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 114
+>>>> column: 36
+>>>> offset: 2635
+
+>> Variables similarity: 72%
+> Matched variable from first function:
+>> Spelling: channels
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 35
+>>>> column: 46
+>>>> offset: 897
+> Matched variable from second function:
+>> Spelling: channels
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 114
+>>>> column: 52
+>>>> offset: 2651
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 35
+>>>> column: 66
+>>>> offset: 917
+> Matched variable from second function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\sources\Image.cpp
+>>>> line: 123
+>>>> column: 2
+>>>> offset: 2811
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: pixels_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 12
+>>>> column: 5
+>>>> offset: 206
+> Matched variable from second function:
+>> Spelling: pixels_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 12
+>>>> column: 5
+>>>> offset: 206
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: current_boundaries_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 10
+>>>> column: 5
+>>>> offset: 128
+> Matched variable from second function:
+>> Spelling: current_boundaries_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 10
+>>>> column: 5
+>>>> offset: 128
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: initial_boundaries_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 11
+>>>> column: 5
+>>>> offset: 167
+> Matched variable from second function:
+>> Spelling: initial_boundaries_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\SimpleImageClass\headers\Image.hpp
+>>>> line: 11
+>>>> column: 5
+>>>> offset: 167
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Total time: 3 seconds
+First project analysis time: 0 seconds
+Second project analysis time: 0 seconds
+Comparing time: 3 seconds
+Results saving time: 0 seconds

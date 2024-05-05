@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{25fc3897-99aa-4dd1-b892-d49e28694faa}</ProjectGuid>
+    <RootNamespace>ClangFunctionsAnalysis</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)-$(PlatformTarget)-dbg</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\_build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)-$(PlatformTarget)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
+      <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
+      <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code_entity_descriptor_creator.h" />
+    <ClInclude Include="code_entity_location_creator.h" />
+    <ClInclude Include="code_entity_spelling_creator.h" />
+    <ClInclude Include="conditions_analyzers_factory_abstract.h" />
+    <ClInclude Include="condition_analyzer_abstract.h" />
+    <ClInclude Include="cursors_storage_threadsafe.h" />
+    <ClInclude Include="cursor_classifier.h" />
+    <ClInclude Include="field_analyzer.h" />
+    <ClInclude Include="from_nth_vars_nested_in_condition_finder.h" />
+    <ClInclude Include="funcs_definitions_finder.h" />
+    <ClInclude Include="clang_funcs_traverser.h" />
+    <ClInclude Include="translation_units_keeper_threadsafe.h" />
+    <ClInclude Include="vars_usage_analyzers_factory_default.h" />
+    <ClInclude Include="func_descriptor_creator_clang.h" />
+    <ClInclude Include="global_var_analyzer.h" />
+    <ClInclude Include="local_var_analyzer.h" />
+    <ClInclude Include="nth_var_nested_in_condition_finder.h" />
+    <ClInclude Include="operator_classifier.h" />
+    <ClInclude Include="operator_kind.h" />
+    <ClInclude Include="param_analyzer.h" />
+    <ClInclude Include="vars_nested_in_condition_finder.h" />
+    <ClInclude Include="condition_nested_in_local_var_definition_finder.h" />
+    <ClInclude Include="var_descriptor_creator_clang.h" />
+    <ClInclude Include="var_usage_conditions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="funcs_definitions_finder.cpp" />
+    <ClCompile Include="operator_classifier.cpp" />
+    <ClCompile Include="vars_usage_analyzers_factory_default.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

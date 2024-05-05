@@ -1,0 +1,3 @@
+<DumpsDirectory> ".\dumps\"
+<SourcesDirectory> ".\sources\"
+<CommonArgs> -std c++20

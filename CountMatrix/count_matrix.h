@@ -1,61 +1,46 @@
 ﻿#pragma once
 #include "count_vector.h"
+#include "index_of_count_vector.h"
 #include <vector>
 #include <algorithm>
 
-namespace count_matrix
+namespace cm
 {
-	class index_of_count_vector final : public typed_index
-	{
-	public:
-		index_of_count_vector() noexcept = default;
-		explicit index_of_count_vector(const size_t index) noexcept : typed_index(index) {}
-	};
-
-	template <size_t CountVectorDimension>
+	template <size_t CountVectorLength> requires count_vector_length<CountVectorLength>
 	class count_matrix final
 	{
-		class const_count_vectors_iterator final : public std::vector<count_vector<CountVectorDimension>>::const_iterator
-		{
-		public:
-			explicit const_count_vectors_iterator(const typename std::vector<count_vector<CountVectorDimension>>::const_iterator& vector_iterator) noexcept
-				: std::vector<count_vector<CountVectorDimension>>::const_iterator(vector_iterator) {}
-		};
-
-		std::vector<count_vector<CountVectorDimension>> count_vectors_{};
+		std::vector<count_vector<CountVectorLength>> count_vectors_{};
 
 	public:
-		count_matrix() noexcept = default;
-		explicit count_matrix(std::vector<count_vector<CountVectorDimension>> count_vectors) noexcept : count_vectors_(std::move(count_vectors)) {}
+		constexpr count_matrix() noexcept = default;
 
-		[[nodiscard]] size_t vectors_count() const noexcept
+		constexpr explicit count_matrix(std::vector<count_vector<CountVectorLength>> count_vectors) noexcept
+			: count_vectors_(std::move(count_vectors)) {}
+
+		[[nodiscard]] constexpr size_t vectors_count() const noexcept
 		{
 			return count_vectors_.size();
 		}
 
-		[[nodiscard]] const count_vector<CountVectorDimension>& operator[](const index_of_count_vector count_vector_index) const
-		{
-			return count_vectors_[count_vector_index.to_size_t()];
-		}
-
-		[[nodiscard]] const count_vector<CountVectorDimension>& at(const index_of_count_vector count_vector_index) const
+		[[nodiscard]] constexpr const count_vector<CountVectorLength>& at(
+			const index_of_count_vector count_vector_index) const
 		{
 			return count_vectors_.at(count_vector_index.to_size_t());
 		}
 
-		[[nodiscard]] bool empty() const noexcept
+		[[nodiscard]] constexpr bool empty() const noexcept
 		{
 			return count_vectors_.empty();
 		}
 
-		[[nodiscard]] const_count_vectors_iterator begin() const noexcept
+		[[nodiscard]] constexpr auto begin() const noexcept
 		{
-			return const_count_vectors_iterator(count_vectors_.cbegin());
+			return count_vectors_.cbegin();
 		}
 
-		[[nodiscard]] const_count_vectors_iterator end() const noexcept
+		[[nodiscard]] constexpr auto end() const noexcept
 		{
-			return const_count_vectors_iterator(count_vectors_.cend());
+			return count_vectors_.cend();
 		}
 	};
 }

@@ -1,0 +1,9 @@
+<Output> ".\results\Tasks block 5.txt"
+<Framework> clang
+<FirstProjectDirectoryR> "..\..\ast_dumping\Tasks block 5\dumps\"
+<SecondProjectDirectoryR> "..\..\ast_dumping\Tasks block 5\dumps\"
+<MinSimilarity> 0.6
+<MinVariables> 4
+<CodeAnalysisThreads> 2
+<CountMatricesComparingThreads> 2
+<MatricesComparingAlgorithm> BipartiteMatching

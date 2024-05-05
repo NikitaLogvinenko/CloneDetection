@@ -1,58 +1,208 @@
 ﻿#pragma once
-#include "count_vector_value.h"
-#include "typed_index.h"
-#include <array>
+#include "count_vector_length.h"
+#include "counted_value.h"
+#include "index_of_counted_value.h"
+#include "invalid_operation_error.h"
+#include "incorrect_size_error.h"
 #include <vector>
+#include <string>
 
-namespace count_matrix
+namespace cm
 {
-	class index_of_count_value final : public typed_index
-	{
-	public:
-		index_of_count_value() noexcept = default;
-		explicit index_of_count_value(const size_t index) noexcept : typed_index(index) {}
-	};
-
-	template <size_t Dimension>
+	template <size_t Length> requires count_vector_length<Length>
 	class count_vector final
 	{
-		class const_values_iterator final : public std::vector<count_vector_value>::const_iterator
+		class iterator final
 		{
+			using underlying_iterator = std::vector<counted_value>::const_iterator;
+
 		public:
-			explicit const_values_iterator(const std::vector<count_vector_value>::const_iterator& vector_iterator) noexcept
-				: std::vector<count_vector_value>::const_iterator(vector_iterator) {}
+			using difference_type = std::iterator_traits<underlying_iterator>::difference_type;
+			using value_type = std::iterator_traits<underlying_iterator>::value_type;
+			using pointer = std::iterator_traits<underlying_iterator>::pointer;
+			using reference = std::iterator_traits<underlying_iterator>::reference;
+			using iterator_category = std::random_access_iterator_tag;
+
+		private:
+			underlying_iterator iter_{};
+			size_t index_{};
+			bool from_zeroed_count_vector_{};
+
+		public:
+			constexpr iterator() noexcept = default;
+			constexpr iterator(underlying_iterator iter, const size_t index, 
+				const bool from_zeroed_count_vector) noexcept
+			: iter_(std::move(iter)), index_(index), from_zeroed_count_vector_(from_zeroed_count_vector) {}
+
+			[[nodiscard]] reference operator*() const
+			{
+				throw_if_end_it( "count_vector::iterator::operator*: can not dereference end iterator.");
+				return *iter_;
+			}
+
+			[[nodiscard]] const underlying_iterator& operator->() const
+			{
+				return iter_;
+			}
+
+			[[nodiscard]] auto& operator[](const difference_type n) const
+			{
+				return *this->operator+(n);
+			}
+
+			iterator& operator++()
+			{
+				return *this += 1;
+			}
+
+			iterator operator++(int)
+			{
+				const iterator tmp(*this);
+				++*this;
+				return tmp;
+			}
+
+			iterator& operator--()
+			{
+				return *this -= 1;
+			}
+
+			iterator operator--(int)
+			{
+				const iterator tmp(*this);
+				--*this;
+				return tmp;
+			}
+
+			[[nodiscard]] iterator operator+(const difference_type n) const
+			{
+				iterator new_it(*this);
+				shift_with_validation(new_it, n);
+				return new_it;
+			}
+
+			[[nodiscard]] iterator operator-(const difference_type n) const
+			{
+				iterator new_it(*this);
+				shift_with_validation(new_it, -n);
+				return new_it;
+			}
+
+			[[nodiscard]] friend iterator operator+(const difference_type n, const iterator& it)
+			{
+				return it + n;
+			}
+
+			iterator& operator+=(const difference_type n)
+			{
+				shift_with_validation(*this, n);
+				return *this;
+			}
+
+			iterator& operator-=(const difference_type n)
+			{
+				shift_with_validation(*this, -n);
+				return *this;
+			}
+
+			[[nodiscard]] difference_type operator-(const iterator& other) const noexcept
+			{
+				return index_ - other.index_;
+			}
+
+			[[nodiscard]] bool operator==(const iterator& other) const noexcept
+			{
+				return index_ == other.index_;
+			}
+
+			[[nodiscard]] bool operator!=(const iterator& other) const noexcept
+			{
+				return index_ != other.index_;
+			}
+
+			[[nodiscard]] auto operator<=>(const iterator& other) const
+			{
+				return index_ <=> other.index_;
+			}
+
+		private:
+			[[nodiscard]] difference_type get_changed_index_with_validation(const difference_type increase_by) const
+			{
+				const difference_type changed_index = index_ + increase_by;
+				throw_if_invalid_index(changed_index, 
+					"count_vector::iterator::get_changed_index_with_validation: attempt to get iterator out of range.");
+				return changed_index;
+			}
+
+			void throw_if_end_it(const std::string& msg) const
+			{
+				if (index_ == Length)
+				{
+					throw common_exceptions::invalid_operation_error(msg);
+				}
+			}
+
+			static void throw_if_invalid_index(const difference_type index, const std::string& msg)
+			{
+				if (index < 0 || index > Length)
+				{
+					throw common_exceptions::invalid_operation_error(msg);
+				}
+			}
+
+			static void shift_with_validation(iterator& it, const difference_type shift_by)
+			{
+				it.index_ = it.get_changed_index_with_validation(shift_by);
+				if (it.from_zeroed_count_vector_)
+				{
+					return;
+				}
+
+				it.iter_ += shift_by;
+			}
 		};
 
-		std::vector<count_vector_value> count_values_{ std::vector<count_vector_value>(Dimension) };
+
+		std::vector<counted_value> counted_values_{std::vector<count_vector>(zeroed_count_vector_size)};
+
+		static constexpr size_t zeroed_count_vector_size = 1;
 
 	public:
-		count_vector() noexcept = default;
-		explicit count_vector(const std::array<count_vector_value, Dimension>& count_values) : count_values_(count_values.cbegin(), count_values.cend()) {}
+		constexpr count_vector() = default;
 
-		[[nodiscard]] size_t size() const noexcept
+		constexpr explicit count_vector(std::vector<counted_value> counted_values) : counted_values_(std::move(counted_values))
 		{
-			return count_values_.size();
+			if (counted_values_.size() != Length)
+			{
+				throw common_exceptions::incorrect_size_error("count_vector::count_vector: "
+													 "counted_values.size() must be equal to Length.");
+			}
 		}
 
-		[[nodiscard]] const count_vector_value& operator[](const index_of_count_value value_index) const
+		[[nodiscard]] constexpr auto& at(const index_of_counted_value<Length> value_index) const noexcept
 		{
-			return count_values_[value_index.to_size_t()];
+			return *(begin() + value_index.to_size_t());
 		}
 
-		[[nodiscard]] const count_vector_value& at(const index_of_count_value value_index) const
+		[[nodiscard]] constexpr auto begin() const noexcept
 		{
-			return count_values_.at(value_index.to_size_t());
+			return iterator{ counted_values_.cbegin(), 0, zeroed() };
 		}
 
-		[[nodiscard]] const_values_iterator begin() const noexcept
+		[[nodiscard]] constexpr auto end() const noexcept
 		{
-			return const_values_iterator(count_values_.cbegin());
+			return iterator{ counted_values_.cend(), Length, zeroed() };
 		}
 
-		[[nodiscard]] const_values_iterator end() const noexcept
+		[[nodiscard]] static constexpr size_t size() noexcept
 		{
-			return const_values_iterator(count_values_.cend());
+			return Length;
+		}
+
+	private:
+		[[nodiscard]] constexpr bool zeroed() const noexcept
+		{
+			return Length != zeroed_count_vector_size && counted_values_.size() == zeroed_count_vector_size;
 		}
 	};
-
 }
