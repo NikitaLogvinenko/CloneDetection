@@ -1,4 +1,4 @@
-<Output> ".\results\CloneDetection_Sim0.6_Vars4_AfterConfigModuleRefactoring.txt"
+<Output> ".\results\CloneDetection_Sim0.6_Vars4_AfterLibsBugFixed.txt"
 <Framework> clang
 <FirstProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
 <SecondProjectDirectory> "..\..\ast_dumping\CloneDetection\dumps\"
