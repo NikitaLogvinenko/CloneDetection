@@ -19,6 +19,12 @@ namespace code_clones_analysis_top_level
 			}
 
 			const auto path = std::filesystem::absolute(config.results_output());
+			if (const auto directory = path.parent_path(); 
+				!exists(directory))
+			{
+				create_directories(directory);
+			}
+
 			output_.open(path, std::ios_base::out | std::ios_base::trunc);
 			utility::throw_if_not_open(output_, std::filesystem::absolute(config.results_output()),
 				"cmcd_output_provider_file::init");

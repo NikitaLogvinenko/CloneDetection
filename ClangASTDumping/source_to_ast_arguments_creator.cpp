@@ -40,16 +40,16 @@ std::vector<clang_ast_dumping::source_to_ast_arguments> clang_ast_dumping::sourc
 			args.emplace_back(include_dir.string());
 		}
 
-		for (const auto& libs_dir : config.include_dirs())
+		for (const auto& libs_dir : config.libs_dirs())
 		{
 			args.emplace_back(libs_dir_option);
 			args.emplace_back(libs_dir.string());
 		}
 
-		for (const auto& lib : config.include_dirs())
+		for (const auto& lib : config.libs())
 		{
 			args.emplace_back(lib_option);
-			args.emplace_back(lib.string());
+			args.emplace_back(lib);
 		}
 
 		if (config.common_args())

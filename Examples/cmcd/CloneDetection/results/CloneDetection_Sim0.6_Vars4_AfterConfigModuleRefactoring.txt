@@ -1,0 +1,4204 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+<MinSimilarity> 0.6
+<MinVariables> 4
+
+Functions analysed, first project: 842
+Functions analysed, second project: 842
+Functions excluded from results, first project: 389
+Functions excluded from results, second project: 389
+Clones found: 45
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 100%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: create_operators_in_local_var_definition_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 200
+>>>> column: 16
+>>>> offset: 8032
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 201
+>>>> column: 3
+>>>> offset: 8149
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 201
+>>>> column: 67
+>>>> offset: 8213
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 203
+>>>> column: 3
+>>>> offset: 8266
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: operators_in_local_var_definition_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 210
+>>>> column: 3
+>>>> offset: 8481
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 86%
+
+> first clone function:
+>> Spelling: process_include_dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 1
+>>>> offset: 2180
+
+> second clone function:
+>> Spelling: process_sources_dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 176
+>>>> column: 1
+>>>> offset: 6357
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 80
+>>>> offset: 2259
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 176
+>>>> column: 80
+>>>> offset: 6436
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 73
+>>>> column: 2
+>>>> offset: 2294
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 177
+>>>> column: 2
+>>>> offset: 6471
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 75
+>>>> column: 2
+>>>> offset: 2327
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 179
+>>>> column: 2
+>>>> offset: 6504
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 76
+>>>> column: 2
+>>>> offset: 2365
+> Matched variable from second function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 180
+>>>> column: 2
+>>>> offset: 6542
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 82
+>>>> column: 7
+>>>> offset: 2614
+> Matched variable from second function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 186
+>>>> column: 7
+>>>> offset: 6790
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 84
+>>>> column: 3
+>>>> offset: 2709
+> Matched variable from second function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 188
+>>>> column: 3
+>>>> offset: 6885
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 86%
+
+> first clone function:
+>> Spelling: throw_if_wrong_threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 2
+>>>> offset: 464
+
+> second clone function:
+>> Spelling: throw_if_not_enough_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 2
+>>>> offset: 1130
+
+
+Matched variables:
+
+>> Variables similarity: 45%
+> Matched variable from first function:
+>> Spelling: threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 43
+>>>> offset: 505
+> Matched variable from second function:
+>> Spelling: collection
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 36
+>>>> offset: 1164
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: max_threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 71
+>>>> offset: 533
+> Matched variable from second function:
+>> Spelling: minimum_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 67
+>>>> offset: 1195
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: func_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 22
+>>>> column: 3
+>>>> offset: 568
+> Matched variable from second function:
+>> Spelling: collection_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 3
+>>>> offset: 1230
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: param_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 22
+>>>> column: 33
+>>>> offset: 598
+> Matched variable from second function:
+>> Spelling: func_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 39
+>>>> offset: 1266
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 86%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1663
+
+> second clone function:
+>> Spelling: visitor_direct_children_counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 76
+>>>> column: 16
+>>>> offset: 3829
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1676
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 77
+>>>> column: 3
+>>>> offset: 3884
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1703
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1734
+> Matched variable from second function:
+>> Spelling: void_ptr_to_size_t_counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 77
+>>>> column: 47
+>>>> offset: 3928
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: local_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1884
+> Matched variable from second function:
+>> Spelling: counter_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 79
+>>>> column: 3
+>>>> offset: 3982
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 51
+>>>> column: 4
+>>>> offset: 1992
+> Matched variable from second function:
+>> Spelling: counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 80
+>>>> column: 3
+>>>> offset: 4066
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 86%
+
+> first clone function:
+>> Spelling: process_include_dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 1
+>>>> offset: 2180
+
+> second clone function:
+>> Spelling: process_include_dir_recursive
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 1
+>>>> offset: 2948
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 80
+>>>> offset: 2259
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 90
+>>>> offset: 3037
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 73
+>>>> column: 2
+>>>> offset: 2294
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 91
+>>>> column: 2
+>>>> offset: 3072
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 75
+>>>> column: 2
+>>>> offset: 2327
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 93
+>>>> column: 2
+>>>> offset: 3105
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 76
+>>>> column: 2
+>>>> offset: 2365
+> Matched variable from second function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 94
+>>>> column: 2
+>>>> offset: 3143
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 82
+>>>> column: 7
+>>>> offset: 2614
+> Matched variable from second function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 100
+>>>> column: 7
+>>>> offset: 3412
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 84
+>>>> column: 3
+>>>> offset: 2709
+> Matched variable from second function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 102
+>>>> column: 3
+>>>> offset: 3507
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 86%
+
+> first clone function:
+>> Spelling: process_min_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 137
+>>>> column: 1
+>>>> offset: 4767
+
+> second clone function:
+>> Spelling: process_min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 1
+>>>> offset: 5247
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 137
+>>>> column: 89
+>>>> offset: 4855
+> Matched variable from second function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 88
+>>>> offset: 5334
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 138
+>>>> column: 89
+>>>> offset: 4963
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 147
+>>>> column: 2
+>>>> offset: 5355
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: min_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 140
+>>>> column: 2
+>>>> offset: 4989
+> Matched variable from second function:
+>> Spelling: min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 2
+>>>> offset: 5381
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: input_format_error
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 140
+>>>> column: 66
+>>>> offset: 5053
+> Matched variable from second function:
+>> Spelling: input_format_error
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 65
+>>>> offset: 5444
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 84%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1663
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1676
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1703
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1734
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 74
+>>>> offset: 1286
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: local_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1884
+> Matched variable from second function:
+>> Spelling: global_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 1772
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 51
+>>>> column: 4
+>>>> offset: 1992
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 82%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: process_common_args
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 1
+>>>> offset: 8363
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 80
+>>>> offset: 8442
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 225
+>>>> column: 2
+>>>> offset: 8477
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: first_arg_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 228
+>>>> column: 2
+>>>> offset: 8548
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 227
+>>>> column: 2
+>>>> offset: 8510
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 81%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1618
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1631
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1658
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1689
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 25%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1806
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 80%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: visitor_direct_children_counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 76
+>>>> column: 16
+>>>> offset: 3829
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 77
+>>>> column: 3
+>>>> offset: 3884
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: counter_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 79
+>>>> column: 3
+>>>> offset: 3982
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 80
+>>>> column: 3
+>>>> offset: 4066
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 80%
+
+> first clone function:
+>> Spelling: process_first_project_dir_recursive
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 87
+>>>> column: 1
+>>>> offset: 2723
+
+> second clone function:
+>> Spelling: process_min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 1
+>>>> offset: 5247
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 87
+>>>> column: 102
+>>>> offset: 2824
+> Matched variable from second function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 88
+>>>> offset: 5334
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 88
+>>>> column: 2
+>>>> offset: 2845
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 147
+>>>> column: 2
+>>>> offset: 5355
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 2
+>>>> offset: 2871
+> Matched variable from second function:
+>> Spelling: input_format_error
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 65
+>>>> offset: 5444
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: nested_dirs
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 94
+>>>> column: 2
+>>>> offset: 3074
+> Matched variable from second function:
+>> Spelling: min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 2
+>>>> offset: 5381
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 77%
+
+> first clone function:
+>> Spelling: visitor_finding_funcs_definitions
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 12
+>>>> column: 3
+>>>> offset: 282
+
+> second clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: current_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 4
+>>>> offset: 340
+> Matched variable from second function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: funcs_ids_vector
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 56
+>>>> offset: 392
+> Matched variable from second function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+
+>> Variables similarity: 9%
+> Matched variable from first function:
+>> Spelling: id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 22
+>>>> column: 5
+>>>> offset: 639
+> Matched variable from second function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 77%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1618
+
+> second clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1631
+> Matched variable from second function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1658
+> Matched variable from second function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1689
+> Matched variable from second function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+
+>> Variables similarity: 7%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\nth_var_nested_in_condition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1806
+> Matched variable from second function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 76%
+
+> first clone function:
+>> Spelling: visitor_finding_funcs_definitions
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 12
+>>>> column: 3
+>>>> offset: 282
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: current_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 4
+>>>> offset: 340
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: funcs_ids_vector
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 56
+>>>> offset: 392
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 6%
+> Matched variable from first function:
+>> Spelling: id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 22
+>>>> column: 5
+>>>> offset: 639
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 76%
+
+> first clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 4%
+> Matched variable from first function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 75%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: visitor_finding_funcs_definitions
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 12
+>>>> column: 3
+>>>> offset: 282
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: current_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 4
+>>>> offset: 340
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 22
+>>>> column: 5
+>>>> offset: 639
+
+>> Variables similarity: 0%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: funcs_ids_vector
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\funcs_definitions_finder.cpp
+>>>> line: 13
+>>>> column: 56
+>>>> offset: 392
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 74%
+
+> first clone function:
+>> Spelling: process_include_dir_recursive
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 1
+>>>> offset: 2948
+
+> second clone function:
+>> Spelling: process_sources_dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 176
+>>>> column: 1
+>>>> offset: 6357
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 90
+>>>> offset: 3037
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 176
+>>>> column: 80
+>>>> offset: 6436
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 91
+>>>> column: 2
+>>>> offset: 3072
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 177
+>>>> column: 2
+>>>> offset: 6471
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 93
+>>>> column: 2
+>>>> offset: 3105
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 179
+>>>> column: 2
+>>>> offset: 6504
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 94
+>>>> column: 2
+>>>> offset: 3143
+> Matched variable from second function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 180
+>>>> column: 2
+>>>> offset: 6542
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 100
+>>>> column: 7
+>>>> offset: 3412
+> Matched variable from second function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 186
+>>>> column: 7
+>>>> offset: 6790
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 102
+>>>> column: 3
+>>>> offset: 3507
+> Matched variable from second function:
+>> Spelling: dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 188
+>>>> column: 3
+>>>> offset: 6885
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 74%
+
+> first clone function:
+>> Spelling: calculate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 10
+>>>> column: 17
+>>>> offset: 279
+
+> second clone function:
+>> Spelling: create_assignment_matrix
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 47
+>>>> column: 17
+>>>> offset: 2042
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 11
+>>>> column: 4
+>>>> offset: 333
+> Matched variable from second function:
+>> Spelling: bipartite_graph_weights
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 2100
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: euclidean_distance
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 14
+>>>> column: 4
+>>>> offset: 468
+> Matched variable from second function:
+>> Spelling: max_part_cardinality
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 51
+>>>> column: 4
+>>>> offset: 2286
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: max_squared_value_in_pair
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 17
+>>>> column: 4
+>>>> offset: 628
+> Matched variable from second function:
+>> Spelling: assignment_matrix
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 52
+>>>> column: 4
+>>>> offset: 2349
+
+>> Variables similarity: 27%
+> Matched variable from first function:
+>> Spelling: sum_of_max_squared_values
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 28
+>>>> column: 4
+>>>> offset: 1189
+> Matched variable from second function:
+>> Spelling: rows
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 50
+>>>> column: 4
+>>>> offset: 2187
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: normilized_distance
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 36
+>>>> column: 4
+>>>> offset: 1446
+> Matched variable from second function:
+>> Spelling: columns
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 50
+>>>> column: 54
+>>>> offset: 2237
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 73%
+
+> first clone function:
+>> Spelling: process_include_dir
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 1
+>>>> offset: 2180
+
+> second clone function:
+>> Spelling: process_lib
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 160
+>>>> column: 1
+>>>> offset: 5795
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 72
+>>>> column: 80
+>>>> offset: 2259
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 160
+>>>> column: 72
+>>>> offset: 5866
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 73
+>>>> column: 2
+>>>> offset: 2294
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 161
+>>>> column: 2
+>>>> offset: 5901
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 75
+>>>> column: 2
+>>>> offset: 2327
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 163
+>>>> column: 2
+>>>> offset: 5934
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 76
+>>>> column: 2
+>>>> offset: 2365
+> Matched variable from second function:
+>> Spelling: first_lib_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 164
+>>>> column: 2
+>>>> offset: 5972
+
+>> Variables similarity: 39%
+> Matched variable from first function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 82
+>>>> column: 7
+>>>> offset: 2614
+> Matched variable from second function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 170
+>>>> column: 7
+>>>> offset: 6204
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 71%
+
+> first clone function:
+>> Spelling: exec
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 22
+>>>> column: 1
+>>>> offset: 485
+
+> second clone function:
+>> Spelling: exec
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 26
+>>>> column: 1
+>>>> offset: 748
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: argc
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 22
+>>>> column: 47
+>>>> offset: 531
+> Matched variable from second function:
+>> Spelling: argc
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 26
+>>>> column: 81
+>>>> offset: 828
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: argv
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 22
+>>>> column: 63
+>>>> offset: 547
+> Matched variable from second function:
+>> Spelling: argv
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 26
+>>>> column: 91
+>>>> offset: 838
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: expected_argc
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 19
+>>>> column: 2
+>>>> offset: 396
+> Matched variable from second function:
+>> Spelling: expected_argc
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 23
+>>>> column: 2
+>>>> offset: 659
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config_filename
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 30
+>>>> column: 2
+>>>> offset: 766
+> Matched variable from second function:
+>> Spelling: config_filename
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 34
+>>>> column: 2
+>>>> offset: 1078
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config_input
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_app.cpp
+>>>> line: 31
+>>>> column: 2
+>>>> offset: 849
+> Matched variable from second function:
+>> Spelling: config_input
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\funcs_clones_analysis_through_cm_app.cpp
+>>>> line: 35
+>>>> column: 2
+>>>> offset: 1161
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 70%
+
+> first clone function:
+>> Spelling: visitor_finding_all_nested_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 53
+>>>> column: 3
+>>>> offset: 1986
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: referenced_var
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 59
+>>>> column: 5
+>>>> offset: 2314
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 54
+>>>> column: 4
+>>>> offset: 2054
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 54
+>>>> column: 48
+>>>> offset: 2098
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 74
+>>>> offset: 1286
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 8
+>>>> offset: 2145
+> Matched variable from second function:
+>> Spelling: global_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 1772
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 68%
+
+> first clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 74
+>>>> offset: 1286
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 68%
+
+> first clone function:
+>> Spelling: visitor_finding_from_nth_nested_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 55
+>>>> column: 3
+>>>> offset: 2091
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 4
+>>>> offset: 2164
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 48
+>>>> offset: 2208
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 74
+>>>> offset: 1286
+
+>> Variables similarity: 9%
+> Matched variable from first function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 58
+>>>> column: 8
+>>>> offset: 2255
+> Matched variable from second function:
+>> Spelling: global_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 1772
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: referenced_var
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 64
+>>>> column: 6
+>>>> offset: 2508
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 68%
+
+> first clone function:
+>> Spelling: dump
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 1
+>>>> offset: 86
+
+> second clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config_input
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 52
+>>>> offset: 137
+> Matched variable from second function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: parser
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 80
+>>>> offset: 165
+> Matched variable from second function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dumper
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 5
+>>>> column: 2
+>>>> offset: 211
+> Matched variable from second function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 8
+>>>> column: 2
+>>>> offset: 302
+> Matched variable from second function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 67%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: assign
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 93
+>>>> column: 17
+>>>> offset: 3963
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: bipartite_graph_weights
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 94
+>>>> column: 4
+>>>> offset: 4010
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: assignment_matrix
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 95
+>>>> column: 4
+>>>> offset: 4086
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: assignment
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 97
+>>>> column: 4
+>>>> offset: 4155
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: max_cost
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 98
+>>>> column: 4
+>>>> offset: 4236
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 66%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: global_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 1772
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 65%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1663
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1676
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1703
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1734
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 25%
+> Matched variable from first function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 51
+>>>> column: 4
+>>>> offset: 1992
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 65%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: main
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_main.cpp
+>>>> line: 5
+>>>> column: 1
+>>>> offset: 78
+
+
+Matched variables:
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: argc
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_main.cpp
+>>>> line: 5
+>>>> column: 10
+>>>> offset: 87
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: argv
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_main.cpp
+>>>> line: 5
+>>>> column: 26
+>>>> offset: 103
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: e
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_main.cpp
+>>>> line: 11
+>>>> column: 9
+>>>> offset: 211
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: s
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_main.cpp
+>>>> line: 16
+>>>> column: 3
+>>>> offset: 324
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 65%
+
+> first clone function:
+>> Spelling: dump
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 1
+>>>> offset: 86
+
+> second clone function:
+>> Spelling: create_from_source
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 64
+>>>> column: 17
+>>>> offset: 1918
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config_input
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 52
+>>>> offset: 137
+> Matched variable from second function:
+>> Spelling: source_filename
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 65
+>>>> column: 4
+>>>> offset: 1995
+
+>> Variables similarity: 55%
+> Matched variable from first function:
+>> Spelling: parser
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 4
+>>>> column: 80
+>>>> offset: 165
+> Matched variable from second function:
+>> Spelling: cxindex
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 64
+>>>> column: 61
+>>>> offset: 1962
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: dumper
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 5
+>>>> column: 2
+>>>> offset: 211
+> Matched variable from second function:
+>> Spelling: command_line_args
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 65
+>>>> column: 50
+>>>> offset: 2041
+
+>> Variables similarity: 3%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_director.cpp
+>>>> line: 8
+>>>> column: 2
+>>>> offset: 302
+> Matched variable from second function:
+>> Spelling: args_raii
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 67
+>>>> column: 4
+>>>> offset: 2101
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 64%
+
+> first clone function:
+>> Spelling: throw_if_wrong_threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 2
+>>>> offset: 464
+
+> second clone function:
+>> Spelling: cv_similarity_by_normilized_euclidean_dist
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 3
+>>>> offset: 471
+
+
+Matched variables:
+
+>> Variables similarity: 33%
+> Matched variable from first function:
+>> Spelling: threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 43
+>>>> offset: 505
+> Matched variable from second function:
+>> Spelling: min_value_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 10
+>>>> column: 3
+>>>> offset: 329
+
+>> Variables similarity: 23%
+> Matched variable from first function:
+>> Spelling: max_threads_count
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 21
+>>>> column: 71
+>>>> offset: 533
+> Matched variable from second function:
+>> Spelling: max_value_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 11
+>>>> column: 3
+>>>> offset: 354
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: func_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 22
+>>>> column: 3
+>>>> offset: 568
+> Matched variable from second function:
+>> Spelling: min_value
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 56
+>>>> offset: 524
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: param_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 22
+>>>> column: 33
+>>>> offset: 598
+> Matched variable from second function:
+>> Spelling: max_value
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 80
+>>>> offset: 548
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 64%
+
+> first clone function:
+>> Spelling: process_common_args
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 1
+>>>> offset: 8363
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 3
+>>>> offset: 1215
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 80
+>>>> offset: 8442
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 16
+>>>> offset: 1228
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 225
+>>>> column: 2
+>>>> offset: 8477
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 32
+>>>> column: 43
+>>>> offset: 1255
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 227
+>>>> column: 2
+>>>> offset: 8510
+> Matched variable from second function:
+>> Spelling: declaration_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 39
+>>>> column: 4
+>>>> offset: 1443
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_arg_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 228
+>>>> column: 2
+>>>> offset: 8548
+> Matched variable from second function:
+>> Spelling: global_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\global_var_analyzer.h
+>>>> line: 48
+>>>> column: 4
+>>>> offset: 1772
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 63%
+
+> first clone function:
+>> Spelling: process_source
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 239
+>>>> column: 1
+>>>> offset: 8919
+
+> second clone function:
+>> Spelling: assign
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 93
+>>>> column: 17
+>>>> offset: 3963
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 239
+>>>> column: 75
+>>>> offset: 8993
+> Matched variable from second function:
+>> Spelling: bipartite_graph_weights
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 94
+>>>> column: 4
+>>>> offset: 4010
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 240
+>>>> column: 2
+>>>> offset: 9028
+> Matched variable from second function:
+>> Spelling: assignment_matrix
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 95
+>>>> column: 4
+>>>> offset: 4086
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 242
+>>>> column: 2
+>>>> offset: 9061
+> Matched variable from second function:
+>> Spelling: assignment
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 97
+>>>> column: 4
+>>>> offset: 4155
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: source_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 243
+>>>> column: 2
+>>>> offset: 9099
+> Matched variable from second function:
+>> Spelling: max_cost
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 98
+>>>> column: 4
+>>>> offset: 4236
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: first_arg_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 244
+>>>> column: 2
+>>>> offset: 9154
+> Matched variable from second function:
+>> Spelling: sum_of_matching_edges
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 99
+>>>> column: 4
+>>>> offset: 4325
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: source_path
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 250
+>>>> column: 2
+>>>> offset: 9393
+> Matched variable from second function:
+>> Spelling: matching_edges
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Graphs\bipartite_matching_max_total_weight.h
+>>>> line: 101
+>>>> column: 4
+>>>> offset: 4411
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 63%
+
+> first clone function:
+>> Spelling: throw_if_not_enough_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 2
+>>>> offset: 1130
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 33%
+> Matched variable from first function:
+>> Spelling: collection
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 36
+>>>> offset: 1164
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: minimum_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 67
+>>>> offset: 1195
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: collection_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 3
+>>>> offset: 1230
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: func_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 39
+>>>> offset: 1266
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 63%
+
+> first clone function:
+>> Spelling: process_include_dir_recursive
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 1
+>>>> offset: 2948
+
+> second clone function:
+>> Spelling: process_lib
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 160
+>>>> column: 1
+>>>> offset: 5795
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 90
+>>>> column: 90
+>>>> offset: 3037
+> Matched variable from second function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 160
+>>>> column: 72
+>>>> offset: 5866
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 91
+>>>> column: 2
+>>>> offset: 3072
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 161
+>>>> column: 2
+>>>> offset: 5901
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 93
+>>>> column: 2
+>>>> offset: 3105
+> Matched variable from second function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 163
+>>>> column: 2
+>>>> offset: 5934
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_dir_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 94
+>>>> column: 2
+>>>> offset: 3143
+> Matched variable from second function:
+>> Spelling: first_lib_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 164
+>>>> column: 2
+>>>> offset: 5972
+
+>> Variables similarity: 39%
+> Matched variable from first function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 100
+>>>> column: 7
+>>>> offset: 3412
+> Matched variable from second function:
+>> Spelling: token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 170
+>>>> column: 7
+>>>> offset: 6204
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 63%
+
+> first clone function:
+>> Spelling: classify_if_built_in
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 92
+>>>> column: 2
+>>>> offset: 4397
+
+> second clone function:
+>> Spelling: create
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\code_entity_descriptor_creator.h
+>>>> line: 13
+>>>> column: 17
+>>>> offset: 291
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 92
+>>>> column: 37
+>>>> offset: 4432
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\code_entity_descriptor_creator.h
+>>>> line: 13
+>>>> column: 69
+>>>> offset: 343
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: built_in_binary_operator_kind
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 99
+>>>> column: 3
+>>>> offset: 4588
+> Matched variable from second function:
+>> Spelling: location
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\code_entity_descriptor_creator.h
+>>>> line: 15
+>>>> column: 4
+>>>> offset: 376
+
+>> Variables similarity: 13%
+> Matched variable from first function:
+>> Spelling: built_in_binary_operator_kinds_map
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 14
+>>>> column: 2
+>>>> offset: 317
+> Matched variable from second function:
+>> Spelling: descriptor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\code_entity_descriptor_creator.h
+>>>> line: 18
+>>>> column: 4
+>>>> offset: 572
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: built_in_unary_operator_kind
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 110
+>>>> column: 3
+>>>> offset: 4975
+> Matched variable from second function:
+>> Spelling: spelling
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\code_entity_descriptor_creator.h
+>>>> line: 16
+>>>> column: 4
+>>>> offset: 473
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 62%
+
+> first clone function:
+>> Spelling: create_from_source
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 64
+>>>> column: 17
+>>>> offset: 1918
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 11%
+> Matched variable from first function:
+>> Spelling: cxindex
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 64
+>>>> column: 61
+>>>> offset: 1962
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: source_filename
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 65
+>>>> column: 4
+>>>> offset: 1995
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: command_line_args
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 65
+>>>> column: 50
+>>>> offset: 2041
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 38%
+> Matched variable from first function:
+>> Spelling: args_raii
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCAdaptation\translation_unit_raii.h
+>>>> line: 67
+>>>> column: 4
+>>>> offset: 2101
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 62%
+
+> first clone function:
+>> Spelling: visitor_finding_all_nested_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 53
+>>>> column: 3
+>>>> offset: 1986
+
+> second clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1663
+
+
+Matched variables:
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: referenced_var
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 59
+>>>> column: 5
+>>>> offset: 2314
+> Matched variable from second function:
+>> Spelling: local_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1884
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 54
+>>>> column: 4
+>>>> offset: 2054
+> Matched variable from second function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1676
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1703
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 54
+>>>> column: 48
+>>>> offset: 2098
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1734
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 8
+>>>> offset: 2145
+> Matched variable from second function:
+>> Spelling: data
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 51
+>>>> column: 4
+>>>> offset: 1992
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 62%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: process_min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 1
+>>>> offset: 5247
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 88
+>>>> offset: 5334
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 147
+>>>> column: 2
+>>>> offset: 5355
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: input_format_error
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 65
+>>>> offset: 5444
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 2
+>>>> offset: 5381
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 62%
+
+> first clone function:
+>> Spelling: analyse
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 3
+>>>> offset: 1663
+
+> second clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: analyzed_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 16
+>>>> offset: 1676
+> Matched variable from second function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: nested_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 43
+>>>> offset: 1703
+> Matched variable from second function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 42
+>>>> column: 74
+>>>> offset: 1734
+> Matched variable from second function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+
+>> Variables similarity: 9%
+> Matched variable from first function:
+>> Spelling: local_var_id
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 49
+>>>> column: 4
+>>>> offset: 1884
+> Matched variable from second function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 61%
+
+> first clone function:
+>> Spelling: visitor_direct_children_counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 76
+>>>> column: 16
+>>>> offset: 3829
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 77
+>>>> column: 3
+>>>> offset: 3884
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: void_ptr_to_size_t_counter
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 77
+>>>> column: 47
+>>>> offset: 3928
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 6%
+> Matched variable from first function:
+>> Spelling: counter_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\operator_classifier.cpp
+>>>> line: 79
+>>>> column: 3
+>>>> offset: 3982
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 61%
+
+> first clone function:
+>> Spelling: visitor_finding_from_nth_nested_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 55
+>>>> column: 3
+>>>> offset: 2091
+
+> second clone function:
+>> Spelling: visitor_finding_nested_condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 57
+>>>> column: 3
+>>>> offset: 2255
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 4
+>>>> offset: 2164
+> Matched variable from second function:
+>> Spelling: cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 4
+>>>> offset: 2319
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: 
+>>>> line: 0
+>>>> column: 0
+>>>> offset: 0
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 56
+>>>> column: 48
+>>>> offset: 2208
+> Matched variable from second function:
+>> Spelling: data_void_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 58
+>>>> column: 48
+>>>> offset: 2363
+
+>> Variables similarity: 67%
+> Matched variable from first function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\from_nth_vars_nested_in_condition_finder.h
+>>>> line: 58
+>>>> column: 8
+>>>> offset: 2255
+> Matched variable from second function:
+>> Spelling: data_ptr
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\condition_nested_in_local_var_definition_finder.h
+>>>> line: 60
+>>>> column: 8
+>>>> offset: 2410
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 61%
+
+> first clone function:
+>> Spelling: process_common_args
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 1
+>>>> offset: 8363
+
+> second clone function:
+>> Spelling: process_min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 1
+>>>> offset: 5247
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 224
+>>>> column: 80
+>>>> offset: 8442
+> Matched variable from second function:
+>> Spelling: token
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 146
+>>>> column: 88
+>>>> offset: 5334
+
+>> Variables similarity: 29%
+> Matched variable from first function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 225
+>>>> column: 2
+>>>> offset: 8477
+> Matched variable from second function:
+>> Spelling: config
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 147
+>>>> column: 2
+>>>> offset: 5355
+
+>> Variables similarity: 13%
+> Matched variable from first function:
+>> Spelling: prefix_tokens
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 227
+>>>> column: 2
+>>>> offset: 8510
+> Matched variable from second function:
+>> Spelling: min_variables
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 2
+>>>> offset: 5381
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_arg_token_index
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangASTDumping\ast_dumping_config_parser_default.cpp
+>>>> line: 228
+>>>> column: 2
+>>>> offset: 8548
+> Matched variable from second function:
+>> Spelling: input_format_error
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CodeClonesAnalysisTopLevel\cmcd_config_parser_default.cpp
+>>>> line: 149
+>>>> column: 65
+>>>> offset: 5444
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 61%
+
+> first clone function:
+>> Spelling: matrices_comparing_by_bipartite_matching<CompTraits>
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 3
+>>>> offset: 1087
+
+> second clone function:
+>> Spelling: traverse_unit
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\clang_funcs_traverser.h
+>>>> line: 50
+>>>> column: 3
+>>>> offset: 2052
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: metrics_for_count_vectors
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 29
+>>>> column: 54
+>>>> offset: 1138
+> Matched variable from second function:
+>> Spelling: translation_unit
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\clang_funcs_traverser.h
+>>>> line: 50
+>>>> column: 22
+>>>> offset: 2071
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: bipartite_matching
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 4
+>>>> offset: 1182
+> Matched variable from second function:
+>> Spelling: callback
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\clang_funcs_traverser.h
+>>>> line: 50
+>>>> column: 79
+>>>> offset: 2128
+
+>> Variables similarity: 0%
+> Matched variable from first function:
+>> Spelling: matching_result_to_similarity
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 30
+>>>> column: 47
+>>>> offset: 1225
+> Matched variable from second function:
+>> Spelling: clang_translation_unit
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\clang_funcs_traverser.h
+>>>> line: 52
+>>>> column: 4
+>>>> offset: 2188
+
+>> Variables similarity: 42%
+> Matched variable from first function:
+>> Spelling: method_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\matrices_comparing_by_bipartite_matching.h
+>>>> line: 34
+>>>> column: 4
+>>>> offset: 1471
+> Matched variable from second function:
+>> Spelling: translation_unit_cursor
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\clang_funcs_traverser.h
+>>>> line: 53
+>>>> column: 4
+>>>> offset: 2267
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 60%
+
+> first clone function:
+>> Spelling: throw_if_not_enough_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 2
+>>>> offset: 1130
+
+> second clone function:
+>> Spelling: cv_similarity_by_normilized_euclidean_dist
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 3
+>>>> offset: 471
+
+
+Matched variables:
+
+>> Variables similarity: 18%
+> Matched variable from first function:
+>> Spelling: collection
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 36
+>>>> offset: 1164
+> Matched variable from second function:
+>> Spelling: min_value_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 10
+>>>> column: 3
+>>>> offset: 329
+
+>> Variables similarity: 23%
+> Matched variable from first function:
+>> Spelling: minimum_elements
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 39
+>>>> column: 67
+>>>> offset: 1195
+> Matched variable from second function:
+>> Spelling: max_value_
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 11
+>>>> column: 3
+>>>> offset: 354
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: collection_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 3
+>>>> offset: 1230
+> Matched variable from second function:
+>> Spelling: min_value
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 56
+>>>> offset: 524
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: func_name
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Utility\parameters_validation.h
+>>>> line: 40
+>>>> column: 39
+>>>> offset: 1266
+> Matched variable from second function:
+>> Spelling: max_value
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_similarity_by_normilized_euclidean_dist.h
+>>>> line: 16
+>>>> column: 80
+>>>> offset: 548
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 60%
+
+> first clone function:
+>> Spelling: create_first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 168
+>>>> column: 16
+>>>> offset: 6607
+
+> second clone function:
+>> Spelling: calculate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 10
+>>>> column: 17
+>>>> offset: 279
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: appropriate_operators
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 3
+>>>> offset: 6708
+> Matched variable from second function:
+>> Spelling: 
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 11
+>>>> column: 4
+>>>> offset: 333
+
+>> Variables similarity: 0%
+> Matched variable from first function:
+>> Spelling: condition
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 169
+>>>> column: 67
+>>>> offset: 6772
+> Matched variable from second function:
+>> Spelling: sum_of_max_squared_values
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 28
+>>>> column: 4
+>>>> offset: 1189
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: predicate
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 171
+>>>> column: 3
+>>>> offset: 6825
+> Matched variable from second function:
+>> Spelling: max_squared_value_in_pair
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 17
+>>>> column: 4
+>>>> offset: 628
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: first_var_nested_in_operator_finder
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\ClangCodeAnalysis\vars_usage_analyzers_factory_default.cpp
+>>>> line: 178
+>>>> column: 3
+>>>> offset: 7040
+> Matched variable from second function:
+>> Spelling: euclidean_distance
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\CountMatrix\cv_normilized_euclidean_distance.h
+>>>> line: 14
+>>>> column: 4
+>>>> offset: 468
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Total time: 937 seconds
+First project analysis time: 0 seconds
+Second project analysis time: 0 seconds
+Comparing time: 910 seconds
+Results saving time: 26 seconds
