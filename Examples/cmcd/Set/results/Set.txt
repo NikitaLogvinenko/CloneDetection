@@ -32,22 +32,6 @@ Functions similarity: 61%
 
 Matched variables:
 
->> Variables similarity: 62%
-> Matched variable from first function:
->> Spelling: last_node
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Set\sources\set.c
->>>> line: 56
->>>> column: 5
->>>> offset: 2735
-> Matched variable from second function:
->> Spelling: prev
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Set\sources\set.c
->>>> line: 29
->>>> column: 2
->>>> offset: 1168
-
 >> Variables similarity: 67%
 > Matched variable from first function:
 >> Spelling: set
@@ -95,6 +79,22 @@ Matched variables:
 >>>> line: 30
 >>>> column: 2
 >>>> offset: 1192
+
+>> Variables similarity: 62%
+> Matched variable from first function:
+>> Spelling: last_node
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Set\sources\set.c
+>>>> line: 56
+>>>> column: 5
+>>>> offset: 2735
+> Matched variable from second function:
+>> Spelling: prev
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Set\sources\set.c
+>>>> line: 29
+>>>> column: 2
+>>>> offset: 1168
 
 >> Variables similarity: 100%
 > Matched variable from first function:
@@ -145,7 +145,7 @@ Matched variables:
 >>>> offset: 2709
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-Total time: 9 seconds
+Total time: 10 seconds
 First project analysis time: 0 seconds
 Second project analysis time: 0 seconds
 Comparing time: 9 seconds

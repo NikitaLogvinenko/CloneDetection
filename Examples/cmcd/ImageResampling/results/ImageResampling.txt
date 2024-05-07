@@ -14,14 +14,6 @@ Clones found: 2
 Functions similarity: 75%
 
 > first clone function:
->> Spelling: continuous_pixel
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
->>>> line: 12
->>>> column: 2
->>>> offset: 283
-
-> second clone function:
 >> Spelling: neighborhood_bounds
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.h
@@ -29,56 +21,64 @@ Functions similarity: 75%
 >>>> column: 3
 >>>> offset: 373
 
+> second clone function:
+>> Spelling: continuous_pixel
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
+>>>> line: 12
+>>>> column: 2
+>>>> offset: 283
+
 
 Matched variables:
 
 >> Variables similarity: 100%
 > Matched variable from first function:
->> Spelling: r
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
->>>> line: 12
->>>> column: 28
->>>> offset: 309
-> Matched variable from second function:
 >> Spelling: x_begin
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.h
 >>>> line: 15
 >>>> column: 4
 >>>> offset: 407
-
->> Variables similarity: 100%
-> Matched variable from first function:
->> Spelling: g
+> Matched variable from second function:
+>> Spelling: r
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
 >>>> line: 12
->>>> column: 44
->>>> offset: 325
-> Matched variable from second function:
+>>>> column: 28
+>>>> offset: 309
+
+>> Variables similarity: 100%
+> Matched variable from first function:
 >> Spelling: x_end
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.h
 >>>> line: 15
 >>>> column: 32
 >>>> offset: 435
-
->> Variables similarity: 100%
-> Matched variable from first function:
->> Spelling: b
+> Matched variable from second function:
+>> Spelling: g
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
 >>>> line: 12
->>>> column: 60
->>>> offset: 341
-> Matched variable from second function:
+>>>> column: 44
+>>>> offset: 325
+
+>> Variables similarity: 100%
+> Matched variable from first function:
 >> Spelling: y_begin
 >> Location:
 >>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.h
 >>>> line: 15
 >>>> column: 58
 >>>> offset: 461
+> Matched variable from second function:
+>> Spelling: b
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageClasses\continuous_pixel.h
+>>>> line: 12
+>>>> column: 60
+>>>> offset: 341
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -102,6 +102,22 @@ Functions similarity: 60%
 
 
 Matched variables:
+
+>> Variables similarity: 80%
+> Matched variable from first function:
+>> Spelling: x_in_old_scale
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\image_resampler.cpp
+>>>> line: 17
+>>>> column: 4
+>>>> offset: 701
+> Matched variable from second function:
+>> Spelling: interpolated_pixel
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.cpp
+>>>> line: 23
+>>>> column: 2
+>>>> offset: 1043
 
 >> Variables similarity: 58%
 > Matched variable from first function:
@@ -151,6 +167,22 @@ Matched variables:
 >>>> column: 4
 >>>> offset: 1256
 
+>> Variables similarity: 72%
+> Matched variable from first function:
+>> Spelling: resampled_x
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\image_resampler.cpp
+>>>> line: 13
+>>>> column: 7
+>>>> offset: 527
+> Matched variable from second function:
+>> Spelling: x
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.cpp
+>>>> line: 25
+>>>> column: 7
+>>>> offset: 1091
+
 >> Variables similarity: 56%
 > Matched variable from first function:
 >> Spelling: interpolation
@@ -183,22 +215,6 @@ Matched variables:
 >>>> column: 4
 >>>> offset: 1317
 
->> Variables similarity: 72%
-> Matched variable from first function:
->> Spelling: resampled_x
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\image_resampler.cpp
->>>> line: 13
->>>> column: 7
->>>> offset: 527
-> Matched variable from second function:
->> Spelling: x
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.cpp
->>>> line: 25
->>>> column: 7
->>>> offset: 1091
-
 >> Variables similarity: 77%
 > Matched variable from first function:
 >> Spelling: resampled_y
@@ -214,22 +230,6 @@ Matched variables:
 >>>> line: 27
 >>>> column: 8
 >>>> offset: 1175
-
->> Variables similarity: 80%
-> Matched variable from first function:
->> Spelling: x_in_old_scale
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\image_resampler.cpp
->>>> line: 17
->>>> column: 4
->>>> offset: 701
-> Matched variable from second function:
->> Spelling: interpolated_pixel
->> Location:
->>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\ImageResampling\sources\ImageProcessing\interpolation_by_neighborhood_with_weight.cpp
->>>> line: 23
->>>> column: 2
->>>> offset: 1043
 
 >> Variables similarity: 49%
 > Matched variable from first function:
@@ -248,8 +248,8 @@ Matched variables:
 >>>> offset: 1381
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-Total time: 196 seconds
+Total time: 191 seconds
 First project analysis time: 0 seconds
 Second project analysis time: 0 seconds
-Comparing time: 193 seconds
+Comparing time: 187 seconds
 Results saving time: 2 seconds
