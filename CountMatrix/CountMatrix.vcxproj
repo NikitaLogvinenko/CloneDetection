@@ -169,6 +169,9 @@
     <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
       <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bipartite_graph_on_count_matrices.h" />

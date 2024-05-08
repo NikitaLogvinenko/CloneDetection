@@ -7,7 +7,6 @@
     <ClInclude Include="non_const_integral.h" />
     <ClInclude Include="parameters_validation.h" />
     <ClInclude Include="relative_similarity.h" />
-    <ClInclude Include="strict_weak_order.h" />
     <ClInclude Include="one_off_container.h" />
     <ClInclude Include="unique_id_generator_threadsafe.h" />
     <ClInclude Include="id_concept.h" />
@@ -16,5 +15,11 @@
     <ClInclude Include="continuous_similarity_bounded.h" />
     <ClInclude Include="spinlock.h" />
     <ClInclude Include="id_hash.h" />
+    <ClInclude Include="line_parser.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="nested_paths_provider.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="line_parser.cpp" />
   </ItemGroup>
 </Project>

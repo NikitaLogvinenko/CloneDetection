@@ -1,0 +1,4 @@
+<DumpsDirectory> "..\..\dumps\2020\11\"
+<SourcesDirectoryR> "..\..\2020\11\"
+<IncludeDirectoryR> "..\..\2020\11\"
+<CommonArgs> -std c++20

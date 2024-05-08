@@ -1,0 +1,17 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+<MinSimilarity> 0.6
+<MinVariables> 3
+
+Functions analysed, first project: 142
+Functions analysed, second project: 142
+Functions excluded from results, first project: 138
+Functions excluded from results, second project: 138
+Clones found: 0
+
+
+Total time: 193 seconds
+First project analysis time: 0 seconds
+Second project analysis time: 0 seconds
+Comparing time: 191 seconds
+Results saving time: 0 seconds

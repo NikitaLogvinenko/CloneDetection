@@ -24,5 +24,7 @@ namespace code_analysis
 		{
 			return location_;
 		}
+
+		[[nodiscard]] bool operator==(const code_entity_descriptor& other) const noexcept = default;
 	};
 }

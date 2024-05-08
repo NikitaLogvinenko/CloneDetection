@@ -2,7 +2,7 @@
 #include "count_vector_length.h"
 #include "counted_value.h"
 #include "index_of_counted_value.h"
-#include "iterator_operation_error.h"
+#include "invalid_operation_error.h"
 #include "incorrect_size_error.h"
 #include <vector>
 #include <string>
@@ -138,7 +138,7 @@ namespace cm
 			{
 				if (index_ == Length)
 				{
-					throw common_exceptions::iterator_operation_error(msg);
+					throw common_exceptions::invalid_operation_error(msg);
 				}
 			}
 
@@ -146,7 +146,7 @@ namespace cm
 			{
 				if (index < 0 || index > Length)
 				{
-					throw common_exceptions::iterator_operation_error(msg);
+					throw common_exceptions::invalid_operation_error(msg);
 				}
 			}
 

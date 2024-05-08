@@ -1,0 +1,2 @@
+<DumpsDirectory> "..\dumps\original\"
+<Source> "..\sources\original.cpp"

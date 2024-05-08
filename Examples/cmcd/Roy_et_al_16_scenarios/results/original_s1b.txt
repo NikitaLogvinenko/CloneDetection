@@ -1,0 +1,104 @@
+
+~~~ Count matrix based clone-functions detection ~~~
+<MinSimilarity> 0.5
+<MinVariables> 3
+
+Functions analysed, first project: 1
+Functions analysed, second project: 1
+Functions excluded from results, first project: 0
+Functions excluded from results, second project: 0
+Clones found: 1
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Functions similarity: 100%
+
+> first clone function:
+>> Spelling: sumProd
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\original.cpp
+>>>> line: 3
+>>>> column: 1
+>>>> offset: 27
+
+> second clone function:
+>> Spelling: sumProd
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s1b.cpp
+>>>> line: 3
+>>>> column: 1
+>>>> offset: 27
+
+
+Matched variables:
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: n
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\original.cpp
+>>>> line: 3
+>>>> column: 14
+>>>> offset: 40
+> Matched variable from second function:
+>> Spelling: n
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s1b.cpp
+>>>> line: 3
+>>>> column: 14
+>>>> offset: 40
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: sum
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\original.cpp
+>>>> line: 5
+>>>> column: 2
+>>>> offset: 52
+> Matched variable from second function:
+>> Spelling: sum
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s1b.cpp
+>>>> line: 5
+>>>> column: 2
+>>>> offset: 52
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: prod
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\original.cpp
+>>>> line: 6
+>>>> column: 2
+>>>> offset: 75
+> Matched variable from second function:
+>> Spelling: prod
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s1b.cpp
+>>>> line: 6
+>>>> column: 2
+>>>> offset: 83
+
+>> Variables similarity: 100%
+> Matched variable from first function:
+>> Spelling: i
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\original.cpp
+>>>> line: 7
+>>>> column: 7
+>>>> offset: 100
+> Matched variable from second function:
+>> Spelling: i
+>> Location:
+>>>> file: A:\nlogv\Documents\Nikita\Programming\VS 2022\NSU\4 sem\CloneDetection\Examples\ast_dumping\Roy_et_al_16_scenarios\sources\s1b.cpp
+>>>> line: 7
+>>>> column: 7
+>>>> offset: 111
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Total time: 0 seconds
+First project analysis time: 0 seconds
+Second project analysis time: 0 seconds
+Comparing time: 0 seconds
+Results saving time: 0 seconds

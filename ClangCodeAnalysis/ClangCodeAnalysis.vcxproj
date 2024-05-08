@@ -106,6 +106,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -123,6 +126,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -136,6 +142,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +162,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\LLVM\lib\;</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
@@ -160,6 +172,9 @@
     </ProjectReference>
     <ProjectReference Include="..\DLIBProject\DLIBProject.vcxproj">
       <Project>{7fd26cbe-b5b0-422c-b938-bb54bfa1638e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{47ceb199-ad7a-479b-992c-2b8c2cdd5eec}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -174,8 +189,9 @@
     <ClInclude Include="from_nth_vars_nested_in_condition_finder.h" />
     <ClInclude Include="funcs_definitions_finder.h" />
     <ClInclude Include="clang_funcs_traverser.h" />
+    <ClInclude Include="translation_units_keeper_threadsafe.h" />
     <ClInclude Include="vars_usage_analyzers_factory_default.h" />
-    <ClInclude Include="func_descriptor_creator.h" />
+    <ClInclude Include="func_descriptor_creator_clang.h" />
     <ClInclude Include="global_var_analyzer.h" />
     <ClInclude Include="local_var_analyzer.h" />
     <ClInclude Include="nth_var_nested_in_condition_finder.h" />
@@ -184,7 +200,7 @@
     <ClInclude Include="param_analyzer.h" />
     <ClInclude Include="vars_nested_in_condition_finder.h" />
     <ClInclude Include="condition_nested_in_local_var_definition_finder.h" />
-    <ClInclude Include="var_descriptor_creator.h" />
+    <ClInclude Include="var_descriptor_creator_clang.h" />
     <ClInclude Include="var_usage_conditions.h" />
   </ItemGroup>
   <ItemGroup>

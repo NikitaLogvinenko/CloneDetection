@@ -60,7 +60,7 @@ namespace code_analysis_through_cm
 			for (auto& [analysed_id, conditions_counters_by_nested_id] : nested_info_by_analyzed_id_)
 			{
 				auto implementation_info = construct_info(std::move(conditions_counters_by_nested_id));
-				entities_implementations_info.emplace_back(analysed_id, std::move(implementation_info));
+				entities_implementations_info.emplace(analysed_id, std::move(implementation_info));
 			}
 
 			nested_info_by_analyzed_id_.clear();

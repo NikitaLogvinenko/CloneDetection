@@ -2,7 +2,6 @@
 #include "clang-c/Index.h"
 #include "cxstring_raii.h"
 #include "code_entity_location.h"
-#include "clang_range_error.h"
 
 namespace clang_code_analysis
 {
@@ -16,7 +15,7 @@ namespace clang_code_analysis
 			const CXSourceRange range = clang_getCursorExtent(cursor);
 			if (clang_Range_isNull(range))
 			{
-				throw clang_c_adaptation::clang_range_error("code_entity_location_creator::create: range of cursor is null.");
+				return {};
 			}
 
 			const CXSourceLocation location = clang_getRangeStart(range);
@@ -26,7 +25,14 @@ namespace clang_code_analysis
 			unsigned offset_from_file_start;
 
 			clang_getFileLocation(location, &file, &line, &column, &offset_from_file_start);
-			const std::string filename_str = clang_c_adaptation::cxstring_raii(clang_getFileName(file)).string();
+
+			const auto filename_raii = clang_c_adaptation::cxstring_raii(clang_getFileName(file));
+			std::string filename_str{};
+			if (filename_raii.is_valid())
+			{
+				filename_str = clang_c_adaptation::cxstring_raii(clang_getFileName(file)).string();
+			}
+
 			std::filesystem::path filename{ filename_str };
 
 			const code_analysis::symbol_position first_symbol_position{ line, column, offset_from_file_start };

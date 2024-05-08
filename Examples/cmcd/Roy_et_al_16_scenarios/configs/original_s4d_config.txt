@@ -1,0 +1,9 @@
+<Output> "..\results\original_s4d.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\..\ast_dumping\Roy_et_al_16_scenarios\dumps\original\"
+<SecondProjectDirectory> "..\..\..\ast_dumping\Roy_et_al_16_scenarios\dumps\s4d\"
+<MinSimilarity> 0.5
+<MinVariables> 3
+<CodeAnalysisThreads> 1
+<CountMatricesComparingThreads> 1
+<MatricesComparingAlgorithm> BipartiteMatching

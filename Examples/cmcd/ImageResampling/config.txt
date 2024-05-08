@@ -1,0 +1,10 @@
+<Output> ".\results\ImageResampling.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\ast_dumping\ImageResampling\dumps\"
+<SecondProjectDirectory> "..\..\ast_dumping\ImageResampling\dumps\"
+<ExcludedSource> "..\..\ast_dumping\ImageResampling\sources\ImageClasses\BitmapPlusPlus.h"
+<MinSimilarity> 0.5
+<MinVariables> 3
+<CodeAnalysisThreads> 2
+<CountMatricesComparingThreads> 2
+<MatricesComparingAlgorithm> BipartiteMatching

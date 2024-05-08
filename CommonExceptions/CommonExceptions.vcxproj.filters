@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClInclude Include="overflow_error.h" />
     <ClInclude Include="insertion_error.h" />
-    <ClInclude Include="existed_file_rewriting_error.h" />
+    <ClInclude Include="existing_file_rewriting_error.h" />
     <ClInclude Include="file_not_opened_error.h" />
     <ClInclude Include="param_out_of_range_error.h" />
     <ClInclude Include="types_conversion_error.h" />
@@ -12,8 +12,10 @@
     <ClInclude Include="incorrect_order_error.h" />
     <ClInclude Include="nan_error.h" />
     <ClInclude Include="incorrect_size_error.h" />
-    <ClInclude Include="iterator_operation_error.h" />
+    <ClInclude Include="invalid_operation_error.h" />
     <ClInclude Include="empty_argument_error.h" />
     <ClInclude Include="unexpected_behaviour_error.h" />
+    <ClInclude Include="input_format_error.h" />
+    <ClInclude Include="arguments_count_error.h" />
   </ItemGroup>
 </Project>

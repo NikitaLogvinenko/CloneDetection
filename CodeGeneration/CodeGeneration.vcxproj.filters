@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="default_copy_move_constructor_assignment_virtual_destructor.h" />
     <ClInclude Include="copying_delete.h" />
     <ClInclude Include="constexpr_default_copy_move_constructor_assignment_virtual_destructor_move_noexcept.h" />
     <ClInclude Include="copying_moving_delete.h" />

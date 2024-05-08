@@ -7,13 +7,13 @@
     <ClInclude Include="cxindex_raii.h" />
     <ClInclude Include="cxstring_raii.h" />
     <ClInclude Include="wrong_cursor_kind_error.h" />
-    <ClInclude Include="create_translation_unit_error.h" />
-    <ClInclude Include="create_cxindex_error.h" />
-    <ClInclude Include="token_index.h" />
-    <ClInclude Include="clang_range_error.h" />
-    <ClInclude Include="tokenizer.h" />
+    <ClInclude Include="translation_unit_error.h" />
+    <ClInclude Include="cxindex_error.h" />
+    <ClInclude Include="command_line_args_raii.h" />
+    <ClInclude Include="translation_units_builder.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tokenizer.cpp" />
+    <ClCompile Include="command_line_args_raii.cpp" />
+    <ClCompile Include="translation_units_builder.cpp" />
   </ItemGroup>
 </Project>

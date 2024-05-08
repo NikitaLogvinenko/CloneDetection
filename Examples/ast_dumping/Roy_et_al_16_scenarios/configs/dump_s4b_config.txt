@@ -1,0 +1,2 @@
+<DumpsDirectory> "..\dumps\s4b\"
+<Source> "..\sources\s4b.cpp"

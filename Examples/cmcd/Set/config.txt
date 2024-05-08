@@ -1,0 +1,9 @@
+<Output> ".\results\Set.txt"
+<Framework> clang
+<FirstProjectDirectory> "..\..\ast_dumping\Set\dumps\"
+<SecondProjectDirectory> "..\..\ast_dumping\Set\dumps\"
+<MinSimilarity> 0.6
+<MinVariables> 4
+<CodeAnalysisThreads> 2
+<CountMatricesComparingThreads> 2
+<MatricesComparingAlgorithm> BipartiteMatching

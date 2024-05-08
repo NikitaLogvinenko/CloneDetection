@@ -10,7 +10,7 @@ namespace code_analysis
 		[[nodiscard]] size_t operator()(const code_entity_location& location) const
 		{
 			const size_t first_symbol_position_hash = symbol_position_hash{}(location.first_symbol_position());
-			return utility::hash_combine(first_symbol_position_hash, location.filename().string());
+			return utility::hash_combine(first_symbol_position_hash, std::hash<std::string>{}(location.filename().string()));
 		}
 	};
 }

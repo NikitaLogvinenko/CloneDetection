@@ -23,7 +23,7 @@ namespace cm
 		}
 	};
 
-	template <utility::non_const_arithmetic WeightT, continuous_similarity_bounded SimilarityT>
+	template <utility::non_const_arithmetic WeightT, utility::continuous_similarity_bounded SimilarityT>
 	class mean_weight_in_matching<WeightT, SimilarityT> final : public similarity_estimator_abstract<WeightT, SimilarityT>
 	{
 	public:
