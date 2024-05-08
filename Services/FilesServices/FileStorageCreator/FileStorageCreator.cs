@@ -18,12 +18,13 @@ namespace FileStorageCreator
 
             FileStream stream = new FileStream(initFileInfo.FullName, FileMode.Open, FileAccess.Read, FileShare.Read);
             var reader = new StreamReader(stream);
-
-            while ((await reader.ReadLineAsync()!)! is { } filePath)
+            int i = 0;
+            while ((await reader.ReadLineAsync()) is { } filePath)
             {
                 FileStorageExceptionChecker.IsNotExistFile(new FileInfo(filePath));
 
                 await fileSystem.TryAddNewFile(new FileId(new FileInfo(filePath)));
+                Console.WriteLine(i++);
             }
 
             return fileSystem;

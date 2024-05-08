@@ -1,5 +1,6 @@
 using Exceptions;
 using FileStorageSystem.Exceptions;
+using System.Xml.Linq;
 
 namespace FileStorageSystem.FileId
 {
@@ -37,6 +38,10 @@ namespace FileStorageSystem.FileId
         public override int GetHashCode()
         {
             return _id.GetHashCode();
+        }
+        public override string ToString()
+        {
+            return _id;
         }
     }
 }

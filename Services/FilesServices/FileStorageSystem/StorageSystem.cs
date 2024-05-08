@@ -9,12 +9,12 @@ namespace FileStorageSystem
 {
     public sealed class StorageSystem : IFilesStorage, IEnumerable<KeyValuePair<FileId.FileId, SourceCodeMetaData>>
     {
-        private readonly ConcurrentDictionary<FileId.FileId, SourceCodeMetaData> _fileStorageDictionary = new();
+        public ConcurrentDictionary<FileId.FileId, SourceCodeMetaData> FileStorageDictionary { get; } = new();
         private readonly SemaphoreSlim _semaphoreSlim = new SemaphoreSlim(1, 1);
 
         public int GetSize()
         {
-            return _fileStorageDictionary.Count;
+            return FileStorageDictionary.Count;
         }
         
         public async Task<bool> TryAddNewFile(FileId.FileId inputFileId)
@@ -24,14 +24,14 @@ namespace FileStorageSystem
 
             var metaData = await CreatorCodeMetaDataFromFile.MakeCodeMetaDataFromSourceFile(inputFileId.GetId());
 
-            return await Task.Run(() => _fileStorageDictionary.TryAdd(inputFileId, metaData));
+            return await Task.Run(() => FileStorageDictionary.TryAdd(inputFileId, metaData));
         }
         
         public async Task<bool> TryRemoveFile(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
 
-            return await Task.Run(() => _fileStorageDictionary.TryRemove(inputFileId, out _));
+            return await Task.Run(() => FileStorageDictionary.TryRemove(inputFileId, out _));
         }
 
         public async Task<FileInfo> GetFile(FileId.FileId inputFileId)
@@ -39,7 +39,7 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
 
             await _semaphoreSlim.WaitAsync();
-            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorageDictionary, inputFileId);
+            FileStorageExceptionChecker.IsNotExistInSystem(FileStorageDictionary, inputFileId);
             _semaphoreSlim.Release();
 
             return await Task.Run(() => new FileInfo(inputFileId.GetId()));
@@ -50,7 +50,7 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
-            var metaData = await Task.Run(() => _fileStorageDictionary.GetValueOrDefault(inputFileId));
+            var metaData = await Task.Run(() => FileStorageDictionary.GetValueOrDefault(inputFileId));
 
             ExceptionsChecker.IsNull(metaData);
 
@@ -61,7 +61,7 @@ namespace FileStorageSystem
         {
             ExceptionsChecker.IsNull(inputFileId);
 
-            return await Task.Run(() => _fileStorageDictionary.ContainsKey(inputFileId));
+            return await Task.Run(() => FileStorageDictionary.ContainsKey(inputFileId));
         }
 
         public async Task<string> GetFileText(FileId.FileId inputFileId)
@@ -70,7 +70,7 @@ namespace FileStorageSystem
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
             await _semaphoreSlim.WaitAsync();
-            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorageDictionary, inputFileId);
+            FileStorageExceptionChecker.IsNotExistInSystem(FileStorageDictionary, inputFileId);
             _semaphoreSlim.Release();
 
             var reader = new StreamReader(inputFileId.GetId());
@@ -83,12 +83,12 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
             ExceptionsChecker.IsNull(metaData);
 
-            return await Task.Run(() => _fileStorageDictionary.TryAdd(inputFileId, metaData));
+            return await Task.Run(() => FileStorageDictionary.TryAdd(inputFileId, metaData));
         }
 
         public IEnumerator<KeyValuePair<FileId.FileId, SourceCodeMetaData>> GetEnumerator()
         {
-            return _fileStorageDictionary.GetEnumerator();
+            return FileStorageDictionary.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
