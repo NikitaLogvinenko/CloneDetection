@@ -18,8 +18,8 @@ To *compare two functions* the *bipartite graph* is built: the *vertices* in the
 ## Counted Variables Usage Conditions
 Values 1-4 are binary values (i.e. 0 or 1):
 1.	Is the variable a local?
-2.	Is the variable a member field?
-3.	Is the variable a parameter of the function?
+2.	Is the variable a parameter of the function?
+3.	Is the variable a member field?
 4.	Is the variable a global?
 Remained values represent the count the variable used in the particular scenario.
 5.	Changed by operator (addition-/subtraction-/multiplication-/division-/modulus-assignment, increment/decrement)
