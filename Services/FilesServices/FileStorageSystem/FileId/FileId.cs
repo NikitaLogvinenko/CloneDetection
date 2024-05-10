@@ -41,7 +41,7 @@ namespace FileStorageSystem.FileId
         }
         public override string ToString()
         {
-            return _id;
+            return new FileInfo(_id).Name;
         }
     }
 }

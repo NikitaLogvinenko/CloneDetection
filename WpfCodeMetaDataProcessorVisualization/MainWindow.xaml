@@ -6,36 +6,48 @@
         xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization"
         xmlns:controls="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Window" Height="450" Width="800" Background="LightBlue">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
-            <controls:LoadFileView Grid.Row="0" Loaded="LoadFileView_Loaded"/>
-            
-            <ItemsControl Grid.Row="1" ItemsSource="{Binding getSystem}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock FontSize="12" FontStyle="Oblique" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Key}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
-        <Grid Grid.Column="1">
-            
-        </Grid>
-        <Grid Grid.Column="2">
 
+            <controls:LoadFileView x:Name="fileLoader" Grid.Row="2"/>
+            <controls:FileStorageView x:Name="storageView" Grid.Row="1"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="LoadCodeMetaData" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding LoadMetaDataText}" Width="Auto"/>
+            <TextBox x:Name="ChooseCodeMetaData" Grid.Row="0" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding ChooseMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
+            <controls:CompareCodeMetaDataView Grid.Row="2" x:Name="compareMetaData"/>
+            <TextBox x:Name="compareDataText" Grid.Row="3" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding CompareMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
+        </Grid>
+
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <controls:GetAllConditatesView Grid.Row="0" x:Name="getPrecompareCandidates"/>
+            <controls:PrecompareCandidatesView Grid.Row="1" x:Name="candidatesView" DataContext="{Binding PrecompareCandidates}"/>
         </Grid>
     </Grid>
 </Window>
