@@ -6,12 +6,14 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using WpfCodeMetaDataProcessorVisualization.UserControls;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 {
     public static class NotificationTexts
     {
         public static string noLoaded = "No Loaded File";
+        public static string invalidInput = "Invalid input";
         public static string noChoose = "No Choose File";
         public static string noChooseOrLoad = "No Choose or Load File";
         public static string noChoosePrecompareOrLoad = "No Choose Precompare or Load File";
@@ -26,6 +28,8 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         private SourceCodeMetaData loadedMetaData;
         private SourceCodeMetaData choosenMetaData;
 
+        public string ReloadFileName { get { return _initFileStorageName; } set { _initFileStorageName = value; InitSystem(); } }
+        public float Parametr { get { return param; } set { param = value; } }
         public ImmutableDictionary<FileId, SourceCodeMetaData> GetSystem { get { if(viewModelFileSystem == null) return default; return viewModelFileSystem.GetSystem; } }
         public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.noLoaded; } return loadedMetaData.ToString(); } set { } }
         public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } return choosenMetaData.ToString(); } set { } }
@@ -42,6 +46,31 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         {
             viewModelFileSystem = await FileStorageSytemViewModel.CreateAsync(new System.IO.FileInfo(_initFileStorageName));
             OnPropertyChanged(nameof(GetSystem));
+        }
+
+        public void setParametrHandler(object sender, EventArgs e)
+        {
+            DialogWindow dialogWindow = new DialogWindow();
+
+            if (dialogWindow.ShowDialog() == true)
+            {
+                float number;
+                bool success = float.TryParse(dialogWindow.Text, out number);
+
+                if(success)
+                {
+                    param = number;
+                    OnPropertyChanged(nameof(Parametr));
+                }
+                else
+                {
+                    MessageBox.Show(NotificationTexts.invalidInput);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Canceled");
+            }
         }
 
         public async void ButtonLoadHandler(object sender, EventArgs e)

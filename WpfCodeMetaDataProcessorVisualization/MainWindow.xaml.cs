@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WpfCodeMetaDataProcessorVisualization.UserControls;
 using WpfCodeMetaDataProcessorVisualization.ViewModels;
 
 namespace WpfCodeMetaDataProcessorVisualization
@@ -20,7 +21,8 @@ namespace WpfCodeMetaDataProcessorVisualization
             storageView.ChooseElementClick += application.ListViewItem_ChoosenFileFromStorageHandler;
             compareMetaData.ButtonCompareClick += application.ButtonCompareHandler;
             getPrecompareCandidates.GetCandidatesCompareClick += application.GetCandidatedPrecompareHandler;
-            //compareFilesResult.ButtonCompareFilesClick += application.ListViewItem_ChoosenCandidateFileHandler;
+            fullCompareFiles.ButtonCompareFilesClick += application.ListViewItem_ChoosenCandidateFileHandler;
+            menuSettings.SetCompareParamClick += application.setParametrHandler;
         }
     }
 }
