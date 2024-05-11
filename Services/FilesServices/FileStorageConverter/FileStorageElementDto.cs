@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FileStorageConverter
 {
-    public class FileStorageElementDto<DtoType>
+    public sealed class FileStorageElementDto<DtoType>
     {
         [JsonProperty]
         public string Id { get; set; }

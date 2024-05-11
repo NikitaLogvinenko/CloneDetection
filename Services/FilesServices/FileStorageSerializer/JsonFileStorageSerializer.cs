@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace FileStorageSerializer
 {
-    public class JsonFileStorageSerializer<DtoType> : IFileStorageSystemSerializer<string, DtoType>
+    public sealed class JsonFileStorageSerializer<DtoType> : IFileStorageSystemSerializer<string, DtoType>
     {
         public StorageSystemDto<DtoType> Deserialize(string systemSerializeFormat)
         {

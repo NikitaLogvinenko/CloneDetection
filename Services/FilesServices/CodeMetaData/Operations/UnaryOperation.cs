@@ -19,10 +19,5 @@ namespace CodeMetaData.Operations
         {
             return _operation;
         }
-
-        //public Variable GetSecondOperand()
-        //{
-        //    return null;
-        //}
     }
 }

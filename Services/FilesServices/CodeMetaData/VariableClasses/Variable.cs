@@ -4,7 +4,7 @@ using Exceptions;
 namespace CodeMetaData.VariableClasses
 {
     [Serializable]
-    public class Variable
+    public sealed class Variable
     {
         public string VariableId { get; }
 

@@ -20,13 +20,5 @@ namespace Exceptions
                 throw new Argument("Empty input string");
             }
         }
-
-        public static void IsEmptyCollection(Collection collection)
-        {
-            if (collection.Count == 0)
-            {
-                throw new Argument("Empty collection");
-            }
-        }
     }
 }

@@ -69,8 +69,8 @@ namespace CodeMetaDataComparator
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
             
-            ComparatorExceptionChecker.IsZeroValueParametr(first.GetSize());
-            ComparatorExceptionChecker.IsZeroValueParametr(second.GetSize());
+            ComparatorExceptionChecker.IsZeroSizeMetaData(first);
+            ComparatorExceptionChecker.IsZeroSizeMetaData(second);
             
             float equationReal = 0;
     

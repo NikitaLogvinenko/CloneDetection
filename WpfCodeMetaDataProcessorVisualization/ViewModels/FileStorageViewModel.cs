@@ -3,13 +3,10 @@ using System.ComponentModel;
 using System.IO;
 using CodeMetaData;
 using FileStorageSystem.FileId;
-using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Collections.Immutable;
-using System.Dynamic;
-using WpfCodeMetaDataProcessorVisualization.UserControls;
 
-public class FileStorageSytemViewModel : INotifyPropertyChanged
+public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 {
     private StorageSystem _fileStorage;
 

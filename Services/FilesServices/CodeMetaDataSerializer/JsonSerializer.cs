@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace CodeMetaDataSerializer
 {
-    public class JsonCodeMetaDataSerializer : ISerializerCodeMetaData<string, CodeMetaDataDto>
+    public sealed class JsonCodeMetaDataSerializer : ISerializerCodeMetaData<string, CodeMetaDataDto>
     {
 
         public string Serialize(CodeMetaDataDto metaDataDto)

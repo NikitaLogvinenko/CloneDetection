@@ -1,20 +1,23 @@
 ﻿using CodeMetaData;
 using CodeMetaDataComparator;
 using FileStorageSystem.FileId;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfCodeMetaDataProcessorVisualization.UserControls;
 
 namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 {
-    public class CodeMetaDataProcessorApplication : INotifyPropertyChanged
+    public static class NotificationTexts
+    {
+        public static string noLoaded = "No Loaded File";
+        public static string noChoose = "No Choose File";
+        public static string noChooseOrLoad = "No Choose or Load File";
+        public static string noChoosePrecompareOrLoad = "No Choose Precompare or Load File";
+    }
+
+    public sealed class CodeMetaDataProcessorApplication : INotifyPropertyChanged
     {
         private string _initFileStorageName = "System.txt";
         private float param = (float)0.5;
@@ -23,10 +26,10 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         private SourceCodeMetaData loadedMetaData;
         private SourceCodeMetaData choosenMetaData;
 
-        public ImmutableDictionary<FileId, SourceCodeMetaData> GetSystem { get { if(viewModelFileSystem == null) return default(ImmutableDictionary<FileId, SourceCodeMetaData>); return viewModelFileSystem.GetSystem; } }
-        public string LoadMetaDataText { get { if (loadedMetaData == null) { return "No Loaded File"; } return loadedMetaData.ToString(); } set { } }
-        public string ChooseMetaDataText { get { if (choosenMetaData == null) { return "No Choose File"; } return choosenMetaData.ToString(); } set { } }
-        public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) { return "No Choose or Load File"; } return ComparerMetaData.CompareMetaData(choosenMetaData, loadedMetaData).ToString(); } set { } }
+        public ImmutableDictionary<FileId, SourceCodeMetaData> GetSystem { get { if(viewModelFileSystem == null) return default; return viewModelFileSystem.GetSystem; } }
+        public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.noLoaded; } return loadedMetaData.ToString(); } set { } }
+        public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } return choosenMetaData.ToString(); } set { } }
+        public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareMetaData(choosenMetaData, loadedMetaData).ToString(); } set { } }
         public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) return new(); return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param); } }
 
 
@@ -54,13 +57,12 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
             var metaData = await FileCodeMetaDataHandler.CreatorCodeMetaDataFromFile.MakeCodeMetaDataFromSourceFile(dlg.FileName);
             loadedMetaData = metaData;
-            //
-            //LoadCodeMetaData.Text = metaData.ToString();
+
             OnPropertyChanged(nameof(LoadMetaDataText));
             OnPropertyChanged(nameof(GetSystem));
         }
 
-        public void ListViewItem_PreviewMouseLeftButtonDown(object sender, EventArgs e)
+        public void ListViewItem_ChoosenFileFromStorageHandler(object sender, EventArgs e)
         {
             var item = sender as FileStorageView;
 
@@ -68,10 +70,13 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             {
                 var selectedItem = item.GetSelectedItem();
                 choosenMetaData = selectedItem.Value;
-                //
-                //ChooseCodeMetaData.Text = "Selected: " + selectedItem.Value;
                 OnPropertyChanged(nameof(ChooseMetaDataText));
             }
+        }
+
+        public void ListViewItem_ChoosenCandidateFileHandler(object sender, EventArgs e)
+        {
+            
         }
 
         public void ButtonCompareHandler(object sender, EventArgs e)

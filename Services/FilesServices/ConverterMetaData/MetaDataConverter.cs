@@ -4,7 +4,7 @@ using CodeMetaData.VariableClasses;
 
 namespace CodeMetaDataConverter
 {
-    public class MetaDataConverter : IMetaDataConverter<CodeMetaDataDto>
+    public sealed class MetaDataConverter : IMetaDataConverter<CodeMetaDataDto>
     {
         public CodeMetaDataDto ConvertMetaDataToDto(SourceCodeMetaData metaData)
         {
