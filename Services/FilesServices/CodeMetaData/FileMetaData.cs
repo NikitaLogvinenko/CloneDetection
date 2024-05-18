@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace CodeMetaData
 {
-    public class FileMetaData
+    public sealed class FileMetaData
     {
         private List<FileMetaDataUnit> _fileMetaData = new();
 

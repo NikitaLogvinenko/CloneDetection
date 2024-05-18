@@ -2,7 +2,7 @@
 
 namespace CodeMetaData
 {
-    public class FunctionId
+    public sealed class FunctionId
     {
         private readonly string _id;
 
