@@ -4,13 +4,13 @@ using CodeMetaData.VariableClasses;
 
 namespace CodeMetaDataConverter
 {
-    public sealed class MetaDataConverter : IMetaDataConverter<CodeMetaDataDto>
+    public sealed class MetaDataConverter : IMetaDataConverter
     {
-        public CodeMetaDataDto ConvertMetaDataToDto(SourceCodeMetaData metaData)
+        public FunctionMetaDataDto ConvertFuncMetaDataToDto(FunctionCodeMetaData metaData)
         {
             Exceptions.ExceptionsChecker.IsNull(metaData);
 
-            var dto = new CodeMetaDataDto();
+            var dto = new FunctionMetaDataDto();
 
             Parallel.ForEach(metaData, item =>
             {
@@ -35,20 +35,20 @@ namespace CodeMetaDataConverter
                     var added = new VariableCountDto();
                     added.OperationDto = DtoCounter;
                     added.Variable = variable;
-                    dto.dict.Add(added);
+                    dto.Dict.Add(added);
                 }
             });
 
             return dto;
         }
 
-        public SourceCodeMetaData DeconvertDto(CodeMetaDataDto metaDataDto)
+        public FunctionCodeMetaData DeconvertFuncMetaDataDto(FunctionMetaDataDto metaDataDto)
         {
             Exceptions.ExceptionsChecker.IsNull(metaDataDto);
 
-            SourceCodeMetaData metaData = new SourceCodeMetaData();
+            FunctionCodeMetaData metaData = new FunctionCodeMetaData();
 
-            Parallel.ForEach(metaDataDto.dict, item =>
+            Parallel.ForEach(metaDataDto.Dict, item =>
             {
                 VariableUsage usage = new();
                 foreach (var keyItem in item.OperationDto)
@@ -68,6 +68,38 @@ namespace CodeMetaDataConverter
                 }
             });
             return metaData;
+        }
+
+        public FileMetaDataDto ConvertFileMetaDataToDto(FileMetaData fileMetaData)
+        {
+            var functionsMetaData = fileMetaData.MetaData;
+            var metaDataDto = new FileMetaDataDto();
+
+            foreach(var it in functionsMetaData) 
+            {
+                var unit = new FileMetaDataUnitDto();
+                unit.FuncDto = ConvertFuncMetaDataToDto(it.MetaData);
+                unit.Id = it.Id.Id;
+
+                metaDataDto.FileDto.Add(unit);
+            }
+
+            return metaDataDto;
+        }
+
+        public FileMetaData DeconvertFileMetaDataDto(FileMetaDataDto dto)
+        {
+            var fileDto = dto.FileDto;
+
+            var fileMetaData = new FileMetaData();
+
+            foreach(var it in fileDto)
+            {
+                var funcMetaData = DeconvertFuncMetaDataDto(it.FuncDto);
+                fileMetaData.Add(new FileMetaDataUnit(new FunctionId(it.Id), funcMetaData));
+            }    
+
+            return fileMetaData;
         }
     }
 }

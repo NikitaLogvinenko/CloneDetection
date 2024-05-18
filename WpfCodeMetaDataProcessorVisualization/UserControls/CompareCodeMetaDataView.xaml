@@ -6,9 +6,25 @@
              xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Viewbox>
         <Grid >
-            <Button Content="Precompare Files" Margin="20, 10, 20, 10" Click="CompareButtonClick"/>
+            <Button 
+            Width="200"
+            Height="50"
+            Cursor="Hand" 
+            ToolTip="Click to compare" 
+            ClickMode="Release" 
+            Margin="20, 10, 20, 10"
+            Style="{StaticResource ButtonStyle}" 
+            Content="Compare MetaData" 
+                Click="CompareButtonClick"/>
         </Grid>
     </Viewbox>
 </UserControl>

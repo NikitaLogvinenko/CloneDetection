@@ -20,7 +20,7 @@ namespace CodeMetaDataComparator.Exceptions
             }
         }
 
-        public static void IsZeroSizeMetaData(SourceCodeMetaData metaData)
+        public static void IsZeroSizeMetaData(FunctionCodeMetaData metaData)
         {
             if(metaData.GetSize() == 0)
             {

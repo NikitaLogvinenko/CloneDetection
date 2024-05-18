@@ -5,10 +5,14 @@ using CodeMetaData;
 using FileStorageSystem.FileId;
 using System.Runtime.CompilerServices;
 using System.Collections.Immutable;
+using CodeMetaDataConverter;
+using FileStorageSerializer;
 
 public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 {
     private StorageSystem _fileStorage;
+
+    public ImmutableDictionary<FileId, FileMetaData> GetSystem => _fileStorage.FileStorageDictionary;
 
     private FileStorageSytemViewModel(StorageSystem system)
     { 
@@ -17,14 +21,23 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(GetSystem));
     }
 
+    //public static async Task<FileStorageSytemViewModel> CreateAsync(FileInfo fileInfo)
+    //{
+    //    var result = new FileStorageSytemViewModel(await FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(fileInfo));
+
+    //    return result;
+    //}
+
     public static async Task<FileStorageSytemViewModel> CreateAsync(FileInfo fileInfo)
     {
-        var result = new FileStorageSytemViewModel(await FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(fileInfo));
+        StreamReader reader = new StreamReader(fileInfo.FullName);
+        JsonFileStorageSerializer serializer = new JsonFileStorageSerializer();
+        MetaDataConverter converter = new MetaDataConverter();
+
+        var result = new FileStorageSytemViewModel(FileStorageSystemHandler.StorageSystemHandler<string>.ReadFromStream(reader, serializer, converter));
 
         return result;
     }
-
-    public ImmutableDictionary<FileId, SourceCodeMetaData> GetSystem => _fileStorage.FileStorageDictionary;
 
     public async void Add(string fileName)
     {
@@ -33,14 +46,14 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(GetSystem));
     }
 
-    public SourceCodeMetaData GetMetaData(string fileName)
+    public FileMetaData GetMetaData(string fileName)
     {
-       _fileStorage.FileStorageDictionary.TryGetValue(new FileId(new FileInfo(fileName)), out SourceCodeMetaData metaData);
+       _fileStorage.FileStorageDictionary.TryGetValue(new FileId(new FileInfo(fileName)), out FileMetaData metaData);
 
         return metaData;
     }
 
-    public List<FileId> GetFullCompareCanditates(SourceCodeMetaData metaData, float param)
+    public List<FileId> GetFullCompareCanditates(FileMetaData metaData, float param)
     {
         if(metaData == null) 
         {
@@ -51,13 +64,21 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         foreach(var item in _fileStorage)
         {
-            if(!CodeMetaDataComparator.ComparerMetaData.CheckEquationOfMetaData(metaData, item.Value, param))
+            if(!CodeMetaDataComparator.ComparerMetaData.CheckEquationOfFileMetaData(metaData, item.Value, param))
             {
                 keys.Remove(item.Key);
             }
         }
 
         return keys;
+    }
+
+    public void Save(StreamWriter writer)
+    {
+        JsonFileStorageSerializer serializer = new JsonFileStorageSerializer();
+        MetaDataConverter converter = new MetaDataConverter();
+        
+        FileStorageSystemHandler.StorageSystemHandler<string>.SaveToStream(writer, _fileStorage, serializer, converter);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

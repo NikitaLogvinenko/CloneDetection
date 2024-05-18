@@ -2,10 +2,10 @@
 
 namespace FileStorageSerializer
 {
-    public interface IFileStorageSystemSerializer<SerializeType, DtoType>
+    public interface IFileStorageSystemSerializer<SerializeType>
     {
-        public SerializeType Serialize(StorageSystemDto<DtoType> system);
+        public SerializeType Serialize(StorageSystemDto system);
 
-        public StorageSystemDto<DtoType> Deserialize(SerializeType systemSerializeFormat);
+        public StorageSystemDto Deserialize(SerializeType systemSerializeFormat);
     }
 }

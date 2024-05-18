@@ -2,22 +2,23 @@
 using CodeMetaData;
 using FileStorageSystem.Exceptions;
 using Exceptions;
-using FileCodeMetaDataHandler;
 using System.Collections;
 using System.Collections.Immutable;
+using CLR;
 
 namespace FileStorageSystem
 {
-    public sealed class StorageSystem : IFilesStorage, IEnumerable<KeyValuePair<FileId.FileId, SourceCodeMetaData>>
+    public sealed class StorageSystem : IFilesStorage, IEnumerable<KeyValuePair<FileId.FileId, FileMetaData>>
     {
-        private ConcurrentDictionary<FileId.FileId, SourceCodeMetaData> _fileStorageDictionary = new();
+        private ConcurrentDictionary<FileId.FileId, FileMetaData> _fileStorage = new();
+
         private readonly SemaphoreSlim _semaphoreSlim = new SemaphoreSlim(1, 1);
 
-        public ImmutableDictionary<FileId.FileId, SourceCodeMetaData> FileStorageDictionary => _fileStorageDictionary.ToImmutableDictionary();
+        public ImmutableDictionary<FileId.FileId, FileMetaData> FileStorageDictionary => _fileStorage.ToImmutableDictionary();
 
         public int GetSize()
         {
-            return _fileStorageDictionary.Count;
+            return _fileStorage.Count;
         }
         
         public async Task<bool> TryAddNewFile(FileId.FileId inputFileId)
@@ -25,16 +26,16 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
-            var metaData = await CreatorCodeMetaDataFromFile.MakeCodeMetaDataFromSourceFile(inputFileId.GetId());
+            var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(inputFileId.Id));
 
-            return await Task.Run(() => _fileStorageDictionary.TryAdd(inputFileId, metaData));
+            return await Task.Run(() => _fileStorage.TryAdd(inputFileId, metaData));
         }
         
         public async Task<bool> TryRemoveFile(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
 
-            return await Task.Run(() => _fileStorageDictionary.TryRemove(inputFileId, out _));
+            return await Task.Run(() => _fileStorage.TryRemove(inputFileId, out _));
         }
 
         public async Task<FileInfo> GetFile(FileId.FileId inputFileId)
@@ -42,18 +43,18 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
 
             await _semaphoreSlim.WaitAsync();
-            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorageDictionary, inputFileId);
+            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorage, inputFileId);
             _semaphoreSlim.Release();
 
-            return await Task.Run(() => new FileInfo(inputFileId.GetId()));
+            return await Task.Run(() => new FileInfo(inputFileId.Id));
         }
 
-        public async Task<SourceCodeMetaData> GetCodeMetaDataForFile(FileId.FileId inputFileId)
+        public async Task<FileMetaData> GetCodeMetaDataForFile(FileId.FileId inputFileId)
         {
             ExceptionsChecker.IsNull(inputFileId);
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
-            var metaData = await Task.Run(() => _fileStorageDictionary.GetValueOrDefault(inputFileId));
+            var metaData = await Task.Run(() => _fileStorage.GetValueOrDefault(inputFileId));
 
             ExceptionsChecker.IsNull(metaData);
 
@@ -64,7 +65,7 @@ namespace FileStorageSystem
         {
             ExceptionsChecker.IsNull(inputFileId);
 
-            return await Task.Run(() => _fileStorageDictionary.ContainsKey(inputFileId));
+            return await Task.Run(() => _fileStorage.ContainsKey(inputFileId));
         }
 
         public async Task<string> GetFileText(FileId.FileId inputFileId)
@@ -73,25 +74,25 @@ namespace FileStorageSystem
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
             await _semaphoreSlim.WaitAsync();
-            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorageDictionary, inputFileId);
+            FileStorageExceptionChecker.IsNotExistInSystem(_fileStorage, inputFileId);
             _semaphoreSlim.Release();
 
-            var reader = new StreamReader(inputFileId.GetId());
+            var reader = new StreamReader(inputFileId.Id);
                 
             return await reader.ReadToEndAsync()!;
         }
         
-        public async Task<bool> AddFileWithMetaData(FileId.FileId inputFileId, SourceCodeMetaData metaData)
+        public async Task<bool> AddFileWithMetaData(FileId.FileId inputFileId, FileMetaData metaData)
         {
             ExceptionsChecker.IsNull(inputFileId);
             ExceptionsChecker.IsNull(metaData);
 
-            return await Task.Run(() => _fileStorageDictionary.TryAdd(inputFileId, metaData));
+            return await Task.Run(() => _fileStorage.TryAdd(inputFileId, metaData));
         }
 
-        public IEnumerator<KeyValuePair<FileId.FileId, SourceCodeMetaData>> GetEnumerator()
+        public IEnumerator<KeyValuePair<FileId.FileId, FileMetaData>> GetEnumerator()
         {
-            return _fileStorageDictionary.GetEnumerator();
+            return _fileStorage.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

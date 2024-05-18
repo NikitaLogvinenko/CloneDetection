@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+<PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
+ </PropertyGroup>
+
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ClrAdapterCodeCloneAnalysis\ClrAdapterCodeCloneAnalysis.vcxproj" />
     <ProjectReference Include="..\CodeMetaData\CodeMetaData.csproj" />
     <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
-    <ProjectReference Include="..\FileCodeMetaDataHandler\FileCodeMetaDataHandler.csproj" />
   </ItemGroup>
 
 </Project>

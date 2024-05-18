@@ -6,13 +6,22 @@
              xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/ListViewBlueStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-        <ListView x:Name="Viewer" MouseLeftButtonUp="PreviewMouseLeftButtonDown" ItemsSource="{Binding GetSystem}" Background="LightBlue">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Files" DisplayMemberBinding="{Binding Key}" />
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="Viewer" MouseLeftButtonUp="PreviewMouseLeftButtonDown" ItemsSource="{Binding GetSystem}" Style="{StaticResource ListViewStyle}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Content" Value="{Binding Key.ShortId}"/>
+                    <Setter Property="ToolTip" Value="{Binding Key.Id}" />
+                    <Setter Property="Width" Value="Auto"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </UserControl>

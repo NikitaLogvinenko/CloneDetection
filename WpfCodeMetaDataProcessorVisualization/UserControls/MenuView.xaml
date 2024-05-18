@@ -9,8 +9,8 @@
     <Viewbox>
         <Grid>
             <Menu>
-                <MenuItem Header="Settings">
-                    <MenuItem Header="Set Compare Parametr" Click="SetCompareParamButtonClick"/>
+                <MenuItem Background="LightBlue" Header="Settings">
+                    <MenuItem Header="Set Compare Parametr" Foreground="Blue" Click="SetCompareParamButtonClick"/>
                     <!--<MenuItem Header="Set Load File" Click="SetLoadFileClick"/>-->
                     <!--<MenuItem Header="Save System" Click="SaveFileSystemClick"/>-->
                 </MenuItem>

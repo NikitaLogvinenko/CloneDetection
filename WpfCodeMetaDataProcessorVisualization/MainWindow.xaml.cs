@@ -23,6 +23,8 @@ namespace WpfCodeMetaDataProcessorVisualization
             getPrecompareCandidates.GetCandidatesCompareClick += application.GetCandidatedPrecompareHandler;
             fullCompareFiles.ButtonCompareFilesClick += application.ListViewItem_ChoosenCandidateFileHandler;
             menuSettings.SetCompareParamClick += application.setParametrHandler;
+
+            Closing += application.ClosingWindow;
         }
     }
 }

@@ -1,32 +1,57 @@
 ﻿using CodeMetaData;
 using CodeMetaDataConverter;
 using CodeMetaDataSerializer;
-using System;
 
 namespace CodeMetaDataHandler
-{ 
+{
     public static class MetaDataHandler
     {
-        public static SerializeType SerializeAndConvert<SerializeType, DtoType>(SourceCodeMetaData metaData, ISerializerCodeMetaData<SerializeType, DtoType> serializer, 
-            IMetaDataConverter<DtoType> converter)
+        public static SerializeType SerializeAndConvert<SerializeType>(FunctionCodeMetaData metaData, ISerializerCodeMetaData<SerializeType> serializer, 
+            IMetaDataConverter converter)
         {
             Exceptions.ExceptionsChecker.IsNull(serializer);
             Exceptions.ExceptionsChecker.IsNull(metaData);
+            Exceptions.ExceptionsChecker.IsNull(converter);
 
-            var dto = converter.ConvertMetaDataToDto(metaData);
+            var dto = converter.ConvertFuncMetaDataToDto(metaData);
 
-            return serializer.Serialize(dto);
+            return serializer.SerializeFuncMetaData(dto);
         }
 
-        public static SourceCodeMetaData DeserializeAndDeconvert<SerializeType, DtoType>(SerializeType dtoFormat, ISerializerCodeMetaData<SerializeType, DtoType> serializer,
-            IMetaDataConverter<DtoType> converter)
+        public static FunctionCodeMetaData DeserializeAndDeconvert<SerializeType>(SerializeType dtoFormat, ISerializerCodeMetaData<SerializeType> serializer,
+            IMetaDataConverter converter)
         {
             Exceptions.ExceptionsChecker.IsNull(serializer);
             Exceptions.ExceptionsChecker.IsNull(dtoFormat);
+            Exceptions.ExceptionsChecker.IsNull(converter);
 
-            var dto = serializer.Deserialize(dtoFormat);
+            var dto = serializer.DeserializeFuncMetaData(dtoFormat);
 
-            return converter.DeconvertDto(dto);
+            return converter.DeconvertFuncMetaDataDto(dto);
+        }
+
+        public static SerializeType SerializeAndConvertFileMetaData<SerializeType>(FileMetaData metaData, 
+            ISerializerCodeMetaData<SerializeType> serializer, IMetaDataConverter converter)
+        {
+            Exceptions.ExceptionsChecker.IsNull(serializer);
+            Exceptions.ExceptionsChecker.IsNull(metaData);
+            Exceptions.ExceptionsChecker.IsNull(converter);
+
+            var dto = converter.ConvertFileMetaDataToDto(metaData);
+
+            return serializer.SerializeFileMetaData(dto);
+        }
+
+        public static FileMetaData DeserializeAndConvertFileMetaData<SerializeType>(SerializeType dtoFormat,
+            ISerializerCodeMetaData<SerializeType> serializer, IMetaDataConverter converter)
+        {
+            Exceptions.ExceptionsChecker.IsNull(serializer);
+            Exceptions.ExceptionsChecker.IsNull(dtoFormat);
+            Exceptions.ExceptionsChecker.IsNull(converter);
+
+            var dto = serializer.DeserializeFileMetaData(dtoFormat);
+
+            return converter.DeconvertFileMetaDataDto(dto);
         }
     }
 }

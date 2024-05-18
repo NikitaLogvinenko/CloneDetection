@@ -16,10 +16,9 @@ namespace FileStorageSystem.FileId
             _id = inputFileInfo.FullName;
         }
 
-        public String GetId()
-        {
-            return _id;
-        }
+        public string Id => _id;
+
+        public string ShortId => new FileInfo(_id).Name;
 
         public override bool Equals(object obj)
         {
@@ -39,9 +38,9 @@ namespace FileStorageSystem.FileId
         {
             return _id.GetHashCode();
         }
-        public override string ToString()
-        {
-            return new FileInfo(_id).Name;
-        }
+        //public override string ToString()
+        //{
+        //    return new FileInfo(_id).Name;
+        //}
     }
 }

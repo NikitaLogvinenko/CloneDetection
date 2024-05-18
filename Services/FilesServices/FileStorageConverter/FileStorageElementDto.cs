@@ -1,18 +1,14 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CodeMetaDataConverter;
+using Newtonsoft.Json;
 
 namespace FileStorageConverter
 {
-    public sealed class FileStorageElementDto<DtoType>
+    public sealed class FileStorageElementDto
     {
         [JsonProperty]
         public string Id { get; set; }
         [JsonProperty]
-        public DtoType dto { get; set; }
+        public FileMetaDataDto dto { get; set; }
 
         public FileStorageElementDto() 
         {}

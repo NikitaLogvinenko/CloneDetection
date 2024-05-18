@@ -1,27 +1,42 @@
-﻿using CodeMetaData;
-using CodeMetaDataConverter;
+﻿using CodeMetaDataConverter;
 using Exceptions;
 using Newtonsoft.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Newtonsoft.Json.Linq;
 
 namespace CodeMetaDataSerializer
 {
-    public sealed class JsonCodeMetaDataSerializer : ISerializerCodeMetaData<string, CodeMetaDataDto>
+    public sealed class JsonCodeMetaDataSerializer : ISerializerCodeMetaData<string>
     {
 
-        public string Serialize(CodeMetaDataDto metaDataDto)
+        public string SerializeFuncMetaData(FunctionMetaDataDto metaDataDto)
         {
             ExceptionsChecker.IsNull(metaDataDto);
 
             return JsonConvert.SerializeObject(metaDataDto);
         }
 
-        public CodeMetaDataDto Deserialize(string metaDataJsonFormat) 
+        public FunctionMetaDataDto DeserializeFuncMetaData(string metaDataJsonFormat) 
         {
             ExceptionsChecker.IsNullOrEmptyString(metaDataJsonFormat);
 
-            CodeMetaDataDto metaDataDto = JsonConvert.DeserializeObject<CodeMetaDataDto>(metaDataJsonFormat);
+            FunctionMetaDataDto metaDataDto = JsonConvert.DeserializeObject<FunctionMetaDataDto>(metaDataJsonFormat);
+
+            ExceptionsChecker.IsNull(metaDataDto);
+
+            return metaDataDto;
+        }
+
+        public string SerializeFileMetaData(FileMetaDataDto metaDataDto)
+        {
+            ExceptionsChecker.IsNull(metaDataDto);
+
+            return JsonConvert.SerializeObject(metaDataDto);
+        }
+
+        public FileMetaDataDto DeserializeFileMetaData(string metaDataJsonFormat)
+        {
+            ExceptionsChecker.IsNullOrEmptyString(metaDataJsonFormat);
+
+            FileMetaDataDto metaDataDto = JsonConvert.DeserializeObject<FileMetaDataDto>(metaDataJsonFormat);
 
             ExceptionsChecker.IsNull(metaDataDto);
 

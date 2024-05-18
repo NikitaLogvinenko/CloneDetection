@@ -14,9 +14,7 @@
     <ProjectReference Include="..\Services\FilesServices\CodeMetaData\CodeMetaData.csproj" />
     <ProjectReference Include="..\Services\FilesServices\ConverterMetaData\CodeMetaDataConverter.csproj" />
     <ProjectReference Include="..\Services\FilesServices\Exceptions\Exceptions.csproj" />
-    <ProjectReference Include="..\Services\FilesServices\FileCodeMetaDataHandler\FileCodeMetaDataHandler.csproj" />
     <ProjectReference Include="..\Services\FilesServices\FileStorageConverter\FileStorageConverter.csproj" />
-    <ProjectReference Include="..\Services\FilesServices\FileStorageCreator\FileStorageCreator.csproj" />
     <ProjectReference Include="..\Services\FilesServices\FileStorageSerializer\FileStorageSerializer.csproj" />
     <ProjectReference Include="..\Services\FilesServices\FileStorageSystemHandler\FileStorageSystemHandler.csproj" />
     <ProjectReference Include="..\Services\FilesServices\FileStorageSystem\FileStorageSystem.csproj" />

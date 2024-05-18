@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization"
         xmlns:controls="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
         mc:Ignorable="d"
-        Title="Window" Height="450" Width="800" Background="LightBlue">
+        Title="Window" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/TextBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\User\Project\CloneDetection\WpfCodeMetaDataProcessorVisualization\BackGround1.jpg" />
+    </Window.Background>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,9 +29,9 @@
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
                 <RowDefinition Height="3*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.2*"/>
             </Grid.RowDefinitions>
 
             <controls:MenuView x:Name="menuSettings"  Grid.Row="0" HorizontalAlignment="Left"/>
@@ -30,27 +41,32 @@
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="0.7*"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="LoadCodeMetaData" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding LoadMetaDataText}" Width="Auto"/>
-            <TextBox x:Name="ChooseCodeMetaData" Grid.Row="0" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding ChooseMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
-            <controls:CompareCodeMetaDataView Grid.Row="2" x:Name="compareMetaData"/>
-            <TextBox x:Name="compareDataText" Grid.Row="3" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding CompareMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
+
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="ChooseCodeMetaData" Grid.Row="1" HorizontalAlignment="Center" Margin="0,25,0,0"  TextWrapping="Wrap" Text="{Binding ChooseMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="LoadCodeMetaData" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding LoadMetaDataText}" Width="Auto"/>
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="compareDataText" Grid.Row="3" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding CompareMetaDataText}" VerticalAlignment="Top" Width="Auto"/>
+            <controls:CompareCodeMetaDataView Grid.Row="4" x:Name="compareMetaData"/>
         </Grid>
 
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.25*"/>
-                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.75*"/>
             </Grid.RowDefinitions>
-            <controls:GetAllConditatesView Grid.Row="0" x:Name="getPrecompareCandidates"/>
-            <controls:PrecompareCandidatesView Grid.Row="1" x:Name="candidatesView" DataContext="{Binding PrecompareCandidates}"/>
-            <controls:CompareSourceFile Grid.Row="2" x:Name="fullCompareFiles"/>
+            <controls:PrecompareCandidatesView Grid.Row="2" x:Name="candidatesView" DataContext="{Binding PrecompareCandidates}"/>
+            <controls:GetAllConditatesView Grid.Row="3" x:Name="getPrecompareCandidates"/>
+            <TextBox  x:Name="fullCompareDataText" Grid.Row="4" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding FullCompareMetaDataText}" Style="{StaticResource BlueTextBoxStyle}"  VerticalAlignment="Top" Width="Auto"/>
+            <controls:CompareSourceFile Grid.Row="5" x:Name="fullCompareFiles"/>
            
         </Grid>
     </Grid>

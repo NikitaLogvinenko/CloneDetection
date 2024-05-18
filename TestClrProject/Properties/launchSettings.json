@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestClrProject": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

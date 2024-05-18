@@ -8,6 +8,7 @@ namespace CodeMetaDataComparator
 {
     public static class ComparerMetaData
     {
+        private static float param = (float)0.5;
         public static float CompareOperationCounters(OperationCounter first, OperationCounter second)
         {
             ExceptionsChecker.IsNull(first);
@@ -64,7 +65,7 @@ namespace CodeMetaDataComparator
             return equationParam / Math.Max(first.GetSize(), second.GetSize());
         }
     
-        public static float CompareMetaData(CodeMetaData.SourceCodeMetaData first, CodeMetaData.SourceCodeMetaData second)
+        public static float CompareMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second)
         {
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
@@ -87,24 +88,55 @@ namespace CodeMetaDataComparator
                     foreach (var secondIt in second)
                     {
                         float comparingUsages = CompareUsages(firstIt.Key, secondIt.Key);
-                        const float equationUsagesParam = (float)0.5;
                         if (comparingUsages > totalUsagesEquation)
                         {
-                            totalUsagesEquation = comparingUsages > equationUsagesParam ? comparingUsages : 0;
+                            totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
                         }
                         equationReal += totalUsagesEquation;
                     }
                 }
             }
             
-            return equationReal/first.GetSize();
+            return equationReal/ (first.GetSize() > second.GetSize() ? first.GetSize() : second.GetSize());
         }
-        
-        public static bool CheckEquationOfMetaData(CodeMetaData.SourceCodeMetaData first, CodeMetaData.SourceCodeMetaData second, float equationParam)
+
+        public static bool CheckEquationOfMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second, float equationParam)
         {
             ComparatorExceptionChecker.IsParametrInAvailableRange(equationParam);
             
             return CompareMetaData(first, second) >= equationParam;
+        }
+
+        public static float CompareFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second)
+        {
+            ExceptionsChecker.IsNull(first);
+            ExceptionsChecker.IsNull(second);
+
+            float equationReal = 0;
+
+            foreach (var firstIt in first.MetaData)
+            {
+                float totalUsagesEquation = 0;
+
+                foreach (var secondIt in second.MetaData)
+                {
+                    float comparingUsages = CompareMetaData(firstIt.MetaData, secondIt.MetaData);
+                    if (comparingUsages > totalUsagesEquation)
+                    {
+                        totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
+                    }
+                    equationReal += totalUsagesEquation;
+                }
+            }
+
+            return equationReal / (first.Count > second.Count ? first.Count : second.Count);
+        }
+
+        public static bool CheckEquationOfFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second, float equationParam)
+        {
+            ComparatorExceptionChecker.IsParametrInAvailableRange(equationParam);
+
+            return CompareFileMetaData(first, second) >= equationParam;
         }
     }
 }

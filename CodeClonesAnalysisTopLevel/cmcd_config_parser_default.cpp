@@ -49,7 +49,7 @@ cmcd_config_parser_default::parse(std::istream& input) const
 		else
 		{
 			const auto processing = arg_processing_by_prefix.at(param_name);
-			processing(std::move( param_value), config);
+			processing(std::move(param_value), config);
 		}
 	}
 

@@ -4,17 +4,17 @@ using FileStorageSystem.FileId;
 
 namespace FileStorageConverter
 {
-    public static class StorageSystemConverter<DtoType>
+    public static class StorageSystemConverter
     {
-        public static StorageSystemDto<DtoType> ConvertStorageSystem(StorageSystem system, IMetaDataConverter<DtoType> converter)
+        public static StorageSystemDto ConvertStorageSystem(StorageSystem system, IMetaDataConverter converter)
         {
-            StorageSystemDto<DtoType> dto = new();
+            StorageSystemDto dto = new();
 
             foreach (var item in system)
             {
-                var added = new FileStorageElementDto<DtoType>();
-                added.Id = item.Key.GetId();
-                added.dto = converter.ConvertMetaDataToDto(item.Value);
+                var added = new FileStorageElementDto();
+                added.Id = item.Key.Id;
+                added.dto = converter.ConvertFileMetaDataToDto(item.Value);
 
                 dto.list.Add(added);
             }
@@ -22,13 +22,13 @@ namespace FileStorageConverter
             return dto;
         }
 
-        public static StorageSystem DeconvertStorageSystem(StorageSystemDto<DtoType> systemDto, IMetaDataConverter<DtoType> converter)
+        public static StorageSystem DeconvertStorageSystem(StorageSystemDto systemDto, IMetaDataConverter converter)
         {
             StorageSystem system = new();
 
             foreach (var item in systemDto.list)
             {
-                _ = system.AddFileWithMetaData(new FileId(new FileInfo(item.Id)), converter.DeconvertDto(item.dto));
+                _ = system.AddFileWithMetaData(new FileId(new FileInfo(item.Id)), converter.DeconvertFileMetaDataDto(item.dto));
             }
 
             return system;

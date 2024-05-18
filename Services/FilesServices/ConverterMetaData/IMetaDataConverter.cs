@@ -2,10 +2,14 @@
 
 namespace CodeMetaDataConverter
 {
-    public interface IMetaDataConverter<DtoType>
+    public interface IMetaDataConverter
     {
-        public DtoType ConvertMetaDataToDto(SourceCodeMetaData metaData);
+        public FunctionMetaDataDto ConvertFuncMetaDataToDto(FunctionCodeMetaData metaData);
 
-        public SourceCodeMetaData DeconvertDto(DtoType metaDataDto);
+        public FunctionCodeMetaData DeconvertFuncMetaDataDto(FunctionMetaDataDto metaDataDto);
+
+        public FileMetaData DeconvertFileMetaDataDto(FileMetaDataDto dto);
+
+        public FileMetaDataDto ConvertFileMetaDataToDto(FileMetaData fileMetaData);
     }
 }

@@ -6,8 +6,16 @@
              xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/ListViewBlueStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
-        <ListView x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" ItemsSource="{Binding }" Background="LightBlue">
+        <ListView Style="{StaticResource ListViewStyle}" x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" ItemsSource="{Binding }">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="CandidateFiles" DisplayMemberBinding="{Binding Key}" />

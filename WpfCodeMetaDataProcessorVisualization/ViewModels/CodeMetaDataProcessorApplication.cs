@@ -1,12 +1,13 @@
-﻿using CodeMetaData;
+﻿using CLR;
+using CodeMetaData;
 using CodeMetaDataComparator;
 using FileStorageSystem.FileId;
 using System.Collections.Immutable;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using WpfCodeMetaDataProcessorVisualization.UserControls;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 {
@@ -16,7 +17,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         public static string invalidInput = "Invalid input";
         public static string noChoose = "No Choose File";
         public static string noChooseOrLoad = "No Choose or Load File";
-        public static string noChoosePrecompareOrLoad = "No Choose Precompare or Load File";
+        public static string noChoosePrecompareOrLoad = "No Choose Precompare or Load";
     }
 
     public sealed class CodeMetaDataProcessorApplication : INotifyPropertyChanged
@@ -25,16 +26,24 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         private float param = (float)0.5;
 
         private FileStorageSytemViewModel viewModelFileSystem;
-        private SourceCodeMetaData loadedMetaData;
-        private SourceCodeMetaData choosenMetaData;
+        private FileMetaData loadedMetaData;
+        private FileMetaData choosenMetaData;
+        private FileMetaData choosenFullCompareMetaData;
 
         public string ReloadFileName { get { return _initFileStorageName; } set { _initFileStorageName = value; InitSystem(); } }
         public float Parametr { get { return param; } set { param = value; } }
-        public ImmutableDictionary<FileId, SourceCodeMetaData> GetSystem { get { if(viewModelFileSystem == null) return default; return viewModelFileSystem.GetSystem; } }
-        public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.noLoaded; } return loadedMetaData.ToString(); } set { } }
-        public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } return choosenMetaData.ToString(); } set { } }
-        public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareMetaData(choosenMetaData, loadedMetaData).ToString(); } set { } }
-        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) return new(); return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param); } }
+        public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
+                    return default; return viewModelFileSystem.GetSystem; } }
+        public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.noLoaded; } 
+                return loadedMetaData.ToString(); } set { } }
+        public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } 
+                return new CodeMetaDataSerializer.JsonCodeMetaDataSerializer().SerializeFileMetaData(new CodeMetaDataConverter.MetaDataConverter().ConvertFileMetaDataToDto(choosenMetaData)); } set { } }
+        public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) 
+                { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData).ToString(); } set { } }
+        public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareMetaData == null) 
+                { return NotificationTexts.noChoosePrecompareOrLoad; } return ComparerMetaData.CompareFileMetaData(choosenFullCompareMetaData, loadedMetaData).ToString(); } set { } }
+        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) return new(); 
+                return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param); } }
 
 
         public CodeMetaDataProcessorApplication()
@@ -84,7 +93,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 viewModelFileSystem.Add(dlg.FileName);
             }
 
-            var metaData = await FileCodeMetaDataHandler.CreatorCodeMetaDataFromFile.MakeCodeMetaDataFromSourceFile(dlg.FileName);
+            var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(dlg.FileName));
             loadedMetaData = metaData;
 
             OnPropertyChanged(nameof(LoadMetaDataText));
@@ -114,7 +123,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             {
                 try
                 {
-                    ComparerMetaData.CompareMetaData(choosenMetaData, loadedMetaData).ToString();
+                    ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData).ToString();
                     OnPropertyChanged(nameof(CompareMetaDataText));
                 }
                 catch (Exception ex)
@@ -135,6 +144,21 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ClosingWindow(object sender, EventArgs e)
+        {
+            ClosingDialogWindow dialogWindow = new();
+
+            if (dialogWindow.ShowDialog() == true)
+            {
+                StreamWriter writer = new StreamWriter(_initFileStorageName);
+                viewModelFileSystem.Save(writer);
+            }
+            else
+            {
+                MessageBox.Show("Canceled");
             }
         }
 

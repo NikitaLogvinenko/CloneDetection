@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeMetaData;
-using CodeMetaDataConverter;
-
-
+﻿using CodeMetaDataConverter;
 
 namespace CodeMetaDataSerializer
 {
-    public interface ISerializerCodeMetaData<SerializeType, DtoType>
+    public interface ISerializerCodeMetaData<SerializeType>
     {
-        public SerializeType Serialize(DtoType metaData);
+        public SerializeType SerializeFuncMetaData(FunctionMetaDataDto metaData);
 
-        public DtoType Deserialize(SerializeType metaDataSerializeFormat);
+        public FunctionMetaDataDto DeserializeFuncMetaData(SerializeType metaDataSerializeFormat);
+
+        public SerializeType SerializeFileMetaData(FileMetaDataDto metaDataDto);
+
+        public FileMetaDataDto DeserializeFileMetaData(SerializeType metaDataJsonFormat);
     }
 }

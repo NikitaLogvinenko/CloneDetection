@@ -1,3 +1,4 @@
+using CodeMetaData;
 using System.Collections.Concurrent;
 
 namespace FileStorageSystem.Exceptions
@@ -12,7 +13,7 @@ namespace FileStorageSystem.Exceptions
             }
         }
 
-        public static void IsNotExistInSystem(ConcurrentDictionary<FileId.FileId, CodeMetaData.SourceCodeMetaData> fileStorageDictionary, FileId.FileId inputFileId)
+        public static void IsNotExistInSystem(ConcurrentDictionary<FileId.FileId, FileMetaData> fileStorageDictionary, FileId.FileId inputFileId)
         {
             if (!fileStorageDictionary.TryGetValue(inputFileId, out var metaData))
             {
@@ -22,7 +23,7 @@ namespace FileStorageSystem.Exceptions
 
         public static void IsEmptyFile(FileId.FileId inputFileId)
         {
-            if (inputFileId.GetId().Length == 0)
+            if (inputFileId.Id.Length == 0)
             {
                 throw new FileStorageArgumentException("Empty input file");
             }

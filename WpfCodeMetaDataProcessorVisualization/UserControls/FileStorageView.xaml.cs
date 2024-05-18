@@ -11,7 +11,7 @@ namespace WpfCodeMetaDataProcessorVisualization.UserControls
     /// </summary>
     public partial class FileStorageView : UserControl
     {
-        private KeyValuePair<FileId, SourceCodeMetaData> _selectedItem;
+        private KeyValuePair<FileId, FileMetaData> _selectedItem;
         public FileStorageView()
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace WpfCodeMetaDataProcessorVisualization.UserControls
 
         public event RoutedEventHandler ChooseElementClick;
 
-        public KeyValuePair<FileId, SourceCodeMetaData> GetSelectedItem()
+        public KeyValuePair<FileId, FileMetaData> GetSelectedItem()
         {
             return _selectedItem;
         }
@@ -28,9 +28,9 @@ namespace WpfCodeMetaDataProcessorVisualization.UserControls
         {
             ListView view = sender as ListView;
 
-            if (view != null)
+            if (view != null && view.SelectedItem != null)
             {
-                _selectedItem = (KeyValuePair<FileId, SourceCodeMetaData>)view.SelectedItem;
+                _selectedItem = (KeyValuePair<FileId, FileMetaData>)view.SelectedItem;
             }
 
             ChooseElementClick?.Invoke(this, e);
