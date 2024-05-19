@@ -28,6 +28,8 @@ namespace FileStorageSystem
 
             var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(inputFileId.Id));
 
+            ExceptionsChecker.IsNull(metaData);
+
             return await Task.Run(() => _fileStorage.TryAdd(inputFileId, metaData));
         }
         

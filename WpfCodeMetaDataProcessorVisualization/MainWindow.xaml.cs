@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using WpfCodeMetaDataProcessorVisualization.UserControls;
 using WpfCodeMetaDataProcessorVisualization.ViewModels;
 
 namespace WpfCodeMetaDataProcessorVisualization

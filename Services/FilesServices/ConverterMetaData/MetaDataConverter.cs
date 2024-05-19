@@ -39,6 +39,30 @@ namespace CodeMetaDataConverter
                 }
             });
 
+            //foreach (var item in metaData)
+            //{
+            //    List<OperationCountDto> DtoCounter = [];
+            //    string variable = new("");
+            //    foreach (var keyItem in item.Key)
+            //    {
+            //        variable = item.Value.VariableId;
+            //        string operationId = keyItem.Operation.GetOperationId().GetId();
+            //        string num = keyItem.UsageNum.ToString();
+            //        string operand = new("");
+
+            //        if (keyItem.Operation is BinaryOperation operation)
+            //        {
+            //            operand = operation.GetSecondOperand().VariableId;
+            //        }
+            //        DtoCounter.Add(new(operationId, num, operand));
+            //    }
+
+            //    var added = new VariableCountDto();
+            //    added.OperationDto = DtoCounter;
+            //    added.Variable = variable;
+            //    dto.Dict.Add(added);
+            //}
+
             return dto;
         }
 
@@ -67,6 +91,24 @@ namespace CodeMetaDataConverter
                     metaData.AddVariable(usage, new Variable(item.Variable));
                 }
             });
+
+            //foreach(var item in metaDataDto.Dict)
+            //{
+            //    VariableUsage usage = new();
+            //    foreach (var keyItem in item.OperationDto)
+            //    {
+            //        if (!string.IsNullOrEmpty(keyItem.Operand))
+            //        {
+            //            usage.Add(new OperationCounter(new BinaryOperation(new OperationId(keyItem.OperationId),
+            //                new Variable(keyItem.Operand)), Convert.ToUInt32(keyItem.CountNum)));
+            //            continue;
+            //        }
+            //        usage.Add(new OperationCounter(new UnaryOperation(
+            //            new OperationId(keyItem.OperationId)), Convert.ToUInt32(keyItem.CountNum)));
+            //    }
+            //    metaData.AddVariable(usage, new Variable(item.Variable));
+            //}
+
             return metaData;
         }
 

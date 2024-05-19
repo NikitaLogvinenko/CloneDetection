@@ -30,7 +30,6 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         private FileMetaData choosenMetaData;
         private FileMetaData choosenFullCompareMetaData;
 
-        public string ReloadFileName { get { return _initFileStorageName; } set { _initFileStorageName = value; InitSystem(); } }
         public float Parametr { get { return param; } set { param = value; } }
         public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
                     return default; return viewModelFileSystem.GetSystem; } }
@@ -90,14 +89,24 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
             if (response == true)
             {
-                viewModelFileSystem.Add(dlg.FileName);
+                FileMetaData metaData = null;
+
+                try
+                {
+                    metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(dlg.FileName));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                loadedMetaData = metaData;
+                viewModelFileSystem.AddWithMetaData(dlg.FileName, metaData);
+
+                OnPropertyChanged(nameof(LoadMetaDataText));
+                OnPropertyChanged(nameof(GetSystem));
             }
-
-            var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(dlg.FileName));
-            loadedMetaData = metaData;
-
-            OnPropertyChanged(nameof(LoadMetaDataText));
-            OnPropertyChanged(nameof(GetSystem));
         }
 
         public void ListViewItem_ChoosenFileFromStorageHandler(object sender, EventArgs e)
@@ -119,32 +128,31 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
         public void ButtonCompareHandler(object sender, EventArgs e)
         {
-            if (choosenMetaData != null && loadedMetaData != null)
+            try
             {
-                try
-                {
-                    ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData).ToString();
-                    OnPropertyChanged(nameof(CompareMetaDataText));
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            OnPropertyChanged(nameof(CompareMetaDataText));
         }
 
         public void GetCandidatedPrecompareHandler(object sender, EventArgs e)
         {
             try
             {
-                //
                 viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param);
-                OnPropertyChanged(nameof(PrecompareCandidates));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
+            OnPropertyChanged(nameof(PrecompareCandidates));
         }
 
         public void ClosingWindow(object sender, EventArgs e)

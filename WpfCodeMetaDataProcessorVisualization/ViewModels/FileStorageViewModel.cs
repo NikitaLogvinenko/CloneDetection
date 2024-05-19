@@ -36,12 +36,21 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         var result = new FileStorageSytemViewModel(FileStorageSystemHandler.StorageSystemHandler<string>.ReadFromStream(reader, serializer, converter));
 
+        reader.Close();
+
         return result;
     }
 
     public async void Add(string fileName)
     {
         var _ = await _fileStorage.TryAddNewFile(new FileId(new FileInfo(fileName)));
+
+        OnPropertyChanged(nameof(GetSystem));
+    }
+
+    public async void AddWithMetaData(string fileName, FileMetaData metaData)
+    {
+        var _ = await _fileStorage.AddFileWithMetaData(new FileId(new FileInfo(fileName)), metaData);
 
         OnPropertyChanged(nameof(GetSystem));
     }

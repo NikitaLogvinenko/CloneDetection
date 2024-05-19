@@ -24,7 +24,15 @@ namespace CodeMetaDataComparator.Exceptions
         {
             if(metaData.GetSize() == 0)
             {
-                throw new ComparatorInputArgumentException("Zero Size Meta Data");
+                throw new ComparatorInputArgumentException("Zero size FunctionMetaData");
+            }
+        }
+
+        public static void IsZeroSizeFileMetaData(FileMetaData metaData)
+        {
+            if(metaData.Count == 0)
+            {
+                throw new ComparatorInputArgumentException("Zero size FileMetaData");
             }
         }
     }

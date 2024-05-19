@@ -65,7 +65,7 @@ namespace CodeMetaDataComparator
             return equationParam / Math.Max(first.GetSize(), second.GetSize());
         }
     
-        public static float CompareMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second)
+        public static float CompareFunctionMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second)
         {
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
@@ -100,17 +100,20 @@ namespace CodeMetaDataComparator
             return equationReal/ (first.GetSize() > second.GetSize() ? first.GetSize() : second.GetSize());
         }
 
-        public static bool CheckEquationOfMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second, float equationParam)
+        public static bool CheckEquationOfFunctionMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second, float equationParam)
         {
             ComparatorExceptionChecker.IsParametrInAvailableRange(equationParam);
             
-            return CompareMetaData(first, second) >= equationParam;
+            return CompareFunctionMetaData(first, second) >= equationParam;
         }
 
         public static float CompareFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second)
         {
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
+
+            ComparatorExceptionChecker.IsZeroSizeFileMetaData(first);
+            ComparatorExceptionChecker.IsZeroSizeFileMetaData(second);
 
             float equationReal = 0;
 
@@ -120,10 +123,10 @@ namespace CodeMetaDataComparator
 
                 foreach (var secondIt in second.MetaData)
                 {
-                    float comparingUsages = CompareMetaData(firstIt.MetaData, secondIt.MetaData);
-                    if (comparingUsages > totalUsagesEquation)
+                    float comparingFunctions = CompareFunctionMetaData(firstIt.MetaData, secondIt.MetaData);
+                    if (comparingFunctions > totalUsagesEquation)
                     {
-                        totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
+                        totalUsagesEquation = comparingFunctions > param ? comparingFunctions : 0;
                     }
                     equationReal += totalUsagesEquation;
                 }
