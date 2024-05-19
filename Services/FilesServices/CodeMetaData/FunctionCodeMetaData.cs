@@ -6,9 +6,18 @@ using Exceptions;
 namespace CodeMetaData
 {
     [Serializable]
-    public sealed class FunctionCodeMetaData : IEnumerable<KeyValuePair<VariableUsage, Variable>>
+    public sealed class FunctionCodeMetaData : IEnumerable<KeyValuePair<VariableUsage, Variable>>, ICloneable
     {
         private readonly Dictionary<VariableUsage, Variable> _metaData = new(new UsageComparer());
+
+        public FunctionCodeMetaData()
+        {
+
+        }
+        public FunctionCodeMetaData(Dictionary<VariableUsage, Variable> metaData)
+        {
+            _metaData = metaData;
+        }
 
         public int GetSize()
         {
@@ -29,6 +38,15 @@ namespace CodeMetaData
             ExceptionsChecker.IsNull(key);
             MetaDataExceptionChecker.IsKeyAvailableToRemove(key, _metaData);
 
+            _metaData.Remove(key);
+        }
+
+        public void TryRemoveVariable(VariableUsage key)
+        {
+            if(_metaData.ContainsKey(key))
+            {
+                return;
+            }
             _metaData.Remove(key);
         }
 
@@ -59,5 +77,7 @@ namespace CodeMetaData
         {
             return GetEnumerator();
         }
+
+        public object Clone() => new FunctionCodeMetaData(_metaData);
     }
 }

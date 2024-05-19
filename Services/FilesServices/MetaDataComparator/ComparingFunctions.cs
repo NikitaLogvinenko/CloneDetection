@@ -23,7 +23,12 @@ namespace CodeMetaDataComparator
             {
                 return 0;
             }
-            
+
+            if (first.UsageNum == second.UsageNum)
+            {
+                return 1;
+            }
+
             return Convert.ToSingle(Math.Min(first.UsageNum, second.UsageNum)) / Math.Max(first.UsageNum, second.UsageNum);
         }
         
@@ -74,30 +79,35 @@ namespace CodeMetaDataComparator
             ComparatorExceptionChecker.IsZeroSizeMetaData(second);
             
             float equationReal = 0;
-    
-            foreach (var firstIt in first)
+
+            var firstFuncMD = (FunctionCodeMetaData)first.Clone();
+            var secondFuncMD = (FunctionCodeMetaData)second.Clone();
+
+            foreach (var firstIt in firstFuncMD)
             {
                 if (second.HasUsages(firstIt.Key))
                 {
                     equationReal++;
+                    secondFuncMD.TryRemoveVariable(firstIt.Key);
                 }
                 else
                 {
                     float totalUsagesEquation = 0;
-    
-                    foreach (var secondIt in second)
+
+                    foreach (var secondIt in secondFuncMD)
                     {
                         float comparingUsages = CompareUsages(firstIt.Key, secondIt.Key);
                         if (comparingUsages > totalUsagesEquation)
                         {
                             totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
                         }
-                        equationReal += totalUsagesEquation;
                     }
+
+                    equationReal += totalUsagesEquation;
                 }
             }
             
-            return equationReal/ (first.GetSize() > second.GetSize() ? first.GetSize() : second.GetSize());
+            return equationReal/ Math.Max(first.GetSize(), second.GetSize());
         }
 
         public static bool CheckEquationOfFunctionMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second, float equationParam)
@@ -128,11 +138,11 @@ namespace CodeMetaDataComparator
                     {
                         totalUsagesEquation = comparingFunctions > param ? comparingFunctions : 0;
                     }
-                    equationReal += totalUsagesEquation;
                 }
+                equationReal += totalUsagesEquation;
             }
 
-            return equationReal / (first.Count > second.Count ? first.Count : second.Count);
+            return equationReal / Math.Max(first.Count, second.Count);
         }
 
         public static bool CheckEquationOfFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second, float equationParam)

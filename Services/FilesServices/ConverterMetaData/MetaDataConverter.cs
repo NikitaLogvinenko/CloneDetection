@@ -26,6 +26,7 @@ namespace CodeMetaDataConverter
                     if (keyItem.Operation is BinaryOperation operation)
                     {
                         operand = operation.GetSecondOperand().VariableId;
+
                     }
                     DtoCounter.Add(new(operationId, num, operand));
                 }

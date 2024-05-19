@@ -4,6 +4,7 @@ using CodeMetaDataComparator;
 using FileStorageSystem.FileId;
 using System.Collections.Immutable;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -34,11 +35,13 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
                     return default; return viewModelFileSystem.GetSystem; } }
         public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.noLoaded; } 
-                return loadedMetaData.ToString(); } set { } }
+                return new CodeMetaDataSerializer.JsonCodeMetaDataSerializer().SerializeFileMetaData(new CodeMetaDataConverter.MetaDataConverter().ConvertFileMetaDataToDto(loadedMetaData));
+            }
+            set { } }
         public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } 
                 return new CodeMetaDataSerializer.JsonCodeMetaDataSerializer().SerializeFileMetaData(new CodeMetaDataConverter.MetaDataConverter().ConvertFileMetaDataToDto(choosenMetaData)); } set { } }
         public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) 
-                { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData).ToString(); } set { } }
+                { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareFileMetaData(loadedMetaData, choosenMetaData).ToString(); } set { } }
         public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareMetaData == null) 
                 { return NotificationTexts.noChoosePrecompareOrLoad; } return ComparerMetaData.CompareFileMetaData(choosenFullCompareMetaData, loadedMetaData).ToString(); } set { } }
         public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) return new(); 
@@ -130,7 +133,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         {
             try
             {
-                ComparerMetaData.CompareFileMetaData(choosenMetaData, loadedMetaData);
+                ComparerMetaData.CompareFileMetaData(loadedMetaData, choosenMetaData).ToString();
             }
             catch (Exception ex)
             {
