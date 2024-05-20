@@ -93,16 +93,23 @@ namespace CodeMetaDataComparator
                 else
                 {
                     float totalUsagesEquation = 0;
+                    VariableUsage toDeleteSecond = null;
 
                     foreach (var secondIt in secondFuncMD)
                     {
                         float comparingUsages = CompareUsages(firstIt.Key, secondIt.Key);
                         if (comparingUsages > totalUsagesEquation)
                         {
+                            toDeleteSecond = secondIt.Key;
+
                             totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
                         }
                     }
 
+                    if (toDeleteSecond != null)
+                    {
+                        secondFuncMD.TryRemoveVariable(toDeleteSecond);
+                    }
                     equationReal += totalUsagesEquation;
                 }
             }
