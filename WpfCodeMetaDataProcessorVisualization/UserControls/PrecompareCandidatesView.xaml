@@ -15,12 +15,14 @@
     </UserControl.Resources>
     
     <Grid>
-        <ListView Style="{StaticResource ListViewStyle}" x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" ItemsSource="{Binding }">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="CandidateFiles" DisplayMemberBinding="{Binding Key}" />
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" Style="{StaticResource ListViewStyle}" ItemsSource="{Binding PrecompareCandidates}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Content" Value="{Binding ShortId}"/>
+                    <Setter Property="ToolTip" Value="{Binding Id}" />
+                    <Setter Property="Width" Value="Auto"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </UserControl>

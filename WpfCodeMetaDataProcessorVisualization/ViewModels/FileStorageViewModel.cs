@@ -21,13 +21,6 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(GetSystem));
     }
 
-    //public static async Task<FileStorageSytemViewModel> CreateAsync(FileInfo fileInfo)
-    //{
-    //    var result = new FileStorageSytemViewModel(await FileStorageCreator.FileStorageCreator.CreateFileStorageFromSourceFile(fileInfo));
-
-    //    return result;
-    //}
-
     public static async Task<FileStorageSytemViewModel> CreateAsync(FileInfo fileInfo)
     {
         StreamReader reader = new StreamReader(fileInfo.FullName);

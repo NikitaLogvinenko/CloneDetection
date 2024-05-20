@@ -2,6 +2,7 @@
 using CodeMetaData;
 using CodeMetaDataComparator;
 using FileStorageSystem.FileId;
+using System.CodeDom;
 using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Globalization;
@@ -14,22 +15,25 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 {
     public static class NotificationTexts
     {
-        public static string noLoaded = "No Loaded File";
-        public static string invalidInput = "Invalid input";
-        public static string noChoose = "No Choose File";
-        public static string noChooseOrLoad = "No Choose or Load File";
-        public static string noChoosePrecompareOrLoad = "No Choose Precompare or Load";
+        public static readonly string noLoaded = "No Loaded File";
+        public static readonly string invalidInput = "Invalid input";
+        public static readonly string noChoose = "No Choose File";
+        public static readonly string noChooseOrLoad = "No Choose or Load File";
+        public static readonly string noChoosePrecompareOrLoad = "No Choose Precompare or Load";
+        public static readonly string resultCompare = "Result compare: ";
+        public static readonly string resultFullCompare = "See result in output dir";
     }
 
     public sealed class CodeMetaDataProcessorApplication : INotifyPropertyChanged
     {
-        private string _initFileStorageName = "System.txt";
+        private readonly string _initFileStorageName = "System.txt";
         private float param = (float)0.5;
 
         private FileStorageSytemViewModel viewModelFileSystem;
         private FileMetaData loadedMetaData;
         private FileMetaData choosenMetaData;
-        private FileMetaData choosenFullCompareMetaData;
+        private FileId choosenFullCompareFileId;
+        private FileId choosenCompareFileId;
 
         public float Parametr { get { return param; } set { param = value; } }
         public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
@@ -41,10 +45,10 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         public string ChooseMetaDataText { get { if (choosenMetaData == null) { return NotificationTexts.noChoose; } 
                 return new CodeMetaDataSerializer.JsonCodeMetaDataSerializer().SerializeFileMetaData(new CodeMetaDataConverter.MetaDataConverter().ConvertFileMetaDataToDto(choosenMetaData)); } set { } }
         public string CompareMetaDataText { get { if (loadedMetaData == null || choosenMetaData == null) 
-                { return NotificationTexts.noChooseOrLoad; } return ComparerMetaData.CompareFileMetaData(loadedMetaData, choosenMetaData).ToString(); } set { } }
-        public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareMetaData == null) 
-                { return NotificationTexts.noChoosePrecompareOrLoad; } return ComparerMetaData.CompareFileMetaData(choosenFullCompareMetaData, loadedMetaData).ToString(); } set { } }
-        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) return new(); 
+                { return NotificationTexts.noChooseOrLoad; } return NotificationTexts.resultCompare + ComparerMetaData.CompareFileMetaData(loadedMetaData, choosenMetaData).ToString(); } set { } }
+        public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareFileId == null) 
+                { return NotificationTexts.noChoosePrecompareOrLoad; } return NotificationTexts.resultFullCompare; } set { } }
+        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) { return new(); } 
                 return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param); } }
 
 
@@ -59,7 +63,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             OnPropertyChanged(nameof(GetSystem));
         }
 
-        public void setParametrHandler(object sender, EventArgs e)
+        public void SetParametrHandler(object sender, EventArgs e)
         {
             DialogWindow dialogWindow = new DialogWindow();
 
@@ -105,6 +109,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 }
 
                 loadedMetaData = metaData;
+                choosenCompareFileId = new FileId(new FileInfo(dlg.FileName));
                 viewModelFileSystem.AddWithMetaData(dlg.FileName, metaData);
 
                 OnPropertyChanged(nameof(LoadMetaDataText));
@@ -126,7 +131,13 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
         public void ListViewItem_ChoosenCandidateFileHandler(object sender, EventArgs e)
         {
-            
+            var item = sender as PrecompareCandidatesView;
+
+            if (item != null && item.SelectedItem != null)
+            {
+                var selectedItem = item.SelectedItem;
+                choosenFullCompareFileId = selectedItem;
+            }
         }
 
         public void ButtonCompareHandler(object sender, EventArgs e)
@@ -144,7 +155,24 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             OnPropertyChanged(nameof(CompareMetaDataText));
         }
 
-        public void GetCandidatedPrecompareHandler(object sender, EventArgs e)
+        public void ButtonFullCompareHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                int argc = 2;
+                string[] argv = [choosenFullCompareFileId.Id, choosenCompareFileId.Id];
+                funcs_clones_analysis_through_cm_app_clr.Exec(argc, argv);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            OnPropertyChanged(nameof(FullCompareMetaDataText));
+        }
+
+        public void ButtonGetCandidatedPrecompareHandler(object sender, EventArgs e)
         {
             try
             {

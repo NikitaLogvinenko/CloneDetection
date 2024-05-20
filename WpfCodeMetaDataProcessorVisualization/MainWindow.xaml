@@ -63,7 +63,7 @@
                 <RowDefinition Height="0.75*"/>
                 <RowDefinition Height="0.75*"/>
             </Grid.RowDefinitions>
-            <controls:PrecompareCandidatesView Grid.Row="2" x:Name="candidatesView" DataContext="{Binding PrecompareCandidates}"/>
+            <controls:PrecompareCandidatesView Grid.Row="2" x:Name="candidatesView" />
             <controls:GetAllConditatesView Grid.Row="3" x:Name="getPrecompareCandidates"/>
             <TextBox  x:Name="fullCompareDataText" Grid.Row="4" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding FullCompareMetaDataText}" Style="{StaticResource BlueTextBoxStyle}"  VerticalAlignment="Top" Width="Auto"/>
             <controls:CompareSourceFile Grid.Row="5" x:Name="fullCompareFiles"/>

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodeCloneAnalysisTopLevelClr\CodeCloneAnalysisTopLevelClr.vcxproj" />
     <ProjectReference Include="..\Services\FilesServices\CodeMetaDataHandler\CodeMetaDataHandler.csproj" />
     <ProjectReference Include="..\Services\FilesServices\CodeMetaDataSerializer\CodeMetaDataSerializer.csproj" />
     <ProjectReference Include="..\Services\FilesServices\CodeMetaData\CodeMetaData.csproj" />

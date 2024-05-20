@@ -42,6 +42,8 @@ namespace TestClrProject
             var system_1 = StorageSystemHandler<string>.ReadFromStream(reader, serializer, converter);
 
             Assert.True(system.FileStorageDictionary.Count == system_1.FileStorageDictionary.Count);
+            
+            reader.Close();
         }
     }
 }

@@ -19,9 +19,10 @@ namespace WpfCodeMetaDataProcessorVisualization
             fileLoader.ButtonLoadClick += application.ButtonLoadHandler;
             storageView.ChooseElementClick += application.ListViewItem_ChoosenFileFromStorageHandler;
             compareMetaData.ButtonCompareClick += application.ButtonCompareHandler;
-            getPrecompareCandidates.GetCandidatesCompareClick += application.GetCandidatedPrecompareHandler;
-            fullCompareFiles.ButtonCompareFilesClick += application.ListViewItem_ChoosenCandidateFileHandler;
-            menuSettings.SetCompareParamClick += application.setParametrHandler;
+            getPrecompareCandidates.GetCandidatesCompareClick += application.ButtonGetCandidatedPrecompareHandler;
+            candidatesView.ChooseCandidateElementClick += application.ListViewItem_ChoosenCandidateFileHandler;
+            menuSettings.SetCompareParamClick += application.SetParametrHandler;
+            fullCompareFiles.ButtonCompareFilesClick += application.ButtonFullCompareHandler;
 
             Closing += application.ClosingWindow;
         }
