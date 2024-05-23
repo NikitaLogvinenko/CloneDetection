@@ -2,10 +2,8 @@
 using CodeMetaData;
 using CodeMetaDataComparator;
 using FileStorageSystem.FileId;
-using System.CodeDom;
 using System.Collections.Immutable;
 using System.ComponentModel;
-using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -28,13 +26,18 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
     {
         private readonly string _initFileStorageFolder = "System.txt";
         private readonly string _configName = "config.txt";
+        private readonly string _settingsConfigName = "settings_config.txt";
+
+        private readonly string _firstDirName = "<FirstProjectDirectory>";
+        private readonly string _secondDirName = "<SecondProjectDirectory>";
 
         private readonly string _fullCompareResultFolder = "<Output> \".\\results\\Result.txt\"";
 
-        private float param = (float)0.5;
+        private float _compareParam = (float)0.4;
 
-        int outDirPos = 0;
-        int secondDirPos = 3;
+        int _outDirPos = 0;
+        int _firstDirPos = 2;
+        int _secondDirPos = 3;
 
         private FileStorageSytemViewModel viewModelFileSystem;
         private FileMetaData loadedMetaData;
@@ -43,7 +46,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         private FileId choosenFullCompareFileId;
         private FileId loadedCompareFileId;
 
-        public float Parametr { get { return param; } set { param = value; } }
+        public float CompareParametr { get { return _compareParam; } set { _compareParam = value; } }
         public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
                     return default; return viewModelFileSystem.GetSystem; } }
         public string LoadMetaDataText { get { if (loadedMetaData == null) { return NotificationTexts.wasNotLoad; } 
@@ -55,41 +58,41 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareFileId == null) 
                 { return NotificationTexts.wasNotChoosePrecompareOrLoad; } return NotificationTexts.resultFullCompare; } set { } }
         public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) { return new(); } 
-                return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param); } }
+                return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, _compareParam); } }
 
-        
         private void makeConfig()
         {
-            StreamReader reader = new StreamReader(choosenFullCompareFileId.Id);
+            StreamReader reader_choosen = new StreamReader(choosenFullCompareFileId.Id);
             StreamReader reader_loaded = new StreamReader(loadedCompareFileId.Id);
+            StreamReader reader_settings = new StreamReader(_settingsConfigName);
 
-            string newFolder = (string)choosenFullCompareFileId.Id.Clone();
+            StreamWriter writer = new StreamWriter(_configName);
 
-            newFolder = newFolder.Replace(choosenFullCompareFileId.ShortId, _configName);
-
-            StreamWriter writer = new StreamWriter(newFolder);
-
-            string line, line_1;
+            string line;
             int i = 0;
 
-            while ((line = reader.ReadLine()) != null)
+            while ((line = reader_settings.ReadLine()) != null)
             {
-                line_1 = reader_loaded.ReadLine();
-
-                if (i == outDirPos)
+                if (i == _outDirPos)
                 {
                     line = _fullCompareResultFolder;
                 }
-                if (i == secondDirPos)
+                if(i == _firstDirPos)
                 {
-                    line = line_1;
+                    line = reader_choosen.ReadLine();
+                }
+                if (i == _secondDirPos)
+                {
+                    line = reader_loaded.ReadLine();
+                    line = line.Replace(_firstDirName, _secondDirName);
                 }
 
                 writer.WriteLine(line);
 
                 i++;
             }
-            reader.Close();
+            reader_settings.Close();
+            reader_choosen.Close();
             reader_loaded.Close();
             writer.Close();
         }
@@ -101,6 +104,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
         private async void InitSystem()
         {
+
             viewModelFileSystem = await FileStorageSytemViewModel.CreateAsync(new System.IO.FileInfo(_initFileStorageFolder));
             OnPropertyChanged(nameof(GetSystem));
         }
@@ -116,8 +120,8 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
                 if(success)
                 {
-                    param = number;
-                    OnPropertyChanged(nameof(Parametr));
+                    _compareParam = number;
+                    OnPropertyChanged(nameof(CompareParametr));
                 }
                 else
                 {
@@ -204,10 +208,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 int argc = 2;
                 makeConfig();
 
-                string newFolder = (string)choosenFullCompareFileId.Id.Clone();
-                newFolder = newFolder.Replace(choosenFullCompareFileId.ShortId, _configName);
-
-                string[] argv = [" ", newFolder];
+                string[] argv = [" ",_configName];
                 funcs_clones_analysis_through_cm_app_clr.Exec(argc, argv);
 
                 var window = new CompareResultWindow();
@@ -234,7 +235,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         {
             try
             {
-                viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, param);
+                viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, _compareParam);
             }
             catch (Exception ex)
             {

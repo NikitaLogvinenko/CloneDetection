@@ -133,6 +133,7 @@
     <ClInclude Include="FuncAnalysisTraitsWithNoConcept.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="VariableUsageConditions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />

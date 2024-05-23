@@ -1,10 +1,10 @@
 #pragma once
 #include "count_matrix.h"
-#include <vector>
 #include "code_entity_implementation_info.h"
 #include "funcs_analysis_traits.h"
 #include <var_usage_conditions.h>
 #include <msclr/marshal_cppstd.h>
+#include"VariableUsageConditions.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -19,14 +19,17 @@ namespace CLR
 		{
 			VariableClasses::VariableUsage^ usage = gcnew VariableClasses::VariableUsage();
 
-			size_t i = 0;
+			int i = 0;
 			for (auto& it : vector)
 			{
-				Operations::OperationId^ id = gcnew Operations::OperationId(msclr::interop::marshal_as<String^>(std::to_wstring(i)));
-				Operations::UnaryOperation^ operation = gcnew Operations::UnaryOperation(id);
-				Operations::OperationCounter^ counter = gcnew Operations::OperationCounter(operation, it.to_size_t());
-				usage->Add(counter);
-				i++;
+				if (it.to_size_t() > 0)
+				{
+					Operations::OperationId^ id = gcnew Operations::OperationId(VariableUsageConditions::values[i]);
+					Operations::UnaryOperation^ operation = gcnew Operations::UnaryOperation(id);
+					Operations::OperationCounter^ counter = gcnew Operations::OperationCounter(operation, it.to_size_t());
+					usage->Add(counter);
+					i++;
+				}
 			}
 			
 			return usage;

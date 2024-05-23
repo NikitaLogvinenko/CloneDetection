@@ -8,18 +8,13 @@ namespace CodeMetaDataComparator
 {
     public static class ComparerMetaData
     {
-        private static float param = (float)0.5;
+        private static float _compareUsageParam = (float)0.5;
         public static float CompareOperationCounters(OperationCounter first, OperationCounter second)
         {
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
 
             if (first.Operation.GetOperationId().GetId() != second.Operation.GetOperationId().GetId())
-            {
-                return 0;
-            }
-
-            if (first.Operation.GetType() != second.Operation.GetType())
             {
                 return 0;
             }
@@ -46,7 +41,7 @@ namespace CodeMetaDataComparator
 
             var firstCounting = (VariableUsage)first.Clone();
             var secondCounting = (VariableUsage)second.Clone();
-            
+
             foreach (var operationCountingFirst in firstCounting)
             {
                 float equationParamMax = 0;
@@ -54,7 +49,7 @@ namespace CodeMetaDataComparator
                 OperationCounter toDeleteSecond = null;
                 
                 foreach (var operationCountingSecond in secondCounting)
-                {
+                {   
                     var compareOperationResult = CompareOperationCounters(operationCountingFirst, operationCountingSecond);
                     if (compareOperationResult > equationParamMax)
                     {
@@ -100,16 +95,14 @@ namespace CodeMetaDataComparator
                         float comparingUsages = CompareUsages(firstIt.Key, secondIt.Key);
                         if (comparingUsages > totalUsagesEquation)
                         {
-                            toDeleteSecond = secondIt.Key;
+                            toDeleteSecond = (VariableUsage)secondIt.Key;
 
-                            totalUsagesEquation = comparingUsages > param ? comparingUsages : 0;
+                            totalUsagesEquation = comparingUsages > _compareUsageParam ? comparingUsages : 0;
                         }
                     }
 
-                    if (toDeleteSecond != null)
-                    {
-                        secondFuncMD.TryRemoveVariable(toDeleteSecond);
-                    }
+                    secondFuncMD.TryRemoveVariable(toDeleteSecond);
+
                     equationReal += totalUsagesEquation;
                 }
             }
@@ -143,7 +136,7 @@ namespace CodeMetaDataComparator
                     float comparingFunctions = CompareFunctionMetaData(firstIt.MetaData, secondIt.MetaData);
                     if (comparingFunctions > totalUsagesEquation)
                     {
-                        totalUsagesEquation = comparingFunctions > param ? comparingFunctions : 0;
+                        totalUsagesEquation = comparingFunctions > _compareUsageParam ? comparingFunctions : 0;
                     }
                 }
                 equationReal += totalUsagesEquation;

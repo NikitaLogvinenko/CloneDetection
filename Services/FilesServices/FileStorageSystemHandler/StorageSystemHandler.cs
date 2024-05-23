@@ -47,7 +47,10 @@ namespace FileStorageSystemHandler
 
             string data = reader.ReadLine();
 
-            Exceptions.ExceptionsChecker.IsNull(data);
+            if(data == null) 
+            {
+                return new StorageSystem();
+            }
 
             var deserializedData = (SerializeType)Convert.ChangeType(data, typeof(SerializeType));
 

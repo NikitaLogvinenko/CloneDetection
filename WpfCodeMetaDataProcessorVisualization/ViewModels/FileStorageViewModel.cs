@@ -74,7 +74,6 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         return keys;
     }
-
     public void Save(StreamWriter writer)
     {
         JsonFileStorageSerializer serializer = new JsonFileStorageSerializer();

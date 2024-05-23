@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\BackGround1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CodeCloneAnalysisTopLevelClr\CodeCloneAnalysisTopLevelClr.vcxproj" />
     <ProjectReference Include="..\Services\FilesServices\CodeMetaDataHandler\CodeMetaDataHandler.csproj" />
     <ProjectReference Include="..\Services\FilesServices\CodeMetaDataSerializer\CodeMetaDataSerializer.csproj" />
@@ -20,6 +24,10 @@
     <ProjectReference Include="..\Services\FilesServices\FileStorageSystemHandler\FileStorageSystemHandler.csproj" />
     <ProjectReference Include="..\Services\FilesServices\FileStorageSystem\FileStorageSystem.csproj" />
     <ProjectReference Include="..\Services\FilesServices\MetaDataComparator\CodeMetaDataComparator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\BackGround1.jpg" />
   </ItemGroup>
 
 </Project>
