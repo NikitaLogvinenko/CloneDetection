@@ -66,7 +66,7 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         foreach(var item in _fileStorage)
         {
-            if(!CodeMetaDataComparator.ComparerMetaData.CheckEquationOfFileMetaData(metaData, item.Value, param))
+            if(!CodeMetaDataComparator.ComparerMetaData.CheckEquationOfFileMetaData(metaData, item.Value, param) || metaData.Equals(item.Value))
             {
                 keys.Remove(item.Key);
             }
