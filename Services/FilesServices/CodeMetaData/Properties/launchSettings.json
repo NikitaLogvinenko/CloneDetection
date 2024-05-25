@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeMetaData": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

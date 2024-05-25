@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfCodeMetaDataProcessorVisualization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCodeMetaDataProcessorVisualization"
+        xmlns:controls="clr-namespace:WpfCodeMetaDataProcessorVisualization.UserControls"
+        mc:Ignorable="d"
+        Title="ComparingApp" Height="720" Width="1280">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/TextBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="Assets/BackGround1.jpg" />
+    </Window.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+
+            <controls:MenuView x:Name="menuSettings"  Grid.Row="0" HorizontalAlignment="Left"/>
+            <controls:FileStorageView x:Name="storageView" Grid.Row="2"/>
+            <controls:LoadFileView x:Name="fileLoader" Grid.Row="3"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="0.7*"/>
+            </Grid.RowDefinitions>
+
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="ChooseCodeMetaData" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="25,25,25,0"  TextWrapping="Wrap" Text="{Binding ChooseMetaDataText}" VerticalScrollBarVisibility="Visible" IsReadOnly="True"/>
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="LoadCodeMetaData" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25,25,25,0" TextWrapping="Wrap" Text="{Binding LoadMetaDataText}" VerticalScrollBarVisibility="Visible" IsReadOnly="True"/>
+            <TextBox Style="{StaticResource BlueTextBoxStyle}" x:Name="compareDataText" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding CompareMetaDataText}" Width="Auto" IsReadOnly="True"/>
+            <controls:CompareCodeMetaDataView Grid.Row="4" x:Name="compareMetaData"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.75*"/>
+            </Grid.RowDefinitions>
+            <controls:PrecompareCandidatesView Grid.Row="2" x:Name="candidatesView" />
+            <controls:GetAllConditatesView Grid.Row="3" x:Name="getPrecompareCandidates"/>
+            <TextBox  x:Name="fullCompareDataText" Grid.Row="4" HorizontalAlignment="Center" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding FullCompareMetaDataText}" Style="{StaticResource BlueTextBoxStyle}"  VerticalAlignment="Top" Width="Auto" IsReadOnly="True"/>
+            <controls:CompareSourceFile Grid.Row="5" x:Name="fullCompareFiles"/>
+           
+        </Grid>
+    </Grid>
+</Window>

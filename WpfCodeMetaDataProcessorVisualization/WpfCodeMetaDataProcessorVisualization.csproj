@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\BackGround1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CodeCloneAnalysisTopLevelClr\CodeCloneAnalysisTopLevelClr.vcxproj" />
+    <ProjectReference Include="..\Services\FilesServices\CodeMetaDataHandler\CodeMetaDataHandler.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\CodeMetaDataSerializer\CodeMetaDataSerializer.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\CodeMetaData\CodeMetaData.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\ConverterMetaData\CodeMetaDataConverter.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\Exceptions\Exceptions.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\FileStorageConverter\FileStorageConverter.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\FileStorageSerializer\FileStorageSerializer.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\FileStorageSystemHandler\FileStorageSystemHandler.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\FileStorageSystem\FileStorageSystem.csproj" />
+    <ProjectReference Include="..\Services\FilesServices\MetaDataComparator\CodeMetaDataComparator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\BackGround1.jpg" />
+  </ItemGroup>
+
+</Project>

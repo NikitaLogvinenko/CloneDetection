@@ -1,4 +1,4 @@
-<Output> ".\results\SimpleImageClass.txt"
+<Output> ".\results\Set.txt"
 <Framework> clang
 <FirstProjectDirectory> "..\..\ast_dumping\Set\dumps\"
 <SecondProjectDirectory> "..\..\ast_dumping\Set\dumps\"
