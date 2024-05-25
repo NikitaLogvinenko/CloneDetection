@@ -52,7 +52,7 @@ namespace CLR
 				String^ variable_id = msclr::interop::marshal_as<String^>((std::to_wstring(vector[i].to_size_t())));
 				VariableClasses::Variable^ variable = gcnew VariableClasses::Variable(variable_id);
 				VariableClasses::VariableUsage^ usage = ConvertToUsage(vec_usages);
-				metaData->AddVariable(usage, variable);
+				metaData->Add(usage, variable);
 			}
 
 			return metaData;

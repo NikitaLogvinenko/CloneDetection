@@ -17,7 +17,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         public static readonly string invalidInput = "Invalid input";
         public static readonly string wasNotChoose = "File not selected";
         public static readonly string wasNotChooseOrLoad = "File not selected or not loaded";
-        public static readonly string wasNotChoosePrecompareOrLoad = "File not selected precompare or not loaded";
+        public static readonly string wasNotChoosePrecompareOrLoad = "File not selected precompare or not selected";
         public static readonly string resultCompare = "Result compare: ";
         public static readonly string resultFullCompare = "See result in \".\\results\\Result.txt\"";
     }
@@ -40,11 +40,12 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         int _secondDirPos = 3;
 
         private FileStorageSytemViewModel viewModelFileSystem;
+
         private FileMetaData loadedMetaData;
         private FileMetaData choosenMetaData;
 
         private FileId choosenFullCompareFileId;
-        private FileId loadedCompareFileId;
+        private FileId choosenCompareFileId;
 
         public float CompareParametr { get { return _compareParam; } set { _compareParam = value; } }
         public ImmutableDictionary<FileId, FileMetaData> GetSystem { get { if(viewModelFileSystem == null) 
@@ -57,16 +58,16 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 { return NotificationTexts.wasNotChooseOrLoad; } return NotificationTexts.resultCompare + ComparerMetaData.CompareFileMetaData(loadedMetaData, choosenMetaData).ToString(); } set { } }
         public string FullCompareMetaDataText { get { if (loadedMetaData == null || choosenFullCompareFileId == null) 
                 { return NotificationTexts.wasNotChoosePrecompareOrLoad; } return NotificationTexts.resultFullCompare; } set { } }
-        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || loadedMetaData == null) { return new(); } 
-                return viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, _compareParam); } }
+        public List<FileId> PrecompareCandidates { get { if (viewModelFileSystem == null || choosenMetaData == null) { return new(); } 
+                return viewModelFileSystem.GetFullCompareCanditates(choosenMetaData, _compareParam); } }
 
         private void makeConfig()
         {
-            StreamReader reader_choosen = new StreamReader(choosenFullCompareFileId.Id);
-            StreamReader reader_loaded = new StreamReader(loadedCompareFileId.Id);
-            StreamReader reader_settings = new StreamReader(_settingsConfigName);
+            using StreamReader reader_choosen = new StreamReader(choosenFullCompareFileId.Id);
+            using StreamReader reader_loaded = new StreamReader(choosenCompareFileId.Id);
+            using StreamReader reader_settings = new StreamReader(_settingsConfigName);
 
-            StreamWriter writer = new StreamWriter(_configName);
+            using StreamWriter writer = new StreamWriter(_configName);
 
             string line;
             int i = 0;
@@ -155,7 +156,6 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 }
 
                 loadedMetaData = metaData;
-                loadedCompareFileId = new FileId(new FileInfo(dlg.FileName));
                 viewModelFileSystem.AddWithMetaData(dlg.FileName, metaData);
 
                 OnPropertyChanged(nameof(LoadMetaDataText));
@@ -171,6 +171,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             {
                 var selectedItem = item.GetSelectedItem();
                 choosenMetaData = selectedItem.Value;
+                choosenCompareFileId = selectedItem.Key;
                 OnPropertyChanged(nameof(ChooseMetaDataText));
             }
         }
@@ -235,7 +236,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
         {
             try
             {
-                viewModelFileSystem.GetFullCompareCanditates(loadedMetaData, _compareParam);
+                viewModelFileSystem.GetFullCompareCanditates(choosenMetaData, _compareParam);
             }
             catch (Exception ex)
             {
@@ -251,8 +252,9 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
             if (dialogWindow.ShowDialog() == true)
             {
-                StreamWriter writer = new StreamWriter(_initFileStorageFolder);
+                using StreamWriter writer = new StreamWriter(_initFileStorageFolder);
                 viewModelFileSystem.Save(writer);
+                writer.Close();
             }
             else
             {

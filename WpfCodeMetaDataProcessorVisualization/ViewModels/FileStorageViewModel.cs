@@ -23,7 +23,7 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
     public static async Task<FileStorageSytemViewModel> CreateAsync(FileInfo fileInfo)
     {
-        StreamReader reader = new StreamReader(fileInfo.FullName);
+        using StreamReader reader = new(fileInfo.FullName);
         JsonFileStorageSerializer serializer = new JsonFileStorageSerializer();
         MetaDataConverter converter = new MetaDataConverter();
 
@@ -66,7 +66,7 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         foreach(var item in _fileStorage)
         {
-            if(!CodeMetaDataComparator.ComparerMetaData.CheckEquationOfFileMetaData(metaData, item.Value, param) || metaData.Equals(item.Value))
+            if (metaData.Equals(item.Value) || !CodeMetaDataComparator.ComparerMetaData.CheckEquationOfFileMetaData(metaData, item.Value, param))
             {
                 keys.Remove(item.Key);
             }

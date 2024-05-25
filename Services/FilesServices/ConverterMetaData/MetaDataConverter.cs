@@ -89,7 +89,7 @@ namespace CodeMetaDataConverter
                 }
                 lock (metaData)
                 {
-                    metaData.AddVariable(usage, new Variable(item.Variable));
+                    metaData.Add(usage, new Variable(item.Variable));
                 }
             });
 

@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace CodeMetaData
 {
-    public sealed class FileMetaData
+    public sealed class FileMetaData : ICloneable
     {
         private List<FileMetaDataUnit> _fileMetaData = new();
 
@@ -31,6 +31,21 @@ namespace CodeMetaData
             ExceptionsChecker.IsNull(_fileMetaData);
 
             _fileMetaData.Remove(fileMetaData);
+        }
+
+        public void TryRemove(FileMetaDataUnit fileMetaData)
+        {
+            if(fileMetaData == null)
+            {
+                return;
+            }
+
+            _fileMetaData.Remove(fileMetaData);
+        }
+
+        public object Clone()
+        {
+            return new FileMetaData(new List<FileMetaDataUnit>(_fileMetaData));
         }
 
         public ImmutableList<FileMetaDataUnit> MetaData => _fileMetaData.ToImmutableList();

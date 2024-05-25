@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Security.Cryptography;
 using CodeMetaData.Exceptions;
 using CodeMetaData.VariableClasses;
 using Exceptions;
@@ -24,7 +25,7 @@ namespace CodeMetaData
             return _metaData.Count;
         }
 
-        public void AddVariable(VariableUsage usage, Variable variable)
+        public void Add(VariableUsage usage, Variable variable)
         {
             ExceptionsChecker.IsNull(usage);
             ExceptionsChecker.IsNull(variable);
@@ -33,7 +34,7 @@ namespace CodeMetaData
             _metaData.Add(usage, variable);
         }
 
-        public void RemoveVariable(VariableUsage key)
+        public void Remove(VariableUsage key)
         {
             ExceptionsChecker.IsNull(key);
             MetaDataExceptionChecker.IsKeyAvailableToRemove(key, _metaData);
@@ -41,7 +42,7 @@ namespace CodeMetaData
             _metaData.Remove(key);
         }
 
-        public void TryRemoveVariable(VariableUsage key)
+        public void TryRemove(VariableUsage key)
         {
             if(_metaData.ContainsKey(key))
             {
@@ -58,15 +59,10 @@ namespace CodeMetaData
 
             ExceptionsChecker.IsNull(searchingKey);
 
-            RemoveVariable(searchingKey.Key);
+            Remove(searchingKey.Key);
         }
-
-        public bool HasUsages(VariableUsage key)
-        {
-            ExceptionsChecker.IsNull(key);
-
-            return _metaData.ContainsKey(key);
-        }
+        
+        public List<VariableUsage> Keys => _metaData.Keys.ToList();
         
         public IEnumerator<KeyValuePair<VariableUsage, Variable>> GetEnumerator()
         {
@@ -78,6 +74,9 @@ namespace CodeMetaData
             return GetEnumerator();
         }
 
-        public object Clone() => new FunctionCodeMetaData(_metaData);
+        public object Clone()
+        {
+            return new FunctionCodeMetaData(new Dictionary<VariableUsage, Variable>(_metaData));
+        }
     }
 }

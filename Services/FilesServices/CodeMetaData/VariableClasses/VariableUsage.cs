@@ -67,6 +67,9 @@ namespace CodeMetaData.VariableClasses
             return GetEnumerator()!;
         }
 
-        public object Clone() => new VariableUsage(new List<OperationCounter>(_usageCount));
+        public object Clone()
+        {
+            return new VariableUsage(new List<OperationCounter>(_usageCount));
+        }
     }
 }
