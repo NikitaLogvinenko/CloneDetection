@@ -81,7 +81,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\CodeCloneAnalysisTopLevel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\CodeCloneAnalysisTopLevel\;$(SolutionDir)\ClangASTDumping\;$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -94,7 +94,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\CodeCloneAnalysisTopLevel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\CodeCloneAnalysisTopLevel\;$(SolutionDir)\ClangASTDumping\;$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -107,7 +107,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\CodeCloneAnalysisTopLevel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\CodeCloneAnalysisTopLevel\;$(SolutionDir)\ClangASTDumping\;$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -120,7 +120,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\CodeCloneAnalysisTopLevel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\CodeCloneAnalysisTopLevel\;$(SolutionDir)\ClangASTDumping\;$(SolutionDir)\ClangCodeAnalysis\;$(SolutionDir)\ClangCAdaptation\;$(SolutionDir)\LLVM\include\;$(SolutionDir)\CodeClonesAnalysisThroughCountMatrix\;$(SolutionDir)\CodeClonesAnalysis\;$(SolutionDir)\CodeAnalysisThroughCountMatrix\;$(SolutionDir)\CodeAnalysis\;$(SolutionDir)\CountMatrix\;$(SolutionDir)\Graphs\;$(SolutionDir)\Utility\;$(SolutionDir)\CodeGeneration\;$(SolutionDir)\dlib-19.24\;$(SolutionDir)\CommonExceptions\;$(VC_IncludePath);$(WindowsSDK_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -128,9 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AstDumper.h" />
     <ClInclude Include="CMCDFacadeWrapper.h" />
     <ClInclude Include="ConverterCodeImplemetationToCodeMetaData.h" />
     <ClInclude Include="FuncAnalysisTraitsWithNoConcept.h" />
+    <ClInclude Include="ConfigMaker.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="VariableUsageConditions.h" />
@@ -153,6 +155,9 @@
     <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClangASTDumping\ClangASTDumping.vcxproj">
+      <Project>{c8d3be8b-1f22-4708-8872-06c354bc03b8}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\ClangCAdaptation\ClangCAdaptation.vcxproj">
       <Project>{c50d4604-f8ea-499b-9b77-e71976ce8a09}</Project>
     </ProjectReference>

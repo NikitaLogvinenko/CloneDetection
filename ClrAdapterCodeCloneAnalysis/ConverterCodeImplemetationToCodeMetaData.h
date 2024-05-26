@@ -13,7 +13,7 @@ using namespace cm;
 
 namespace CLR
 {
-	public ref class ConverterCodeImplemetationToCodeMetaData
+	public ref class ConverterCodeImplemetationToCodeMetaData abstract sealed
 	{
 		static VariableClasses::VariableUsage^ ConvertToUsage(cm::count_vector<clang_code_analysis::var_usage_conditions_total> vector)
 		{

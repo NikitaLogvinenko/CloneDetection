@@ -5,7 +5,7 @@ using namespace System::Collections::Generic;
 
 namespace CLR
 {
-	public ref class VariableUsageConditions {
+	public ref class VariableUsageConditions sealed {
 	public:
 		static List<String^>^ values = gcnew List<String^>();
 
