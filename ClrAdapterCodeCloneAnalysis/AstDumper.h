@@ -12,35 +12,30 @@ namespace CLR
 {
 	public ref class AstDumper abstract sealed
 	{
-		static String^ _directoryPath = "ast_dumping/";
-		static String^ _name = "dump.ast";
 	public:
 
-		static String^ dumpFile(System::IO::FileInfo^ inputFileInfo)
+		static void dumpFile(System::IO::FileInfo^ inputFileInfo, String^ directoryPath, String^ fileName)
 		{
-			String^ newDirectoryName = Path::Combine(inputFileInfo->DirectoryName, _directoryPath);
-
-			std::filesystem::path directory(msclr::interop::marshal_as<std::string>(newDirectoryName));
+			std::filesystem::path directory(msclr::interop::marshal_as<std::string>(directoryPath));
 
 			if (!std::filesystem::exists(directory)) 
 			{
 				std::filesystem::create_directory(directory);
 			}
 
-			std::filesystem::path directoryPath = (msclr::interop::marshal_as<std::string>(inputFileInfo->FullName));
+			std::filesystem::path sourcePath = (msclr::interop::marshal_as<std::string>(inputFileInfo->FullName));
 
-			String^ newFileName = Path::Combine(newDirectoryName, _name);
+			String^ newFileName = Path::Combine(directoryPath, fileName);
 
 			std::filesystem::path newDirectoryPath = (msclr::interop::marshal_as<std::string>(newFileName));
 
 			std::vector<std::string> command_line_args;
-			clang_ast_dumping::source_to_ast_arguments args(directoryPath, newDirectoryPath, command_line_args);
+			clang_ast_dumping::source_to_ast_arguments args(sourcePath, newDirectoryPath, command_line_args);
 			
 			clang_ast_dumping::ast_dumper_default dumper;
 
 			dumper.dump(args);
 
-			return newDirectoryName;
 		}
 	};
 }

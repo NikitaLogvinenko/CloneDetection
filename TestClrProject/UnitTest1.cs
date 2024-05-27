@@ -25,7 +25,7 @@ namespace TestClrProject
 
             FileStorageSystem.StorageSystem system = new();
 
-            _ = system.AddFileWithMetaData(new FileId(new FileInfo(init_file)), fileMetaData);
+            _ = system.TryAddFileWithMetaData(new FileId(new FileInfo(init_file)), fileMetaData);
 
             StreamWriter writer = new StreamWriter("out.txt");
 

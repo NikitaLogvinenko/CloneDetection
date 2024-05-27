@@ -147,12 +147,12 @@ namespace CodeMetaDataComparator
             return Compare<OperationCounter>(new ComparingUsage(first), new ComparingUsage(second), CompareOperationCounters);
         }
 
-        public static float CompareFunctionMetaData(CodeMetaData.FunctionCodeMetaData first, CodeMetaData.FunctionCodeMetaData second)
+        public static float CompareFunctionMetaData(FunctionCodeMetaData first, FunctionCodeMetaData second)
         {
             return Compare<VariableUsage>(new ComparingFunctionMetaData(first.Keys), new ComparingFunctionMetaData(second.Keys), CompareUsage);
         }
 
-        public static float CompareFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second)
+        public static float CompareFileMetaData(FileMetaData first, FileMetaData second)
         {
             ExceptionsChecker.IsNull(first);
             ExceptionsChecker.IsNull(second);
@@ -184,7 +184,7 @@ namespace CodeMetaDataComparator
             return equationReal / Math.Max(first.Count, second.Count);
         }
 
-        public static bool CheckEquationOfFileMetaData(CodeMetaData.FileMetaData first, CodeMetaData.FileMetaData second, float equationParam)
+        public static bool CheckEquationOfFileMetaData(FileMetaData first, FileMetaData second, float equationParam)
         {
             ComparatorExceptionChecker.IsParametrInAvailableRange(equationParam);
 

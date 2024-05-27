@@ -28,7 +28,7 @@ namespace FileStorageConverter
 
             foreach (var item in systemDto.list)
             {
-                _ = system.AddFileWithMetaData(new FileId(new FileInfo(item.Id)), converter.DeconvertFileMetaDataDto(item.dto));
+                _ = system.TryAddFileWithMetaData(new FileId(new FileInfo(item.Id)), converter.DeconvertFileMetaDataDto(item.dto));
             }
 
             return system;

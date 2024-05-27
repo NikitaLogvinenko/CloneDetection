@@ -22,11 +22,9 @@ namespace CLR
 			code_analysis_through_cm::code_entity_implementation_info<FuncsAnalysisTraits<clang_code_analysis::var_usage_conditions_total>>,
 			utility::id_hash<func_id>>;
 
-		static FileMetaData^ ProccesFunctionsCodeMetaData(System::IO::FileInfo^ inputFileInfo)
+		static FileMetaData^ ProccesFunctionsCodeMetaData(String^ inputFileDir)
 		{
-			String^ newFileFolder = AstDumper::dumpFile(inputFileInfo);
-
-			code_clones_analysis_top_level::cmcd_config config = ConfigMaker::makeConfig(newFileFolder);
+			code_clones_analysis_top_level::cmcd_config config = ConfigMaker::makeConfig(inputFileDir);
 
 			const auto analysis_factory = funcs_analysis_through_count_matrix_factory_default<clang_code_analysis::var_usage_conditions_total>();
 

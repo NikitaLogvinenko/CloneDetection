@@ -8,36 +8,15 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using WpfCodeMetaDataProcessorVisualization.UserControls;
+using WpfCodeMetaDataProcessorVisualization.ConstantsAndNotifications;
 
 namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 {
-    public static class NotificationTexts
-    {
-        public static readonly string wasNotLoad = "File not loaded";
-        public static readonly string invalidInput = "Invalid input";
-        public static readonly string wasNotChoose = "File not selected";
-        public static readonly string wasNotChooseOrLoad = "File not selected or not loaded";
-        public static readonly string wasNotChoosePrecompareOrLoad = "File not selected precompare or not selected";
-        public static readonly string resultCompare = "Result compare: ";
-        public static readonly string resultFullCompare = "See result in \".\\results\\Result.txt\"";
-    }
-
     public sealed class CodeMetaDataProcessorApplication : INotifyPropertyChanged
     {
         private readonly string _initFileStorageFolder = "System.txt";
-        private readonly string _configName = "config.txt";
-        private readonly string _settingsConfigName = "settings_config.txt";
-
-        private readonly string _firstDirName = "<FirstProjectDirectory>";
-        private readonly string _secondDirName = "<SecondProjectDirectory>";
-
-        private readonly string _fullCompareResultFolder = "<Output> \".\\results\\Result.txt\"";
 
         private float _compareParam = (float)0.4;
-
-        int _outDirPos = 0;
-        int _firstDirPos = 2;
-        int _secondDirPos = 3;
 
         private FileStorageSytemViewModel viewModelFileSystem;
 
@@ -63,29 +42,26 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
         private void makeConfig()
         {
-            using StreamReader reader_choosen = new StreamReader(choosenFullCompareFileId.Id);
-            using StreamReader reader_loaded = new StreamReader(choosenCompareFileId.Id);
-            using StreamReader reader_settings = new StreamReader(_settingsConfigName);
+            using StreamReader reader_settings = new StreamReader(ConfigConstants._settingsConfigName);
 
-            using StreamWriter writer = new StreamWriter(_configName);
+            using StreamWriter writer = new StreamWriter(ConfigConstants._configName);
 
             string line;
             int i = 0;
 
             while ((line = reader_settings.ReadLine()) != null)
             {
-                if (i == _outDirPos)
+                if (i == ConfigConstants._outDirPos)
                 {
-                    line = _fullCompareResultFolder;
+                    line = ConfigConstants._fullCompareResultFolder;
                 }
-                if(i == _firstDirPos)
+                if(i == ConfigConstants._firstDirPos)
                 {
-                    line = reader_choosen.ReadLine();
+                    line = ConfigConstants._firstDirName + " \"" + makeAstDirectoryName(new FileInfo(choosenCompareFileId.ShortId)) + "\"";
                 }
-                if (i == _secondDirPos)
+                if (i == ConfigConstants._secondDirPos)
                 {
-                    line = reader_loaded.ReadLine();
-                    line = line.Replace(_firstDirName, _secondDirName);
+                    line = ConfigConstants._secondDirName + " \"" + makeAstDirectoryName(new FileInfo(choosenFullCompareFileId.ShortId)) + "\"";
                 }
 
                 writer.WriteLine(line);
@@ -93,9 +69,25 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 i++;
             }
             reader_settings.Close();
-            reader_choosen.Close();
-            reader_loaded.Close();
             writer.Close();
+        }
+
+        private string makeAstName(FileInfo inputFileInfo)
+        { 
+            string fileName = inputFileInfo.Name;
+
+            string newFileName = fileName.Replace(".cpp", ".ast");
+
+            return newFileName;
+        }
+
+        private string makeAstDirectoryName(FileInfo inputFileInfo)
+        {
+            string fileName = inputFileInfo.Name;
+
+            string newFileFolder = fileName.Replace(".cpp", ConfigConstants._astFileFolderAdding);
+
+            return newFileFolder;
         }
 
         public CodeMetaDataProcessorApplication()
@@ -147,7 +139,15 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
 
                 try
                 {
-                    metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(dlg.FileName));
+                    var info = new FileInfo(dlg.FileName);
+
+                    var ast_name = makeAstName(info);
+
+                    var ast_directory = makeAstDirectoryName(info);
+
+                    AstDumper.dumpFile(info, ast_directory, ast_name);
+
+                    metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(ast_directory);
                 }
                 catch (Exception ex)
                 {
@@ -209,7 +209,7 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
                 int argc = 2;
                 makeConfig();
 
-                string[] argv = [" ",_configName];
+                string[] argv = [" ", ConfigConstants._configName];
                 funcs_clones_analysis_through_cm_app_clr.Exec(argc, argv);
 
                 var window = new CompareResultWindow();

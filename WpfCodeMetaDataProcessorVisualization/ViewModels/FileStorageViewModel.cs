@@ -43,7 +43,7 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
     public async void AddWithMetaData(string fileName, FileMetaData metaData)
     {
-        var _ = await _fileStorage.AddFileWithMetaData(new FileId(new FileInfo(fileName)), metaData);
+        var _ = await _fileStorage.TryAddFileWithMetaData(new FileId(new FileInfo(fileName)), metaData);
 
         OnPropertyChanged(nameof(GetSystem));
     }

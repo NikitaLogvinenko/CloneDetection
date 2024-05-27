@@ -26,7 +26,9 @@ namespace FileStorageSystem
             ExceptionsChecker.IsNull(inputFileId);
             FileStorageExceptionChecker.IsEmptyFile(inputFileId);
 
-            var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(inputFileId.Id));
+            //var metaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(new FileInfo(inputFileId.Id));
+
+            var metaData = new CodeMetaData.FileMetaData();
 
             ExceptionsChecker.IsNull(metaData);
 
@@ -84,7 +86,7 @@ namespace FileStorageSystem
             return await reader.ReadToEndAsync()!;
         }
         
-        public async Task<bool> AddFileWithMetaData(FileId.FileId inputFileId, FileMetaData metaData)
+        public async Task<bool> TryAddFileWithMetaData(FileId.FileId inputFileId, FileMetaData metaData)
         {
             ExceptionsChecker.IsNull(inputFileId);
             ExceptionsChecker.IsNull(metaData);
