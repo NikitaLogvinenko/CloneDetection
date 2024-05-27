@@ -17,8 +17,9 @@
         <Grid >
             <Button 
             Width="200"
-            Height="50"
+            Height="100"
             Cursor="Hand" 
+            FontSize="40"
             ToolTip="Click to compare" 
             ClickMode="Release" 
             Margin="20, 10, 20, 10"

@@ -81,9 +81,9 @@ namespace FileStorageSystem
             FileStorageExceptionChecker.IsNotExistInSystem(_fileStorage, inputFileId);
             _semaphoreSlim.Release();
 
-            var reader = new StreamReader(inputFileId.Id);
+            using StreamReader reader = new StreamReader(inputFileId.Id);
                 
-            return await reader.ReadToEndAsync()!;
+            return await reader.ReadToEndAsync();
         }
         
         public async Task<bool> TryAddFileWithMetaData(FileId.FileId inputFileId, FileMetaData metaData)

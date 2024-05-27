@@ -15,7 +15,7 @@
     </UserControl.Resources>
     
     <Grid>
-        <ListView x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" Style="{StaticResource ListViewStyle}" ItemsSource="{Binding PrecompareCandidates}">
+        <ListView x:Name="Viewer" MouseLeftButtonUp="MouseLeftButtonDown" Style="{StaticResource ListViewStyle}" ItemsSource="{Binding PrecompareCandidates}" Margin="10,0,10,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Content" Value="{Binding ShortId}"/>

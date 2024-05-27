@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <ListView x:Name="Viewer" MouseLeftButtonUp="PreviewMouseLeftButtonDown" ItemsSource="{Binding GetSystem}" Style="{StaticResource ListViewStyle}">
+        <ListView x:Name="Viewer" MouseLeftButtonUp="PreviewMouseLeftButtonDown" ItemsSource="{Binding GetSystem}" Style="{StaticResource ListViewStyle}" Margin="10,0,10,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Content" Value="{Binding Key.ShortId}"/>

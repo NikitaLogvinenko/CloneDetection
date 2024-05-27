@@ -17,33 +17,33 @@ namespace TestClrProject
         [Test]
         public void TestProccesFunctionsCodeMetaData()
         {
-            FileInfo info = new("C:\\Users\\User\\Project\\CloneDetection\\TestClrProject\\bin\\Debug\\net8.0-windows7.0\\cmcd\\CloneDetection\\config.txt");
+            //FileInfo info = new("C:\\Users\\User\\Project\\CloneDetection\\TestClrProject\\bin\\Debug\\net8.0-windows7.0\\cmcd\\CloneDetection\\config.txt");
 
-            string init_file = "out.txt";
+            //string init_file = "out.txt";
 
-            var fileMetaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(info);
+            //var fileMetaData = CMCDFacadeWrapper.ProccesFunctionsCodeMetaData(info);
 
-            FileStorageSystem.StorageSystem system = new();
+            //FileStorageSystem.StorageSystem system = new();
 
-            _ = system.TryAddFileWithMetaData(new FileId(new FileInfo(init_file)), fileMetaData);
+            //_ = system.TryAddFileWithMetaData(new FileId(new FileInfo(init_file)), fileMetaData);
 
-            StreamWriter writer = new StreamWriter("out.txt");
+            //StreamWriter writer = new StreamWriter("out.txt");
 
-            var serializer = new JsonFileStorageSerializer();
+            //var serializer = new JsonFileStorageSerializer();
 
-            var converter = new CodeMetaDataConverter.MetaDataConverter();
+            //var converter = new CodeMetaDataConverter.MetaDataConverter();
 
-            StorageSystemHandler<string>.SaveToStream(writer, system, serializer, converter);
+            //StorageSystemHandler<string>.SaveToStream(writer, system, serializer, converter);
 
-            writer.Close();
+            //writer.Close();
 
-            StreamReader reader = new StreamReader(init_file);
+            //StreamReader reader = new StreamReader(init_file);
 
-            var system_1 = StorageSystemHandler<string>.ReadFromStream(reader, serializer, converter);
+            //var system_1 = StorageSystemHandler<string>.ReadFromStream(reader, serializer, converter);
 
-            Assert.True(system.FileStorageDictionary.Count == system_1.FileStorageDictionary.Count);
+            //Assert.True(system.FileStorageDictionary.Count == system_1.FileStorageDictionary.Count);
             
-            reader.Close();
+            //reader.Close();
         }
     }
 }

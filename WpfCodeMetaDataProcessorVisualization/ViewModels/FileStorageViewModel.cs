@@ -34,25 +34,35 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
         return result;
     }
 
-    public async void Add(string fileName)
-    {
-        var _ = await _fileStorage.TryAddNewFile(new FileId(new FileInfo(fileName)));
+    //public async void Add(string fileName)
+    //{
+    //    var _ = await _fileStorage.TryAddNewFile(new FileId(new FileInfo(fileName)));
 
-        OnPropertyChanged(nameof(GetSystem));
+    //    OnPropertyChanged(nameof(GetSystem));
+    //}
+
+    public async Task<bool> AddWithMetaData(FileId fileName, FileMetaData metaData)
+    {
+        return await _fileStorage.TryAddFileWithMetaData(fileName, metaData);
+
+        //OnPropertyChanged(nameof(GetSystem));
     }
 
-    public async void AddWithMetaData(string fileName, FileMetaData metaData)
+    public async Task<bool> Remove(FileId fileid)
     {
-        var _ = await _fileStorage.TryAddFileWithMetaData(new FileId(new FileInfo(fileName)), metaData);
+        return await _fileStorage.TryRemoveFile(fileid);
 
-        OnPropertyChanged(nameof(GetSystem));
+        //OnPropertyChanged(nameof(GetSystem));
     }
 
-    public FileMetaData GetMetaData(string fileName)
+    public async Task<FileMetaData> GetMetaData(FileId fileid)
     {
-       _fileStorage.FileStorageDictionary.TryGetValue(new FileId(new FileInfo(fileName)), out FileMetaData metaData);
+        return await _fileStorage.GetCodeMetaDataForFile(fileid);
+    }
 
-        return metaData;
+    public async Task<string> GetFileText(FileId fileId)
+    {
+        return await _fileStorage.GetFileText(fileId);
     }
 
     public List<FileId> GetFullCompareCanditates(FileMetaData metaData, float param)
@@ -74,6 +84,7 @@ public sealed class FileStorageSytemViewModel : INotifyPropertyChanged
 
         return keys;
     }
+
     public void Save(StreamWriter writer)
     {
         JsonFileStorageSerializer serializer = new JsonFileStorageSerializer();
