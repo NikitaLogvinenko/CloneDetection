@@ -122,6 +122,16 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             return newFileFolder;
         }
 
+        private void deleteRemovedDirectory(FileId id)
+        {
+            var directoryPath = makeAstDirectoryName(new FileInfo(id.Id));
+
+            if (Directory.Exists(directoryPath))
+            {
+                Directory.Delete(directoryPath, true);
+            }
+        }
+
         public CodeMetaDataProcessorApplication()
         {
             InitSystem();
@@ -214,16 +224,17 @@ namespace WpfCodeMetaDataProcessorVisualization.ViewModels
             try
             {
                 var _ = await viewModelFileSystem.Remove(choosenCompareFileId);
-
-                OnPropertyChanged(nameof(GetSystem));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-
+            deleteRemovedDirectory(choosenCompareFileId);
+            choosenCompareFileId = null;
             OnPropertyChanged(nameof(PrecompareCandidates));
+            OnPropertyChanged(nameof(GetSystem));
+
         }
 
         public void ListViewItem_ChoosenFileFromStorageHandler(object sender, EventArgs e)
